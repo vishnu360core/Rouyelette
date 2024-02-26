@@ -18,6 +18,9 @@ public class Wheel : MonoBehaviour
     [SerializeField] private float maxSpeed = 100;
 
 
+    [SerializeField] float Speed;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +37,16 @@ public class Wheel : MonoBehaviour
     IEnumerator Spin()
     {
         // Get a random speed from min and ma value
-        float Speed = Random.Range(minSpeed, maxSpeed);
+        Speed = Random.Range(minSpeed, maxSpeed);
 
         if (resetPositionAfterSpin)
             angle = 0;
 
         while (Speed > 0)
         {
+            if(Speed< 40.0f)
+                 Actions.StoppedSpin();
+
             angle += Time.deltaTime * Speed;
             angle %= 360;
             // if the speed higher than 0 the arrow decrease speed
@@ -54,6 +60,7 @@ public class Wheel : MonoBehaviour
             yield return null;
         }
 
+        Actions.StoppedSpin();
 
         Debug.Log("Stopped spin");
     }

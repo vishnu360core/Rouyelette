@@ -407,6 +407,7 @@
 "Assets/Cinemachine/PostFX/Editor/CinemachinePostProcessingEditor.cs"
 "Assets/Cinemachine/PostFX/Editor/PostFXAutoImport.cs"
 "Assets/Cinemachine/Timeline/Editor/CinemachineShotEditor.cs"
+"Assets/Scripts/Editor/AudioDataEditor.cs"
 -langversion:9.0
 
 /deterministic

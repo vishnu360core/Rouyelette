@@ -1,18 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Actions : MonoBehaviour
+public static class Actions 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static Action ballHit;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static Action StoppedSpin;
+
+    public static Action<bool, Slot.BoardSlotMethod> EnableHoverAction;
+
+    public static Action ResetHoverAction;
+
+    public static Action<Slot.BoardSlotType,Slot.BoardSlotMethod,Slot.ColorType> BoardSelectAction;
 }
