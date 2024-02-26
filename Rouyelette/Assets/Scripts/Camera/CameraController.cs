@@ -44,14 +44,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            CameraSwitchAction(CameraSwitch.wheel);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            CameraSwitchAction(CameraSwitch.table);
-        }
+       
     }
 }
