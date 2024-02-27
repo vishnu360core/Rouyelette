@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Actions.ballHit += BallGroundAction;
-        Actions.BoardSelectAction += BoardSlotAction;
+        Actions.BoardHoverAction += HoverBoardSlotAction;
+        Actions.ChipSelectAction += ChipSelectAction;
     }
 
     void BallGroundAction()
@@ -18,19 +19,14 @@ public class GameController : MonoBehaviour
     }
 
 
-    void BoardSlotAction(Slot.BoardSlotType boardSlotType,Slot.BoardSlotMethod slotMethod,Slot.ColorType colorType)
+    void HoverBoardSlotAction(Slot.BoardSlotMethod slotMethod = Slot.BoardSlotMethod.NULL)
     {
-       switch(boardSlotType)
-        {
-            case Slot.BoardSlotType.integer:
-                break;
-
-            case Slot.BoardSlotType.text:
-
-                Actions.EnableHoverAction(true, slotMethod);
-                break;
-        }
+        Actions.EnableHoverAction(true, slotMethod);
     }
 
-   
+
+    void ChipSelectAction(Chip chip)
+    {
+
+    }
 }

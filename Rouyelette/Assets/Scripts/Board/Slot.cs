@@ -134,7 +134,7 @@ public class Slot : MonoBehaviour
     {
        OnHoverAction(true);
 
-       Actions.BoardSelectAction(_boardSlotType, _slotMethod, _colorType);
+       Actions.BoardHoverAction(_slotMethod);
     }
 
     private void OnMouseExit()
@@ -154,7 +154,7 @@ public class Slot : MonoBehaviour
             return;
 
 
-        Actions.BoardSelectAction(_boardSlotType, _slotMethod, _colorType);
+        Actions.BoardHoverAction( _slotMethod);
     }
 
 

@@ -11,7 +11,9 @@ public static class Actions
 
     public static Action<bool, Slot.BoardSlotMethod> EnableHoverAction;
 
+    public static Action<Chip> ChipSelectAction;
+
     public static Action ResetHoverAction;
 
-    public static Action<Slot.BoardSlotType,Slot.BoardSlotMethod,Slot.ColorType> BoardSelectAction;
+    public static Action<Slot.BoardSlotMethod> BoardHoverAction;
 }
