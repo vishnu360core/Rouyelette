@@ -9,8 +9,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Actions.ballHit += BallGroundAction;
-        Actions.BoardHoverAction += HoverBoardSlotAction;
-        Actions.ChipSelectAction += ChipSelectAction;
     }
 
     void BallGroundAction()
@@ -19,14 +17,5 @@ public class GameController : MonoBehaviour
     }
 
 
-    void HoverBoardSlotAction(Slot.BoardSlotMethod slotMethod = Slot.BoardSlotMethod.NULL)
-    {
-        Actions.EnableHoverAction(true, slotMethod);
-    }
-
-
-    void ChipSelectAction(Chip chip)
-    {
-
-    }
+   
 }

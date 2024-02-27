@@ -24,7 +24,7 @@ public class Wheel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Spin());
+       // StartCoroutine(Spin());
     }
 
     // Update is called once per frame

@@ -395,6 +395,7 @@
 "Assets/Cinemachine/Timeline/CinemachineTrack.cs"
 "Assets/Scripts/Actions.cs"
 "Assets/Scripts/AudioManager.cs"
+"Assets/Scripts/Board/Bet.cs"
 "Assets/Scripts/Board/BoardManager.cs"
 "Assets/Scripts/Board/Layout.cs"
 "Assets/Scripts/Board/Slot.cs"

@@ -9,6 +9,7 @@ using UnityEngine;
 public class Slot : MonoBehaviour
 {
     [SerializeField] int number;
+    public int SlotNumber => number;
 
     public enum ColorType {red,black,NULL};
     public enum SlotType { board, wheel }
@@ -16,10 +17,23 @@ public class Slot : MonoBehaviour
     public enum BoardSlotMethod { odd, even, oneeighteen, red,black, ninteensixteen, first12, second12, third12,NULL}
 
     [Header("Slot Settings:")]
-    public ColorType _colorType;
-    public SlotType _type;
-    public BoardSlotType _boardSlotType; 
-    public BoardSlotMethod _slotMethod;
+    [SerializeField] ColorType _colorType;
+    public ColorType Colortype => _colorType;
+
+    [SerializeField] SlotType _type;
+    public SlotType Type => _type;
+
+    [SerializeField] BoardSlotType _boardSlotType;
+    public BoardSlotType BoardSlottype => _boardSlotType;
+
+    [SerializeField] BoardSlotMethod _slotMethod;
+    public BoardSlotMethod SlotMethod => _slotMethod;
+
+
+    [Header("Chip placement:")]
+    [SerializeField]Transform _chipTransform;
+    public Transform ChipTransform => _chipTransform;
+
 
     MeshRenderer _meshRenderer;
 
@@ -40,6 +54,8 @@ public class Slot : MonoBehaviour
 
         Actions.EnableHoverAction += HoverEnableAction;
         Actions.ResetHoverAction += ResetAction;
+
+        _chipTransform = this.transform.GetChild(0).transform;
     }
 
     /// <summary>
@@ -153,10 +169,8 @@ public class Slot : MonoBehaviour
         if (_type == SlotType.wheel)
             return;
 
-
-        Actions.BoardHoverAction( _slotMethod);
+        Actions.BoardSlotAction(this);
     }
-
 
     #endregion
 }
