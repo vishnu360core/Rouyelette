@@ -34,6 +34,12 @@ public class Wheel : MonoBehaviour
     }
 
 
+    public void  SpinAction()
+    {
+        StartCoroutine(Spin());
+    }
+
+
     IEnumerator Spin()
     {
         // Get a random speed from min and ma value
@@ -60,7 +66,7 @@ public class Wheel : MonoBehaviour
             yield return null;
         }
 
-        Actions.StoppedSpin();
+        Actions.EndedSpinAction();
 
         Debug.Log("Stopped spin");
     }

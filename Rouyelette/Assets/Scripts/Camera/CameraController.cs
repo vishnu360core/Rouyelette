@@ -5,20 +5,35 @@ using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
+    static CameraController instance;
+    public static CameraController Instance { get { return instance; } }
+
+
+    [SerializeField] CinemachineBrain brain;
+
     public enum CameraSwitch{ wheel,table};
 
     [Header("Vcams:")]
     [SerializeField] List<CinemachineVirtualCamera> _vCams = new List<CinemachineVirtualCamera>();  
 
     [Header("Camera Switch:")] 
-    [SerializeField] CameraSwitch _cameraSwitch; 
+    [SerializeField] CameraSwitch _cameraSwitch;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        if (instance == null)
+            instance = this;
+
     }
 
+    /// <summary>
+    /// Check whether it is in transition 
+    /// </summary>
+    /// <returns></returns>
+    public bool Reached()
+    {
+        return !brain.IsBlending;
+    }
 
     public void CameraSwitchAction(CameraSwitch cameraSwitch)
     {
@@ -37,7 +52,6 @@ public class CameraController : MonoBehaviour
                 _vCams[0].Priority = 10;
                 _vCams[1].Priority = 20;
                 break;
-
         }
     }
 

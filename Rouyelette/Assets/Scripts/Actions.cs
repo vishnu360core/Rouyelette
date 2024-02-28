@@ -9,6 +9,12 @@ public static class Actions
 
     public static Action StoppedSpin;
 
+    public static Action EndedSpinAction;
+
+    public static Action<Slot> OnSlotAction;
+
+    public static Action ResetAction;
+
     public static Action<bool, Slot.BoardSlotMethod> EnableHoverAction;
 
     public static Action<int> ChipSelectAction;

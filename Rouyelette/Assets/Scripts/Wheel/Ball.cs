@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
 
     bool InAir = true;
 
+   [SerializeField] Transform _resetTransform;
+
     /// <summary>
     /// Actions inmplemented on enable
     /// </summary>
@@ -20,6 +22,23 @@ public class Ball : MonoBehaviour
 
         Actions.StoppedSpin += StopSpinAction;
     }
+
+
+    public void ResetAction()
+    {
+        rb.isKinematic = true;
+
+        this.transform.localPosition =  _resetTransform.localPosition;
+        this.transform.localRotation = _resetTransform.localRotation;
+    }
+
+
+    public void EnablePhysics(bool enable)
+    {
+        rb.isKinematic = !enable;
+    }
+
+    
 
     /// <summary>
     /// Actions implemented on disable
@@ -37,7 +56,6 @@ public class Ball : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         if (InAir)
             return;
 

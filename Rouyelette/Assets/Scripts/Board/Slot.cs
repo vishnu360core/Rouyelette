@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -17,11 +18,12 @@ public class Slot : MonoBehaviour
     public enum BoardSlotMethod { odd, even, oneeighteen, red,black, ninteensixteen, first12, second12, third12,NULL}
 
     [Header("Slot Settings:")]
-    [SerializeField] ColorType _colorType;
-    public ColorType Colortype => _colorType;
 
     [SerializeField] SlotType _type;
     public SlotType Type => _type;
+
+    [SerializeField] ColorType _colorType;
+    public ColorType Colortype => _colorType;
 
     [SerializeField] BoardSlotType _boardSlotType;
     public BoardSlotType BoardSlottype => _boardSlotType;
@@ -34,12 +36,11 @@ public class Slot : MonoBehaviour
     [SerializeField]Transform _chipTransform;
     public Transform ChipTransform => _chipTransform;
 
-
     MeshRenderer _meshRenderer;
 
     private void OnEnable()
     {
-        if (_boardSlotType == BoardSlotType.integer)
+        if (_boardSlotType == BoardSlotType.integer || _type == SlotType.wheel)
         {
             string rollString = gameObject.name.Replace(" ", "");
             MatchCollection matches = Regex.Matches(rollString, @"\d+");
@@ -53,17 +54,44 @@ public class Slot : MonoBehaviour
         _meshRenderer.enabled = false;
 
         Actions.EnableHoverAction += HoverEnableAction;
-        Actions.ResetHoverAction += ResetAction;
+        Actions.ResetHoverAction += ResetHoverAction;
+        Actions.ResetAction += ResetAction; 
+       //Actions.OnSlotAction += WheelSlotAction;
 
+        if(_type == SlotType.board)
         _chipTransform = this.transform.GetChild(0).transform;
+    }
+
+    private void WheelSlotAction()
+    {
+        if (_type == SlotType.board)
+            return;
+
+
+
     }
 
     /// <summary>
     /// Reset the slot
     /// </summary>
+    void ResetHoverAction()
+    {
+        OnHoverAction(false);
+    }
+
     void ResetAction()
     {
         OnHoverAction(false);
+
+        if (_type == SlotType.board)
+            if(_chipTransform.childCount >0)
+            {
+                for(int i=0; i< _chipTransform.childCount; i++) 
+                { 
+                    GameObject go = _chipTransform.GetChild(i).gameObject;
+                    Destroy(go);    
+                }
+            }
     }
 
 
@@ -161,7 +189,6 @@ public class Slot : MonoBehaviour
     }
     #endregion
 
-
     #region SELECT_ACTIONS
 
     private void OnMouseDown()
@@ -170,6 +197,19 @@ public class Slot : MonoBehaviour
             return;
 
         Actions.BoardSlotAction(this);
+    }
+
+    #endregion
+
+    #region WHEELSLOT_ACTIONS
+
+  
+    private void OnTriggerStay(Collider other)
+    {
+        if (_type == SlotType.board || !other.CompareTag("Ball"))
+            return;
+
+        Actions.OnSlotAction(this);
     }
 
     #endregion

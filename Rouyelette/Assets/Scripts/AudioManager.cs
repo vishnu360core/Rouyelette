@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     float pitch;
     float volume;
 
-    public enum SFX { ballHit };
+    public enum SFX { ballHit ,chip ,error,select};
 
     private void Awake()
     {
@@ -46,14 +46,26 @@ public class AudioManager : MonoBehaviour
     /// <param name="sound"></param>
     public void  PlaySFX(SFX sound)
     {
-        switch(sound) 
+        switch (sound) 
         {
             case SFX.ballHit:
 
-                if (audioSource.isPlaying)
+                if (audioSource.isPlaying && audioSource)
                     return;
 
                 audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "BallHit"));
+                break;
+
+            case SFX.chip:
+                audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "Chip"));
+                break;
+
+            case SFX.error:
+                audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "Chip"));
+                break;
+
+            case SFX.select:
+                audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "Select"));
                 break;
         }
     }

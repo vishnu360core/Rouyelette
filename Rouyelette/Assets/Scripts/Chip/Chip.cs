@@ -29,10 +29,18 @@ public class Chip : MonoBehaviour
         numberText.text = _number.ToString();
 
         _position = transform.position;
+
+        Actions.ResetAction += ResetAction;
+    }
+
+    private void OnDestroy()
+    {
+        Actions.ResetAction -= ResetAction;
     }
 
     public void ResetAction()
     {
+
         transform.position = _position;
     }
 
