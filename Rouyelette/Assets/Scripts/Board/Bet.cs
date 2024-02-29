@@ -8,5 +8,7 @@ public class Bet
    public int betNumber;
    public  int betAmount;
 
+    public int[] splitNumbers;
+
    public  Slot.BoardSlotMethod type;
 }

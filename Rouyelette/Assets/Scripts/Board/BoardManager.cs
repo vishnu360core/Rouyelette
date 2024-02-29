@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Linq;
 
 public interface BoardControlInterface
 {
@@ -139,15 +140,57 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     break;
 
+                    case Slot.BoardSlotMethod.FirstRow:
 
+                    RatioCheckAction(1, 34, 3, bet);
+
+                    break;
+
+                     case Slot.BoardSlotMethod.SecondRow:
+
+                    RatioCheckAction(2, 35, 3, bet);
+
+                    break;
+
+                    case Slot.BoardSlotMethod.ThirdRow:
+
+                    RatioCheckAction(3, 36, 3, bet);
+
+                    break;
+
+                     case Slot.BoardSlotMethod.split:
+
+                        int splitMuilplier = -1;
+
+                        if (bet.splitNumbers.Length == 2)
+                            splitMuilplier = 17;
+
+                        if (bet.splitNumbers.Length == 4)
+                            splitMuilplier = 8;
+
+                      Debug.Log("Split CALLED  >>> " + splitMuilplier);
+
+                          for (int i = 0;i<bet.splitNumbers.Length;++i)
+                          { 
+                               Debug.Log("Split Index >>>" + bet.splitNumbers[i]); 
+
+                                if(_currentWheelSlot.SlotNumber == bet.splitNumbers[i])
+                                {
+                                   Debug.Log("Spit Number added with " + splitMuilplier);
+                                  
+                                   AddAmount_OnBet(bet.betAmount, splitMuilplier);
+                                   break;
+                                }
+                          }
+
+                     break;
 
                     case Slot.BoardSlotMethod.NULL:
                         if (bet.betNumber == _currentWheelSlot.SlotNumber)
                         {
-                            amount += bet.betAmount + bet.betAmount * 35;
-                            _amountText.text = "Amount:" + amount.ToString();
-                            return;
+                            AddAmount_OnBet(bet.betAmount, 35);
                         }
+
                     break;
                 }
 
@@ -155,6 +198,24 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         ResetAction();
 
+    }
+    
+    void RatioCheckAction(int start, int end , int difference,Bet bet)
+    {
+        if (_currentWheelSlot.SlotNumber == 1 || _currentWheelSlot.SlotNumber == 34)
+        {
+            AddAmount_OnBet(bet.betAmount, 2);
+            return;
+        }
+
+
+        for (int i = start; i <= end - difference; i += difference)
+        {
+            if (_currentWheelSlot.SlotNumber == i)
+            {
+                AddAmount_OnBet(bet.betAmount, 2);
+            }
+        }
     }
 
     void AddAmount_OnBet(int betamount, int multiplier)
@@ -244,13 +305,75 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
 
-        Slot.BoardSlotMethod method = slot.SlotMethod; 
+        Slot.BoardSlotMethod method = slot.SlotMethod;
 
-        if (bets.Count > 0)
+
+        if (method == Slot.BoardSlotMethod.split)
         {
-            if (bets.Find(x => x.type == method) != null)
+            if (bets.Count > 0)
             {
-                bets.Find(x => x.type == method).betAmount += _currentChip.Bet;
+                bool isNewArray = true;
+
+                foreach (var bet in bets)
+                {
+                    if (bet.splitNumbers != null)
+                    {
+                        if (bet.splitNumbers.SequenceEqual(slot.SpitNumbers))
+                        {
+                            isNewArray = false;
+                            bet.betAmount += _currentChip.Bet;
+                            break;
+                        }
+                    }
+                }
+
+
+                if (isNewArray)
+                {
+                    Bet bet = new Bet
+                    {
+                        betAmount = _currentChip.Bet,
+                        betNumber = -1,
+                        splitNumbers = slot.SpitNumbers,
+                        type = method
+                    };
+
+                    bets.Add(bet);
+                }
+            }
+            else
+            {
+                Bet bet = new Bet
+                {
+                    betAmount = _currentChip.Bet,
+                    betNumber = -1,
+                    splitNumbers = slot.SpitNumbers,
+                    type = method
+                };
+
+                bets.Add(bet);
+            }
+        }
+        else
+        {
+            if (bets.Count > 0)
+            {
+                if (bets.Find(x => x.type == method) != null)
+                {
+                    bets.Find(x => x.type == method).betAmount += _currentChip.Bet;
+                }
+                else
+                {
+                    Bet bet = new Bet
+                    {
+                        betAmount = _currentChip.Bet,
+                        betNumber = -1,
+                        type = method
+                    };
+
+                    bets.Add(bet);
+                }
+
             }
             else
             {
@@ -263,18 +386,6 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                 bets.Add(bet);
             }
-
-        }
-        else
-        {
-            Bet bet = new Bet
-            {
-                betAmount = _currentChip.Bet,
-                betNumber = -1,
-                type = method
-            };
-
-            bets.Add(bet);
         }
 
         _currentbetAmount += _currentChip.Bet;

@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Collider))]
 [RequireComponent (typeof(MeshRenderer))]
 public class Slot : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class Slot : MonoBehaviour
     public enum ColorType {red,black,NULL};
     public enum SlotType { board, wheel }
     public enum BoardSlotType { integer, text,NULL }
-    public enum BoardSlotMethod { odd, even, oneeighteen, red,black, ninteensixteen, first12, second12, third12,NULL}
+    public enum BoardSlotMethod { odd, even, oneeighteen, red,black, ninteensixteen, first12, second12, third12,FirstRow,SecondRow,ThirdRow,NULL,split}
+
+    public enum BoardSlotSplit { NULL,half,quad}
+
 
     [Header("Slot Settings:")]
 
@@ -31,6 +35,10 @@ public class Slot : MonoBehaviour
     [SerializeField] BoardSlotMethod _slotMethod;
     public BoardSlotMethod SlotMethod => _slotMethod;
 
+    [Space]
+    [SerializeField] int[] _splitNumbers;
+    public int[] SpitNumbers => _splitNumbers;
+
 
     [Header("Chip placement:")]
     [SerializeField]Transform _chipTransform;
@@ -38,8 +46,11 @@ public class Slot : MonoBehaviour
 
     MeshRenderer _meshRenderer;
 
+
+
     private void OnEnable()
     {
+
         if (_boardSlotType == BoardSlotType.integer || _type == SlotType.wheel)
         {
             string rollString = gameObject.name.Replace(" ", "");

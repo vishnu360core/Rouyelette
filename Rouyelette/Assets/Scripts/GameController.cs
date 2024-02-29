@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
         AudioManager.Instance.PlaySFX(AudioManager.SFX.ballHit);
     }
 
-
     public void SpinButtonAction()
     {
         AudioManager.Instance.PlaySFX(AudioManager.SFX.select);
