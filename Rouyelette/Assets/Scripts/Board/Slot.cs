@@ -44,7 +44,7 @@ public class Slot : MonoBehaviour
     [SerializeField]Transform _chipTransform;
     public Transform ChipTransform => _chipTransform;
 
-    MeshRenderer _meshRenderer;
+    [SerializeField] MeshRenderer _meshRenderer;
 
 
 
@@ -181,7 +181,7 @@ public class Slot : MonoBehaviour
         if (_type == SlotType.wheel)
             return;
 
-
+        if(_meshRenderer != null)
         _meshRenderer.enabled = OnHover;
     }
 

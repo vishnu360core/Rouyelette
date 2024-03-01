@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638443747639457231
-    m_Hash: 1646665576
+      ticks: 638448729415379515
+    m_Hash: 267158629
   m_LockFileStatus:
     m_FilePath: D:/Work/Rouyelette_1/Rouyelette/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638443747831447209
-    m_Hash: 1176724763
+      ticks: 638448729415410586
+    m_Hash: 4278639485
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -114,8 +114,10 @@ m_ResolvedPackages:
     - 2.1.0-preview.6
     - 2.1.0
     - 2.2.0
+    - 2.3.1
     compatible:
     - 2.2.0
+    - 2.3.1
     recommended: 2.2.0
     deprecated: []
   dependencies: []
@@ -248,6 +250,74 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.1
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.nuget.mono-cecil@1.11.4
+  testable: 0
+  isDirectDependency: 1
+  version: 1.11.4
+  source: 1
+  resolvedPath: D:\Work\Rouyelette_1\Rouyelette\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4
+  assetPath: Packages/com.unity.nuget.mono-cecil
+  name: com.unity.nuget.mono-cecil
+  displayName: Mono Cecil
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: library
+  description: 'The mono cecil library from https://www.nuget.org/packages/Mono.Cecil/
+
+
+    This
+    package is intended for internal Unity use only. Most Unity users will be better
+    suite using the existing community tooling.
+
+    To avoid assembly clashes, please
+    use this package if you intend to use Mono.Cecil.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.1.6-preview.2
+    - 1.0.0-preview.1
+    - 1.10.0-preview.1
+    - 1.10.1-preview.1
+    - 1.10.1
+    - 1.10.2
+    - 1.11.4
+    compatible:
+    - 1.11.4
+    recommended: 1.11.4
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637852971930000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.nuget.mono-cecil.git
+    revision: d0133ce672d724694b56bfd20672acf6f8737fec
+    path: 
+  unityLifecycle:
+    version: 1.11.4
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -2832,9 +2902,11 @@ m_ResolvedPackages:
     - 3.0.25
     - 3.0.26
     - 3.0.27
+    - 3.0.28
     compatible:
     - 3.0.27
-    recommended: 3.0.27
+    - 3.0.28
+    recommended: 3.0.28
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
