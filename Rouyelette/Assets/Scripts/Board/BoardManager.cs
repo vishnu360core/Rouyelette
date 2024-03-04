@@ -42,6 +42,10 @@ public class BoardManager : MonoBehaviour,ChipInterface
     [SerializeField] Slot _currentWheelSlot;
     public Slot CurrentWheelSlot => _currentWheelSlot;
 
+    [SerializeField] Slot _GetSlot;
+
+    bool _reachedTargetSlot = false;
+
     private void Start()
     {
         Actions.BoardHoverAction += HoverBoardSlotAction;
@@ -56,10 +60,38 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         callback.EnableSpin(false);
 
-        Actions.OnSlotAction += WheelSlotSelectAction;
-        Actions.EndedSpinAction += EndSpinWheelAction;
+        //Actions.OnSlotAction += WheelSlotSelectAction;
+        // Actions.EndedSpinAction += EndSpinWheelAction;
 
-      //  Actions.ResetAction += ResetAction;
+        //  Actions.ResetAction += ResetAction;
+
+        Actions.OnSlotAction += SlotAction;
+    }
+
+    private void SlotAction(Slot slot)
+    {
+        if (_reachedTargetSlot)
+            return;
+
+        Debug.Log("Get Slot >>>" + slot.SlotNumber + "CurrentSlot >>>" + _GetSlot.SlotNumber);
+
+        if (_GetSlot.SlotNumber == slot.SlotNumber)
+        {
+            Debug.LogWarning("Reached destination !!!!!!");
+
+            Actions.ReachedDestination();
+
+            _reachedTargetSlot = true;
+
+            Actions.EnableSlotSetectAction(false);
+
+            WheelSlotSelectAction(slot);
+            //Actions.OnSlotAction -= SlotAction;
+        }
+        else
+        {
+            Actions.MoveTowardTarget(slot.NextSlot.transform);
+        }
     }
 
     void EndSpinWheelAction()
@@ -422,7 +454,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         go.transform.SetParent(slot.ChipTransform, false);
-        go.transform.localScale = Vector3.one;
+        go.transform.localScale = new Vector3(0.9f,0.9f,0.9f);
 
         if (chipObjects.Count == 0)
             go.transform.localPosition = Vector3.zero;

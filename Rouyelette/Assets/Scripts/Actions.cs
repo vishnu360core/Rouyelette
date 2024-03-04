@@ -11,7 +11,13 @@ public static class Actions
 
     public static Action EndedSpinAction;
 
+    public static Action<bool> EnableSlotSetectAction;
+
+    public static Action ReachedDestination;
+
     public static Action<Slot> OnSlotAction;
+
+    public static Action<Transform> MoveTowardTarget;
 
     public static Action ResetAction;
 

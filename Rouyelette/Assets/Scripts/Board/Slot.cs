@@ -44,9 +44,14 @@ public class Slot : MonoBehaviour
     [SerializeField]Transform _chipTransform;
     public Transform ChipTransform => _chipTransform;
 
+    [Header("NextSlot:")]
+    [SerializeField] Slot _nextslot;
+    public Slot NextSlot => _nextslot;
+
     MeshRenderer _meshRenderer;
 
-
+   [Space]
+   [SerializeField] bool _isSelect= false;
 
     private void OnEnable()
     {
@@ -66,11 +71,25 @@ public class Slot : MonoBehaviour
 
         Actions.EnableHoverAction += HoverEnableAction;
         Actions.ResetHoverAction += ResetHoverAction;
-        Actions.ResetAction += ResetAction; 
-       //Actions.OnSlotAction += WheelSlotAction;
+        Actions.ResetAction += ResetAction;
 
-        if(_type == SlotType.board)
+        Actions.StoppedSpin += StartSelectAction;
+        //Actions.OnSlotAction += WheelSlotAction;
+
+        Actions.EnableSlotSetectAction += EnableSelect;
+
+        if (_type == SlotType.board)
         _chipTransform = this.transform.GetChild(0).transform;
+    }
+
+    private void StartSelectAction()
+    {
+        EnableSelect(true);
+    }
+
+    public void EnableSelect(bool enable)
+    {
+        _isSelect= enable;
     }
 
     private void WheelSlotAction()
@@ -217,6 +236,9 @@ public class Slot : MonoBehaviour
   
     private void OnTriggerStay(Collider other)
     {
+       if (!_isSelect)
+            return;
+
         if (_type == SlotType.board || !other.CompareTag("Ball"))
             return;
 

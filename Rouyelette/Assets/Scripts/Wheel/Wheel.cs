@@ -43,14 +43,14 @@ public class Wheel : MonoBehaviour
     IEnumerator Spin()
     {
         // Get a random speed from min and ma value
-        Speed = Random.Range(minSpeed, maxSpeed);
+        Speed = minSpeed;  /*Random.Range(minSpeed, maxSpeed);*/
 
         if (resetPositionAfterSpin)
             angle = 0;
 
         while (Speed > 0)
         {
-            if(Speed< 40.0f)
+            if(Speed<70.0f && Speed > 65.0f)
                  Actions.StoppedSpin();
 
             angle += Time.deltaTime * Speed;
@@ -66,7 +66,7 @@ public class Wheel : MonoBehaviour
             yield return null;
         }
 
-        Actions.EndedSpinAction();
+       // Actions.EndedSpinAction();
 
         Debug.Log("Stopped spin");
     }
