@@ -61,7 +61,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         callback.EnableSpin(false);
 
         //Actions.OnSlotAction += WheelSlotSelectAction;
-        // Actions.EndedSpinAction += EndSpinWheelAction;
+        Actions.EndedSpinAction += EndSpinWheelAction;
 
         //  Actions.ResetAction += ResetAction;
 
@@ -83,9 +83,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
             _reachedTargetSlot = true;
 
-            Actions.EnableSlotSetectAction(false);
+            _currentWheelSlot = _GetSlot;
 
-            WheelSlotSelectAction(slot);
+            Actions.EnableSlotSetectAction(false);
             //Actions.OnSlotAction -= SlotAction;
         }
         else
@@ -273,6 +273,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
         bets.Clear();
 
         callback.EnableSpin(false);
+
+        _reachedTargetSlot = false;
     }
 
     /// <summary>

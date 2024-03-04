@@ -20,6 +20,9 @@ public class Wheel : MonoBehaviour
 
     [SerializeField] float Speed;
 
+     [SerializeField] bool _isStopped = false;
+     public bool IsStopped => _isStopped;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,11 @@ public class Wheel : MonoBehaviour
     void Update()
     {
       
+    }
+
+    public void ResetAction()
+    {
+        _isStopped = false;
     }
 
 
@@ -66,7 +74,7 @@ public class Wheel : MonoBehaviour
             yield return null;
         }
 
-       // Actions.EndedSpinAction();
+        _isStopped = true;  
 
         Debug.Log("Stopped spin");
     }

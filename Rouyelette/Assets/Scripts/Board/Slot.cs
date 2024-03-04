@@ -122,6 +122,8 @@ public class Slot : MonoBehaviour
                     Destroy(go);    
                 }
             }
+
+        _isSelect = false;
     }
 
 

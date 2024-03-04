@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinWheelManager : MonoBehaviour
+public class SpinWheelManager : MonoBehaviour,BallInterface
 { 
     [SerializeField] Wheel _spinWheel;
     [SerializeField] Ball ball;
@@ -11,6 +11,9 @@ public class SpinWheelManager : MonoBehaviour
 
     private void Start()
     {
+        ball.callback = this;
+
+
         Actions.ResetAction += ResetAction;
 
         Actions.MoveTowardTarget += MoveTowardsTargetAction;
@@ -18,9 +21,23 @@ public class SpinWheelManager : MonoBehaviour
         Actions.ReachedDestination += ReachedTargetDestination;
     }
 
+
+    public void CompletedMovement()
+    {
+        StartCoroutine(EndAction());
+    }
+
     private void ReachedTargetDestination()
     {
         ball.ReachedDestination();
+
+    }
+
+    IEnumerator EndAction()
+    {
+        yield return new WaitUntil(() => _spinWheel.IsStopped);
+
+       Actions.EndedSpinAction();
     }
 
     /// <summary>
@@ -39,6 +56,7 @@ public class SpinWheelManager : MonoBehaviour
     void ResetAction()
     {
         ball.ResetAction();
+        _spinWheel.ResetAction();   
     }
 
     public void SpinAction()
