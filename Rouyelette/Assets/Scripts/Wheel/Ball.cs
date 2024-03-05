@@ -110,6 +110,8 @@ public class Ball : MonoBehaviour
 
         InAir = true;
 
+        DOTween.KillAll();
+
         //transform.rotation = Quaternion.identity;
         //transform.position = Vector3.zero;
     }

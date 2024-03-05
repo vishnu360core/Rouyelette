@@ -17,6 +17,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 {
     [Header("UI Settings:")]
     [SerializeField] TMP_Text _amountText;
+    [SerializeField] TMP_Text _betAmountText;
 
     int amount;
 
@@ -26,7 +27,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     #region BETS
 
     bool _isChipSelected = false;
-    int  _currentbetAmount;
+    [SerializeField] int  _currentbetAmount;
 
     Chip _currentChip;
     Slot _currentSlot;
@@ -112,6 +113,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.Colortype == Slot.ColorType.red)
                         AddAmount_OnBet(bet.betAmount, 1);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString()); 
 
                     break;
 
@@ -119,6 +122,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.Colortype == Slot.ColorType.black)
                         AddAmount_OnBet(bet.betAmount, 1);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -126,6 +131,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber % 2 != 0)
                         AddAmount_OnBet(bet.betAmount, 1);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -133,6 +140,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber % 2 == 0)
                         AddAmount_OnBet(bet.betAmount, 1);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -140,6 +149,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber > 0 && _currentWheelSlot.SlotNumber < 19)
                         AddAmount_OnBet(bet.betAmount, 1);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -147,6 +158,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber > 18 && _currentWheelSlot.SlotNumber < 37)
                         AddAmount_OnBet(bet.betAmount, 1);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -155,6 +168,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber > 0 && _currentWheelSlot.SlotNumber < 13)
                         AddAmount_OnBet(bet.betAmount, 2);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -162,6 +177,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber > 12 && _currentWheelSlot.SlotNumber < 25)
                         AddAmount_OnBet(bet.betAmount, 2);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -169,6 +186,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
                     if (_currentWheelSlot.SlotNumber > 24 && _currentWheelSlot.SlotNumber < 37)
                         AddAmount_OnBet(bet.betAmount, 2);
+                    else
+                        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
 
@@ -203,7 +222,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
                         if (bet.splitNumbers.Length == 4)
                             splitMuilplier = 8;
 
-                      Debug.Log("Split CALLED  >>> " + splitMuilplier);
+                        Debug.Log("Split CALLED  >>> " + splitMuilplier);
+
+                        bool win = false; 
 
                           for (int i = 0;i<bet.splitNumbers.Length;++i)
                           { 
@@ -214,17 +235,23 @@ public class BoardManager : MonoBehaviour,ChipInterface
                                    Debug.Log("Spit Number added with " + splitMuilplier);
                                   
                                    AddAmount_OnBet(bet.betAmount, splitMuilplier);
+                                   win = true;
                                    break;
                                 }
                           }
 
-                     break;
+                       if(!win)
+                          PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
+
+                    break;
 
                     case Slot.BoardSlotMethod.NULL:
                         if (bet.betNumber == _currentWheelSlot.SlotNumber)
                         {
                             AddAmount_OnBet(bet.betAmount, 35);
                         }
+                       else
+                          PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
 
                     break;
                 }
@@ -244,17 +271,30 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
 
+        bool win = false;
+
         for (int i = start; i <= end - difference; i += difference)
         {
             if (_currentWheelSlot.SlotNumber == i)
             {
                 AddAmount_OnBet(bet.betAmount, 2);
+                win = true;
             }
         }
+
+        if (!win) 
+        {             
+           PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + bet.betAmount.ToString());
+        }
+
     }
 
     void AddAmount_OnBet(int betamount, int multiplier)
     {
+        int winAmount = betamount + betamount * multiplier;
+
+        PopMessage.Instance.PopUpMessage(PopMessage.MessageType.win, "You Win :" + winAmount.ToString());
+
         amount += betamount + betamount * multiplier;
         _amountText.text = "Amount:" + amount.ToString();
     }
@@ -278,6 +318,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
         callback.EnableSpin(false);
 
         _reachedTargetSlot = false;
+
+        _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
     }
 
     /// <summary>
@@ -334,6 +376,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
             _currentbetAmount += _currentChip.Bet;
             amount -= _currentChip.Bet;
 
+            _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
             _amountText.text = "Amount:" + amount.ToString();
             AddChipAction(slot);
 
@@ -428,6 +471,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         _currentbetAmount += _currentChip.Bet;
         amount -= _currentChip.Bet;
 
+        _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
         _amountText.text = "Amount:" + amount.ToString();
 
         AddChipAction(slot);
@@ -498,7 +542,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         _isChipSelected = true;
 
-        _currentbetAmount = chip.Bet;
+        //_currentbetAmount = chip.Bet;
         _currentChip = chip;
 
         for (int i = 0; i < chips.Count; ++i)

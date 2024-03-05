@@ -407,6 +407,7 @@
 "Assets/Scripts/Camera/Vcam.cs"
 "Assets/Scripts/Chip/Chip.cs"
 "Assets/Scripts/GameController.cs"
+"Assets/Scripts/PopMessage.cs"
 "Assets/Scripts/ScriptableObjects/AudioData.cs"
 "Assets/Scripts/ScriptableObjects/ResourceData.cs"
 "Assets/Scripts/Wheel/Ball.cs"
