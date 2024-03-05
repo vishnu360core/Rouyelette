@@ -197,6 +197,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
                         if (bet.splitNumbers.Length == 2)
                             splitMuilplier = 17;
 
+                        if(bet.splitNumbers.Length == 3)
+                           splitMuilplier = 11;
+
                         if (bet.splitNumbers.Length == 4)
                             splitMuilplier = 8;
 
@@ -456,7 +459,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         go.transform.SetParent(slot.ChipTransform, false);
-        go.transform.localScale = new Vector3(0.9f,0.9f,0.9f);
+        go.transform.localScale = Vector3.one;
 
         if (chipObjects.Count == 0)
             go.transform.localPosition = Vector3.zero;

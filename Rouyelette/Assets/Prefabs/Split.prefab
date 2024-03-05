@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 5256891483717669551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.89, y: -0.59, z: 1.57}
-  m_LocalScale: {x: 19.999958, y: 20, z: 18.508871}
+  m_LocalPosition: {x: -1.13, y: -0.5092, z: 1}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 460631143802976438}
@@ -210,3 +210,5 @@ MonoBehaviour:
   _slotMethod: 13
   _splitNumbers: 0100000002000000
   _chipTransform: {fileID: 0}
+  _nextslot: {fileID: 0}
+  _isSelect: 0
