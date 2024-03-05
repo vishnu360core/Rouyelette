@@ -11,9 +11,14 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [Header("Managers:")]
     [SerializeField] BoardManager _boardManager;
     [SerializeField] SpinWheelManager _spinWheelManager;
+    [SerializeField] WheelSlotManager _wheelSlotManager;
 
     [Header("UI Buttons:")]
     [SerializeField] Button _spinButton;
+
+
+    string _hashCode;
+    bool _isInitialized = false;
 
 
     private void Awake()
@@ -26,11 +31,33 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
+
+        //API Handling ...
+        APIHandler.Instance.GetSlot("https://hf-game-call-mainnet.vercel.app/api/roulette", SuccessAPI, ErrorAPI);
+    }
+
+    void SuccessAPI(string response)
+    {
+        Debug.Log("Response >>>" + response);
+
+        ResponseData responseData = JsonUtility.FromJson<ResponseData>(response);
+
+        Debug.Log(responseData.result + ">>>" + responseData.hash);
+        
+         _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
+
+        Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
+    }
+
+    void ErrorAPI(string response)
+    {
+        Debug.LogError("Response >>>" + response);
     }
 
     private void RestAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
+        APIHandler.Instance.GetSlot("https://hf-game-call-mainnet.vercel.app/api/roulette", SuccessAPI, ErrorAPI);
     }
 
     void BallGroundAction()

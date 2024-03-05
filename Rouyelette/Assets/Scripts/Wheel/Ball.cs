@@ -17,7 +17,7 @@ public class Ball : MonoBehaviour
 {
     Rigidbody rb;
 
-   [SerializeField] bool InAir = false;
+  [SerializeField] bool InAir = false;
 
    [SerializeField] Transform _resetTransform;
    [SerializeField] Transform _target;
@@ -36,6 +36,11 @@ public class Ball : MonoBehaviour
 
 
        // Actions.StoppedSpin += StopSpinAction;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
     }
 
 
@@ -57,7 +62,7 @@ public class Ball : MonoBehaviour
     {
         rb.isKinematic = !enable;
 
-        rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+        //rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
 
     
@@ -67,12 +72,12 @@ public class Ball : MonoBehaviour
     /// </summary>
     private void OnDisable()
     {
-        Actions.StoppedSpin -= StopSpinAction;
+       // Actions.StoppedSpin -= StopSpinAction;
     }
 
     void StopSpinAction()
     {
-        InAir = true;
+       //InAir = true;
     }
 
 
@@ -80,9 +85,9 @@ public class Ball : MonoBehaviour
     {
         if (InAir)
         {
-            this.transform.DOMove(_target.transform.position, 0.8f).OnComplete(() => CompletedMovementAction());
+            this.transform.DOMove(_target.transform.position, 0.15f).OnComplete(() => CompletedMovementAction());
 
-            //this.transform.position = _target.transform.position;
+            this.transform.position = _target.transform.position;
         }
 
         //if (rb.angularVelocity.magnitude > 5.0f )
@@ -91,8 +96,6 @@ public class Ball : MonoBehaviour
 
     void CompletedMovementAction()
     {
-       // InAir = false;
-
         callback.CompletedMovement();
     }
 
@@ -110,7 +113,7 @@ public class Ball : MonoBehaviour
 
         InAir = true;
 
-        DOTween.KillAll();
+       // DOTween.KillAll();
 
         //transform.rotation = Quaternion.identity;
         //transform.position = Vector3.zero;
@@ -118,9 +121,9 @@ public class Ball : MonoBehaviour
 
     public void  MoveTowards(Transform t)
     {
-       _target = t;
-
-        this.transform.DOMove(t.position, 2.5f);
+        _target = t;
+        //InAir = true;
+        this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
     }
 
 }

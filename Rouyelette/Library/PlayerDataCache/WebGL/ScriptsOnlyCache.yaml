@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - APIHandler
     - AudioData
     - AudioManager
     - Ball
@@ -14,15 +15,13 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineVirtualCamera
     - GameController
     - Layout
+    - PopMessage
     - Slot
     - SpinWheelManager
     - Wheel
+    - WheelSlotManager
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
-    Unity.AI.Navigation.Editor.dll:
-    - Unity.AI.Navigation.Editor.NavMeshAssetManager
-    Unity.AI.Navigation.dll:
-    - Unity.AI.Navigation.NavMeshSurface
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -137,65 +136,69 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16680}
     - Class: 114
-      Script: {instanceID: 16984}
+      Script: {instanceID: 16752}
     - Class: 114
-      Script: {instanceID: 17280}
+      Script: {instanceID: 16994}
     - Class: 114
-      Script: {instanceID: 17642}
+      Script: {instanceID: 17296}
     - Class: 114
-      Script: {instanceID: 17712}
+      Script: {instanceID: 17660}
     - Class: 114
-      Script: {instanceID: 17778}
+      Script: {instanceID: 17730}
     - Class: 114
-      Script: {instanceID: 17924}
+      Script: {instanceID: 17796}
     - Class: 114
-      Script: {instanceID: 18220}
+      Script: {instanceID: 17944}
     - Class: 114
-      Script: {instanceID: 18556}
+      Script: {instanceID: 18242}
     - Class: 114
-      Script: {instanceID: 18670}
+      Script: {instanceID: 18584}
     - Class: 114
-      Script: {instanceID: 18826}
+      Script: {instanceID: 18698}
     - Class: 114
-      Script: {instanceID: 19146}
+      Script: {instanceID: 18854}
     - Class: 114
-      Script: {instanceID: 19210}
+      Script: {instanceID: 19180}
     - Class: 114
-      Script: {instanceID: 19262}
+      Script: {instanceID: 19246}
     - Class: 114
-      Script: {instanceID: 19526}
+      Script: {instanceID: 19298}
     - Class: 114
-      Script: {instanceID: 19900}
+      Script: {instanceID: 19564}
     - Class: 114
-      Script: {instanceID: 20092}
+      Script: {instanceID: 19938}
     - Class: 114
-      Script: {instanceID: 20256}
+      Script: {instanceID: 20134}
     - Class: 114
-      Script: {instanceID: 20796}
+      Script: {instanceID: 20302}
     - Class: 114
-      Script: {instanceID: 20826}
+      Script: {instanceID: 20868}
     - Class: 114
-      Script: {instanceID: 20988}
+      Script: {instanceID: 20898}
     - Class: 114
-      Script: {instanceID: 21148}
+      Script: {instanceID: 21060}
     - Class: 114
-      Script: {instanceID: 21282}
+      Script: {instanceID: 21224}
     - Class: 114
-      Script: {instanceID: 21308}
+      Script: {instanceID: 21360}
     - Class: 114
-      Script: {instanceID: 21470}
+      Script: {instanceID: 21386}
     - Class: 114
-      Script: {instanceID: 21990}
+      Script: {instanceID: 21552}
     - Class: 114
-      Script: {instanceID: 22040}
+      Script: {instanceID: 22078}
     - Class: 114
-      Script: {instanceID: 22100}
+      Script: {instanceID: 22128}
     - Class: 114
-      Script: {instanceID: 22408}
+      Script: {instanceID: 22188}
     - Class: 114
-      Script: {instanceID: 22754}
+      Script: {instanceID: 22502}
     - Class: 114
-      Script: {instanceID: 64266}
+      Script: {instanceID: 22848}
+    - Class: 114
+      Script: {instanceID: 25636}
+    - Class: 114
+      Script: {instanceID: 41002}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -233,6 +236,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 7c49d2c7e3d157e3733f4199ac1335dd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PopMessage
   - hash:
       serializedVersion: 2
       Hash: f45600bcc886206dd55a3208474aad61
@@ -655,7 +664,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExit2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 1dce4f65d318876217db711eeef56fb8
+      Hash: 8069e9ed7371e2acc964eb4c8f8f2ce2
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameController
@@ -907,6 +916,12 @@ ScriptsOnlyBuild:
     className: TMP_TextEventCheck
   - hash:
       serializedVersion: 2
+      Hash: 8a2f78c25d5e92eb97ee5544a162a2e9
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshLink
+  - hash:
+      serializedVersion: 2
       Hash: f2098fcd8ee983a05ec192f63904298f
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -949,7 +964,7 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerStayMessageListener
   - hash:
       serializedVersion: 2
-      Hash: af438efcdd1d1e5b45a4071c9e7cbe7f
+      Hash: ddd264629d92b98a1d9c2910b120aac5
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SpinWheelManager
@@ -1009,6 +1024,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 061a5d77ce0aa52a60c21c566c6d8af2
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
       Hash: 0dd14e314956b0d0d83ffcffe60aa46f
     assemblyName: Assembly-CSharp
     namespaceName: TMPro
@@ -1025,6 +1046,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UIElements
     className: PanelEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: d55992199bd2f5a5502658391cdf8ba7
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshSurface
   - hash:
       serializedVersion: 2
       Hash: d236101b99a90c2410dc5df2436a6e9b
@@ -1177,13 +1204,19 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: 68f2cb287af2eee1f639824485a3402b
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
       Hash: 672716ae97f6ddb615fa5ac3ec9da349
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 0ab9eb71ea13ac1e6b560a14bc8d7a1e
+      Hash: 1578aaebc6ecfdeb9e01fea76f13609e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: BoardManager
@@ -1345,7 +1378,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: a067c5b470d7a38179c48ff08b21a08e
+      Hash: bbdcf7a5f167c3fadb8668f1b2924f01
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Slot
@@ -1387,7 +1420,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 89a98ef7d1a3ae6f63837769d96c4a6b
+      Hash: 1c7c4dcaa5f4a0f5c509cd2b9743409f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Ball
@@ -1447,7 +1480,7 @@ ScriptsOnlyBuild:
     className: UnityOnMouseUpMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 6d44aa375d0fbfd34d899585ecc2b7c4
+      Hash: c701509622ee7287c5fcca1405b1c24e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Wheel
@@ -1525,28 +1558,16 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 061a5d77ce0aa52a60c21c566c6d8af2
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshModifierVolume
+      Hash: e022668064f90037f01a1cd4594f11e9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: APIHandler
   - hash:
       serializedVersion: 2
-      Hash: d55992199bd2f5a5502658391cdf8ba7
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshSurface
-  - hash:
-      serializedVersion: 2
-      Hash: 68f2cb287af2eee1f639824485a3402b
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshModifier
-  - hash:
-      serializedVersion: 2
-      Hash: 8a2f78c25d5e92eb97ee5544a162a2e9
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshLink
+      Hash: a27e47a2d031d2cd7ea5885ad4616575
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WheelSlotManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

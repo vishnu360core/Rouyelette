@@ -8,6 +8,10 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     [SerializeField] Wheel _spinWheel;
     [SerializeField] Ball ball;
 
+    [SerializeField] GameObject _colliders;
+
+
+    Transform ballTarget;
 
     private void Start()
     {
@@ -19,8 +23,15 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
         Actions.MoveTowardTarget += MoveTowardsTargetAction;
 
         Actions.ReachedDestination += ReachedTargetDestination;
+
+        Actions.SetBallTarget += SetPinBallTarget;
     }
 
+    private void SetPinBallTarget(Transform transform)
+    {
+        ballTarget = transform;
+        //ball.SetTarget(transform);  
+    }
 
     public void CompletedMovement()
     {
@@ -31,6 +42,10 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     {
         ball.ReachedDestination();
 
+       // wheelwithObstacles.enabled = true;
+       // wheelwithoutObstacles.enabled = false;
+
+        //_colliders.SetActive(true);
     }
 
     IEnumerator EndAction()
@@ -44,19 +59,23 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     /// Action impleemnted on moving towards the target
     /// </summary>
     /// <param name="transform"></param>
-    private void MoveTowardsTargetAction(Transform transform)
+    private void MoveTowardsTargetAction(Slot slot)
     {
-        Debug.Log("Moving !!!!!!!!!!!!!!");
+        Debug.Log("Moving !!!!!!!!!!!!!!" + slot.SlotNumber);
 
-        ball.EnablePhysics(false);
+       // ball.EnablePhysics(false);
 
-        ball.MoveTowards(transform);
+        ball.MoveTowards(slot.transform);
     }
 
     void ResetAction()
     {
         ball.ResetAction();
-        _spinWheel.ResetAction();   
+        _spinWheel.ResetAction();
+
+       // _colliders.SetActive(false);
+
+        ballTarget = null;
     }
 
     public void SpinAction()

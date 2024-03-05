@@ -17,7 +17,7 @@ public static class Actions
 
     public static Action<Slot> OnSlotAction;
 
-    public static Action<Transform> MoveTowardTarget;
+    public static Action<Slot> MoveTowardTarget;
 
     public static Action ResetAction;
 
@@ -30,4 +30,6 @@ public static class Actions
     public static Action<Slot.BoardSlotMethod> BoardHoverAction;
 
     public static Action<Slot> BoardSlotAction;
+
+    public static Action<Transform> SetBallTarget;
 }
