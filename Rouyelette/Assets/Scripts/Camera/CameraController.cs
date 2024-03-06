@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] CinemachineBrain brain;
 
-    public enum CameraSwitch{ wheel,table};
+    public enum CameraSwitch{ wheel,table,user};
 
     [Header("Vcams:")]
     [SerializeField] List<CinemachineVirtualCamera> _vCams = new List<CinemachineVirtualCamera>();  
@@ -42,15 +42,33 @@ public class CameraController : MonoBehaviour
             case CameraSwitch.wheel:
                 _cameraSwitch = CameraSwitch.wheel;
 
+                brain.m_DefaultBlend.m_Time = 3.5f;
+
                 _vCams[0].Priority = 20;
                 _vCams[1].Priority = 10;
+                _vCams[2].Priority = 10;
                 break;
 
             case CameraSwitch.table:
                 _cameraSwitch = CameraSwitch.table;
 
+                brain.m_DefaultBlend.m_Time = 1.0f;
+
                 _vCams[0].Priority = 10;
                 _vCams[1].Priority = 20;
+                _vCams[2].Priority = 10;
+                break;
+
+            case CameraSwitch.user:
+                _cameraSwitch = CameraSwitch.table;
+
+                brain.m_DefaultBlend.m_Time = 1.0f;
+
+                _vCams[0].Priority = 10;
+                _vCams[1].Priority = 10;
+                _vCams[2].Priority = 20;
+
+               
                 break;
         }
     }

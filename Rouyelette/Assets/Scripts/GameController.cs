@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,6 +14,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     [Header("UI Buttons:")]
     [SerializeField] Button _spinButton;
+
+    public TMP_Text TMP_Text;
 
 
     string _hashCode;
@@ -31,9 +32,19 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
+        Actions.BoardSelectAction += BoardSelectAction;
 
         //API Handling ...
-        APIHandler.Instance.GetSlot("https://hf-game-call-mainnet.vercel.app/api/roulette", SuccessAPI, ErrorAPI);
+        APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+    }
+
+    /// <summary>
+    /// Action implemented when user selects on board 
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
+    private void BoardSelectAction()
+    {
+        CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.user);
     }
 
     void SuccessAPI(string response)
@@ -47,17 +58,21 @@ public class GameController : MonoBehaviour, BoardControlInterface
          _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
 
         Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
+
+        TMP_Text.text = responseData.result.ToString();
     }
 
     void ErrorAPI(string response)
     {
         Debug.LogError("Response >>>" + response);
+
+        TMP_Text.text = "Error : " + response;
     }
 
     private void RestAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
-        APIHandler.Instance.GetSlot("https://hf-game-call-mainnet.vercel.app/api/roulette", SuccessAPI, ErrorAPI);
+        APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
     void BallGroundAction()
@@ -78,6 +93,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     IEnumerator SpinWheelAction()
     {
         yield return new WaitUntil(() => CameraController.Instance.Reached());
+
+        Debug.LogWarning("Camera switch ");
         _spinWheelManager.SpinAction();
     }
 

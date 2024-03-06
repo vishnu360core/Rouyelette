@@ -229,6 +229,8 @@ public class Slot : MonoBehaviour
             return;
 
         Actions.BoardSlotAction(this);
+
+        Actions.BoardSelectAction();
     }
 
     #endregion

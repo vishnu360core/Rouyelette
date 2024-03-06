@@ -30,7 +30,7 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     private void SetPinBallTarget(Transform transform)
     {
         ballTarget = transform;
-        //ball.SetTarget(transform);  
+        ball.SetTarget(transform);  
     }
 
     public void CompletedMovement()
@@ -41,6 +41,8 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     private void ReachedTargetDestination()
     {
         ball.ReachedDestination();
+
+        AudioManager.Instance.Audio.Stop(); 
 
        // wheelwithObstacles.enabled = true;
        // wheelwithoutObstacles.enabled = false;
@@ -80,6 +82,8 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
 
     public void SpinAction()
     {
+        AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
+
         ball.EnablePhysics(true);
         _spinWheel.SpinAction();
     }

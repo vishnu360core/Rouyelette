@@ -32,4 +32,6 @@ public static class Actions
     public static Action<Slot> BoardSlotAction;
 
     public static Action<Transform> SetBallTarget;
+
+    public static Action BoardSelectAction;
 }

@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     AudioSource audioSource;
 
+    public AudioSource Audio => audioSource;
+
     [Header("Audio Data")]
     [SerializeField] AudioData _audioData;
 
@@ -18,6 +20,8 @@ public class AudioManager : MonoBehaviour
     float volume;
 
     public enum SFX { ballHit ,chip ,error,select,win,loss};
+
+    public enum Clip { wheel }
 
     private void Awake()
     {
@@ -40,12 +44,28 @@ public class AudioManager : MonoBehaviour
      
     }
 
+    public void PlayClip(Clip clip)
+    {
+        switch(clip) 
+        {
+            case Clip.wheel:
+                audioSource.clip = _audioData.GetClip(AudioType.CLIP, "Rouyellete");
+                audioSource.Play();
+                audioSource.loop = true;
+                break;
+        }
+    }
+
+
+
     /// <summary>
     /// Play the SFX Sound
     /// </summary>
     /// <param name="sound"></param>
     public void  PlaySFX(SFX sound)
     {
+        audioSource.loop = false;
+
         switch (sound) 
         {
             case SFX.ballHit:

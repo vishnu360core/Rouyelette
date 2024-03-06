@@ -50,8 +50,8 @@ public class Ball : MonoBehaviour
 
         rb.isKinematic = true;
 
-        this.transform.position = _resetTransform.position;
-        //this.transform.rotation = _resetTransform.rotation;
+        this.transform.localPosition = _resetTransform.position;
+        this.transform.localRotation = _resetTransform.rotation;
 
         rb.constraints = RigidbodyConstraints.None;
 
@@ -85,9 +85,9 @@ public class Ball : MonoBehaviour
     {
         if (InAir)
         {
-            this.transform.DOMove(_target.transform.position, 0.15f).OnComplete(() => CompletedMovementAction());
+            this.transform.DOMove(_target.transform.position, 0.1f).OnComplete(() => CompletedMovementAction());
 
-            this.transform.position = _target.transform.position;
+            //this.transform.position = _target.transform.position;
         }
 
         //if (rb.angularVelocity.magnitude > 5.0f )
@@ -121,9 +121,17 @@ public class Ball : MonoBehaviour
 
     public void  MoveTowards(Transform t)
     {
-        _target = t;
+        //_target = t;
         //InAir = true;
-        this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
+
+        if(_target != t)
+            this.transform.position = Vector3.MoveTowards(this.transform.position, t.position, 0.002f);
+        else
+            this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
+
+        //rb.MovePosition(t.position);
+
+        //this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
     }
 
 }
