@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+using TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.Core;
+
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
@@ -42,6 +44,14 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
      
+    }
+
+    public async void SpeechAction(string speech)
+    {
+        TextToSpeech textVoice = new TextToSpeech(AzureSpeechEnums.languages.en_US, AzureSpeechEnums.Regions.IndiaCentral, "");
+        audioSource.clip =   await textVoice.CallAzure(speech, AzureSpeechEnums.ShortNames.bn_IN_TanishaaNeural);
+
+        audioSource.Play();
     }
 
     public void PlayClip(Clip clip)

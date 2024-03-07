@@ -34,6 +34,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
 
+
+        AudioManager.Instance.SpeechAction("Hello there");
+
         //API Handling ...
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }

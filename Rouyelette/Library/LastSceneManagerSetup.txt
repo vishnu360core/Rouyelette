@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: Assets/Plugins/TextAndVoiceGenerationToolkit/AzureSpeech/Demos/SpeechToText/TextToSpeech.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

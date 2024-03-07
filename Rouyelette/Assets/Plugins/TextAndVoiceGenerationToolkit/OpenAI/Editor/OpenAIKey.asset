@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347c34df19b397342bd6ada32e66341c, type: 3}
+  m_Name: OpenAIKey
+  m_EditorClassIdentifier: 
+  openAIKey: 606faeebf7614c9eb9b175da92e60f3f
+  azureKeyVaultName: KeyVaultVishnu4
+  azureSecretName: 'KeyDefaultVishnu4 '
+  azureClientId: 00d8f267-324b-4275-a2a2-591246c9be8b
+  azureClientSecretValue: RIN8Q~IbIB4tXN6KdDjLV54Bd0Zae.RVORANTc5-
+  azureTenantId: 7d273f74-3939-487a-b13e-416035b196db
