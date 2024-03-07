@@ -534,9 +534,22 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         GameObject go = Instantiate(_currentChip.gameObject);
 
+       
         if (go.GetComponent<Chip>() != null)
         {
             Chip chip = go.GetComponent<Chip>();
+            chip.EnableAnimation(false);
+
+            Material[] mats = go.GetComponent<MeshRenderer>().materials;
+            Material[] _textmats = go.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
+
+
+            Array.Resize(ref mats, mats.Length - 2);
+            Array.Resize(ref _textmats, _textmats.Length - 2);
+
+            go.GetComponent<MeshRenderer>().materials = mats;
+            go.transform.GetChild(0).GetComponent<MeshRenderer>().materials = _textmats;
+
             Destroy(chip);
 
             BoxCollider boxCollider = go.GetComponent<BoxCollider>();
@@ -586,6 +599,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         //_currentbetAmount = chip.Bet;
         _currentChip = chip;
 
+       
         for (int i = 0; i < chips.Count; ++i)
         {
             if (chips[i] != chip)
