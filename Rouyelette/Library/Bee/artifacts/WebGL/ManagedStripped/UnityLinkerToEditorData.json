@@ -61,6 +61,17 @@
         ]
       },
       {
+        "name": "AssetBundle",
+        "dependencies": [
+          {
+            "name": "AssetBundle",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          }
+        ]
+      },
+      {
         "name": "Audio",
         "dependencies": [
           {
@@ -499,6 +510,12 @@
             "icon": "package/com.unity.modules.animation"
           },
           {
+            "name": "Required by AssetBundle Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.assetbundle"
+          },
+          {
             "name": "Required by Audio Module",
             "scenes": [],
             "dependencyType": 2,
@@ -511,10 +528,22 @@
             "icon": "package/com.unity.modules.director"
           },
           {
+            "name": "Required by HotReload Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.hotreload"
+          },
+          {
             "name": "Required by IMGUI Module",
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.imgui"
+          },
+          {
+            "name": "Required by ImageConversion Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.imageconversion"
           },
           {
             "name": "Required by InputLegacy Module",
@@ -527,6 +556,12 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.jsonserialize"
+          },
+          {
+            "name": "Required by ParticleSystem Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.particlesystem"
           },
           {
             "name": "Required by Physics Module",
@@ -608,6 +643,17 @@
         ]
       },
       {
+        "name": "HotReload",
+        "dependencies": [
+          {
+            "name": "Required by AssetBundle Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.assetbundle"
+          }
+        ]
+      },
+      {
         "name": "IMGUI",
         "dependencies": [
           {
@@ -617,6 +663,10 @@
             "icon": "package/com.unity.modules.uielements"
           }
         ]
+      },
+      {
+        "name": "ImageConversion",
+        "dependencies": []
       },
       {
         "name": "InputLegacy",
@@ -649,6 +699,23 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.uielements"
+          }
+        ]
+      },
+      {
+        "name": "ParticleSystem",
+        "dependencies": [
+          {
+            "name": "ParticleSystem",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "ParticleSystemRenderer",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
           }
         ]
       },
@@ -757,6 +824,12 @@
             "icon": "package/com.unity.modules.animation"
           },
           {
+            "name": "Required by AssetBundle Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.assetbundle"
+          },
+          {
             "name": "Required by Audio Module",
             "scenes": [],
             "dependencyType": 2,
@@ -775,10 +848,22 @@
             "icon": "package/com.unity.modules.director"
           },
           {
+            "name": "Required by HotReload Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.hotreload"
+          },
+          {
             "name": "Required by IMGUI Module",
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.imgui"
+          },
+          {
+            "name": "Required by ImageConversion Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.imageconversion"
           },
           {
             "name": "Required by InputLegacy Module",
@@ -791,6 +876,12 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.jsonserialize"
+          },
+          {
+            "name": "Required by ParticleSystem Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.particlesystem"
           },
           {
             "name": "Required by Physics Module",

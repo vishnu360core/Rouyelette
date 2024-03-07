@@ -41,10 +41,14 @@ ExportedObj/
 *.meta
 *.userprefs
 *.pidb
+*.rsp
 *.booproj
 *.svd
 *.pdb
 *.mdb
+*.o
+*.dylib
+*.mvfrm
 *.opendb
 *.VC.db
 

@@ -51,10 +51,16 @@ public  class APIHandler : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
         {
+
+            webRequest.SetRequestHeader("Access-Control-Allow-Origin", url);
             webRequest.SetRequestHeader("Access-Control-Allow-Credentials", "true");
-            webRequest.SetRequestHeader("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
-            webRequest.SetRequestHeader("Access-Control-Allow-Methods" ,"GET, POST, OPTIONS");
-            webRequest.SetRequestHeader("Access-Control-Allow-Origin", "*");
+            webRequest.SetRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+            webRequest.SetRequestHeader("strict-origin-when-cross-origin", "true");
+
+
+            //webRequest.SetRequestHeader("Access-Control-Allow-Credentials", "true");
+            //webRequest.SetRequestHeader("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
+            //webRequest.SetRequestHeader("Access-Control-Allow-Methods" ,"GET, POST, OPTIONS");
 
             yield return webRequest.SendWebRequest();
 
