@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Video;
+using System;
 
 public interface ChipInterface
 {
@@ -26,7 +27,10 @@ public class Chip : MonoBehaviour
 
     public ChipInterface callback;
 
-    Outline _outline; 
+    Outline _outline;
+
+    bool enablePlay = false;
+
 
     private void OnEnable()
     {
@@ -36,6 +40,13 @@ public class Chip : MonoBehaviour
         _outline = GetComponent<Outline>();
 
         Actions.ResetAction += ResetAction;
+
+        Actions.EnablePlay += EnablePlay;
+    }
+
+    private void EnablePlay(bool obj)
+    {
+       enablePlay = obj;
     }
 
     private void OnDestroy()
@@ -72,7 +83,10 @@ public class Chip : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {   
+    {
+        if (!enablePlay)
+            return;
+
        _selected = !_selected;
 
        ChipSelectAction(_selected);

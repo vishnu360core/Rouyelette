@@ -9,6 +9,8 @@ using System.Linq;
 public interface BoardControlInterface
 {
     public void EnableSpin(bool enable);
+
+    public void BetProducedAction(int number,Slot.ColorType colorType);
 }
 
 
@@ -95,7 +97,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
             _reachedTargetSlot = true;
 
-            _currentWheelSlot = _getSlot;
+            _currentWheelSlot.SetSlot(_getSlot.SlotNumber, slot.Colortype);
 
             Actions.EnableSlotSetectAction(false);
             //Actions.OnSlotAction -= SlotAction;
@@ -111,12 +113,14 @@ public class BoardManager : MonoBehaviour,ChipInterface
     /// </summary>
     void EndSpinWheelAction()
     {
+        callback.BetProducedAction(_currentWheelSlot.SlotNumber, _currentWheelSlot.Colortype);
+
         Actions.ResetAction();
 
         if (bets.Count == 0)
             return;
 
-        foreach(Bet bet in bets)
+        foreach (Bet bet in bets)
         {
         
                 Slot.BoardSlotMethod method = bet.type;

@@ -7,7 +7,9 @@ using TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.MonoBehaviours;
 using TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Core;
 using TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours;
 
+#if UNITY_EDITOR
 using UnityEditor.Purchasing;
+#endif
 
 using UnityEngine;
 using UnityEngine.UI;

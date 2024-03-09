@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 using TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.Core;
+using TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.MonoBehaviours;
+using UnityEngine.UI;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
@@ -20,6 +23,13 @@ public class AudioManager : MonoBehaviour
 
     float pitch;
     float volume;
+    
+    [Space]
+    [Header("SpeechTextManager:")]
+    [SerializeField] AzureTextToSpeech _speechBot;
+    [SerializeField] AudioSource _speechAudioSource;
+
+    public bool _isSpeechLoaded = false;
 
     public enum SFX { ballHit ,chip ,error,select,win,loss};
 
@@ -48,17 +58,23 @@ public class AudioManager : MonoBehaviour
 
     public async void SpeechAction(string speech)
     {
-        TextToSpeech textVoice = new TextToSpeech(AzureSpeechEnums.languages.en_US, AzureSpeechEnums.Regions.IndiaCentral, "");
-        audioSource.clip =   await textVoice.CallAzure(speech, AzureSpeechEnums.ShortNames.bn_IN_TanishaaNeural);
+        _speechAudioSource.clip = await _speechBot.CallAzure(speech).ContinueWith(task => {
 
-        audioSource.Play();
+                                                                                             _isSpeechLoaded = task.IsCompletedSuccessfully;
+                                                                                             return task.Result;
+         
+                                                                                          });
+       
+        _speechAudioSource.Play();
     }
 
+   
     public void PlayClip(Clip clip)
     {
         switch(clip) 
         {
             case Clip.wheel:
+               
                 audioSource.clip = _audioData.GetClip(AudioType.CLIP, "Rouyellete");
                 audioSource.Play();
                 audioSource.loop = true;

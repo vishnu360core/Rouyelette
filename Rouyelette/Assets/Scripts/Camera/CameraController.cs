@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
             case CameraSwitch.wheel:
                 _cameraSwitch = CameraSwitch.wheel;
 
-                brain.m_DefaultBlend.m_Time = 3.5f;
+                brain.m_DefaultBlend.m_Time = 4.0f;
 
                 _vCams[0].Priority = 20;
                 _vCams[1].Priority = 10;

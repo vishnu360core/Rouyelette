@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 2
@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -2695,7 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -3270,6 +3270,7 @@ GameObject:
   - component: {fileID: 256896745}
   - component: {fileID: 256896747}
   - component: {fileID: 256896746}
+  - component: {fileID: 256896748}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -3289,7 +3290,8 @@ Transform:
   m_LocalPosition: {x: 3.879631, y: 0.2201401, z: -0.2909571}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1390002207}
   m_Father: {fileID: 2087356311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &256896746
@@ -3305,6 +3307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioData: {fileID: 11400000, guid: 33bcddbe9603ba84496658c7684b92b1, type: 2}
+  _speechBot: {fileID: 256896748}
+  _speechAudioSource: {fileID: 1390002208}
+  _isSpeechLoaded: 0
 --- !u!82 &256896747
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3401,6 +3406,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &256896748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256896743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dffc92f052fb974497f5f8d4455adde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultValues: {fileID: 11400000, guid: 72a5b45170d15524e800847a1c125692, type: 2}
+  input: enter what you want the AI to say here.
+  language: 44
+  shortName: 105
+  localName: 105
+  displayName: 105
+  audioClip: {fileID: 0}
 --- !u!4 &263064641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460631143802976438, guid: 87eff4b961774b543875a3f5475b21bf, type: 3}
@@ -3958,7 +3982,7 @@ Transform:
   m_GameObject: {fileID: 295763955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.753, y: 0.964, z: 0.29}
+  m_LocalPosition: {x: 0.753, y: 0.649, z: 0.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4207,7 +4231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -4527,7 +4551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -6546,7 +6570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -6601,23 +6625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vcamOwner: {fileID: 0}
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
-  <HideOffsetInInspector>k__BackingField: 0
-  m_PreviousTargetPosition: {x: 0, y: 0, z: 0}
-  m_PreviousReferenceOrientation: {x: 0, y: 0, z: 0, w: 1}
-  m_targetOrientationOnAssign: {x: 0, y: 0, z: 0, w: 1}
-  m_PreviousOffset: {x: 0, y: 0, z: 0}
-  m_previousTarget: {fileID: 0}
 --- !u!114 &538190731
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -6630,27 +6637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vcamOwner: {fileID: 0}
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
-  <TrackedPoint>k__BackingField: {x: 0, y: 0, z: 0}
-  m_CameraPosPrevFrame: {x: 0, y: 0, z: 0}
-  m_LookAtPrevFrame: {x: 0, y: 0, z: 0}
-  m_ScreenOffsetPrevFrame: {x: 0, y: 0}
-  m_CameraOrientationPrevFrame: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &538190732
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -7219,7 +7205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 1
@@ -7728,7 +7714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -8024,7 +8010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -8215,7 +8201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -8354,7 +8340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -8995,7 +8981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -9370,7 +9356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -9550,7 +9536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -9984,7 +9970,7 @@ GameObject:
   - component: {fileID: 782628378}
   - component: {fileID: 782628377}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10006,7 +9992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 284.5, y: -221}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782628377
@@ -10029,7 +10015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Timer:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10038,8 +10024,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278517596
+  m_fontColor: {r: 0.35895038, g: 1, b: 0.0141509175, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10062,7 +10048,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -10225,7 +10211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -10768,7 +10754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -10974,7 +10960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -11257,7 +11243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -11314,7 +11300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -11711,7 +11697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -12382,7 +12368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -13023,7 +13009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -13410,7 +13396,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 9
+  field of view: 40
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -13436,8 +13422,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3551174, y: -0.09236971, z: 0.0352871, w: 0.92957747}
-  m_LocalPosition: {x: 2.89, y: 6.69, z: -6.5}
+  m_LocalRotation: {x: -0.0016575109, y: 0.93757427, z: -0.34775266, w: -0.004468808}
+  m_LocalPosition: {x: -1.8, y: 3.323, z: 3.147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13827,7 +13813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -14219,7 +14205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -14804,7 +14790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -15081,23 +15067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vcamOwner: {fileID: 0}
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
-  <HideOffsetInInspector>k__BackingField: 0
-  m_PreviousTargetPosition: {x: 0, y: 0, z: 0}
-  m_PreviousReferenceOrientation: {x: 0, y: 0, z: 0, w: 1}
-  m_targetOrientationOnAssign: {x: 0, y: 0, z: 0, w: 1}
-  m_PreviousOffset: {x: 0, y: 0, z: 0}
-  m_previousTarget: {fileID: 0}
 --- !u!114 &1109045014
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -15110,27 +15079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vcamOwner: {fileID: 0}
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
-  <TrackedPoint>k__BackingField: {x: 0, y: 0, z: 0}
-  m_CameraPosPrevFrame: {x: 0, y: 0, z: 0}
-  m_LookAtPrevFrame: {x: 0, y: 0, z: 0}
-  m_ScreenOffsetPrevFrame: {x: 0, y: 0}
-  m_CameraOrientationPrevFrame: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1109045015
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -15693,7 +15641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TotalBets:'
+  m_text: 'TotalBetAmount:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15720,7 +15668,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.9
+  m_fontSize: 21.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16700,7 +16648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -16977,7 +16925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -17034,7 +16982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -17244,7 +17192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -17301,7 +17249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -17934,7 +17882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -17959,6 +17907,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1390002206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390002207}
+  - component: {fileID: 1390002208}
+  m_Layer: 0
+  m_Name: SpeechAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1390002207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390002206}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 256896745}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1390002208
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390002206}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1403439095
 GameObject:
   m_ObjectHideFlags: 0
@@ -18289,7 +18365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1426896750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18968,7 +19044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -19167,7 +19243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -19360,7 +19436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -19632,23 +19708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vcamOwner: {fileID: 0}
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
-  <HideOffsetInInspector>k__BackingField: 0
-  m_PreviousTargetPosition: {x: 0, y: 0, z: 0}
-  m_PreviousReferenceOrientation: {x: 0, y: 0, z: 0, w: 1}
-  m_targetOrientationOnAssign: {x: 0, y: 0, z: 0, w: 1}
-  m_PreviousOffset: {x: 0, y: 0, z: 0}
-  m_previousTarget: {fileID: 0}
 --- !u!114 &1517678559
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -19661,27 +19720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vcamOwner: {fileID: 0}
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
-  <TrackedPoint>k__BackingField: {x: 0, y: 0, z: 0}
-  m_CameraPosPrevFrame: {x: 0, y: 0, z: 0}
-  m_LookAtPrevFrame: {x: 0, y: 0, z: 0}
-  m_ScreenOffsetPrevFrame: {x: 0, y: 0}
-  m_CameraOrientationPrevFrame: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1517678560
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -19807,7 +19845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -20006,7 +20044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -20649,7 +20687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -21138,7 +21176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -21862,7 +21900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -22465,7 +22503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -22593,7 +22631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -22890,7 +22928,8 @@ MonoBehaviour:
   _spinWheelManager: {fileID: 657349643}
   _wheelSlotManager: {fileID: 753648963}
   _spinButton: {fileID: 1426896751}
-  TMP_Text: {fileID: 782628377}
+  _timerText: {fileID: 782628377}
+  _delay: 30
 --- !u!1 &1739672603
 GameObject:
   m_ObjectHideFlags: 0
@@ -23574,7 +23613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 1
@@ -25067,7 +25106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 1
   _boardSlotType: 0
@@ -25705,7 +25744,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -25837,7 +25876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 0
@@ -27218,7 +27257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 1
@@ -27454,7 +27493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 2
@@ -27955,7 +27994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 0
   _boardSlotType: 2
@@ -29098,7 +29137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c1f1ed0bf001a4f89fc025478da322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
+  _number: 0
   _type: 0
   _colorType: 2
   _boardSlotType: 0

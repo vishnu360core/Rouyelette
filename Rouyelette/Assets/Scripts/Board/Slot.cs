@@ -10,8 +10,8 @@ using UnityEngine;
 [RequireComponent (typeof(MeshRenderer))]
 public class Slot : MonoBehaviour
 {
-    [SerializeField] int number;
-    public int SlotNumber => number;
+    [SerializeField] int _number;
+    public int SlotNumber => _number;
 
     public enum ColorType {red,black,NULL};
     public enum SlotType { board, wheel }
@@ -53,6 +53,15 @@ public class Slot : MonoBehaviour
    [Space]
    [SerializeField] bool _isSelect= false;
 
+    bool enablePlay = false;
+
+
+    public void SetSlot(int number, ColorType colorType)
+    {
+        _number = number;
+        _colorType = colorType;
+    }
+
     private void OnEnable()
     {
 
@@ -62,7 +71,7 @@ public class Slot : MonoBehaviour
             MatchCollection matches = Regex.Matches(rollString, @"\d+");
             foreach (Match match in matches)
             {
-                number += int.Parse(match.Value);
+                _number += int.Parse(match.Value);
             }
         }
 
@@ -77,9 +86,15 @@ public class Slot : MonoBehaviour
         //Actions.OnSlotAction += WheelSlotAction;
 
         Actions.EnableSlotSetectAction += EnableSelect;
+        Actions.EnablePlay += EnablePlay;
 
         if (_type == SlotType.board)
         _chipTransform = this.transform.GetChild(0).transform;
+    }
+
+    private void EnablePlay(bool obj)
+    {
+        enablePlay = obj;
     }
 
     private void StartSelectAction()
@@ -149,49 +164,49 @@ public class Slot : MonoBehaviour
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number % 2 != 0);
+                OnHoverAction(_number % 2 != 0);
                   break;
 
             case BoardSlotMethod.even:
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number % 2 == 0);
+                OnHoverAction(_number % 2 == 0);
                 break;
 
             case BoardSlotMethod.oneeighteen:
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number > 0 && number < 19);
+                OnHoverAction(_number > 0 && _number < 19);
                 break;
 
             case BoardSlotMethod.ninteensixteen:
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number > 18 && number < 37);
+                OnHoverAction(_number > 18 && _number < 37);
                 break;
 
             case BoardSlotMethod.first12:
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number > 0 && number < 13);
+                OnHoverAction(_number > 0 && _number < 13);
                 break;
 
             case BoardSlotMethod.second12:
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number > 12  && number < 25);
+                OnHoverAction(_number > 12  && _number < 25);
                 break;
 
             case BoardSlotMethod.third12:
                 if (_boardSlotType != BoardSlotType.integer)
                     return;
 
-                OnHoverAction(number > 24 && number < 37);
+                OnHoverAction(_number > 24 && _number < 37);
                 break;
 
         }
@@ -225,6 +240,9 @@ public class Slot : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!enablePlay)
+            return;
+
         if (_type == SlotType.wheel)
             return;
 

@@ -34,4 +34,6 @@ public static class Actions
     public static Action<Transform> SetBallTarget;
 
     public static Action BoardSelectAction;
+
+    public static Action <bool> EnablePlay;
 }

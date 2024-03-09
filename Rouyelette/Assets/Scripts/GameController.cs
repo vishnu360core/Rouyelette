@@ -14,12 +14,15 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     [Header("UI Buttons:")]
     [SerializeField] Button _spinButton;
-
-    public TMP_Text TMP_Text;
+    [SerializeField] TMP_Text _timerText;
 
 
     string _hashCode;
     bool _isInitialized = false;
+
+    [Header("BoardTime Delay")]
+    [Range(0, 100)]
+    [SerializeField] int _delay; 
 
 
     private void Awake()
@@ -34,11 +37,75 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
 
-
-        AudioManager.Instance.SpeechAction("Hello there");
-
         //API Handling ...
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+    }
+
+    #region API RESPONSE HANDLING
+    void SuccessAPI(string response)
+    {
+        Debug.Log("Response >>>" + response);
+
+        ResponseData responseData = JsonUtility.FromJson<ResponseData>(response);
+
+        Debug.Log(responseData.result + ">>>" + responseData.hash);
+
+        _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
+
+        Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
+
+        // TMP_Text.text = responseData.result.ToString();
+
+        AudioManager.Instance.SpeechAction("Place your bets please ");
+        Actions.EnablePlay(true);
+
+        StartCoroutine(Timer());
+    }
+
+    void ErrorAPI(string response)
+    {
+        Debug.LogError("Response >>>" + response);
+
+        Actions.EnablePlay(false);
+
+       // TMP_Text.text = "Error : " + response;
+    }
+    #endregion
+
+    /// <summary>
+    /// Timer
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator Timer()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _delay)
+        {
+
+            elapsedTime += Time.deltaTime;
+
+            float currentTimer =  _delay - elapsedTime;
+
+            _timerText.text = "Timer :" +  Mathf.RoundToInt(currentTimer);
+
+            yield return null;
+        }
+
+        AudioManager.Instance._isSpeechLoaded = false;
+        AudioManager.Instance.SpeechAction("No more Bets");
+        SpinButtonAction();
+    }
+
+    public void BetProducedAction(int number, Slot.ColorType colorType)
+    {
+        Debug.LogWarning(number + ": " + colorType.ToString());
+
+        AudioManager.Instance._isSpeechLoaded = false;
+
+        string _iseven = number % 2 == 0 ? "even" : "odd";  
+
+        AudioManager.Instance.SpeechAction(number.ToString() + " " + colorType.ToString() + " " + _iseven);
     }
 
     /// <summary>
@@ -50,31 +117,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.user);
     }
 
-    void SuccessAPI(string response)
-    {
-        Debug.Log("Response >>>" + response);
-
-        ResponseData responseData = JsonUtility.FromJson<ResponseData>(response);
-
-        Debug.Log(responseData.result + ">>>" + responseData.hash);
-        
-         _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
-
-        Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
-
-        TMP_Text.text = responseData.result.ToString();
-    }
-
-    void ErrorAPI(string response)
-    {
-        Debug.LogError("Response >>>" + response);
-
-        TMP_Text.text = "Error : " + response;
-    }
-
     private void RestAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
+
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
@@ -86,8 +132,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
     public void SpinButtonAction()
     {
         AudioManager.Instance.PlaySFX(AudioManager.SFX.select);
-        CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.wheel);
-
         StartCoroutine(SpinWheelAction());  
 
         EnableSpin(false);
@@ -95,6 +139,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     IEnumerator SpinWheelAction()
     {
+        yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
+        CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.wheel);
         yield return new WaitUntil(() => CameraController.Instance.Reached());
 
         Debug.LogWarning("Camera switch ");
