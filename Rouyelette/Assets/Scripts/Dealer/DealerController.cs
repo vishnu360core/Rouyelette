@@ -16,7 +16,6 @@ public class DealerController : MonoBehaviour
 
     private void Start()
     {
-        Actions.ResetAction += ResetAction;
         Actions.DealerMoveAction += MoveTowards;
 
         yPos = _dealerObject.transform.position.y;
@@ -24,18 +23,20 @@ public class DealerController : MonoBehaviour
         //MoveTowards(_start);
     }
 
-    private void ResetAction()
+    public void ResetAction()
     {
-       // MoveTowards(_start);
+        MoveTowards(_start);
     }
 
     public void MoveTowards(Transform t)
     {
+        DOTween.KillAll();
+
         if(t == null) return;
 
         Vector3 newPos = new Vector3(t.position.x, yPos, t.position.z);
 
-        _dealerObject.transform.DOMove(newPos, 1.0f);
+        _dealerObject.transform.DOMove(newPos, 1.0f).OnComplete(()=> Invoke("ResetAction",1.0f));
     }
 
 }

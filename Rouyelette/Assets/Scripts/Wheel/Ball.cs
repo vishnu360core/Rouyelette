@@ -33,11 +33,11 @@ public class Ball : MonoBehaviour
     [Range(0, 300f)]
     [SerializeField] float _brakeForce;
 
-   [SerializeField] bool IsBrake = false;   
+    [SerializeField] bool IsBrake = true;
+    
+    [SerializeField] bool IsGrounded = true;
 
     public Transform Target => _target;
-
-    
 
     public BallInterface callback;
 
@@ -77,13 +77,11 @@ public class Ball : MonoBehaviour
     public void ResetAction()
     {
         InAir = false;
+        IsBrake = false;
+        EnablePhysics(false);
 
-        rb.isKinematic = true;
-
-        this.transform.localPosition = _resetTransform.position;
-
-        rb.constraints = RigidbodyConstraints.None;
-
+        EnableGravity(false);
+        rb.constraints = RigidbodyConstraints.FreezePositionY;
     }
 
 
@@ -91,22 +89,29 @@ public class Ball : MonoBehaviour
     {
         rb.isKinematic = !enable;
 
+        IsGrounded = !enable;
+
         //rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
 
     public async void EnableGravityAction()
     {
-        await Task.Delay((int)(7000));
+        await Task.Delay((int)(10000));
 
         rb.constraints = RigidbodyConstraints.None;
         EnableGravity(true);
 
         IsBrake = true;
 
-        Vector3 brakingForce = -rb.velocity.normalized * 1000;
+        Vector3 brakingForce = -rb.velocity.normalized * _brakeForce;
         StopCoroutine(RotateObject());
+        StopAllCoroutines();
 
-        rb.AddForce(brakingForce, ForceMode.Impulse);
+        // rb.AddForce(Vector3.right * 1, ForceMode.Impulse);
+        //rb.AddForce(Vector3.up * 1.8f, ForceMode.Impulse);
+        //rb.AddForce(Vector3.forward * 1f, ForceMode.Impulse);
+
+        /// rb.AddForce(brakingForce, ForceMode.Impulse);
     }
 
     /// <summary>
@@ -141,13 +146,19 @@ public class Ball : MonoBehaviour
             //this.transform.position = _target.transform.position;
         }
 
-        if(IsBrake)
+
+        if (IsGrounded)
         {
-            Vector3 brakingForce = -rb.velocity.normalized * 100;
-            rb.AddForce(brakingForce, ForceMode.Impulse);
+            this.gameObject.transform.localPosition = _resetTransform.localPosition;
         }
 
-      
+        //if(IsBrake)
+        //{
+        //    Vector3 brakingForce = -rb.velocity.normalized * 100;
+        //    rb.AddForce(brakingForce, ForceMode.Impulse);
+        //}
+
+
         //if(rb.constraints == RigidbodyConstraints.FreezePositionY)
         //if (rb.velocity.magnitude < 5.0f)
         //    rb.constraints = RigidbodyConstraints.None;
@@ -173,7 +184,7 @@ public class Ball : MonoBehaviour
     {
        // transform.parent = _target;
 
-        InAir = true;
+         InAir = true;
 
        // DOTween.KillAll();
 
@@ -186,7 +197,7 @@ public class Ball : MonoBehaviour
         //_target = t;
         //InAir = true;
 
-        IsBrake = false;
+       // IsBrake = false;
 
         rb.constraints = RigidbodyConstraints.None;
 

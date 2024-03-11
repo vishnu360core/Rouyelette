@@ -75,8 +75,6 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
         ball.ResetAction();
         _spinWheel.ResetAction();
 
-       // _colliders.SetActive(false);
-
         ballTarget = null;
     }
 

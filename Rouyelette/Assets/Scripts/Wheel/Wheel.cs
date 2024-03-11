@@ -13,7 +13,10 @@ public class Wheel : MonoBehaviour
     [Range(0f, 100f)]
     [SerializeField] private float arrowBrakeSpeed = 10;
     [Range(0,1000f)]
-    [SerializeField] private float Speed = 20;
+    [SerializeField] private float _speed = 20;
+
+
+    float _curreSpeed;  
 
 
      [SerializeField] bool _isStopped = false;
@@ -47,21 +50,23 @@ public class Wheel : MonoBehaviour
     IEnumerator Spin()
     {
         // Get a random speed from min and ma value
-       // Speed = minSpeed;  /*Random.Range(minSpeed, maxSpeed);*/
+        // Speed = minSpeed;  /*Random.Range(minSpeed, maxSpeed);*/
+
+        _curreSpeed = _speed;
 
         if (resetPositionAfterSpin)
             angle = 0;
 
-        while (Speed > 0)
+        while (_curreSpeed > 0)
         {
-            if(Speed<80.0f)
+            if(_curreSpeed < 80.0f)
                  Actions.StoppedSpin();
 
-            angle += Time.deltaTime * Speed;
+            angle += Time.deltaTime * _curreSpeed;
             angle %= 360;
             // if the speed higher than 0 the arrow decrease speed
-            if (Speed > 0)
-                Speed -= Time.deltaTime * arrowBrakeSpeed;
+            if (_curreSpeed > 0)
+                _curreSpeed -= Time.deltaTime * arrowBrakeSpeed;
 
             // Apply the angle to the arrow
             transform.localEulerAngles = -Vector3.up * angle;

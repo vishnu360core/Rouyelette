@@ -78,6 +78,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// <returns></returns>
     IEnumerator Timer()
     {
+        yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
+
         float elapsedTime = 0f;
 
         while (elapsedTime < _delay)
@@ -105,7 +107,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         string _iseven = number % 2 == 0 ? "even" : "odd";  
 
-        AudioManager.Instance.SpeechAction(number.ToString() + " " + colorType.ToString() + " " + _iseven);
+        AudioManager.Instance.SpeechAction(number.ToString() + " " + colorType.ToString() + _iseven);
     }
 
     /// <summary>
@@ -120,6 +122,13 @@ public class GameController : MonoBehaviour, BoardControlInterface
     private void RestAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
+
+        StartCoroutine(ResetAction());
+    }
+
+    IEnumerator ResetAction()
+    {
+        yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
 
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }

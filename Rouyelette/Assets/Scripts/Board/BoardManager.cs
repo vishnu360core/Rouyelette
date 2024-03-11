@@ -46,7 +46,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     [SerializeField] Slot _getSlot;
 
-    bool _reachedTargetSlot = false;
+    [SerializeField] bool _reachedTargetSlot = false;
 
     enum Result {Win,Loss };
 
@@ -75,6 +75,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     public void SetGetSlot(Slot slot)
     {
         _getSlot= slot;
+        _currentWheelSlot = _getSlot;
     }
 
     /// <summary>
@@ -96,8 +97,6 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
             _reachedTargetSlot = true;
 
-            _currentWheelSlot.SetSlot(_getSlot.SlotNumber, slot.Colortype);
-
             Actions.EnableSlotSetectAction(false);
             //Actions.OnSlotAction -= SlotAction;
         }
@@ -112,9 +111,12 @@ public class BoardManager : MonoBehaviour,ChipInterface
     /// </summary>
     void EndSpinWheelAction()
     {
-        callback.BetProducedAction(_currentWheelSlot.SlotNumber, _currentWheelSlot.Colortype);
+        callback.BetProducedAction(_getSlot.SlotNumber, _getSlot.Colortype);
 
         Actions.ResetAction();
+        _reachedTargetSlot = false;
+
+        Invoke("DealerMovement", 1.0f);
 
         if (bets.Count == 0)
             return;
@@ -276,12 +278,11 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         ResetAction();
-        Invoke("DealerMovement", 1.0f);
     }
 
     void DealerMovement()
     {
-        int _index = _currentWheelSlot.SlotNumber;
+        int _index = _getSlot.SlotNumber;
 
         Transform dealerPosition = null;
 
@@ -293,6 +294,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
           
             if(slot.Type == Slot.SlotType.board && slot.SlotNumber == _index)
             {
+                Debug.LogWarning("Dealer >>>" + slot.Type  + " " +  slot.SlotNumber);
+
                 dealerPosition = obj.transform;
                 break;
             }
@@ -381,11 +384,12 @@ public class BoardManager : MonoBehaviour,ChipInterface
         _isChipSelected = false;
         _currentbetAmount = 0;
 
+        _currentWheelSlot = null;
+
+
         bets.Clear();
 
         callback.EnableSpin(false);
-
-        _reachedTargetSlot = false;
 
         _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
     }

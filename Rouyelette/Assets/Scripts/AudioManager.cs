@@ -58,16 +58,24 @@ public class AudioManager : MonoBehaviour
 
     public async void SpeechAction(string speech)
     {
-        _speechAudioSource.clip = await _speechBot.CallAzure(speech).ContinueWith(task => {
+        while (_speechAudioSource.isPlaying)
+        {
 
-                                                                                             _isSpeechLoaded = task.IsCompletedSuccessfully;
-                                                                                             return task.Result;
-         
-                                                                                          });
-       
+        }
+
+        _speechAudioSource.clip = await _speechBot.CallAzure(speech).ContinueWith(task =>
+        {
+            _isSpeechLoaded = task.IsCompletedSuccessfully;
+            return task.Result;
+
+        });
+
         _speechAudioSource.Play();
+        _isSpeechLoaded = false;
     }
 
+
+   
    
     public void PlayClip(Clip clip)
     {
