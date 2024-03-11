@@ -13,12 +13,8 @@ public class Wheel : MonoBehaviour
     [Range(0f, 100f)]
     [SerializeField] private float arrowBrakeSpeed = 10;
     [Range(0,1000f)]
-    [SerializeField] private float minSpeed = 20;
-    [Range(0,1000f)]
-    [SerializeField] private float maxSpeed = 100;
+    [SerializeField] private float Speed = 20;
 
-
-    [SerializeField] float Speed;
 
      [SerializeField] bool _isStopped = false;
      public bool IsStopped => _isStopped;
@@ -27,7 +23,7 @@ public class Wheel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // StartCoroutine(Spin());
+      // StartCoroutine(Spin());
     }
 
     // Update is called once per frame
@@ -51,7 +47,7 @@ public class Wheel : MonoBehaviour
     IEnumerator Spin()
     {
         // Get a random speed from min and ma value
-        Speed = minSpeed;  /*Random.Range(minSpeed, maxSpeed);*/
+       // Speed = minSpeed;  /*Random.Range(minSpeed, maxSpeed);*/
 
         if (resetPositionAfterSpin)
             angle = 0;

@@ -85,6 +85,11 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
         AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
 
         ball.EnablePhysics(true);
+
+        ball.EnableGravityAction();
+
+        StartCoroutine(ball.RotateObject());
+
         _spinWheel.SpinAction();
     }
 }

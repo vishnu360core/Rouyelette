@@ -15,6 +15,7 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineComposer
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
+    - DealerController
     - GameController
     - Layout
     - Outline
@@ -137,81 +138,83 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16684}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 16708}
+      Script: {instanceID: 16618}
     - Class: 114
-      Script: {instanceID: 16782}
+      Script: {instanceID: 16620}
     - Class: 114
-      Script: {instanceID: 17534}
+      Script: {instanceID: 16694}
     - Class: 114
-      Script: {instanceID: 17624}
+      Script: {instanceID: 16718}
     - Class: 114
-      Script: {instanceID: 18044}
+      Script: {instanceID: 16792}
     - Class: 114
-      Script: {instanceID: 18342}
+      Script: {instanceID: 17544}
     - Class: 114
-      Script: {instanceID: 18440}
+      Script: {instanceID: 17634}
     - Class: 114
-      Script: {instanceID: 18568}
+      Script: {instanceID: 18054}
     - Class: 114
-      Script: {instanceID: 18868}
+      Script: {instanceID: 18352}
     - Class: 114
-      Script: {instanceID: 18908}
+      Script: {instanceID: 18450}
     - Class: 114
-      Script: {instanceID: 19444}
+      Script: {instanceID: 18876}
     - Class: 114
-      Script: {instanceID: 20430}
+      Script: {instanceID: 18916}
     - Class: 114
-      Script: {instanceID: 20574}
+      Script: {instanceID: 19452}
     - Class: 114
-      Script: {instanceID: 22360}
+      Script: {instanceID: 20438}
     - Class: 114
-      Script: {instanceID: 22598}
+      Script: {instanceID: 20582}
     - Class: 114
-      Script: {instanceID: 22812}
+      Script: {instanceID: 22368}
     - Class: 114
-      Script: {instanceID: 23210}
+      Script: {instanceID: 22606}
     - Class: 114
-      Script: {instanceID: 23402}
+      Script: {instanceID: 22820}
     - Class: 114
-      Script: {instanceID: 23718}
+      Script: {instanceID: 23218}
     - Class: 114
-      Script: {instanceID: 24482}
+      Script: {instanceID: 23408}
     - Class: 114
-      Script: {instanceID: 24638}
+      Script: {instanceID: 23724}
     - Class: 114
-      Script: {instanceID: 24770}
+      Script: {instanceID: 24488}
     - Class: 114
-      Script: {instanceID: 25232}
+      Script: {instanceID: 24644}
     - Class: 114
-      Script: {instanceID: 25414}
+      Script: {instanceID: 24776}
     - Class: 114
-      Script: {instanceID: 25870}
+      Script: {instanceID: 25236}
     - Class: 114
-      Script: {instanceID: 26166}
+      Script: {instanceID: 25418}
     - Class: 114
-      Script: {instanceID: 26270}
+      Script: {instanceID: 25874}
     - Class: 114
-      Script: {instanceID: 26292}
+      Script: {instanceID: 26170}
     - Class: 114
-      Script: {instanceID: 26404}
+      Script: {instanceID: 26274}
     - Class: 114
-      Script: {instanceID: 26446}
+      Script: {instanceID: 26296}
     - Class: 114
-      Script: {instanceID: 26932}
+      Script: {instanceID: 26408}
     - Class: 114
-      Script: {instanceID: 26992}
+      Script: {instanceID: 26450}
     - Class: 114
-      Script: {instanceID: 27260}
+      Script: {instanceID: 26994}
     - Class: 114
-      Script: {instanceID: 27558}
+      Script: {instanceID: 27262}
     - Class: 114
-      Script: {instanceID: 31046}
+      Script: {instanceID: 30664}
     - Class: 114
-      Script: {instanceID: 31048}
+      Script: {instanceID: 30666}
     - Class: 114
-      Script: {instanceID: 31050}
+      Script: {instanceID: 30668}
+    - Class: 114
+      Script: {instanceID: 167232}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,6 +234,30 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: e5f1d63ad1067eddaef92810ac7b4e28
+    assemblyName: Assembly-CSharp
+    namespaceName: Cinemachine.Timeline
+    className: CinemachineTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 631d7c7ea5847464c096f3143ff374de
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: c701509622ee7287c5fcca1405b1c24e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Wheel
+  - hash:
+      serializedVersion: 2
+      Hash: 787fb937dda26de8b7a264c26c2e837a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameController
   - hash:
       serializedVersion: 2
       Hash: b5007673bbbdb9d12597a1d8201370f5
@@ -501,12 +528,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: Cinemachine
     className: CinemachineStateDrivenCamera
-  - hash:
-      serializedVersion: 2
-      Hash: 787fb937dda26de8b7a264c26c2e837a
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: GameController
   - hash:
       serializedVersion: 2
       Hash: 0a3f328f3ea906bbbcf794f4c27ee59d
@@ -1115,12 +1136,6 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionEnterMessageListener
   - hash:
       serializedVersion: 2
-      Hash: e5f1d63ad1067eddaef92810ac7b4e28
-    assemblyName: Assembly-CSharp
-    namespaceName: Cinemachine.Timeline
-    className: CinemachineTrack
-  - hash:
-      serializedVersion: 2
       Hash: 6ddf94363c6ce4b02d9fdd51290cb0f9
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestRunner.Utils
@@ -1643,12 +1658,6 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 631d7c7ea5847464c096f3143ff374de
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CameraController
-  - hash:
-      serializedVersion: 2
       Hash: b59a9356dcbcdf16f824640cc97292d5
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -1685,12 +1694,6 @@ ScriptsOnlyBuild:
     className: UnityOnMouseUpMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c701509622ee7287c5fcca1405b1c24e
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Wheel
-  - hash:
-      serializedVersion: 2
       Hash: 9fb1c3ab48b256d508ecddd967f98652
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1719,7 +1722,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: fa9d1f43c2570c54d5bd33be715abb0f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DealerController
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/WebGLBuild_20240209_1
+  playerPath: D:/New folder

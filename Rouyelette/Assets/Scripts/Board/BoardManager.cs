@@ -14,7 +14,6 @@ public interface BoardControlInterface
 }
 
 
-
 public class BoardManager : MonoBehaviour,ChipInterface
 {
     [Header("UI Settings:")]
@@ -277,7 +276,31 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         ResetAction();
+        Invoke("DealerMovement", 1.0f);
     }
+
+    void DealerMovement()
+    {
+        int _index = _currentWheelSlot.SlotNumber;
+
+        Transform dealerPosition = null;
+
+
+        foreach(Slot obj in GameObject.FindObjectsOfType<Slot>()) 
+        {
+            Slot slot = obj.GetComponent<Slot>();
+
+          
+            if(slot.Type == Slot.SlotType.board && slot.SlotNumber == _index)
+            {
+                dealerPosition = obj.transform;
+                break;
+            }
+        }
+
+        Actions.DealerMoveAction(dealerPosition);
+    }
+
 
     /// <summary>
     /// Result updater

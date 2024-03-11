@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using System.Timers;
+using System.Threading;
+using System.Threading.Tasks;
 
 
 public interface BallInterface
@@ -10,20 +13,31 @@ public interface BallInterface
     public void CompletedMovement();
 }
 
-
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent (typeof(Rigidbody))]
 public class Ball : MonoBehaviour
 {
     Rigidbody rb;
 
-  [SerializeField] bool InAir = false;
+   [SerializeField] bool InAir = false;
 
+   [Header("Transforms:")]
    [SerializeField] Transform _resetTransform;
    [SerializeField] Transform _target;
+   [SerializeField] Transform _parent;
+
+
+    [Header("Physics Settings:")]
+    [Range(0, 500)]
+    [SerializeField] float _parentRotateSpeed;
+    [Range(0, 300f)]
+    [SerializeField] float _brakeForce;
+
+   [SerializeField] bool IsBrake = false;   
 
     public Transform Target => _target;
 
+    
 
     public BallInterface callback;
 
@@ -34,8 +48,24 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
+        rb.AddForce(Vector3.forward * 2, ForceMode.Impulse);
 
-       // Actions.StoppedSpin += StopSpinAction;
+        // Actions.StoppedSpin += StopSpinAction;
+    }
+
+    public IEnumerator RotateObject()
+    {
+        while (!IsBrake)
+        {
+            // Calculate the rotation angle based on time and speed
+            float rotationAngle = _parentRotateSpeed * Time.deltaTime;
+
+            // Rotate the object around its own axis
+            _parent.transform.Rotate(Vector3.forward, rotationAngle);
+
+            // Wait for the next frame
+            yield return null;
+        }
     }
 
     public void SetTarget(Transform target)
@@ -51,7 +81,6 @@ public class Ball : MonoBehaviour
         rb.isKinematic = true;
 
         this.transform.localPosition = _resetTransform.position;
-        this.transform.localRotation = _resetTransform.rotation;
 
         rb.constraints = RigidbodyConstraints.None;
 
@@ -65,7 +94,20 @@ public class Ball : MonoBehaviour
         //rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
 
-    
+    public async void EnableGravityAction()
+    {
+        await Task.Delay((int)(7000));
+
+        rb.constraints = RigidbodyConstraints.None;
+        EnableGravity(true);
+
+        IsBrake = true;
+
+        Vector3 brakingForce = -rb.velocity.normalized * 1000;
+        StopCoroutine(RotateObject());
+
+        rb.AddForce(brakingForce, ForceMode.Impulse);
+    }
 
     /// <summary>
     /// Actions implemented on disable
@@ -80,6 +122,15 @@ public class Ball : MonoBehaviour
        //InAir = true;
     }
 
+    /// <summary>
+    /// Enable the gravity
+    /// </summary>
+    /// <param name="enable"></param>
+    public void EnableGravity(bool enable) 
+    {
+        rb.useGravity = enable; 
+    }
+
 
     private void FixedUpdate()
     {
@@ -90,8 +141,16 @@ public class Ball : MonoBehaviour
             //this.transform.position = _target.transform.position;
         }
 
-        //if (rb.angularVelocity.magnitude > 5.0f )
-        //    Actions.ballHit();
+        if(IsBrake)
+        {
+            Vector3 brakingForce = -rb.velocity.normalized * 100;
+            rb.AddForce(brakingForce, ForceMode.Impulse);
+        }
+
+      
+        //if(rb.constraints == RigidbodyConstraints.FreezePositionY)
+        //if (rb.velocity.magnitude < 5.0f)
+        //    rb.constraints = RigidbodyConstraints.None;
     }
 
     void CompletedMovementAction()
@@ -104,7 +163,10 @@ public class Ball : MonoBehaviour
     {
         //InAir = false;
 
-       // Actions.ballHit();
+        // Actions.ballHit();
+
+
+       //rb.constraints = RigidbodyConstraints.FreezePositionY;
     } 
 
     public void ReachedDestination()
@@ -124,10 +186,16 @@ public class Ball : MonoBehaviour
         //_target = t;
         //InAir = true;
 
-        if(_target != t)
+        IsBrake = false;
+
+        rb.constraints = RigidbodyConstraints.None;
+
+        if (_target != t)
             this.transform.position = Vector3.MoveTowards(this.transform.position, t.position, 0.002f);
         else
             this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
+
+
 
         //rb.MovePosition(t.position);
 

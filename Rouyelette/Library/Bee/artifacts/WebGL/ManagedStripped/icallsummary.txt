@@ -573,6 +573,7 @@ UnityEngine.Object::get_hideFlags
 UnityEngine.Object::FindObjectFromInstanceID
 UnityEngine.Object::Internal_CloneSingle
 UnityEngine.Object::Internal_CloneSingleWithParent
+UnityEngine.Object::FindObjectsOfType
 UnityEngine.ObjectGUIState::Internal_Create
 UnityEngine.ObjectGUIState::Internal_Destroy
 UnityEngine.ParticleSystem::get_useAutoRandomSeed
@@ -771,6 +772,7 @@ UnityEngine.Rigidbody::get_velocity_Injected
 UnityEngine.Rigidbody::set_constraints
 UnityEngine.Rigidbody::set_isKinematic
 UnityEngine.Rigidbody::set_rotation_Injected
+UnityEngine.Rigidbody::set_useGravity
 UnityEngine.Rigidbody2D::get_rotation
 UnityEngine.Rigidbody2D::MovePosition_Injected
 UnityEngine.Rigidbody2D::MoveRotation_Angle

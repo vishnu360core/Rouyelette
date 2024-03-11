@@ -36,4 +36,6 @@ public static class Actions
     public static Action BoardSelectAction;
 
     public static Action <bool> EnablePlay;
+
+    public static Action <Transform> DealerMoveAction;
 }
