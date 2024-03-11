@@ -10,6 +10,9 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
 
     [SerializeField] GameObject _colliders;
 
+    [Space]
+    [SerializeField] List<BoxCollider> obstacles = new List<BoxCollider>();
+
 
     Transform ballTarget;
 
@@ -25,6 +28,8 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
         Actions.ReachedDestination += ReachedTargetDestination;
 
         Actions.SetBallTarget += SetPinBallTarget;
+
+        Actions.EnableObstacles += EnableObstacles;
     }
 
     private void SetPinBallTarget(Transform transform)
@@ -36,6 +41,12 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     public void CompletedMovement()
     {
         StartCoroutine(EndAction());
+    }
+
+    void EnableObstacles(bool enable)
+    {
+        for(int i = 0; i < obstacles.Count; i++)
+            obstacles[i].enabled = enable;
     }
 
     private void ReachedTargetDestination()
@@ -76,13 +87,13 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
         _spinWheel.ResetAction();
 
         ballTarget = null;
+
+        EnableObstacles(false);
     }
 
     public void SpinAction()
     {
         AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
-
-        ball.EnablePhysics(true);
 
         ball.EnableGravityAction();
 

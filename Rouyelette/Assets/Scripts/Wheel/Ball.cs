@@ -98,14 +98,17 @@ public class Ball : MonoBehaviour
     {
         await Task.Delay((int)(10000));
 
+        EnablePhysics(true);
+
         rb.constraints = RigidbodyConstraints.None;
         EnableGravity(true);
 
         IsBrake = true;
 
-        Vector3 brakingForce = -rb.velocity.normalized * _brakeForce;
         StopCoroutine(RotateObject());
         StopAllCoroutines();
+
+        Actions.EnableObstacles(true);
 
         // rb.AddForce(Vector3.right * 1, ForceMode.Impulse);
         //rb.AddForce(Vector3.up * 1.8f, ForceMode.Impulse);

@@ -38,4 +38,6 @@ public static class Actions
     public static Action <bool> EnablePlay;
 
     public static Action <Transform> DealerMoveAction;
+
+    public static Action <bool> EnableObstacles;
 }

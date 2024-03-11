@@ -150,10 +150,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.wheel);
-        yield return new WaitUntil(() => CameraController.Instance.Reached());
+        //yield return new WaitUntil(() => CameraController.Instance.Reached());
 
         Debug.LogWarning("Camera switch ");
-        _spinWheelManager.SpinAction();
+       _spinWheelManager.SpinAction();
     }
 
     /// <summary>
