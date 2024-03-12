@@ -56,18 +56,18 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[6] =
 };
 static const int32_t s_InvokerIndices[12] = 
 {
-	5791,
-	5791,
-	4289,
-	5902,
-	5902,
-	4816,
-	5902,
-	4816,
-	5902,
-	4816,
-	5902,
-	5902,
+	5792,
+	5792,
+	4290,
+	5903,
+	5903,
+	4817,
+	5903,
+	4817,
+	5903,
+	4817,
+	5903,
+	5903,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AzureKeyVault_CodeGenModule;
 const Il2CppCodeGenModule g_AzureKeyVault_CodeGenModule = 

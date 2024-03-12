@@ -116,7 +116,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         Actions.ResetAction();
         _reachedTargetSlot = false;
 
-        Invoke("DealerMovement", 1.0f);
+        DealerMovement();
 
         if (bets.Count == 0)
             return;

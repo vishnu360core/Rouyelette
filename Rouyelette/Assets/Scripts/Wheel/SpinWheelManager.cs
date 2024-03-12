@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinWheelManager : MonoBehaviour,BallInterface
+public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
 { 
     [SerializeField] Wheel _spinWheel;
     [SerializeField] Ball ball;
@@ -11,7 +11,7 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     [SerializeField] GameObject _colliders;
 
     [Space]
-    [SerializeField] List<BoxCollider> obstacles = new List<BoxCollider>();
+    [SerializeField] List<Obstacle> obstacles = new List<Obstacle>();
 
 
     Transform ballTarget;
@@ -20,8 +20,10 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     {
         ball.callback = this;
 
+        for (int i = 0; i < obstacles.Count; i++)
+         obstacles[i].callback = this; 
 
-        Actions.ResetAction += ResetAction;
+            Actions.ResetAction += ResetAction;
 
         Actions.MoveTowardTarget += MoveTowardsTargetAction;
 
@@ -30,6 +32,11 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
         Actions.SetBallTarget += SetPinBallTarget;
 
         Actions.EnableObstacles += EnableObstacles;
+    }
+
+    public void HitAction() 
+    {
+        EnableObstacles(false);    
     }
 
     private void SetPinBallTarget(Transform transform)
@@ -46,7 +53,7 @@ public class SpinWheelManager : MonoBehaviour,BallInterface
     void EnableObstacles(bool enable)
     {
         for(int i = 0; i < obstacles.Count; i++)
-            obstacles[i].enabled = enable;
+            obstacles[i].EnableColliders(enable);
     }
 
     private void ReachedTargetDestination()

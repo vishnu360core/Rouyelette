@@ -36,7 +36,7 @@ public class DealerController : MonoBehaviour
 
         Vector3 newPos = new Vector3(t.position.x, yPos, t.position.z);
 
-        _dealerObject.transform.DOMove(newPos, 1.0f).OnComplete(()=> Invoke("ResetAction",1.0f));
+        _dealerObject.transform.DOMove(newPos, 1.0f).SetDelay(1.0f).OnComplete(()=> Invoke("ResetAction",1.0f));
     }
 
 }
