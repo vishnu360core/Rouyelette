@@ -37,16 +37,18 @@ public class Obstacle : MonoBehaviour
         // If the other object has a Rigidbody, apply force to it
         if (otherRigidbody != null)
         {
+            Debug.LogWarning("Obstacle Hit !!!!!!!");
+
             // Calculate the force direction (away from the collision point)
-            Vector3 forceDirection = (collision.contacts[0].point - transform.position).normalized;
+           Vector3 forceDirection = (collision.contacts[0].point - transform.position).normalized;
 
            //Vector3 forceDirection = (this.transform.position - transform.position).normalized;
 
             // Apply force to the other Rigidbody
-            otherRigidbody.AddForce(forceDirection * _collisionForce, ForceMode.Impulse);
-            otherRigidbody.AddForce(Vector3.up * _jumpforce, ForceMode.Impulse);
+          otherRigidbody.AddForce(-forceDirection * _collisionForce, ForceMode.Impulse);
+         // otherRigidbody.AddForce(Vector3.up * _jumpforce, ForceMode.Impulse);
 
-            //callback.HitAction();   
+            callback.HitAction();   
         }
     }
 

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638453904607739278
-    m_Hash: 1829291373
+      ticks: 638459247282717385
+    m_Hash: 4237378701
   m_LockFileStatus:
     m_FilePath: D:/Work/Rouyelette_1/Rouyelette/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638453904607812280
-    m_Hash: 3475578421
+      ticks: 638459247282717385
+    m_Hash: 844663404
 m_EmbeddedPackageManifests:
   m_ManifestsStatus:
     D:/Work/Rouyelette_1/Rouyelette/Packages/com.tivadar.best.http/package.json:
@@ -2929,9 +2929,11 @@ m_ResolvedPackages:
     - 1.8.10
     - 1.8.11
     - 1.8.12
+    - 1.8.13
     compatible:
     - 1.8.12
-    recommended: 1.8.12
+    - 1.8.13
+    recommended: 1.8.13
     deprecated: []
   dependencies:
   - name: com.unity.mathematics
