@@ -45,7 +45,7 @@ public class Obstacle : MonoBehaviour
            //Vector3 forceDirection = (this.transform.position - transform.position).normalized;
 
             // Apply force to the other Rigidbody
-          otherRigidbody.AddForce(-forceDirection * _collisionForce, ForceMode.Impulse);
+           otherRigidbody.AddForce(-forceDirection * _collisionForce, ForceMode.Impulse);
          // otherRigidbody.AddForce(Vector3.up * _jumpforce, ForceMode.Impulse);
 
             callback.HitAction();   

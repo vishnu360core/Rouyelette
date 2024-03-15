@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
 
-        AudioManager.Instance.SpeechAction("Place your bets please ");
+        AudioManager.Instance.SpeechAction(Speech.placeBet);
 
         //API Handling ...
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         // TMP_Text.text = responseData.result.ToString();
 
-        AudioManager.Instance.SpeechAction("Place your bets please ");
+        AudioManager.Instance.SpeechAction(Speech.placeBet);
         Actions.EnablePlay(true);
 
         StartCoroutine(Timer());
@@ -80,8 +80,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// <returns></returns>
     IEnumerator Timer()
     {
-        yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
-
         float elapsedTime = 0f;
 
         while (elapsedTime < _delay)
@@ -96,8 +94,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
             yield return null;
         }
 
-        AudioManager.Instance._isSpeechLoaded = false;
-        AudioManager.Instance.SpeechAction("No more Bets");
+        AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
         SpinButtonAction();
     }
 
@@ -105,11 +102,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.LogWarning(number + ": " + colorType.ToString());
 
-        AudioManager.Instance._isSpeechLoaded = false;
-
         string _iseven = number % 2 == 0 ? "even" : "odd";  
 
-        AudioManager.Instance.SpeechAction(number.ToString() + " " + colorType.ToString() + _iseven);
+        AudioManager.Instance.SpeechAction(Speech.number,number);
     }
 
     /// <summary>
@@ -130,7 +125,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     IEnumerator ResetAction()
     {
-        yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
+        yield return null;
 
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
@@ -150,7 +145,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     IEnumerator SpinWheelAction()
     {
-        yield return new WaitUntil(() => AudioManager.Instance._isSpeechLoaded);
+        yield return null;
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.wheel);
         //yield return new WaitUntil(() => CameraController.Instance.Reached());
 

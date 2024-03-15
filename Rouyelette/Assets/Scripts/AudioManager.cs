@@ -29,8 +29,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AzureTextToSpeech _speechBot;
     [SerializeField] AudioSource _speechAudioSource;
 
-    public bool _isSpeechLoaded = false;
-
     public enum SFX { ballHit ,chip ,error,select,win,loss};
 
     public enum Clip { wheel }
@@ -56,22 +54,23 @@ public class AudioManager : MonoBehaviour
      
     }
 
-    public async void SpeechAction(string speech)
+    public async void SpeechAction(Speech speech, int number =-1)
     {
         while (_speechAudioSource.isPlaying)
         {
 
         }
 
-        _speechAudioSource.clip = await _speechBot.CallAzure(speech).ContinueWith(task =>
-        {
-            _isSpeechLoaded = task.IsCompletedSuccessfully;
-            return task.Result;
+        _speechAudioSource.clip = _audioData.GetSpeech(speech, number);
 
-        });
+        //_speechAudioSource.clip = await _speechBot.CallAzure(speech).ContinueWith(task =>
+        //{
+        //    _isSpeechLoaded = task.IsCompletedSuccessfully;
+        //    return task.Result;
+
+        //});
 
         _speechAudioSource.Play();
-        _isSpeechLoaded = false;
     }
 
 
