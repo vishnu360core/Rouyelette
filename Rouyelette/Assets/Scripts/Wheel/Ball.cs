@@ -94,9 +94,9 @@ public class Ball : MonoBehaviour
         //rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
 
-    public async void EnableGravityAction()
+    public IEnumerator EnableGravityAction()
     {
-        await Task.Delay((int)(10000));
+        yield return new WaitForSeconds(10.0f);
 
         EnablePhysics(true);
 

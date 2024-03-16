@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using static TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Core.OpenAIJsons;
 
 public class GameController : MonoBehaviour, BoardControlInterface
 {
@@ -37,11 +38,30 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
 
-        AudioManager.Instance.SpeechAction(Speech.placeBet);
+        //Test();
+
+        NetworkManager.Instance.TestNetworkAction();
 
         //API Handling ...
-        APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+        // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
+
+    void Test()
+    {
+        ResponseData responseData = new ResponseData { result = 0, hash = "dsdsds", blockNumber = 0 };
+
+        _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
+
+        Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
+
+        // TMP_Text.text = responseData.result.ToString();
+
+        AudioManager.Instance.SpeechAction(Speech.placeBet);
+        Actions.EnablePlay(true);
+
+        StartCoroutine(Timer());
+    }
+
 
     #region API RESPONSE HANDLING
     void SuccessAPI(string response)
@@ -127,6 +147,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         yield return null;
 
+        //Test();
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 

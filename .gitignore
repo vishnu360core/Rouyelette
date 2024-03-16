@@ -47,6 +47,7 @@ ExportedObj/
 *.pdb
 *.mdb
 *.o
+*.a
 *.dylib
 *.mvfrm
 *.opendb

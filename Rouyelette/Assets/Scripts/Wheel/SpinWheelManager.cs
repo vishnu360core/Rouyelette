@@ -23,7 +23,7 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
         for (int i = 0; i < obstacles.Count; i++)
          obstacles[i].callback = this; 
 
-            Actions.ResetAction += ResetAction;
+        Actions.ResetAction += ResetAction;
 
         Actions.MoveTowardTarget += MoveTowardsTargetAction;
 
@@ -104,9 +104,9 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
     {
         AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
 
-        ball.EnableGravityAction();
-
         StartCoroutine(ball.RotateObject());
+
+        StartCoroutine(ball.EnableGravityAction());
 
         _spinWheel.SpinAction();
     }

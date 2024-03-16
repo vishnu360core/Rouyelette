@@ -374,7 +374,9 @@ struct RangeConditionHeaderValue_t7CF01EA3F7953A0523F3151766EFF8A825BF758E;
 struct RangeHeaderValue_t630ED087287989124CA74FF95A0427B69EC714FC;
 struct RangeItemHeaderValue_tDBD7AC8E866D09E1163406FE164041F3843F8A6B;
 struct RemoteCertificateValidationCallback_t2F4C5801F96B2C2BF934511796C5BFEAEBF01955;
+struct RequestCacheBinding_t18F3F4FF8D0F77E86C2C666CEE7FD48A80C042EE;
 struct RequestCachePolicy_tF15C94C5E458478914D5EB17753294BD488B0550;
+struct RequestCacheProtocol_t43C1AC170194874A0C0B0D3B8BE9EABFB613DF85;
 struct RetryConditionHeaderValue_tF8780D73F1C11653BD75E96A1261161754D6F020;
 struct SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6;
 struct SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2;
@@ -427,6 +429,7 @@ struct HeaderBucket_t4CC67A9DE27ED28E7507D385B084F3369277A2D3;
 struct U3CU3Ec_t37D6644E370F5122DF7821FAB090FD2E2D6AC66A;
 struct U3CU3Ec_t3A29946AE9321C2660A5B9EF3F49FC834B2EB915;
 struct U3CU3Ec_t53EE9EA09A43E4E01CCFC060321BF6D2B0B4972C;
+struct KeysCollection_t8FF5FD8704F6F99F6FD4B8A2D27DFAEFD3880F81;
 struct NameObjectEntry_t58A8B38FC7A6ABE5C83153B6C3F2696F88E7A9A2;
 struct SPKey_t3FD8B8DF5F452D3E34F29B5EC1AEC33370B1A6E5;
 struct ReadWriteTask_t0821BF49EE38596C7734E86E1A6A39D769BE2C05;
@@ -1447,6 +1450,7 @@ struct NameObjectCollectionBase_tB6400DF2FA3B64660D79586B79016B4A0BA645FC  : pub
 	RuntimeObject* ____keyComparer;
 	Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D* ____entriesTable;
 	NameObjectEntry_t58A8B38FC7A6ABE5C83153B6C3F2696F88E7A9A2* ____nullKeyEntry;
+	KeysCollection_t8FF5FD8704F6F99F6FD4B8A2D27DFAEFD3880F81* ____keys;
 	SerializationInfo_t3C47F63E24BEB9FCE2DC6309E027F238DC5C5E37* ____serializationInfo;
 	int32_t ____version;
 	RuntimeObject* ____syncRoot;
@@ -2489,6 +2493,9 @@ struct WebRequest_t89050438AE9A5AA9221ECAE223584127F7C1294B  : public MarshalByR
 {
 	int32_t ___m_AuthenticationLevel;
 	int32_t ___m_ImpersonationLevel;
+	RequestCachePolicy_tF15C94C5E458478914D5EB17753294BD488B0550* ___m_CachePolicy;
+	RequestCacheProtocol_t43C1AC170194874A0C0B0D3B8BE9EABFB613DF85* ___m_CacheProtocol;
+	RequestCacheBinding_t18F3F4FF8D0F77E86C2C666CEE7FD48A80C042EE* ___m_CacheBinding;
 };
 struct X509Certificate2_t2BEAEA485A3CEA81D191B12A341675DBC54CDD2D  : public X509Certificate_t966CC553AF25AE7991F5B4C2AACBCF6C66C8F9C4
 {
@@ -5690,7 +5697,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_3 = V_0;
 		HttpWebRequest_set_ThrowOnError_mB232259B74EC15F9E119944A41934D673A7DE4E7_inline(L_3, (bool)0, NULL);
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_4 = V_0;
-		VirtualActionInvoker1< bool >::Invoke(32, L_4, (bool)0);
+		VirtualActionInvoker1< bool >::Invoke(34, L_4, (bool)0);
 		HttpRequestMessage_t74681B0588D722488483789091C3CF356C729DF2* L_5 = ___0_request;
 		Version_tE426DB5655D0F22920AE16A2AA9AB7781B8255A7* L_6;
 		L_6 = HttpRequestMessage_get_Version_m7A3470B97F025A915ACB106E12865EA2614840FA(L_5, NULL);
@@ -5724,14 +5731,14 @@ IL_0045:
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_14 = V_0;
 		String_t* L_15 = __this->___connectionGroupName;
-		VirtualActionInvoker1< String_t* >::Invoke(11, L_14, L_15);
+		VirtualActionInvoker1< String_t* >::Invoke(12, L_14, L_15);
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_16 = V_0;
 		HttpRequestMessage_t74681B0588D722488483789091C3CF356C729DF2* L_17 = ___0_request;
 		HttpMethod_t9AB9E2BAC0D02F479F4624271A4F79E70221258E* L_18;
 		L_18 = HttpRequestMessage_get_Method_m1E2C8323C43F6E09513C58777F2B0D9CD0D2627B_inline(L_17, NULL);
 		String_t* L_19;
 		L_19 = HttpMethod_get_Method_mB34ECB806CC489697FEB8B2A490220F23BDCEA9A_inline(L_18, NULL);
-		VirtualActionInvoker1< String_t* >::Invoke(9, L_16, L_19);
+		VirtualActionInvoker1< String_t* >::Invoke(10, L_16, L_19);
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_20 = V_0;
 		Version_tE426DB5655D0F22920AE16A2AA9AB7781B8255A7* L_21;
 		L_21 = HttpWebRequest_get_ProtocolVersion_m549796C52E9DB1EB8E74EF92E422C7BC427CBA39_inline(L_20, NULL);
@@ -5783,7 +5790,7 @@ IL_00b1:
 	}
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_36 = V_0;
-		VirtualActionInvoker1< bool >::Invoke(30, L_36, (bool)1);
+		VirtualActionInvoker1< bool >::Invoke(32, L_36, (bool)1);
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_37 = V_0;
 		int32_t L_38 = __this->___maxAutomaticRedirections;
 		HttpWebRequest_set_MaximumAutomaticRedirections_m56E0D486C472A9C47F4B2AD9549203EE62959B84(L_37, L_38, NULL);
@@ -5793,7 +5800,7 @@ IL_00b1:
 IL_00ce:
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_39 = V_0;
-		VirtualActionInvoker1< bool >::Invoke(30, L_39, (bool)0);
+		VirtualActionInvoker1< bool >::Invoke(32, L_39, (bool)0);
 	}
 
 IL_00d5:
@@ -5803,7 +5810,7 @@ IL_00d5:
 		HttpWebRequest_set_AutomaticDecompression_m476D1CA785C0FF74419526CFBCA00F29E0E59D73(L_40, L_41, NULL);
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_42 = V_0;
 		bool L_43 = __this->___preAuthenticate;
-		VirtualActionInvoker1< bool >::Invoke(20, L_42, L_43);
+		VirtualActionInvoker1< bool >::Invoke(21, L_42, L_43);
 		bool L_44 = __this->___useCookies;
 		if (!L_44)
 		{
@@ -5814,14 +5821,14 @@ IL_00d5:
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_45 = V_0;
 		CookieContainer_t54CCEBC3470E5D0699BB17928C171D7AFCA7614E* L_46;
 		L_46 = MonoWebRequestHandler_get_CookieContainer_m6BD016ADE4DDC81F8E93C594EF46F9778F7C611E(__this, NULL);
-		VirtualActionInvoker1< CookieContainer_t54CCEBC3470E5D0699BB17928C171D7AFCA7614E* >::Invoke(33, L_45, L_46);
+		VirtualActionInvoker1< CookieContainer_t54CCEBC3470E5D0699BB17928C171D7AFCA7614E* >::Invoke(35, L_45, L_46);
 	}
 
 IL_0101:
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_47 = V_0;
 		RuntimeObject* L_48 = __this->___credentials;
-		VirtualActionInvoker1< RuntimeObject* >::Invoke(16, L_47, L_48);
+		VirtualActionInvoker1< RuntimeObject* >::Invoke(17, L_47, L_48);
 		bool L_49 = __this->___useProxy;
 		if (!L_49)
 		{
@@ -5831,14 +5838,14 @@ IL_0101:
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_50 = V_0;
 		RuntimeObject* L_51 = __this->___proxy;
-		VirtualActionInvoker1< RuntimeObject* >::Invoke(19, L_50, L_51);
+		VirtualActionInvoker1< RuntimeObject* >::Invoke(20, L_50, L_51);
 		goto IL_012a;
 	}
 
 IL_0123:
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_52 = V_0;
-		VirtualActionInvoker1< RuntimeObject* >::Invoke(19, L_52, (RuntimeObject*)NULL);
+		VirtualActionInvoker1< RuntimeObject* >::Invoke(20, L_52, (RuntimeObject*)NULL);
 	}
 
 IL_012a:
@@ -5876,14 +5883,14 @@ IL_012a:
 		il2cpp_codegen_runtime_class_init_inline(TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A_il2cpp_TypeInfo_var);
 		double L_66;
 		L_66 = TimeSpan_get_TotalMilliseconds_m3506C1A49F1FE37A82F3027EA061D18215EF87CF((&V_4), NULL);
-		VirtualActionInvoker1< int32_t >::Invoke(22, L_63, il2cpp_codegen_cast_double_to_int<int32_t>(L_66));
+		VirtualActionInvoker1< int32_t >::Invoke(23, L_63, il2cpp_codegen_cast_double_to_int<int32_t>(L_66));
 	}
 
 IL_017d:
 	{
 		HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_67 = V_0;
 		WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* L_68;
-		L_68 = VirtualFuncInvoker0< WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* >::Invoke(12, L_67);
+		L_68 = VirtualFuncInvoker0< WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* >::Invoke(13, L_67);
 		V_1 = L_68;
 		HttpRequestMessage_t74681B0588D722488483789091C3CF356C729DF2* L_69 = ___0_request;
 		HttpRequestHeaders_tAC1E0B2246D915164C80B7A7925DE31283788DF7* L_70;
@@ -6093,12 +6100,12 @@ IL_003c:
 		WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* L_15 = V_1;
 		int32_t L_16 = V_2;
 		String_t* L_17;
-		L_17 = VirtualFuncInvoker1< String_t*, int32_t >::Invoke(22, L_15, L_16);
+		L_17 = VirtualFuncInvoker1< String_t*, int32_t >::Invoke(23, L_15, L_16);
 		V_3 = L_17;
 		WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* L_18 = V_1;
 		int32_t L_19 = V_2;
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_20;
-		L_20 = VirtualFuncInvoker1< StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*, int32_t >::Invoke(21, L_18, L_19);
+		L_20 = VirtualFuncInvoker1< StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*, int32_t >::Invoke(22, L_18, L_19);
 		V_4 = L_20;
 		String_t* L_21 = V_3;
 		bool L_22;
@@ -6361,7 +6368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CSendAsyncU3Eb__99_0_mB1706044
 	}
 	{
 		RuntimeObject* L_0 = ___0_l;
-		VirtualActionInvoker0::Invoke(29, ((HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9*)CastclassClass((RuntimeObject*)L_0, HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9_il2cpp_TypeInfo_var)));
+		VirtualActionInvoker0::Invoke(31, ((HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9*)CastclassClass((RuntimeObject*)L_0, HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9_il2cpp_TypeInfo_var)));
 		return;
 	}
 }
@@ -6707,7 +6714,7 @@ IL_04e2_2:
 					{
 						HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_54 = __this->___U3CwrequestU3E5__2;
 						WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* L_55;
-						L_55 = VirtualFuncInvoker0< WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* >::Invoke(12, L_54);
+						L_55 = VirtualFuncInvoker0< WebHeaderCollection_tAF1CF77FB39D8E1EB782174E30566BAF55F71AE8* >::Invoke(13, L_54);
 						V_6 = L_55;
 						HttpContent_tD09737BB27CB151BC9688882F785208620211E1C* L_56 = __this->___U3CcontentU3E5__5;
 						HttpContentHeaders_t4E2506F081BD682D0538A5CB38ED1D836C2E8C4F* L_57;
@@ -6899,7 +6906,7 @@ IL_021a_3:
 						HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_89 = __this->___U3CwrequestU3E5__2;
 						int64_t L_90;
 						L_90 = Nullable_1_get_Value_mB475257F3012818AAA61B72B67DA701FACE716DC((&V_13), Nullable_1_get_Value_mB475257F3012818AAA61B72B67DA701FACE716DC_RuntimeMethod_var);
-						VirtualActionInvoker1< int64_t >::Invoke(14, L_89, L_90);
+						VirtualActionInvoker1< int64_t >::Invoke(15, L_89, L_90);
 						goto IL_02f6_3;
 					}
 
@@ -6976,7 +6983,7 @@ IL_02cb_3:
 						V_16 = L_110;
 						int64_t L_111;
 						L_111 = Nullable_1_get_Value_mB475257F3012818AAA61B72B67DA701FACE716DC((&V_16), Nullable_1_get_Value_mB475257F3012818AAA61B72B67DA701FACE716DC_RuntimeMethod_var);
-						VirtualActionInvoker1< int64_t >::Invoke(14, L_107, L_111);
+						VirtualActionInvoker1< int64_t >::Invoke(15, L_107, L_111);
 					}
 
 IL_02f6_3:
@@ -6989,7 +6996,7 @@ IL_02f6_3:
 						Il2CppCodeGenWriteBarrier((void**)(&L_112->___ResendContentFactory), (void*)L_114);
 						HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_115 = __this->___U3CwrequestU3E5__2;
 						Task_1_t06484715029D51A4420723456D165BAC63798F8D* L_116;
-						L_116 = VirtualFuncInvoker0< Task_1_t06484715029D51A4420723456D165BAC63798F8D* >::Invoke(27, L_115);
+						L_116 = VirtualFuncInvoker0< Task_1_t06484715029D51A4420723456D165BAC63798F8D* >::Invoke(29, L_115);
 						ConfiguredTaskAwaitable_1_t8AF0FEBCC05402B6B9416E0286B45E21D42056AA L_117;
 						L_117 = Task_1_ConfigureAwait_m623E0E89F5E23F844E733FB75503B8AD97120277(L_116, (bool)0, Task_1_ConfigureAwait_m623E0E89F5E23F844E733FB75503B8AD97120277_RuntimeMethod_var);
 						V_19 = L_117;
@@ -7157,14 +7164,14 @@ IL_0429_3:
 					}
 					{
 						HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_148 = __this->___U3CwrequestU3E5__2;
-						VirtualActionInvoker1< int64_t >::Invoke(14, L_148, ((int64_t)0));
+						VirtualActionInvoker1< int64_t >::Invoke(15, L_148, ((int64_t)0));
 					}
 
 IL_0448_3:
 					{
 						HttpWebRequest_tDE1EF6EAE715BE99DB1645ED937A6A2AB930E7C9* L_149 = __this->___U3CwrequestU3E5__2;
 						Task_1_t5E1291839AEFBDBE3699513D40515588EE167AB0* L_150;
-						L_150 = VirtualFuncInvoker0< Task_1_t5E1291839AEFBDBE3699513D40515588EE167AB0* >::Invoke(28, L_149);
+						L_150 = VirtualFuncInvoker0< Task_1_t5E1291839AEFBDBE3699513D40515588EE167AB0* >::Invoke(30, L_149);
 						ConfiguredTaskAwaitable_1_tC80D7FC6B858A8683E07A7A894D3329F33EFB022 L_151;
 						L_151 = Task_1_ConfigureAwait_m30B2F04D4FC03DE8195FED5A63C848EB5DB36A7F(L_150, (bool)0, Task_1_ConfigureAwait_m30B2F04D4FC03DE8195FED5A63C848EB5DB36A7F_RuntimeMethod_var);
 						V_22 = L_151;
@@ -7800,7 +7807,7 @@ IL_0005:
 		L_4 = Encoding_get_ASCII_mCC61B512D320FD4E2E71CC0DFDF8DDF3CD215C65(NULL);
 		String_t* L_5 = ___0_value;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_6;
-		L_6 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(17, L_4, L_5);
+		L_6 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(20, L_4, L_5);
 		return L_6;
 	}
 }
@@ -10199,7 +10206,7 @@ IL_0114_1:
 			int32_t L_51 = V_4;
 			int32_t L_52 = V_5;
 			String_t* L_53;
-			L_53 = VirtualFuncInvoker3< String_t*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(36, L_48, L_49, L_50, ((int32_t)il2cpp_codegen_subtract(L_51, L_52)));
+			L_53 = VirtualFuncInvoker3< String_t*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(39, L_48, L_49, L_50, ((int32_t)il2cpp_codegen_subtract(L_51, L_52)));
 			V_2 = L_53;
 			goto IL_013f;
 		}
@@ -11883,7 +11890,7 @@ IL_001d:
 IL_002d:
 	{
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(9, G_B4_0);
+		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(10, G_B4_0);
 		MediaTypeHeaderValue_set_CharSet_m4419616608E218C01A530524B1CC8B3897C892B6(G_B4_1, L_11, NULL);
 		HttpContentHeaders_set_ContentType_m3990A9596A873AE4AFCE1FEB2FA744136B48D779(G_B4_3, G_B4_2, NULL);
 		return;
@@ -11913,7 +11920,7 @@ IL_000a:
 	{
 		String_t* L_3 = ___0_content;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_4;
-		L_4 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(17, G_B2_0, L_3);
+		L_4 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(20, G_B2_0, L_3);
 		return L_4;
 	}
 }
