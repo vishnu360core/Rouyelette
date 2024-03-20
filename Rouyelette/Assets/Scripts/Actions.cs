@@ -41,4 +41,6 @@ public static class Actions
 
     public static Action <bool> EnableObstacles;
 
+    public static Action <bool> DealerSet;
+
 }

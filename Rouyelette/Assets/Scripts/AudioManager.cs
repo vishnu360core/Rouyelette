@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-using TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.Core;
-using TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.MonoBehaviours;
+
 using UnityEngine.UI;
 using System.Threading.Tasks;
 
@@ -26,7 +25,6 @@ public class AudioManager : MonoBehaviour
     
     [Space]
     [Header("SpeechTextManager:")]
-    [SerializeField] AzureTextToSpeech _speechBot;
     [SerializeField] AudioSource _speechAudioSource;
 
     public enum SFX { ballHit ,chip ,error,select,win,loss};

@@ -91,12 +91,12 @@ public class Ball : MonoBehaviour
 
         IsGrounded = !enable;
 
-        //rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+        rb.constraints = !enable ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
 
     public async void EnableGravityAction()
     {
-        await Task.Delay((int)(10000));
+        await Task.Delay((int)(4000));
 
         EnablePhysics(true);
 
@@ -144,7 +144,7 @@ public class Ball : MonoBehaviour
     {
         if (InAir)
         {
-            this.transform.DOMove(_target.transform.position, 0.1f).OnComplete(() => CompletedMovementAction());
+           this.transform.DOMove(_target.transform.position, 0.03f).OnComplete(() => CompletedMovementAction());
 
             //this.transform.position = _target.transform.position;
         }
@@ -205,9 +205,9 @@ public class Ball : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
 
         if (_target != t)
-            this.transform.position = Vector3.MoveTowards(this.transform.position, t.position, 0.002f);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, t.position, 0.001f);
         else
-            this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
+            this.transform.DOMove(_target.position, 0.6f).SetEase(Ease.Linear);
 
 
 

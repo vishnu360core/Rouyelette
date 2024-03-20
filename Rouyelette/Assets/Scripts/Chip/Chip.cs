@@ -11,7 +11,6 @@ public interface ChipInterface
     public void ChipSelecion(Chip chip);    
 }
 
-[RequireComponent(typeof(Outline))]
 [RequireComponent(typeof(BoxCollider))]
 public class Chip : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class Chip : MonoBehaviour
 
     public ChipInterface callback;
 
-    Outline _outline;
+    [SerializeField] Outline _outline;
 
     bool enablePlay = false;
 
@@ -37,7 +36,6 @@ public class Chip : MonoBehaviour
         numberText.text = _number.ToString();
 
         _position = transform.position;
-        _outline = GetComponent<Outline>();
 
         Actions.ResetAction += ResetAction;
 

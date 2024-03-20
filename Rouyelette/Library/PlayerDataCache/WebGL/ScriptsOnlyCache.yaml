@@ -1,8 +1,5 @@
 ScriptsOnlyBuild:
   usedScripts:
-    Assembly-CSharp-firstpass.dll:
-    - TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.MonoBehaviours.AzureTextToSpeech
-    - TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.ScriptableObjects.AzureSpeechDefaultSO
     Assembly-CSharp.dll:
     - APIHandler
     - AudioData
@@ -18,6 +15,7 @@ ScriptsOnlyBuild:
     - DealerController
     - GameController
     - Layout
+    - Network
     - Obstacle
     - Outline
     - PopMessage
@@ -60,6 +58,7 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineBrain/BrainEvent
     - Cinemachine.CinemachineBrain/VcamEvent
     - Cinemachine.LensSettings
+    - Outline/ListVector3
     DOTween:
     - DG.Tweening.Core.DOTweenSettings/ModulesSetup
     - DG.Tweening.Core.DOTweenSettings/SafeModeOptions
@@ -139,85 +138,85 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16684}
+      Script: {instanceID: 16676}
     - Class: 114
-      Script: {instanceID: 16708}
+      Script: {instanceID: 16700}
     - Class: 114
-      Script: {instanceID: 16782}
+      Script: {instanceID: 16774}
     - Class: 114
-      Script: {instanceID: 17534}
+      Script: {instanceID: 17610}
     - Class: 114
-      Script: {instanceID: 17624}
+      Script: {instanceID: 18026}
     - Class: 114
-      Script: {instanceID: 18044}
+      Script: {instanceID: 18322}
     - Class: 114
-      Script: {instanceID: 18342}
+      Script: {instanceID: 18418}
     - Class: 114
-      Script: {instanceID: 18440}
+      Script: {instanceID: 18546}
     - Class: 114
-      Script: {instanceID: 18568}
+      Script: {instanceID: 18842}
     - Class: 114
-      Script: {instanceID: 18868}
+      Script: {instanceID: 18882}
     - Class: 114
-      Script: {instanceID: 18908}
+      Script: {instanceID: 19758}
     - Class: 114
-      Script: {instanceID: 19444}
+      Script: {instanceID: 20392}
     - Class: 114
-      Script: {instanceID: 19796}
+      Script: {instanceID: 20536}
     - Class: 114
-      Script: {instanceID: 20432}
+      Script: {instanceID: 22312}
     - Class: 114
-      Script: {instanceID: 20576}
+      Script: {instanceID: 22546}
     - Class: 114
-      Script: {instanceID: 22362}
+      Script: {instanceID: 22760}
     - Class: 114
-      Script: {instanceID: 22600}
+      Script: {instanceID: 23154}
     - Class: 114
-      Script: {instanceID: 22814}
+      Script: {instanceID: 23342}
     - Class: 114
-      Script: {instanceID: 23212}
+      Script: {instanceID: 23652}
     - Class: 114
-      Script: {instanceID: 23404}
+      Script: {instanceID: 24414}
     - Class: 114
-      Script: {instanceID: 23720}
+      Script: {instanceID: 24568}
     - Class: 114
-      Script: {instanceID: 24484}
+      Script: {instanceID: 24700}
     - Class: 114
-      Script: {instanceID: 24640}
+      Script: {instanceID: 25160}
     - Class: 114
-      Script: {instanceID: 24772}
+      Script: {instanceID: 25342}
     - Class: 114
-      Script: {instanceID: 25234}
+      Script: {instanceID: 25800}
     - Class: 114
-      Script: {instanceID: 25416}
+      Script: {instanceID: 26094}
     - Class: 114
-      Script: {instanceID: 25872}
+      Script: {instanceID: 26106}
     - Class: 114
-      Script: {instanceID: 26168}
+      Script: {instanceID: 26200}
     - Class: 114
-      Script: {instanceID: 26180}
+      Script: {instanceID: 26222}
     - Class: 114
-      Script: {instanceID: 26274}
+      Script: {instanceID: 26334}
     - Class: 114
-      Script: {instanceID: 26296}
+      Script: {instanceID: 26376}
     - Class: 114
-      Script: {instanceID: 26408}
+      Script: {instanceID: 26446}
     - Class: 114
-      Script: {instanceID: 26450}
+      Script: {instanceID: 26858}
     - Class: 114
-      Script: {instanceID: 26936}
+      Script: {instanceID: 26918}
     - Class: 114
-      Script: {instanceID: 26996}
+      Script: {instanceID: 27186}
     - Class: 114
-      Script: {instanceID: 27264}
+      Script: {instanceID: 27484}
     - Class: 114
-      Script: {instanceID: 27562}
+      Script: {instanceID: 30406}
     - Class: 114
-      Script: {instanceID: 30426}
+      Script: {instanceID: 30408}
     - Class: 114
-      Script: {instanceID: 30428}
+      Script: {instanceID: 30410}
     - Class: 114
-      Script: {instanceID: 30430}
+      Script: {instanceID: 30412}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -241,12 +240,6 @@ ScriptsOnlyBuild:
     - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: b5007673bbbdb9d12597a1d8201370f5
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: d41ab9b5ea92474f9c0a6937a0607ce1
@@ -297,12 +290,6 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 8ff283439406e58c67c19d7c42f7985e
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Examples
-    className: Player
-  - hash:
-      serializedVersion: 2
       Hash: d236101b99a90c2410dc5df2436a6e9b
     assemblyName: Assembly-CSharp
     namespaceName: Cinemachine
@@ -327,12 +314,6 @@ ScriptsOnlyBuild:
     className: UnityOnDropMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 85579f23545ce36a26e5fb6416705d56
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Examples
-    className: Camera
-  - hash:
-      serializedVersion: 2
       Hash: 945066eda61dd1376bbc1e2e19d6b68b
     assemblyName: Assembly-CSharp
     namespaceName: Cinemachine
@@ -343,12 +324,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnBecameVisibleMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 455608c00617fd0f12b8003ce04c5f00
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.ScriptableObjects
-    className: AzureSpeechDefaultSO
   - hash:
       serializedVersion: 2
       Hash: d1f1faf50bd57955f6edd886536caf35
@@ -453,12 +428,6 @@ ScriptsOnlyBuild:
     className: ScriptMachine
   - hash:
       serializedVersion: 2
-      Hash: 8266b4e5c28d5250a845b263b1b2a5ca
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Examples
-    className: AI
-  - hash:
-      serializedVersion: 2
       Hash: 43ebd945b04bced376c791411cf5a289
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -475,12 +444,6 @@ ScriptsOnlyBuild:
     assemblyName: DOTween.dll
     namespaceName: DG.Tweening.Core
     className: DOTweenSettings
-  - hash:
-      serializedVersion: 2
-      Hash: a04e1262184988351d0d96032028f43c
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.MonoBehaviours
-    className: AzureSpeechToText
   - hash:
       serializedVersion: 2
       Hash: 418b67019f13f9684552f2693bae3971
@@ -513,7 +476,7 @@ ScriptsOnlyBuild:
     className: CinemachineStateDrivenCamera
   - hash:
       serializedVersion: 2
-      Hash: 787fb937dda26de8b7a264c26c2e837a
+      Hash: 8703dbe14671f00078f94a00b246e151
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameController
@@ -523,12 +486,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
     className: ScriptGraphAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 8980f022d2e66374f7ac9fe1c64bb89a
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours
-    className: Reworder
   - hash:
       serializedVersion: 2
       Hash: 72561d2e822b466169cd12a3b9f9ae0c
@@ -561,7 +518,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 0ec9f7d54e93cb26ab979ed2601fc091
+      Hash: 01526dc9c08b975e80c2181c23b04ece
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AudioManager
@@ -639,12 +596,6 @@ ScriptsOnlyBuild:
     className: TMP_TextInfoDebugTool
   - hash:
       serializedVersion: 2
-      Hash: 3dd23504f4d41ebaec7fb13ab7f26050
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.MonoBehaviours
-    className: AzureTextToSpeech
-  - hash:
-      serializedVersion: 2
       Hash: e88d71ef93aba4e7faf243430f6a10ce
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -667,12 +618,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnBeginDragMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: c8008d880b91dadfa084954d858a331f
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Examples
-    className: King
   - hash:
       serializedVersion: 2
       Hash: 10c17b309bdca62b4d7fbaf113ed4ca0
@@ -729,18 +674,6 @@ ScriptsOnlyBuild:
     className: UnityOnDeselectMessageListener
   - hash:
       serializedVersion: 2
-      Hash: f4169c3fdf278c14d5b8937160332daf
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours
-    className: GPT3AI
-  - hash:
-      serializedVersion: 2
-      Hash: a201407d44eba172de911246b4df85df
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.ScriptableObjects
-    className: OpenAIKeysSO
-  - hash:
-      serializedVersion: 2
       Hash: 4166580c620718548959a77fa7b43fc1
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -787,12 +720,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
-  - hash:
-      serializedVersion: 2
-      Hash: 613deefc2cd33d9ba9b548d11f8b386e
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours
-    className: CallGPT3
   - hash:
       serializedVersion: 2
       Hash: d0756c7bd0cd748ca29f10c1a76148b5
@@ -859,12 +786,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro
     className: TMP_TextEventHandler
-  - hash:
-      serializedVersion: 2
-      Hash: fea8f463ccf37ebcc1c9400fbb0d45b9
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.Examples
-    className: AzureSpeechOpenAIDemoManager
   - hash:
       serializedVersion: 2
       Hash: a89b0448af4e1cd103a77f9fec0a961f
@@ -999,12 +920,6 @@ ScriptsOnlyBuild:
     className: CinemachineBrain
   - hash:
       serializedVersion: 2
-      Hash: bc2603ab17d6847b6e6a6e4608f0737f
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours
-    className: ChatGPT
-  - hash:
-      serializedVersion: 2
       Hash: b010515426356eae1a7f06e63eaf1c76
     assemblyName: Assembly-CSharp
     namespaceName: Cinemachine
@@ -1029,12 +944,6 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: b76996da24a8f4a37af3c11555c9d505
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.ScriptableObjects
-    className: AzureSpeechKeysSO
-  - hash:
-      serializedVersion: 2
       Hash: f778e23b6ff26b8de4721be0eb1fa240
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1053,7 +962,7 @@ ScriptsOnlyBuild:
     className: SimpleScript
   - hash:
       serializedVersion: 2
-      Hash: 810c395aee5b88d3b09c276cc73ac899
+      Hash: 85bdd6bb0c0ae14aa0f9bda3b3636029
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Chip
@@ -1087,12 +996,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnJointBreakMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 73d885dc51de4ab315aa0696e0e20928
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.Examples
-    className: TextToSpeech_AzureSpeechManager
   - hash:
       serializedVersion: 2
       Hash: 1ab136900c0edaeeb49424c852595030
@@ -1329,12 +1232,6 @@ ScriptsOnlyBuild:
     className: ObjectSpin
   - hash:
       serializedVersion: 2
-      Hash: 6058e5233d5e5bbe58503ac7cf2ee8a9
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.Examples
-    className: ChatBot
-  - hash:
-      serializedVersion: 2
       Hash: 0b63f6d3335e11939ce8790b904c8691
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -1431,12 +1328,6 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 75400505b5b476ba0e5169b4a6f3d6e2
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureSpeech.Examples
-    className: SpeechToText_AzureSpeechManager
-  - hash:
-      serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1447,6 +1338,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.AI.Navigation
     namespaceName: Unity.AI.Navigation
     className: NavMeshSurface
+  - hash:
+      serializedVersion: 2
+      Hash: b5007673bbbdb9d12597a1d8201370f5
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: 1ce63d97d1ca25cba2d91d5f32fd5f79
@@ -1569,6 +1466,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: be49e4b49414e948087e2d8364d28fbb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Network
+  - hash:
+      serializedVersion: 2
       Hash: abe1efa1532c14344f73dfe422e36f22
     assemblyName: Assembly-CSharp
     namespaceName: Cinemachine
@@ -1623,12 +1526,6 @@ ScriptsOnlyBuild:
     className: SpeechController
   - hash:
       serializedVersion: 2
-      Hash: 5b80b8493e75ec9190904a30fd23f331
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours
-    className: CallChatGPT
-  - hash:
-      serializedVersion: 2
       Hash: 6a0b5b415c00f783202fd1ae2d556cb2
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -1639,12 +1536,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerDownMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 1d8e8131488f6d715f14eb081d9a10ee
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.AzureKeyVault.MonoBehaviours
-    className: KeyVualtManager
   - hash:
       serializedVersion: 2
       Hash: ee34255e3e86289bde9bad5e07b84cbc
@@ -1707,7 +1598,7 @@ ScriptsOnlyBuild:
     className: UnityOnMouseUpMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 608f7120534f024563bff111da83c0e1
+      Hash: b0075d253f606d94fc1002675850b878
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Wheel
@@ -1717,12 +1608,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
     className: VertexZoom
-  - hash:
-      serializedVersion: 2
-      Hash: ec3f6a545f9b18a04462b44b90efbf64
-    assemblyName: Assembly-CSharp-firstpass
-    namespaceName: TheAshBot.Assets.TextAndVoiceGenerationToolkit.OpenAI.MonoBehaviours
-    className: GetSentiment
   - hash:
       serializedVersion: 2
       Hash: 00eef92bf387da2c9009267123d9d674
@@ -1744,4 +1629,4 @@ ScriptsOnlyBuild:
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/WebGLBuild_20240213_1
+  playerPath: D:/WebGLbuild_20240320_1

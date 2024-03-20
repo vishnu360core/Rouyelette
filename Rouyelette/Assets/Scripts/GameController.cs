@@ -22,7 +22,11 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     [Header("BoardTime Delay")]
     [Range(0, 100)]
-    [SerializeField] int _delay; 
+    [SerializeField] int _delay;
+
+
+    [Space]
+    [SerializeField] bool _dealerStatus;
 
 
     private void Awake()
@@ -36,11 +40,22 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
+        Actions.DealerSet += DealerStatusAction;
 
-        AudioManager.Instance.SpeechAction(Speech.placeBet);
+        //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
         //API Handling ...
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+    }
+
+    /// <summary>
+    /// Dealer Status information
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <exception cref="NotImplementedException"></exception>
+    private void DealerStatusAction(bool obj)
+    {
+        _dealerStatus = obj;
     }
 
     #region API RESPONSE HANDLING
@@ -58,6 +73,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         // TMP_Text.text = responseData.result.ToString();
 
+
+        Actions.DealerSet(false);
         AudioManager.Instance.SpeechAction(Speech.placeBet);
         Actions.EnablePlay(true);
 
@@ -126,7 +143,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     IEnumerator ResetAction()
     {
         yield return null;
-
+        yield return new WaitUntil(() => _dealerStatus);
         APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 

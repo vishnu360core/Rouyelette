@@ -26,6 +26,8 @@ public class DealerController : MonoBehaviour
     void ResetAction()
     {
         MoveTowards(_start);
+
+        Actions.DealerSet(true);
     }
 
     public void MoveTowards(Transform t)
@@ -43,7 +45,10 @@ public class DealerController : MonoBehaviour
 
         Debug.Log("Dealer movement 2 " + t.name);
 
-        _dealerObject.transform.DOMove(newPos, 1.0f).SetDelay(1.0f).OnComplete(()=> Invoke("ResetAction",1.0f));
+        if (t != _start)
+            _dealerObject.transform.DOMove(newPos, 1.0f).SetDelay(1.5f).OnComplete(() => Invoke("ResetAction", 1.0f));
+        else
+            _dealerObject.transform.DOMove(newPos, 1.0f).SetDelay(1.5f);
     }
 
 }

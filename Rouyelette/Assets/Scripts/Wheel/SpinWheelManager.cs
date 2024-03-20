@@ -72,9 +72,8 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
     {
         yield return new WaitUntil(() => _spinWheel.IsStopped);
 
-       Actions.EndedSpinAction();
-
-        ball.ResetAction();
+        //ball.ResetAction();
+        Actions.EndedSpinAction();
     }
 
     /// <summary>

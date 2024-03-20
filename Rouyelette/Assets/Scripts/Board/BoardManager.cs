@@ -112,9 +112,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
     void EndSpinWheelAction()
     {
         callback.BetProducedAction(_getSlot.SlotNumber, _getSlot.Colortype);
+        _reachedTargetSlot = false;
 
         Actions.ResetAction();
-        _reachedTargetSlot = false;
 
         DealerMovement();
 

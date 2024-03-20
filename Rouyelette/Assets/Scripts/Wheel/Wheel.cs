@@ -15,8 +15,8 @@ public class Wheel : MonoBehaviour
     [Range(0,1000f)]
     [SerializeField] private float _speed = 20;
 
-
-    float _curreSpeed;  
+    [Space]
+    [SerializeField] float _curreSpeed;  
 
 
      [SerializeField] bool _isStopped = false;
@@ -59,7 +59,7 @@ public class Wheel : MonoBehaviour
 
         while (_curreSpeed > 0)
         {
-            if(_curreSpeed < 80.0f)
+            if(_curreSpeed < 110.0f)
                  Actions.StoppedSpin();
 
             angle += Time.deltaTime * _curreSpeed;
