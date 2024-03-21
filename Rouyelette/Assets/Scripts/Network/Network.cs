@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//using WebSocketSharp;
+
 using NativeWebSocket;
 using System;
+using System.Text;
+using Unity.VisualScripting;
 
 public class Network : MonoBehaviour
 {
@@ -11,7 +15,7 @@ public class Network : MonoBehaviour
 
     async void Start()
     {
-        websocket = new WebSocket("wss://socketsbay.com/wss/v2/1/demo/");
+        websocket = new WebSocket("ws://localhost:8090");
 
         websocket.OnOpen += () =>
         {
@@ -19,7 +23,7 @@ public class Network : MonoBehaviour
 
             Console.WriteLine("Opened");
 
-            websocket.SendText("Player entered") ;
+            websocket.SendText(Guid.NewGuid().ToString());
         };
 
         websocket.OnError += (e) =>
@@ -38,10 +42,27 @@ public class Network : MonoBehaviour
 
         websocket.OnMessage += (bytes) =>
         {
-            //Debug.Log("Message !!!" + bytes);
+            string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log(str);
 
         };
 
         await websocket.Connect();
     }
+
+
+    //private void Start()
+    //{
+    //    WebSocket web = new WebSocket("ws://localhost:8090");
+    //    web.Connect();
+
+    //    web.OnMessage += (sender, e) =>
+    //    {
+    //        Debug.Log(e.Data);
+    //    };
+
+    //    web.Send(Guid.NewGuid().ToString());
+    //}
+
 }

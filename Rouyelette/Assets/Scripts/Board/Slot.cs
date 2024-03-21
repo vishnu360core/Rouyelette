@@ -264,8 +264,6 @@ public class Slot : MonoBehaviour
         if (_type == SlotType.board || !other.CompareTag("Ball"))
             return;
 
-        Debug.Log("Board " +  _type);
-
         Actions.OnSlotAction(this);
     }
 
