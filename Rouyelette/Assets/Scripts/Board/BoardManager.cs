@@ -292,7 +292,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
             Slot slot = obj.GetComponent<Slot>();
 
           
-            if(slot.Type == Slot.SlotType.board && slot.SlotNumber == _index)
+            if(slot.Type == Slot.SlotType.board && slot.SlotNumber == _index && slot.BoardSlottype == Slot.BoardSlotType.integer)
             {
                 Debug.LogWarning("Dealer >>>" + slot.Type  + " " +  slot.SlotNumber);
 

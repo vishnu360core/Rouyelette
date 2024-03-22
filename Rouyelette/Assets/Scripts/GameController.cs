@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+using DataCollector;
+using UnityEngine.Playables;
+
 public class GameController : MonoBehaviour, BoardControlInterface
 {
     [Header("Managers:")]
@@ -15,7 +18,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [Header("UI Buttons:")]
     [SerializeField] Button _spinButton;
     [SerializeField] TMP_Text _timerText;
-
+    [SerializeField] GameObject _loadPanel;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -28,25 +31,92 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [Space]
     [SerializeField] bool _dealerStatus;
 
+    GameData _gameData = null;
+
+
+
 
     private void Awake()
     {
         _boardManager.callback = this;
+        _gameData = null;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
         Actions.DealerSet += DealerStatusAction;
+        Actions.GetGameData += GetGameData;
+
+        Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
         //API Handling ...
-        APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+        // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
+
+
+    void Test()
+    {
+        ResponseData responseData = new ResponseData();
+
+        responseData.hash = "dnckdnfdnv";
+        responseData.result = 0;
+        responseData.blockNumber = 0;
+
+        _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
+
+        Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
+
+        // TMP_Text.text = responseData.result.ToString();
+
+       // SaveGameStatus(CameraController.CameraSwitch.table);
+
+        StartCoroutine(Timer());
+    }
+
+    #region GAME_STATUS
+    /// <summary>
+    /// Save the game data
+    /// </summary>
+    /// <param name="camera"></param>
+    public void SaveGameStatus(GameSwitch _status)
+    {
+        _gameData = new GameData { status = _status};
+        string jsonString = JsonUtility.ToJson(_gameData);
+
+        StartCoroutine(Network.Instance.SaveToNet(jsonString));
+    }
+
+    /// <summary>
+    /// Get the game data
+    /// </summary>
+    /// <param name="obj"></param>
+    private void GetGameData(string obj)
+    {
+        Debug.Log("Data got >>>> " + obj);
+
+        try 
+        {
+            _gameData = JsonUtility.FromJson<GameData>(obj);
+            Debug.Log("Game LIVE data " + _gameData.status);
+
+
+            Actions.EnablePlay(_gameData.status !=  GameSwitch.off);
+            _loadPanel.SetActive(_gameData.status == GameSwitch.off);
+        } 
+        catch 
+        {
+            Debug.LogWarning("No GameData");
+        }   
+    }
+    #endregion
 
     /// <summary>
     /// Dealer Status information
@@ -97,6 +167,13 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// <returns></returns>
     IEnumerator Timer()
     {
+        yield return new WaitForSeconds(3.0f);
+        yield return new WaitUntil(()=> !_loadPanel.activeInHierarchy);
+
+        Actions.DealerSet(false);
+        AudioManager.Instance.SpeechAction(Speech.placeBet);
+        Actions.EnablePlay(true);
+
         float elapsedTime = 0f;
 
         while (elapsedTime < _delay)
@@ -144,7 +221,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         yield return null;
         yield return new WaitUntil(() => _dealerStatus);
-        APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+
+        SaveGameStatus(GameSwitch.on);
+        Test();
+        //APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
     void BallGroundAction()
@@ -155,15 +235,15 @@ public class GameController : MonoBehaviour, BoardControlInterface
     public void SpinButtonAction()
     {
         AudioManager.Instance.PlaySFX(AudioManager.SFX.select);
-        StartCoroutine(SpinWheelAction());  
-
-        EnableSpin(false);
+        SpinWheelAction();  
     }
 
-    IEnumerator SpinWheelAction()
+    void SpinWheelAction()
     {
-        yield return null;
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.wheel);
+
+        SaveGameStatus(GameSwitch.off);
+
         //yield return new WaitUntil(() => CameraController.Instance.Reached());
 
         Debug.LogWarning("Camera switch ");

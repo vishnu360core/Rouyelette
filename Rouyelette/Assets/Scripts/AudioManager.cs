@@ -54,11 +54,6 @@ public class AudioManager : MonoBehaviour
 
     public async void SpeechAction(Speech speech, int number =-1)
     {
-        while (_speechAudioSource.isPlaying)
-        {
-
-        }
-
         _speechAudioSource.clip = _audioData.GetSpeech(speech, number);
 
         //_speechAudioSource.clip = await _speechBot.CallAzure(speech).ContinueWith(task =>

@@ -43,4 +43,6 @@ public static class Actions
 
     public static Action <bool> DealerSet;
 
+    public static Action <string> GetGameData;
+
 }

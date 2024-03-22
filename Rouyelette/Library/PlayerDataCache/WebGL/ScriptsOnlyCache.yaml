@@ -138,83 +138,83 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16676}
+      Script: {instanceID: 16678}
     - Class: 114
-      Script: {instanceID: 16700}
+      Script: {instanceID: 16702}
     - Class: 114
-      Script: {instanceID: 16774}
+      Script: {instanceID: 16776}
     - Class: 114
-      Script: {instanceID: 17610}
+      Script: {instanceID: 17612}
     - Class: 114
-      Script: {instanceID: 18026}
+      Script: {instanceID: 18028}
     - Class: 114
-      Script: {instanceID: 18322}
+      Script: {instanceID: 18324}
     - Class: 114
-      Script: {instanceID: 18418}
+      Script: {instanceID: 18420}
     - Class: 114
-      Script: {instanceID: 18546}
+      Script: {instanceID: 18548}
     - Class: 114
-      Script: {instanceID: 18842}
+      Script: {instanceID: 18844}
     - Class: 114
-      Script: {instanceID: 18882}
+      Script: {instanceID: 18884}
     - Class: 114
-      Script: {instanceID: 19758}
+      Script: {instanceID: 19760}
     - Class: 114
-      Script: {instanceID: 20392}
+      Script: {instanceID: 20394}
     - Class: 114
-      Script: {instanceID: 20536}
+      Script: {instanceID: 20538}
     - Class: 114
-      Script: {instanceID: 22312}
+      Script: {instanceID: 22314}
     - Class: 114
-      Script: {instanceID: 22546}
+      Script: {instanceID: 22548}
     - Class: 114
-      Script: {instanceID: 22760}
+      Script: {instanceID: 22762}
     - Class: 114
-      Script: {instanceID: 23154}
+      Script: {instanceID: 23156}
     - Class: 114
-      Script: {instanceID: 23342}
+      Script: {instanceID: 23346}
     - Class: 114
-      Script: {instanceID: 23652}
+      Script: {instanceID: 23656}
     - Class: 114
-      Script: {instanceID: 24414}
+      Script: {instanceID: 24418}
     - Class: 114
-      Script: {instanceID: 24568}
+      Script: {instanceID: 24572}
     - Class: 114
-      Script: {instanceID: 24700}
+      Script: {instanceID: 24704}
     - Class: 114
-      Script: {instanceID: 25160}
+      Script: {instanceID: 25164}
     - Class: 114
-      Script: {instanceID: 25342}
+      Script: {instanceID: 25346}
     - Class: 114
-      Script: {instanceID: 25800}
+      Script: {instanceID: 25804}
     - Class: 114
-      Script: {instanceID: 26094}
+      Script: {instanceID: 26098}
     - Class: 114
-      Script: {instanceID: 26106}
+      Script: {instanceID: 26110}
     - Class: 114
-      Script: {instanceID: 26200}
+      Script: {instanceID: 26204}
     - Class: 114
-      Script: {instanceID: 26222}
+      Script: {instanceID: 26226}
     - Class: 114
-      Script: {instanceID: 26334}
+      Script: {instanceID: 26338}
     - Class: 114
-      Script: {instanceID: 26376}
+      Script: {instanceID: 26380}
     - Class: 114
-      Script: {instanceID: 26446}
+      Script: {instanceID: 26450}
     - Class: 114
-      Script: {instanceID: 26858}
+      Script: {instanceID: 26862}
     - Class: 114
-      Script: {instanceID: 26918}
+      Script: {instanceID: 26922}
     - Class: 114
-      Script: {instanceID: 27186}
+      Script: {instanceID: 27194}
     - Class: 114
-      Script: {instanceID: 27484}
+      Script: {instanceID: 27492}
     - Class: 114
-      Script: {instanceID: 30398}
+      Script: {instanceID: 30424}
     - Class: 114
-      Script: {instanceID: 30400}
+      Script: {instanceID: 30426}
     - Class: 114
-      Script: {instanceID: 30402}
+      Script: {instanceID: 30428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -474,7 +474,7 @@ ScriptsOnlyBuild:
     className: CinemachineStateDrivenCamera
   - hash:
       serializedVersion: 2
-      Hash: 8703dbe14671f00078f94a00b246e151
+      Hash: f63175efb14df179753bb38cd48ce44d
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameController

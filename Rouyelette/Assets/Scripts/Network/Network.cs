@@ -7,49 +7,94 @@ using UnityEngine;
 using NativeWebSocket;
 using System;
 using System.Text;
-using Unity.VisualScripting;
 
-public class Network : MonoBehaviour
-{
-    WebSocket websocket;
 
-    async void Start()
+    public class Network : MonoBehaviour
     {
-        websocket = new WebSocket("ws://localhost:8090");
+       static Network instance; 
+    
+       public static Network Instance { get { return instance; } }  
 
-        websocket.OnOpen += () =>
+        WebSocket websocket;
+
+        string _id;
+        public string Id => _id; 
+
+        async void Start()
         {
-            Debug.Log("Connection open!");
+           if (instance == null)
+               instance = this;
 
-            Console.WriteLine("Opened");
+            websocket = new WebSocket("ws://localhost:8090");
 
-            websocket.SendText(Guid.NewGuid().ToString());
-        };
+            websocket.OnOpen += () =>
+            {
+                Debug.Log("Connection open!");
 
-        websocket.OnError += (e) =>
+                Console.WriteLine("Opened");
+
+                websocket.SendText(Guid.NewGuid().ToString());
+            };
+
+            websocket.OnError += (e) =>
+            {
+                Debug.Log("Error! " + e);
+
+                Console.WriteLine("Opened error");
+            };
+
+            websocket.OnClose += (e) =>
+            {
+                Debug.Log("Connection closed!");
+
+                Console.WriteLine("closed");
+            };
+
+            websocket.OnMessage += (bytes) =>
+            {
+                string str = Encoding.UTF8.GetString(bytes);
+
+                Debug.Log(str);
+
+                if(IsJsonString(str))
+                  Actions.GetGameData(str);
+            };
+
+            await websocket.Connect();
+        }
+
+        /// <summary>
+        /// Sending the data 
+        /// </summary>
+        /// <param name="jsonString"></param>
+        public IEnumerator SaveToNet(string jsonString)
         {
-            Debug.Log("Error! " + e);
+            Debug.Log("WebSocket State >>>> " + websocket.State);
 
-            Console.WriteLine("Opened error");
-        };
+            if (websocket.State == WebSocketState.Closed  || websocket.State == WebSocketState.Closing)
+                yield return null;
+            else
+            {
+              yield return new WaitUntil(() => websocket.State == WebSocketState.Open);
+                websocket.SendText(jsonString);
+            }
+        }
 
-        websocket.OnClose += (e) =>
+        public  bool IsJsonString(string str)
         {
-            Debug.Log("Connection closed!");
+            try
+            {
+                // Attempt to deserialize the string
+                JsonUtility.FromJson(str, typeof(object));
+                return true;
+            }
+            catch (System.Exception)
+            {
+                // Parsing failed, indicating that the string is not valid JSON
+                return false;
+            }
+        }
 
-            Console.WriteLine("closed");
-        };
-
-        websocket.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            Debug.Log(str);
-
-        };
-
-        await websocket.Connect();
-    }
 
 
     //private void Start()

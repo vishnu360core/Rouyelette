@@ -103,7 +103,7 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
     {
         AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
 
-        ball.EnableGravityAction();
+        StartCoroutine(ball.EnableGravityAction());
 
         StartCoroutine(ball.RotateObject());
 
