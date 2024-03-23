@@ -31,10 +31,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [Space]
     [SerializeField] bool _dealerStatus;
 
+    #region CURRENT_DATAS
     GameData _gameData = null;
-
-
-
+    PlayerData _playerData = null;
+    List<Bet> _currentBets = new List<Bet>();
+    int _currentAmount;
+    #endregion
 
     private void Awake()
     {
@@ -51,9 +53,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
         Actions.DealerSet += DealerStatusAction;
-        Actions.GetGameData += GetGameData;
+        Actions.GetGameData += GetData;
+        Actions.PlayerBets += SetCurrentPlayerData;
 
-        Test();
+        //Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
@@ -61,6 +64,15 @@ public class GameController : MonoBehaviour, BoardControlInterface
         // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
+    private void SetCurrentPlayerData(List<Bet> list,int amount)
+    {
+        Debug.Log("Saving bet !!!!!!!!!!");
+
+        _currentBets = list;
+        _currentAmount = amount;
+
+        SendBetData(_currentBets, _currentAmount);
+    }
 
     void Test()
     {
@@ -98,11 +110,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// Get the game data
     /// </summary>
     /// <param name="obj"></param>
-    private void GetGameData(string obj)
+    private void GetData(string obj)
     {
         Debug.Log("Data got >>>> " + obj);
 
-        try 
+        // GAME DATA
+        try
         {
             _gameData = JsonUtility.FromJson<GameData>(obj);
             Debug.Log("Game LIVE data " + _gameData.status);
@@ -114,8 +127,39 @@ public class GameController : MonoBehaviour, BoardControlInterface
         catch 
         {
             Debug.LogWarning("No GameData");
-        }   
+        }
+        
+        //PLAYER DATA
+        try
+        {
+           PlayerData playerData = JsonUtility.FromJson<PlayerData>(obj);
+           Debug.Log("Player got >>>" + playerData.id);
+        }
+        catch 
+        {
+            Debug.LogWarning("No PlayerData");
+        }
+
     }
+    #endregion
+
+    #region CLIENT_STATUS
+
+    void SendBetData(List<Bet> bets,int amount)
+    {
+        PlayerData playerData = new PlayerData
+        {
+            id = Network.Instance.Id,
+            bets = bets,
+            amount = amount
+        };
+
+        string jsonString = JsonUtility.ToJson(playerData);
+        Debug.Log("Player json :  " + jsonString);
+
+       StartCoroutine(Network.Instance.SaveToNet(jsonString));
+    }
+
     #endregion
 
     /// <summary>

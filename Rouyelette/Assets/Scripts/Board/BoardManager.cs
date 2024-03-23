@@ -6,6 +6,9 @@ using TMPro;
 using System;
 using System.Linq;
 
+using DataCollector;
+using UnityEngine.Playables;
+
 public interface BoardControlInterface
 {
     public void EnableSpin(bool enable);
@@ -448,6 +451,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
             _currentbetAmount += _currentChip.Bet;
             amount -= _currentChip.Bet;
 
+            Actions.PlayerBets(bets,amount);
+
             _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
             _amountText.text = "Amount:" + amount.ToString();
             AddChipAction(slot);
@@ -542,6 +547,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         _currentbetAmount += _currentChip.Bet;
         amount -= _currentChip.Bet;
+
+        Actions.PlayerBets(bets,amount);
 
         _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
         _amountText.text = "Amount:" + amount.ToString();

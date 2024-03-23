@@ -25,6 +25,8 @@ using System.Text;
            if (instance == null)
                instance = this;
 
+          _id = Guid.NewGuid().ToString();
+
             websocket = new WebSocket("ws://localhost:8090");
 
             websocket.OnOpen += () =>

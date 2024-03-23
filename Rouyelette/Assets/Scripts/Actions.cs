@@ -45,4 +45,6 @@ public static class Actions
 
     public static Action <string> GetGameData;
 
+    public static Action <List<Bet>,int> PlayerBets ;
+
 }
