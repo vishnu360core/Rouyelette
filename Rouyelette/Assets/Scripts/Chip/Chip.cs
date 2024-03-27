@@ -30,6 +30,12 @@ public class Chip : MonoBehaviour
 
     bool enablePlay = false;
 
+    public enum PlayMode {play,View}
+
+    [Space]
+    [SerializeField] PlayMode playMode;
+
+
 
     private void OnEnable()
     {
@@ -44,6 +50,9 @@ public class Chip : MonoBehaviour
 
     private void EnablePlay(bool obj)
     {
+        if (playMode != PlayMode.play)
+            return;
+
        enablePlay = obj;
     }
 
@@ -82,6 +91,9 @@ public class Chip : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (playMode != PlayMode.play)
+            return;
+
         if (!enablePlay)
             return;
 

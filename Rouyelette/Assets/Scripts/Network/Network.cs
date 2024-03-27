@@ -35,7 +35,7 @@ using System.Text;
 
                 Console.WriteLine("Opened");
 
-                websocket.SendText(Guid.NewGuid().ToString());
+                websocket.SendText(_id);
             };
 
             websocket.OnError += (e) =>
@@ -58,8 +58,11 @@ using System.Text;
 
                 Debug.Log(str);
 
-                if(IsJsonString(str))
-                  Actions.GetGameData(str);
+                if (IsJsonString(str))
+                    Actions.GetGameData(str);
+                else
+                    Actions.AddClient(str);
+
             };
 
             await websocket.Connect();

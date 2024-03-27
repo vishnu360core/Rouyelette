@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] BoardManager _boardManager;
     [SerializeField] SpinWheelManager _spinWheelManager;
     [SerializeField] WheelSlotManager _wheelSlotManager;
+    [SerializeField] ClientManager _clientManager;
 
     [Header("UI Buttons:")]
     [SerializeField] Button _spinButton;
@@ -34,14 +35,24 @@ public class GameController : MonoBehaviour, BoardControlInterface
     #region CURRENT_DATAS
     GameData _gameData = null;
     PlayerData _playerData = null;
+
+
     List<Bet> _currentBets = new List<Bet>();
     int _currentAmount;
+
+    JsonData jsondata;
     #endregion
 
     private void Awake()
     {
         _boardManager.callback = this;
         _gameData = null;
+
+        jsondata = new JsonData
+        {
+            gameFile = string.Empty,
+            playerFile = string.Empty
+        };
 
     }
 
@@ -55,13 +66,22 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.DealerSet += DealerStatusAction;
         Actions.GetGameData += GetData;
         Actions.PlayerBets += SetCurrentPlayerData;
+        Actions.AddClient += AddClientAction;
 
-        //Test();
+        Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
         //API Handling ...
         // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+    }
+
+
+    private void AddClientAction(string id)
+    {
+        Debug.Log("Adding client >>" + id);
+
+        _clientManager.AddClient(id,jsondata.playerFile);
     }
 
     private void SetCurrentPlayerData(List<Bet> list,int amount)
@@ -114,32 +134,56 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.Log("Data got >>>> " + obj);
 
+        string gameJsonData = string.Empty;
+        string playerJsonData = string.Empty;
+
         // GAME DATA
         try
         {
             _gameData = JsonUtility.FromJson<GameData>(obj);
             Debug.Log("Game LIVE data " + _gameData.status);
 
-
             Actions.EnablePlay(_gameData.status !=  GameSwitch.off);
             _loadPanel.SetActive(_gameData.status == GameSwitch.off);
+
+
+            gameJsonData = obj.ToString();
         } 
         catch 
         {
+            gameJsonData = string.Empty;
             Debug.LogWarning("No GameData");
         }
-        
+
         //PLAYER DATA
         try
         {
-           PlayerData playerData = JsonUtility.FromJson<PlayerData>(obj);
-           Debug.Log("Player got >>>" + playerData.id);
+            PlayerData playerData = JsonUtility.FromJson<PlayerData>(obj);
+
+            if (playerData != null)
+            {
+                Debug.Log("Player got >>>" + playerData.id + " " + playerData.amount);
+
+                if (playerData.amount != null)
+                {
+                    playerJsonData = obj.ToString();
+
+                    _clientManager.ClientBetDetect(playerJsonData);
+                }
+            }
         }
-        catch 
+        catch
         {
+            playerJsonData = string.Empty;
             Debug.LogWarning("No PlayerData");
         }
 
+
+        jsondata = new JsonData 
+        { 
+          gameFile = gameJsonData,
+          playerFile = playerJsonData,
+        };
     }
     #endregion
 
@@ -151,13 +195,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
         {
             id = Network.Instance.Id,
             bets = bets,
-            amount = amount
+            amount = 100
         };
 
-        string jsonString = JsonUtility.ToJson(playerData);
-        Debug.Log("Player json :  " + jsonString);
-
-       StartCoroutine(Network.Instance.SaveToNet(jsonString));
+        _clientManager.UpdateClient(playerData,jsondata.playerFile);
     }
 
     #endregion
@@ -232,8 +273,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
             yield return null;
         }
 
-        AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
-        SpinButtonAction();
+        //AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
+        //SpinButtonAction();
     }
 
     public void BetProducedAction(int number, Slot.ColorType colorType)

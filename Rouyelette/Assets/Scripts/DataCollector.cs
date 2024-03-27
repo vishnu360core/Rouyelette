@@ -23,4 +23,13 @@ namespace DataCollector
 
         public int amount;
     }
+
+
+    [System.Serializable]
+    public class JsonData
+    {
+        public string playerFile = string.Empty;
+        public string gameFile = string.Empty;
+    }
 }
+
