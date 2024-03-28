@@ -45,6 +45,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
     JsonData jsondata;
     #endregion
 
+
+    bool _onStart = true;
+
     private void Awake()
     {
         _boardManager.callback = this;
@@ -56,6 +59,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
             playerFile = string.Empty
         };
 
+
+        _onStart = true;
     }
 
     // Start is called before the first frame update
@@ -70,6 +75,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.PlayerBets += SetCurrentPlayerData;
         Actions.AddClient += AddClientAction;
         Actions.timerIndex += TimerIndexAction;
+        Actions.StartRoll += RoyelleteSpinAction;
 
         Test();
 
@@ -77,6 +83,13 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         //API Handling ...
         // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+    }
+
+
+    private void RoyelleteSpinAction()
+    {
+        AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
+        SpinButtonAction();
     }
 
     private void TimerIndexAction(int time)
@@ -88,12 +101,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.Log("Adding client >>" + id);
 
-        _clientManager.AddClient(id,jsondata.playerFile);
+       _clientManager.AddClient(id,jsondata.playerFile);
     }
 
     private void SetCurrentPlayerData(Bet bet,int amount)
     {
-        Debug.Log("Saving bet !!!!!!!!!!");
+        Debug.Log("Saving bet !!!!!!!!!!" + bet);
 
         _currentBet = bet;
         _currentAmount = amount;
@@ -117,7 +130,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
        // SaveGameStatus(CameraController.CameraSwitch.table);
 
-        StartCoroutine(Timer());
+        StartCoroutine(Play());
     }
 
     #region GAME_STATUS
@@ -151,9 +164,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
             Debug.Log("Game LIVE data " + _gameData.status);
 
             Actions.EnablePlay(_gameData.status !=  GameSwitch.off);
-            _loadPanel.SetActive(_gameData.status == GameSwitch.off);
+
+            _loadPanel.SetActive(_gameData.status == GameSwitch.off && _onStart);
 
             gameJsonData = obj.ToString();
+
+            _onStart = false;
         } 
         catch 
         {
@@ -193,11 +209,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
     }
     #endregion
 
-    #region CLIENT_STATUS
-
-   
-    #endregion
-
     /// <summary>
     /// Dealer Status information
     /// </summary>
@@ -228,7 +239,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         AudioManager.Instance.SpeechAction(Speech.placeBet);
         Actions.EnablePlay(true);
 
-        StartCoroutine(Timer());
+        StartCoroutine(Play());
     }
 
     void ErrorAPI(string response)
@@ -245,28 +256,28 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// Timer
     /// </summary>
     /// <returns></returns>
-    IEnumerator Timer()
+    IEnumerator Play()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return null;
         yield return new WaitUntil(()=> !_loadPanel.activeInHierarchy);
 
         Actions.DealerSet(false);
         AudioManager.Instance.SpeechAction(Speech.placeBet);
         Actions.EnablePlay(true);
 
-        float elapsedTime = 0f;
+        //float elapsedTime = 0f;
 
-        while (elapsedTime < _delay)
-        {
+        //while (elapsedTime < _delay)
+        //{
 
-            elapsedTime += Time.deltaTime;
+        //    elapsedTime += Time.deltaTime;
 
-            float currentTimer =  _delay - elapsedTime;
+        //    float currentTimer =  _delay - elapsedTime;
 
-            //_timerText.text = "Timer :" +  Mathf.RoundToInt(currentTimer);
+        //    //_timerText.text = "Timer :" +  Mathf.RoundToInt(currentTimer);
 
-            yield return null;
-        }
+        //    yield return null;
+        //}
 
         //AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
         //SpinButtonAction();
@@ -303,7 +314,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         yield return new WaitUntil(() => _dealerStatus);
 
         SaveGameStatus(GameSwitch.on);
-        Test();
+       // Test();
         //APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 

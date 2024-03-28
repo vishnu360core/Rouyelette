@@ -422,6 +422,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 if( bets.Find(x => x.betNumber == slot.SlotNumber) != null)
                 {
                     bets.Find(x => x.betNumber == slot.SlotNumber).betAmount += _currentChip.Bet;
+
+                    Bet bet = bets.Find(x => x.betNumber == slot.SlotNumber);
+                    Actions.PlayerBets(bet, amount);
                 }
                 else
                 {
@@ -480,6 +483,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
                         {
                             isNewArray = false;
                             bet.betAmount += _currentChip.Bet;
+
+                            Actions.PlayerBets(bet, amount);
                             break;
                         }
                     }
@@ -521,6 +526,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 if (bets.Find(x => x.type == method) != null)
                 {
                     bets.Find(x => x.type == method).betAmount += _currentChip.Bet;
+
+                    Bet bet = bets.Find(x => x.type == method);
+                    Actions.PlayerBets(bet, amount);
                 }
                 else
                 {

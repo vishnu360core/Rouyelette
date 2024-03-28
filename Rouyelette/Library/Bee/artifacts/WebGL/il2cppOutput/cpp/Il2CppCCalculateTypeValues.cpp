@@ -7819,18 +7819,17 @@ struct LayoutCache_tF844B2FAD6933B78FD5EFEBDE0529BCBAC19BA60  : public RuntimeOb
 	GenericStack_t1FB49AB7D847C97ABAA97AB232CA416CABD24C49* ___layoutGroups;
 	GUILayoutGroup_tD08496E80F283C290B5B90D7BFB3C9C7CC33CD8D* ___windows;
 };
-struct U3CResetActionU3Ed__31_t15DADD5AD0DCBD800B35CDD7A41ED4FDE99FB94C  : public RuntimeObject
+struct U3CPlayU3Ed__29_t30CE01007B316814AABB6EFD89D9B2B07E3F78F5  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	GameController_tDA619EE453F7ED2C8297EF928518A0B447E44D09* ___U3CU3E4__this;
 };
-struct U3CTimerU3Ed__27_tD33BF111316C6AFC517A172011CD0A3236BF0A2E  : public RuntimeObject
+struct U3CResetActionU3Ed__33_t8270059D66F3E54EB6CCA2B3AE3C7812ADC2F34D  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	GameController_tDA619EE453F7ED2C8297EF928518A0B447E44D09* ___U3CU3E4__this;
-	float ___U3CelapsedTimeU3E5__2;
 };
 struct MenuItem_tAD6168D43164235B4175072CB311D521AA55C5C5  : public RuntimeObject
 {
@@ -41124,6 +41123,7 @@ struct GameController_tDA619EE453F7ED2C8297EF928518A0B447E44D09  : public MonoBe
 	Bet_tE09CDA7FC10439D394A19C47F0EF8CBFFEFC60F9* ____currentBet;
 	int32_t ____currentAmount;
 	JsonData_t5891D60C3132C9CAA100DB8F2764ECAADB5F98AF* ___jsondata;
+	bool ____onStart;
 };
 struct GroupTrack_tF8FE0FA9A74536ECFBF0C328194D206A7CAA5A5D  : public TrackAsset_t31E19BE900C90F6616C0D337652C8614CD833B96
 {
@@ -44304,6 +44304,7 @@ struct Actions_t6CE3C947D61A3A81D2FBD7762C19C45EFC9D4CF4_StaticFields
 	Action_2_tD7EC03735048B6052641F069173F4E7E32F791EE* ___PlayerBets;
 	Action_1_t3CB5D1A819C3ED3F99E9E39F890F18633253949A* ___AddClient;
 	Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___timerIndex;
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___StartRoll;
 };
 struct ActivationServices_t688315315A97608B7C0ACD314FCECFD6ED5AE2CF_StaticFields
 {
@@ -46876,8 +46877,9 @@ struct U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields
 {
 	U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB* ___U3CU3E9;
 	WebSocketOpenEventHandler_t0241D6C4719F6CD56F1FE610A9371AC15FDCC93E* ___U3CU3E9__8_0;
-	WebSocketErrorEventHandler_t6121C1087F8242428F801B27D293CE78597A75C3* ___U3CU3E9__8_2;
-	WebSocketCloseEventHandler_tC02B2B8CA126489D18F9F48805A3C7460661E466* ___U3CU3E9__8_3;
+	WebSocketMessageEventHandler_tE2C6EB24566102E15F0474D745557485BA17496C* ___U3CU3E9__8_1;
+	WebSocketErrorEventHandler_t6121C1087F8242428F801B27D293CE78597A75C3* ___U3CU3E9__8_3;
+	WebSocketCloseEventHandler_tC02B2B8CA126489D18F9F48805A3C7460661E466* ___U3CU3E9__8_4;
 };
 struct U3CU3Ec_tCD479EE36B9C156DD31DCE5074D2D93FE71AD956_StaticFields
 {
@@ -57662,9 +57664,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4107 = { sizeof(Chip_tCF0E20
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4108;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4108 = { sizeof(DealerController_t5C28F3D04BB714822831D6A1DACC0629827D5302), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4109;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4109 = { sizeof(U3CResetActionU3Ed__31_t15DADD5AD0DCBD800B35CDD7A41ED4FDE99FB94C), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4109 = { sizeof(U3CPlayU3Ed__29_t30CE01007B316814AABB6EFD89D9B2B07E3F78F5), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4110;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4110 = { sizeof(U3CTimerU3Ed__27_tD33BF111316C6AFC517A172011CD0A3236BF0A2E), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4110 = { sizeof(U3CResetActionU3Ed__33_t8270059D66F3E54EB6CCA2B3AE3C7812ADC2F34D), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4111;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4111 = { sizeof(GameController_tDA619EE453F7ED2C8297EF928518A0B447E44D09), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4112;

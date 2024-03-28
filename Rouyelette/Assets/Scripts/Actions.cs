@@ -51,5 +51,7 @@ public static class Actions
 
     public static Action<int> timerIndex;
 
+    public static Action StartRoll;
+
 
 }

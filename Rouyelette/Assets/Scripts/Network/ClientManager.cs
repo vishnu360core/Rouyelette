@@ -123,6 +123,8 @@ public class ClientManager : MonoBehaviour
 
             if(id == player.id)
             {
+                Debug.Log("Bet added " + bet.betAmount);
+
                 player.bets.Add(bet);
                 player.amount = 100;
 

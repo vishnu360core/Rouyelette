@@ -26,7 +26,7 @@ using System.Text;
            if (instance == null)
                instance = this;
 
-          _id = Guid.NewGuid().ToString();
+           _id = Guid.NewGuid().ToString();
 
             websocket = new WebSocket("ws://localhost:8090");
             webTimer = new WebSocket("ws://localhost:8100");
@@ -35,6 +35,21 @@ using System.Text;
             webTimer.OnOpen += () =>
             {
                 Console.WriteLine("timer opened");
+            };
+
+            webTimer.OnMessage += (bytes) =>
+            {
+                 string str = Encoding.UTF8.GetString(bytes);
+
+                Debug.Log("Timer >>>" + str);
+
+                if (str != "Play")
+                {
+                    int timer = int.Parse(str);
+                    Actions.timerIndex(timer);
+                }
+                else
+                    Actions.StartRoll();
             };
 
 
@@ -69,16 +84,6 @@ using System.Text;
 
                 if (IsJsonString(str))
                     Actions.GetGameData(str);
-                else if (str.StartsWith("%"))
-                {
-                    str = str.Replace("%", "");
-
-                    Debug.Log("Timer: " + str);
-
-                    int timer = int.Parse(str);
-
-                    Actions.timerIndex(timer);
-                }
                 else
                     Actions.AddClient(str);
 
@@ -119,7 +124,7 @@ using System.Text;
                 return false;
             }
         }
-
+        
 
 
     //private void Start()
