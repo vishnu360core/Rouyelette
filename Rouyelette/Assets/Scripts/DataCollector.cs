@@ -31,5 +31,13 @@ namespace DataCollector
         public string playerFile = string.Empty;
         public string gameFile = string.Empty;
     }
+
+    [System.Serializable]
+
+    public class TimerData
+    {
+        public int time;    
+    }
+
 }
 

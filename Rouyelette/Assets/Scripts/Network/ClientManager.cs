@@ -110,9 +110,9 @@ public class ClientManager : MonoBehaviour
     }
 
 
-    public void UpdateClient(PlayerData playerData , string playerJson)
+    public void UpdateClient(string id,Bet bet,string playerJson)
     {
-        Debug.Log("Json for bet  >>>>>>>>>" + playerJson + ">>>>" + playerData.id);
+        Debug.Log("Json for bet  >>>>>>>>>" + playerJson + ">>>>" + id);
 
         PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(playerJson);
         List<PlayerData> playerDatas = playerDataList.playerDatas;
@@ -121,11 +121,10 @@ public class ClientManager : MonoBehaviour
         {
             Debug.LogWarning("id >>>>" + player.id);
 
-            if(playerData.id == player.id)
+            if(id == player.id)
             {
-                player.bets = playerData.bets;
-                player.amount = playerData.amount;
-
+                player.bets.Add(bet);
+                player.amount = 100;
 
                 playerDataList.playerDatas = playerDatas;
 
@@ -150,7 +149,7 @@ public class ClientManager : MonoBehaviour
         Client clientPlayer = clients[0];
 
 
-        Debug.Log("Client player updating ........" + json);
+      //  Debug.Log("Client player updating ........" + json);
 
             for (int i = 0; i < playerDatas.Count; i++)
             {
@@ -168,31 +167,31 @@ public class ClientManager : MonoBehaviour
         if(bets.Count <= 0)
             return;
 
-        foreach(Bet bet in bets) 
+
+        Bet bet = bets[bets.Count - 1];
+       
+        Slot.BoardSlotMethod method = bet.type;
+
+        Debug.Log("Client bet amount  >>>>" + bet.betAmount);
+
+        GameObject chip = ChipGeneration(bet.betAmount);
+        chip.transform.position = chipStart.position;
+
+        Transform chipDestination = GetSlotPosition(method);
+
+        Debug.Log("Chip Destination >>>" + chipDestination);
+
+        float duration = 10 - speed;
+
+        if(chipDestination != null)
         {
-            Slot.BoardSlotMethod method = bet.type;
-
-
-            GameObject chip = ChipGeneration(bet.betAmount);
-            chip.transform.position = chipStart.position;
-
-            Transform chipDestination = GetSlotPosition(method);
-
-            Debug.Log("Chip Destination >>>" + chipDestination);
-
-            float duration = 10 - speed;
-
-
-            if(chipDestination != null)
-            {
-                Debug.Log("Successful destination !!!!");
+            Debug.Log("Successful destination !!!!");
                 
-                Vector3 targetPosition = new Vector3(chipDestination.position.x,chip.transform.position.y,chipDestination.position.z);
+            Vector3 targetPosition = new Vector3(chipDestination.position.x,chip.transform.position.y,chipDestination.position.z);
 
-                chip.transform.DOMove(targetPosition, duration);
-            }
+            chip.transform.DOMove(targetPosition, duration);
         }
-
+        
     }
 
 
@@ -218,6 +217,15 @@ public class ClientManager : MonoBehaviour
     {
         switch(amount) 
         {
+            case 1:
+                return Instantiate(chipPrefabs[0].gameObject);
+
+            case 10:
+                return Instantiate(chipPrefabs[1].gameObject);
+
+            case 20:
+                return Instantiate(chipPrefabs[2].gameObject);
+
             case 50:
                 return Instantiate(chipPrefabs[3].gameObject);
         }

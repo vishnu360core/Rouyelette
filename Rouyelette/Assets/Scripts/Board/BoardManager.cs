@@ -433,6 +433,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                     };
 
                     bets.Add(bet);
+                    Actions.PlayerBets(bet, amount);
                 }
                    
             }
@@ -446,12 +447,12 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 };
 
                 bets.Add(bet);
+                Actions.PlayerBets(bet, amount);
             }
 
             _currentbetAmount += _currentChip.Bet;
             amount -= _currentChip.Bet;
 
-            Actions.PlayerBets(bets,amount);
 
             _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
             _amountText.text = "Amount:" + amount.ToString();
@@ -496,6 +497,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                     };
 
                     bets.Add(bet);
+                    Actions.PlayerBets(bet, amount);
                 }
             }
             else
@@ -509,6 +511,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 };
 
                 bets.Add(bet);
+                Actions.PlayerBets(bet, amount);
             }
         }
         else
@@ -529,6 +532,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                     };
 
                     bets.Add(bet);
+                    Actions.PlayerBets(bet, amount);
                 }
 
             }
@@ -542,13 +546,14 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 };
 
                 bets.Add(bet);
+                Actions.PlayerBets(bet, amount);
             }
         }
 
         _currentbetAmount += _currentChip.Bet;
         amount -= _currentChip.Bet;
 
-        Actions.PlayerBets(bets,amount);
+       // Actions.PlayerBets(bets,amount);
 
         _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
         _amountText.text = "Amount:" + amount.ToString();

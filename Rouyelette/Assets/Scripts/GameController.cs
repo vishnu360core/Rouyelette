@@ -37,7 +37,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
     PlayerData _playerData = null;
 
 
-    List<Bet> _currentBets = new List<Bet>();
+   // List<Bet> _currentBets = new List<Bet>();
+
+    Bet _currentBet = null;
     int _currentAmount;
 
     JsonData jsondata;
@@ -67,6 +69,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.GetGameData += GetData;
         Actions.PlayerBets += SetCurrentPlayerData;
         Actions.AddClient += AddClientAction;
+        Actions.timerIndex += TimerIndexAction;
 
         Test();
 
@@ -76,6 +79,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
         // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
+    private void TimerIndexAction(int time)
+    {
+        _timerText.text = "Timer :" + time;
+    }
 
     private void AddClientAction(string id)
     {
@@ -84,14 +91,14 @@ public class GameController : MonoBehaviour, BoardControlInterface
         _clientManager.AddClient(id,jsondata.playerFile);
     }
 
-    private void SetCurrentPlayerData(List<Bet> list,int amount)
+    private void SetCurrentPlayerData(Bet bet,int amount)
     {
         Debug.Log("Saving bet !!!!!!!!!!");
 
-        _currentBets = list;
+        _currentBet = bet;
         _currentAmount = amount;
 
-        SendBetData(_currentBets, _currentAmount);
+        _clientManager.UpdateClient(Network.Instance.Id,bet,jsondata.playerFile);
     }
 
     void Test()
@@ -146,7 +153,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
             Actions.EnablePlay(_gameData.status !=  GameSwitch.off);
             _loadPanel.SetActive(_gameData.status == GameSwitch.off);
 
-
             gameJsonData = obj.ToString();
         } 
         catch 
@@ -189,18 +195,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     #region CLIENT_STATUS
 
-    void SendBetData(List<Bet> bets,int amount)
-    {
-        PlayerData playerData = new PlayerData
-        {
-            id = Network.Instance.Id,
-            bets = bets,
-            amount = 100
-        };
-
-        _clientManager.UpdateClient(playerData,jsondata.playerFile);
-    }
-
+   
     #endregion
 
     /// <summary>
@@ -268,7 +263,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
             float currentTimer =  _delay - elapsedTime;
 
-            _timerText.text = "Timer :" +  Mathf.RoundToInt(currentTimer);
+            //_timerText.text = "Timer :" +  Mathf.RoundToInt(currentTimer);
 
             yield return null;
         }

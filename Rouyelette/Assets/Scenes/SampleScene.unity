@@ -1566,6 +1566,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 460631143802976438, guid: 87eff4b961774b543875a3f5475b21bf, type: 3}
   m_PrefabInstance: {fileID: 150984105}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &154159934
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 959728180}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.107
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+      propertyPath: m_Name
+      value: 'character final '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+--- !u!4 &154159935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cbe339f04ffec0e4abfd1e5d2fac2043, type: 3}
+  m_PrefabInstance: {fileID: 154159934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &156894370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9538,6 +9600,7 @@ MonoBehaviour:
   - {fileID: 8962222050489461048, guid: 7331c5628d184934aa59347068b5b5a1, type: 3}
   - {fileID: 8218313065103754423, guid: a0fed74da7eb86049938020dd703bd42, type: 3}
   speed: 9.5
+  JsonData: 
 --- !u!1 &808611357
 GameObject:
   m_ObjectHideFlags: 0
@@ -12137,7 +12200,8 @@ Transform:
   m_LocalPosition: {x: -0.881, y: 0.564, z: -1.414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 154159935}
   m_Father: {fileID: 804564834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959728181
@@ -12218,7 +12282,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 47
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -21486,7 +21550,7 @@ MonoBehaviour:
   _spinButton: {fileID: 1426896751}
   _timerText: {fileID: 782628377}
   _loadPanel: {fileID: 177622185}
-  _delay: 10
+  _delay: 20
   _dealerStatus: 0
 --- !u!1 &1739672603
 GameObject:
@@ -25866,7 +25930,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1949588926}
   m_Follow: {fileID: 1949588926}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 47
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000

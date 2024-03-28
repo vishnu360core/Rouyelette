@@ -89,7 +89,7 @@ public class Slot : MonoBehaviour
         Actions.EnablePlay += EnablePlay;
 
         if (_type == SlotType.board)
-        _chipTransform = this.transform.GetChild(0).transform;
+         _chipTransform = this.transform.GetChild(0).transform;
     }
 
     private void EnablePlay(bool obj)
@@ -140,7 +140,6 @@ public class Slot : MonoBehaviour
 
         _isSelect = false;
     }
-
 
     #region HOVER_ACTIONS
 

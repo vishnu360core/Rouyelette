@@ -16,6 +16,7 @@ using System.Text;
        public static Network Instance { get { return instance; } }  
 
         WebSocket websocket;
+        WebSocket webTimer;
 
         string _id;
         public string Id => _id; 
@@ -28,6 +29,14 @@ using System.Text;
           _id = Guid.NewGuid().ToString();
 
             websocket = new WebSocket("ws://localhost:8090");
+            webTimer = new WebSocket("ws://localhost:8100");
+
+
+            webTimer.OnOpen += () =>
+            {
+                Console.WriteLine("timer opened");
+            };
+
 
             websocket.OnOpen += () =>
             {
@@ -56,16 +65,27 @@ using System.Text;
             {
                 string str = Encoding.UTF8.GetString(bytes);
 
-                Debug.Log(str);
+               // Debug.Log(str);
 
                 if (IsJsonString(str))
                     Actions.GetGameData(str);
+                else if (str.StartsWith("%"))
+                {
+                    str = str.Replace("%", "");
+
+                    Debug.Log("Timer: " + str);
+
+                    int timer = int.Parse(str);
+
+                    Actions.timerIndex(timer);
+                }
                 else
                     Actions.AddClient(str);
 
             };
 
             await websocket.Connect();
+            await webTimer.Connect();   
         }
 
         /// <summary>
