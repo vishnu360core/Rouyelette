@@ -48,8 +48,8 @@ using System.Text;
                     int timer = int.Parse(str);
                     Actions.timerIndex(timer);
                 }
-                else
-                    Actions.StartRoll();
+                //else
+                //    Actions.StartRoll();
             };
 
 

@@ -104,12 +104,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
        _clientManager.AddClient(id,jsondata.playerFile);
     }
 
-    private void SetCurrentPlayerData(Bet bet,int amount)
+    private void SetCurrentPlayerData(Bet bet)
     {
         Debug.Log("Saving bet !!!!!!!!!!" + bet);
-
-        _currentBet = bet;
-        _currentAmount = amount;
 
         _clientManager.UpdateClient(Network.Instance.Id,bet,jsondata.playerFile);
     }
@@ -180,23 +177,20 @@ public class GameController : MonoBehaviour, BoardControlInterface
         //PLAYER DATA
         try
         {
-            PlayerData playerData = JsonUtility.FromJson<PlayerData>(obj);
+            PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(obj);
 
-            if (playerData != null)
+            if (playerDataList != null)
             {
-                Debug.Log("Player got >>>" + playerData.id + " " + playerData.amount);
+                Debug.Log("Player got >>>" + playerDataList.playerDatas.Count);
 
-                if (playerData.amount != null)
-                {
-                    playerJsonData = obj.ToString();
+                playerJsonData = obj.ToString();
 
-                    _clientManager.ClientBetDetect(playerJsonData);
-                }
+                _clientManager.ClientBetDetect(playerJsonData);
             }
         }
         catch
         {
-            playerJsonData = string.Empty;
+            //playerJsonData = string.Empty;
             Debug.LogWarning("No PlayerData");
         }
 

@@ -179,19 +179,33 @@ public class ClientManager : MonoBehaviour
         GameObject chip = ChipGeneration(bet.betAmount);
         chip.transform.position = chipStart.position;
 
-        Transform chipDestination = GetSlotPosition(method);
+        Debug.Log("Chip >>>>>>>>" + chip);
 
-        Debug.Log("Chip Destination >>>" + chipDestination);
 
-        float duration = 10 - speed;
-
-        if(chipDestination != null)
+        if (method != Slot.BoardSlotMethod.split)
         {
-            Debug.Log("Successful destination !!!!");
-                
-            Vector3 targetPosition = new Vector3(chipDestination.position.x,chip.transform.position.y,chipDestination.position.z);
+            Transform chipDestination = GetSlotPosition(method);
 
-            chip.transform.DOMove(targetPosition, duration);
+            Debug.Log("Chip Destination >>>" + chipDestination);
+
+            float duration = 10 - speed;
+
+            if (chipDestination != null)
+            {
+                Debug.Log("Successful destination !!!!");
+
+                Vector3 targetPosition = new Vector3(chipDestination.position.x, chip.transform.position.y, chipDestination.position.z);
+
+                chip.transform.DOMove(targetPosition, duration);
+            }
+        }
+        else if (method == Slot.BoardSlotMethod.NULL)
+        {
+
+        }
+        else
+        {
+
         }
         
     }

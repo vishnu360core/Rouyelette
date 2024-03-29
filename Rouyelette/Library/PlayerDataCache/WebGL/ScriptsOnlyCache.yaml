@@ -217,11 +217,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 27496}
     - Class: 114
-      Script: {instanceID: 30474}
+      Script: {instanceID: 30784}
     - Class: 114
-      Script: {instanceID: 30476}
+      Script: {instanceID: 30786}
     - Class: 114
-      Script: {instanceID: 30478}
+      Script: {instanceID: 30788}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
