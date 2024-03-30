@@ -8089,7 +8089,7 @@ struct U3CU3Ec_t448CFE63A1C3BEE3A1ED3DF6CDBEAF74C84252A4  : public RuntimeObject
 struct U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB  : public RuntimeObject
 {
 };
-struct U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D  : public RuntimeObject
+struct U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -57677,7 +57677,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4118 = { sizeof(PlayerDataLi
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4119;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4119 = { sizeof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB), -1, sizeof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4120;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4120 = { sizeof(U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4120 = { sizeof(U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4121;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4121 = { sizeof(U3CStartU3Ed__8_t35008FFB8FBA9C0E033ED45AD1EDE4B45BD842BC)+ sizeof(RuntimeObject), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4122;

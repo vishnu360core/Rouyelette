@@ -83,6 +83,8 @@ using System.Text;
 
                 if (IsJsonString(str))
                     Actions.GetGameData(str);
+                else if(str == "ResetAction")
+                   ResetAction();
                 else 
                     Actions.AddClient(str);
 
@@ -91,6 +93,11 @@ using System.Text;
             await websocket.Connect();
             await webTimer.Connect();   
         }
+
+    void ResetAction()
+    {
+        websocket.SendText(_id);
+    }
 
         /// <summary>
        /// Sending the data 

@@ -41,12 +41,8 @@ public class ClientManager : MonoBehaviour
        
         for(int i=0; i<playerDatas.Count; i++)
         {
-            if (playerDatas[i].id == Network.Instance.Id) 
-            {
-                playerDatas[i].id = Network.Instance.Id;
-                playerDatas[i].bets = new List<Bet>();
-                playerDatas[i].amount = 100;
-            }
+            playerDatas[i].bets = new List<Bet>();
+            playerDatas[i].amount = 100;
         }
 
         playerDataList.playerDatas = playerDatas;

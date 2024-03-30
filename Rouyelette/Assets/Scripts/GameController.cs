@@ -86,6 +86,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     private void RoyelleteSpinAction()
     {
         AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
+        _clientManager.ResetAction(playerJsonData);
+
         SpinButtonAction();
     }
 
@@ -301,9 +303,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
         yield return null;
         yield return new WaitUntil(() => _dealerStatus);
 
-        Network.Instance.ResetTimer();
+      //  Network.Instance.ResetTimer();
 
-        _clientManager.ResetAction(playerJsonData);
 
         SaveGameStatus(GameSwitch.on);
         Test();

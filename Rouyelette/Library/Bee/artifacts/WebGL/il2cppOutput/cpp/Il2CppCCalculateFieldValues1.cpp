@@ -2331,7 +2331,7 @@ struct Enumerator_t600BA5FC7EA2F68C19679262670BEEA5DB0CC61D  : public RuntimeObj
 struct U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB  : public RuntimeObject
 {
 };
-struct U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D  : public RuntimeObject
+struct U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -20690,7 +20690,7 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4119[5] =
 	static_cast<int32_t>(offsetof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields, ___U3CU3E9)),static_cast<int32_t>(offsetof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields, ___U3CU3E9__8_0)),static_cast<int32_t>(offsetof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields, ___U3CU3E9__8_1)),static_cast<int32_t>(offsetof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields, ___U3CU3E9__8_3)),static_cast<int32_t>(offsetof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields, ___U3CU3E9__8_4)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4120[4] = 
 {
-	static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D, ___U3CU3E1__state)),static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D, ___U3CU3E2__current)),static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D, ___U3CU3E4__this)),static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__9_t46BA28D7414C6BA981CED574B744245DE0B9BC3D, ___jsonString)),};
+	static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F, ___U3CU3E1__state)),static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F, ___U3CU3E2__current)),static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F, ___U3CU3E4__this)),static_cast<int32_t>(offsetof(U3CSaveToNetU3Ed__10_tDB55A87CC016C23429531E94B7B1E0F127573B2F, ___jsonString)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4121[4] = 
 {
 	static_cast<int32_t>(offsetof(U3CStartU3Ed__8_t35008FFB8FBA9C0E033ED45AD1EDE4B45BD842BC, ___U3CU3E1__state)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CStartU3Ed__8_t35008FFB8FBA9C0E033ED45AD1EDE4B45BD842BC, ___U3CU3Et__builder)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CStartU3Ed__8_t35008FFB8FBA9C0E033ED45AD1EDE4B45BD842BC, ___U3CU3E4__this)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CStartU3Ed__8_t35008FFB8FBA9C0E033ED45AD1EDE4B45BD842BC, ___U3CU3Eu__1)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
