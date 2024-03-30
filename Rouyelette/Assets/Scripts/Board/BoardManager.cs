@@ -424,7 +424,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                     bets.Find(x => x.betNumber == slot.SlotNumber).betAmount += _currentChip.Bet;
 
                     Bet bet = bets.Find(x => x.betNumber == slot.SlotNumber);
-                    SendBetAction(_currentChip.Bet, -1);
+                    SendBetAction(_currentChip.Bet, slot.SlotNumber);
                 }
                 else
                 {
@@ -436,7 +436,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                     };
 
                     bets.Add(bet);
-                    SendBetAction(_currentChip.Bet, -1);
+                    SendBetAction(_currentChip.Bet, slot.SlotNumber);
                 }
                    
             }
@@ -450,7 +450,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 };
 
                 bets.Add(bet);
-                SendBetAction(_currentChip.Bet, -1);
+                SendBetAction(_currentChip.Bet, slot.SlotNumber);
             }
 
             _currentbetAmount += _currentChip.Bet;

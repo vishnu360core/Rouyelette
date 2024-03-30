@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 using DataCollector;
+using System;
 
 public class ClientManager : MonoBehaviour
 {
@@ -17,13 +18,49 @@ public class ClientManager : MonoBehaviour
     [Range(0, 10f)]
     [SerializeField] float speed;
 
-
     public string JsonData = string.Empty;
 
+    bool onBetUpdate = false;
+
+    string _currentJson;
+ 
 
     private void Start()
     {
         client_datas.Clear();
+
+    }
+
+    public void ResetAction(string json)
+    {
+        Debug.Log("Client manager is reseting !!!!!!!!!!!" + json);
+
+        PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(json);
+        List<PlayerData> playerDatas = playerDataList.playerDatas;
+
+       
+        for(int i=0; i<playerDatas.Count; i++)
+        {
+            if (playerDatas[i].id == Network.Instance.Id) 
+            {
+                playerDatas[i].id = Network.Instance.Id;
+                playerDatas[i].bets = new List<Bet>();
+                playerDatas[i].amount = 100;
+            }
+        }
+
+        playerDataList.playerDatas = playerDatas;
+
+        json = JsonUtility.ToJson(playerDataList);
+        Debug.Log("Resetted json >>>>" + json);
+
+        StartCoroutine(Network.Instance.SaveToNet(json));
+    }
+
+
+    public void SetJson(string json)
+    {
+        _currentJson = json;
     }
 
     public void AddClient(string id,string json)
@@ -109,10 +146,17 @@ public class ClientManager : MonoBehaviour
         client_datas.Add(clientPlayerData);
     }
 
+    bool IsIdPresent(List<PlayerData> list, string str)
+    {
+        return list.Exists(obj => obj.id == str);
+    }
+
 
     public void UpdateClient(string id,Bet bet,string playerJson)
     {
         Debug.Log("Json for bet  >>>>>>>>>" + playerJson + ">>>>" + id);
+
+        onBetUpdate = true;
 
         PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(playerJson);
         List<PlayerData> playerDatas = playerDataList.playerDatas;
@@ -145,18 +189,26 @@ public class ClientManager : MonoBehaviour
 
     public void ClientBetDetect(string json)
     {
+        if (onBetUpdate)
+        {
+            onBetUpdate = false;
+            return;
+        }
+
         PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(json);
         List<PlayerData> playerDatas = playerDataList.playerDatas;
 
         Client clientPlayer = clients[0];
 
 
-      //  Debug.Log("Client player updating ........" + json);
+       Debug.Log("Client player updating ........" + json);
 
             for (int i = 0; i < playerDatas.Count; i++)
             {
                 if (Network.Instance.Id != playerDatas[i].id)
                 {
+                   Debug.Log("Own id >>>>" + Network.Instance.Id + "other id" + playerDatas[i].id);
+                   
                    clientPlayer.PlayerData = playerDatas[i];
                    ClientChipAction(clientPlayer.PlayerData.bets, clientPlayer._chipTransform);
                 }
@@ -172,7 +224,6 @@ public class ClientManager : MonoBehaviour
 
         Bet bet = bets[bets.Count - 1];
        
-        Slot.BoardSlotMethod method = bet.type;
 
         Debug.Log("Client bet amount  >>>>" + bet.betAmount);
 
@@ -181,39 +232,29 @@ public class ClientManager : MonoBehaviour
 
         Debug.Log("Chip >>>>>>>>" + chip);
 
+        Debug.Log("BET >>>>"+ bet.type +">>>>" + bet.betNumber);
 
-        if (method != Slot.BoardSlotMethod.split)
+        Transform chipDestination = GetSlotPosition(bet.type,bet.betNumber,bet.splitNumbers);
+
+        Debug.Log("Chip Destination >>>" + chipDestination);
+
+        float duration = 10 - speed;
+
+        if (chipDestination != null)
         {
-            Transform chipDestination = GetSlotPosition(method);
+            Debug.Log("Successful destination !!!!");
 
-            Debug.Log("Chip Destination >>>" + chipDestination);
+            Vector3 targetPosition = new Vector3(chipDestination.position.x, chip.transform.position.y, chipDestination.position.z);
 
-            float duration = 10 - speed;
-
-            if (chipDestination != null)
-            {
-                Debug.Log("Successful destination !!!!");
-
-                Vector3 targetPosition = new Vector3(chipDestination.position.x, chip.transform.position.y, chipDestination.position.z);
-
-                chip.transform.DOMove(targetPosition, duration);
-            }
+            chip.transform.DOMove(targetPosition, duration);
         }
-        else if (method == Slot.BoardSlotMethod.NULL)
-        {
-
-        }
-        else
-        {
-
-        }
-        
+             
     }
 
 
-    Transform GetSlotPosition(Slot.BoardSlotMethod method)
+    Transform GetSlotPosition(Slot.BoardSlotMethod method = Slot.BoardSlotMethod.NULL,int slotnumber = -1, int[] numbers = null)
     {
-
+        
         foreach (Slot obj in GameObject.FindObjectsOfType<Slot>())
         {
             Slot slot = obj.GetComponent<Slot>();
@@ -221,11 +262,55 @@ public class ClientManager : MonoBehaviour
             if (slot.Type == Slot.SlotType.wheel)
                 continue;
 
-            if(slot.SlotMethod == method)
-                return obj.transform;        
+
+            switch(method)
+            {
+                case Slot.BoardSlotMethod.NULL:
+
+                    if(slot.SlotNumber == slotnumber && slotnumber != -1)
+                        return obj.transform;
+
+                    break;
+
+                case Slot.BoardSlotMethod.split:
+
+                    if (numbers.Length>0 && slot.SlotMethod == Slot.BoardSlotMethod.split)
+                    {
+                        Debug.Log("Split check >>>" + numbers.Length);
+
+                         if(AreArraysEqual(numbers, slot.SpitNumbers))
+                             return obj.transform;
+                    }
+                    break;
+
+                default:
+                    if (slot.SlotMethod == method && method != Slot.BoardSlotMethod.NULL)
+                        return obj.transform;
+                    break;
+            }
+
+            //if(slot.SlotMethod == method)
+            //    return obj.transform;        
         }
 
         return null;
+    }
+
+    bool AreArraysEqual(int[] array1, int[] array2)
+    {
+        if (array1 == null || array2 == null)
+            return false;
+
+        if (array1.Length != array2.Length)
+            return false;
+
+        for (int i = 0; i < array1.Length; i++)
+        {
+            if (array1[i] != array2[i])
+                return false;
+        }
+
+        return true;
     }
 
 

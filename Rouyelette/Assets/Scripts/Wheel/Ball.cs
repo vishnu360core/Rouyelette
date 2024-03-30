@@ -144,6 +144,9 @@ public class Ball : MonoBehaviour
     {
         if (InAir)
         {
+            rb.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
+
            this.transform.DOMove(_target.transform.position, 0.05f).OnComplete(() => CompletedMovementAction());
 
             //this.transform.position = _target.transform.position;

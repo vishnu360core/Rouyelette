@@ -31,7 +31,6 @@ using System.Text;
             websocket = new WebSocket("ws://localhost:8090");
             webTimer = new WebSocket("ws://localhost:8100");
 
-
             webTimer.OnOpen += () =>
             {
                 Console.WriteLine("timer opened");
@@ -48,8 +47,8 @@ using System.Text;
                     int timer = int.Parse(str);
                     Actions.timerIndex(timer);
                 }
-                //else
-                //    Actions.StartRoll();
+                else
+                    Actions.StartRoll();
             };
 
 
@@ -80,11 +79,11 @@ using System.Text;
             {
                 string str = Encoding.UTF8.GetString(bytes);
 
-               // Debug.Log(str);
+                Debug.Log(str);
 
                 if (IsJsonString(str))
                     Actions.GetGameData(str);
-                else
+                else 
                     Actions.AddClient(str);
 
             };
@@ -94,9 +93,9 @@ using System.Text;
         }
 
         /// <summary>
-        /// Sending the data 
-        /// </summary>
-        /// <param name="jsonString"></param>
+       /// Sending the data 
+       /// </summary>
+       /// <param name="jsonString"></param>
         public IEnumerator SaveToNet(string jsonString)
         {
             Debug.Log("WebSocket State >>>> " + websocket.State);
@@ -109,6 +108,7 @@ using System.Text;
                 websocket.SendText(jsonString);
             }
         }
+        
 
         public  bool IsJsonString(string str)
         {
@@ -125,19 +125,11 @@ using System.Text;
             }
         }
         
-
-
-    //private void Start()
-    //{
-    //    WebSocket web = new WebSocket("ws://localhost:8090");
-    //    web.Connect();
-
-    //    web.OnMessage += (sender, e) =>
-    //    {
-    //        Debug.Log(e.Data);
-    //    };
-
-    //    web.Send(Guid.NewGuid().ToString());
-    //}
-
-}
+        /// <summary>
+        /// Reset the timer
+        /// </summary>
+        public void ResetTimer()
+        {
+           webTimer.SendText("ResetTimer");
+        }
+    }

@@ -42,7 +42,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
     Bet _currentBet = null;
     int _currentAmount;
 
-    JsonData jsondata;
+
+    string gameJsonData = string.Empty;
+    string playerJsonData = string.Empty;
     #endregion
 
 
@@ -53,19 +55,14 @@ public class GameController : MonoBehaviour, BoardControlInterface
         _boardManager.callback = this;
         _gameData = null;
 
-        jsondata = new JsonData
-        {
-            gameFile = string.Empty,
-            playerFile = string.Empty
-        };
-
-
         _onStart = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
+
 
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
@@ -101,14 +98,14 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.Log("Adding client >>" + id);
 
-       _clientManager.AddClient(id,jsondata.playerFile);
+       _clientManager.AddClient(id,playerJsonData);
     }
 
     private void SetCurrentPlayerData(Bet bet)
     {
         Debug.Log("Saving bet !!!!!!!!!!" + bet);
 
-        _clientManager.UpdateClient(Network.Instance.Id,bet,jsondata.playerFile);
+        _clientManager.UpdateClient(Network.Instance.Id,bet,playerJsonData);
     }
 
     void Test()
@@ -116,7 +113,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         ResponseData responseData = new ResponseData();
 
         responseData.hash = "dnckdnfdnv";
-        responseData.result = 0;
+        responseData.result = 2;
         responseData.blockNumber = 0;
 
         _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
@@ -124,8 +121,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
 
         // TMP_Text.text = responseData.result.ToString();
-
-       // SaveGameStatus(CameraController.CameraSwitch.table);
 
         StartCoroutine(Play());
     }
@@ -137,8 +132,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// <param name="camera"></param>
     public void SaveGameStatus(GameSwitch _status)
     {
-        _gameData = new GameData { status = _status};
-        string jsonString = JsonUtility.ToJson(_gameData);
+        string jsonString = JsonUtility.ToJson(new GameData { status = _status });
 
         StartCoroutine(Network.Instance.SaveToNet(jsonString));
     }
@@ -151,20 +145,23 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.Log("Data got >>>> " + obj);
 
-        string gameJsonData = string.Empty;
-        string playerJsonData = string.Empty;
-
+      
         // GAME DATA
         try
         {
-            _gameData = JsonUtility.FromJson<GameData>(obj);
-            Debug.Log("Game LIVE data " + _gameData.status);
+            if (obj.Contains("status"))
+            {
+                GameData gameData = JsonUtility.FromJson<GameData>(obj);
+                Debug.Log("Game LIVE data " + gameData.status + "" + _onStart);
 
-            Actions.EnablePlay(_gameData.status !=  GameSwitch.off);
+                if (_onStart)
+                {
+                    Actions.EnablePlay(gameData.status == GameSwitch.on);
+                    _loadPanel.SetActive(gameData.status == GameSwitch.off);
+                }
 
-            _loadPanel.SetActive(_gameData.status == GameSwitch.off && _onStart);
-
-            gameJsonData = obj.ToString();
+                gameJsonData = obj.ToString();
+            }
 
             _onStart = false;
         } 
@@ -183,9 +180,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
             {
                 Debug.Log("Player got >>>" + playerDataList.playerDatas.Count);
 
-                playerJsonData = obj.ToString();
+                if (!obj.Contains("status"))
+                {
+                    playerJsonData = obj.ToString();
 
-                _clientManager.ClientBetDetect(playerJsonData);
+                    _clientManager.ClientBetDetect(playerJsonData);
+                }
             }
         }
         catch
@@ -195,11 +195,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
         }
 
 
-        jsondata = new JsonData 
-        { 
-          gameFile = gameJsonData,
-          playerFile = playerJsonData,
-        };
     }
     #endregion
 
@@ -230,7 +225,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
 
         Actions.DealerSet(false);
-        AudioManager.Instance.SpeechAction(Speech.placeBet);
         Actions.EnablePlay(true);
 
         StartCoroutine(Play());
@@ -307,8 +301,13 @@ public class GameController : MonoBehaviour, BoardControlInterface
         yield return null;
         yield return new WaitUntil(() => _dealerStatus);
 
+        Network.Instance.ResetTimer();
+
+        _clientManager.ResetAction(playerJsonData);
+
         SaveGameStatus(GameSwitch.on);
-       // Test();
+        Test();
+
         //APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
