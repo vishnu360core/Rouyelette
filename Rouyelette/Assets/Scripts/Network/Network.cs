@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//using WebSocketSharp;
 
 using NativeWebSocket;
 using System;
@@ -11,9 +10,9 @@ using System.Text;
 
     public class Network : MonoBehaviour
     {
-       static Network instance; 
-    
-       public static Network Instance { get { return instance; } }  
+       static Network instance;
+
+    public static Network Instance { get { return instance; } }
 
         WebSocket websocket;
         WebSocket webTimer;

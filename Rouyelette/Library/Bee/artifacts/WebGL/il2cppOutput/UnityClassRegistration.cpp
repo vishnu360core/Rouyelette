@@ -6,6 +6,9 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_Core();
 	RegisterModule_Core();
 
+	void RegisterModule_AndroidJNI();
+	RegisterModule_AndroidJNI();
+
 	void RegisterModule_Animation();
 	RegisterModule_Animation();
 
@@ -45,6 +48,9 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_RuntimeInitializeOnLoadManagerInitializer();
 	RegisterModule_RuntimeInitializeOnLoadManagerInitializer();
 
+	void RegisterModule_ScreenCapture();
+	RegisterModule_ScreenCapture();
+
 	void RegisterModule_TLS();
 	RegisterModule_TLS();
 
@@ -65,6 +71,9 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 
 	void RegisterModule_UnityWebRequest();
 	RegisterModule_UnityWebRequest();
+
+	void RegisterModule_UnityWebRequestTexture();
+	RegisterModule_UnityWebRequestTexture();
 
 	void RegisterModule_WebGL();
 	RegisterModule_WebGL();

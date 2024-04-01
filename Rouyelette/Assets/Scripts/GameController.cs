@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] Button _spinButton;
     [SerializeField] TMP_Text _timerText;
     [SerializeField] GameObject _loadPanel;
+    [SerializeField] GameObject _walletPanel;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -61,9 +62,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
@@ -74,7 +72,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.timerIndex += TimerIndexAction;
         Actions.StartRoll += RoyelleteSpinAction;
 
-        Test();
+        //Test();
+
+        //Actions.EnablePlay(false);
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
@@ -82,6 +82,11 @@ public class GameController : MonoBehaviour, BoardControlInterface
         // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
+
+    public void EnaplayAction(bool enable)
+    {
+        Actions.EnablePlay(enable);
+    }
 
     private void RoyelleteSpinAction()
     {
@@ -126,6 +131,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         StartCoroutine(Play());
     }
+
+    #region WALLET_CONNECT
+
+  
+    #endregion
+
 
     #region GAME_STATUS
     /// <summary>

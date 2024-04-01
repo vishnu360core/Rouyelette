@@ -8,7 +8,8 @@
       "ToBuildDependencies": [
         1,
         2,
-        3
+        3,
+        4
       ],
       "OverwriteOutputs": false,
       "DebugActionIndex": 0
@@ -22,17 +23,86 @@
       "DebugActionIndex": 1
     },
     {
+      "Annotation": "WriteResponseFile Library/Bee/artifacts/rsp/6097564273297756792.rsp",
+      "DisplayName": "Writing 6097564273297756792.rsp",
+      "ActionType": "WriteFile",
+      "PayloadOffset": 83,
+      "PayloadLength": 11807,
+      "PayloadDebugContentSnippet": "-a=\"D:\\Work\\Rouyelette_1\\Rouye",
+      "Inputs": [],
+      "Outputs": [
+        "Library/Bee/artifacts/rsp/6097564273297756792.rsp"
+      ],
+      "DebugActionIndex": 2
+    },
+    {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Assets\\Plugins\\Demigiant\\DOTween\\DOTween.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Assets\\Plugins\\websocket-sharp.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\com.Tivadar.Best.HTTP.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\endel.nativewebsocket.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.Burst.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.Mathematics.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.Profiling.Core.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Mdb.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Pdb.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Rocks.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\\Unity.Burst.Unsafe.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.5\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Assets\\Plugins\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Assets\\Plugins\\Demigiant\\DOTween\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\Managed\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\ScriptAssemblies\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.burst@1.8.12\\Unity.Burst.CodeGen\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.5\\lib\\ReportGenerator\" -s=\"D:\\Work\\Rouyelette_1\\Rouyelette\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" @\"Library\\Bee\\artifacts\\rsp\\6097564273297756792.rsp\"",
       "Inputs": [
         "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
         "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
         "Assets/Plugins/Demigiant/DOTween/DOTween.dll",
-        "Assets/Plugins/websocket-sharp.dll",
+        "Assets/Thirdweb/Core/Plugins/BouncyCastle/BouncyCastle.Crypto.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/Amazon.Extensions.CognitoAuthentication.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.CognitoIdentity.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.CognitoIdentityProvider.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.Core.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.Lambda.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.SecurityToken.dll",
+        "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/embedded-wallet.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Plugins/netstandard2.1/Dynamitey.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Plugins/netstandard2.1/EventEmitter.NET.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Plugins/netstandard2.1/ImpromptuInterface.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Runtime/netstandard2.1/evm.net.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/Microsoft.Bcl.AsyncInterfaces.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Runtime.CompilerServices.Unsafe.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Encodings.Web.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Json.dll",
+        "Assets/Thirdweb/Core/Plugins/MetaMask/Runtime/netstandard2.1/MetaMask.SDK.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Microsoft.Extensions.Logging.Abstractions.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/NBitcoin.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.ABI.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Accounts.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.BlockchainProcessing.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Contracts.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.GnosisSafe.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.HdWallet.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Hex.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.JsonRpc.Client.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.JsonRpc.RpcClient.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.KeyStore.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Merkle.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Merkle.Patricia.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Model.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.RLP.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.RPC.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Signer.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Signer.EIP712.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Siwe.Core.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Siwe.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Util.dll",
+        "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Web3.dll",
+        "Assets/Thirdweb/Core/Plugins/Newtonsoft 3.0.2/Runtime/Newtonsoft.Json.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Abstractions.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Logging.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Tokens.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/System.Reactive.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/System.Threading.Channels.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Websocket.Client.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Common.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Core.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Crypto.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Network.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Network.Websocket.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Sign.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Storage.dll",
+        "Assets/Thirdweb/Core/Plugins/zxing/zxing.unity.dll",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
+        "Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll",
         "Library/ScriptAssemblies/com.Tivadar.Best.HTTP.dll",
-        "Library/ScriptAssemblies/endel.nativewebsocket.dll",
+        "Library/ScriptAssemblies/Thirdweb.Core.dll",
+        "Library/ScriptAssemblies/Thirdweb.Examples.dll",
         "Library/ScriptAssemblies/Unity.AI.Navigation.dll",
         "Library/ScriptAssemblies/Unity.Burst.dll",
         "Library/ScriptAssemblies/Unity.Mathematics.dll",
@@ -51,14 +121,21 @@
         "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.Unsafe.dll",
         "Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll",
         "Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator/ReportGeneratorMerged.dll",
-        "Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+        "Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll",
+        "Library/Bee/artifacts/rsp/6097564273297756792.rsp"
       ],
       "Outputs": [
         "Library/BuildPlayerData/Editor/TypeDb-All.json"
       ],
+      "ToBuildDependencies": [
+        2
+      ],
+      "FrontendResponseFiles": [
+        "Library/Bee/artifacts/rsp/6097564273297756792.rsp"
+      ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 2
+      "DebugActionIndex": 3
     },
     {
       "Annotation": "ScriptAssembliesAndTypeDB",
@@ -67,10 +144,10 @@
       "Outputs": [],
       "ToBuildDependencies": [
         1,
-        2
+        3
       ],
       "OverwriteOutputs": false,
-      "DebugActionIndex": 3
+      "DebugActionIndex": 4
     }
   ],
   "FileSignatures": [
@@ -191,7 +268,169 @@
       "File": "Assets/Plugins/Demigiant/DOTween/DOTween.dll"
     },
     {
-      "File": "Assets/Plugins/websocket-sharp.dll"
+      "File": "Assets/Thirdweb/Core/Plugins/BouncyCastle/BouncyCastle.Crypto.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/Amazon.Extensions.CognitoAuthentication.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.CognitoIdentity.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.CognitoIdentityProvider.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.Core.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.Lambda.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/AWSSDK.SecurityToken.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/EmbeddedWallet/embedded-wallet.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Plugins/netstandard2.1/Dynamitey.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Plugins/netstandard2.1/EventEmitter.NET.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Plugins/netstandard2.1/ImpromptuInterface.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/evm.net/Runtime/netstandard2.1/evm.net.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/Microsoft.Bcl.AsyncInterfaces.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Runtime.CompilerServices.Unsafe.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Encodings.Web.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Json.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Runtime/netstandard2.1/MetaMask.SDK.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Microsoft.Extensions.Logging.Abstractions.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/NBitcoin.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.ABI.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Accounts.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.BlockchainProcessing.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Contracts.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.GnosisSafe.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.HdWallet.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Hex.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.JsonRpc.Client.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.JsonRpc.RpcClient.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.KeyStore.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Merkle.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Merkle.Patricia.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Model.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.RLP.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.RPC.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Signer.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Signer.EIP712.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Siwe.Core.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Siwe.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Util.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Web3.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/Newtonsoft 3.0.2/Runtime/Newtonsoft.Json.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Abstractions.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Logging.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Tokens.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/System.Reactive.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/System.Threading.Channels.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Websocket.Client.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Common.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Core.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Crypto.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Network.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Network.Websocket.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Sign.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/WalletConnectSharp.Storage.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/zxing/zxing.unity.dll"
     },
     {
       "File": "Library/Bee/2000b0aESkipCompile-inputdata.json"
@@ -221,13 +460,19 @@
       "File": "Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
     },
     {
+      "File": "Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
+    },
+    {
       "File": "Library/ScriptAssemblies/Assembly-CSharp.dll"
     },
     {
       "File": "Library/ScriptAssemblies/com.Tivadar.Best.HTTP.dll"
     },
     {
-      "File": "Library/ScriptAssemblies/endel.nativewebsocket.dll"
+      "File": "Library/ScriptAssemblies/Thirdweb.Core.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Thirdweb.Examples.dll"
     },
     {
       "File": "Library/ScriptAssemblies/Unity.AI.Navigation.dll"
@@ -287,7 +532,7 @@
         "NamedNodes": {
           "all_tundra_nodes": 0,
           "ScriptAssemblies": 1,
-          "ScriptAssembliesAndTypeDB": 3
+          "ScriptAssembliesAndTypeDB": 4
         }
 ,  "DefaultNodes": [
     0

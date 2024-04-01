@@ -1,0 +1,156 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern void EmbeddedAttribute__ctor_m02DA1F1550E85225001F4E8B3597579E4B17EE44 (void);
+extern void RefSafetyRulesAttribute__ctor_mACE1B779EC5DDB2AB6F0DCBA7B7AD6FB870A0F34 (void);
+extern void InMemorySessionNonceStorage_AddOrUpdate_m2768FEB89A66AFCA8F59882AC73847091C410BCF (void);
+extern void InMemorySessionNonceStorage_GetSiweMessage_m897E16DCCC1C1E47FD58E0346C6416CC5DC54797 (void);
+extern void InMemorySessionNonceStorage_Remove_m1F6B90389C7367FBAF9C5964A3D97F04835C5834 (void);
+extern void InMemorySessionNonceStorage_Remove_m3D5440CA04712FD6CC9D803CA7DC3EC430F142DE (void);
+extern void InMemorySessionNonceStorage__ctor_m24DAEC4664BD4F9876CC98B5B33FE56934378D84 (void);
+extern void U3CU3Ec__DisplayClass1_0__ctor_m05BD9A326885DCD42CC7A643F2E946D92C38CF4F (void);
+extern void U3CU3Ec__DisplayClass1_0_U3CAddOrUpdateU3Eb__0_m5C6690E35B64E50BC6C3B5AE9E98507F74849DD8 (void);
+extern void RandomNonceBuilder_GenerateNewNonce_mFB172A9B7BA24D6F52D78D7B3C035A0CB22F0D59 (void);
+extern void RandomNonceBuilder__ctor_m838DFB7FBBF4C3CDEADBB3D6B066B2CD9432005B (void);
+extern void SiweMessageService__ctor_m09916490684B62065645C1F6C381395DB75EE9A7 (void);
+extern void SiweMessageService__ctor_m492572B3E6079309677204EAB0DB6A71A15C9057 (void);
+extern void SiweMessageService_BuildMessageToSign_m7AA1CDDCD44656B2DE70F6B9053F7BFB8AB1049D (void);
+extern void SiweMessageService_IsMessageSignatureValid_m1FA6D98AD19B88FDEEAFA2B3AAB959E252C364CD (void);
+extern void SiweMessageService_IsValidMessage_mB5C3E2CC1EF5485D48CBADE9FAE427C9C0DEAE8D (void);
+extern void SiweMessageService_IsUserAddressRegistered_m171C2536FFB58058B3E329A9A86CD17FA67A2A6E (void);
+extern void SiweMessageService_HasMessageDateStartedAndNotExpired_m9989F63009EF8DAB9C5193FA5DFB445AA8B84D46 (void);
+extern void SiweMessageService_AssignNewNonce_m675E2722A4DBAD867C155DAB6D3F18C18478C1DB (void);
+extern void SiweMessageService_IsMessageTheSameAsSessionStored_mA74454F5F22046790803713650650DD5BEF14B9E (void);
+extern void SiweMessageService_InvalidateSession_m186201FD66543F8AF118438279ABE1BA95BCF44A (void);
+extern void U3CIsMessageSignatureValidU3Ed__6_MoveNext_m11CB2FF8D51B0D24EF13DC4CDC576885A0E2F24F (void);
+extern void U3CIsMessageSignatureValidU3Ed__6_SetStateMachine_mC6224E87C31C5237E0D9932ECB9474AE627D6390 (void);
+extern void U3CIsValidMessageU3Ed__7_MoveNext_m36A7681F6C3DC49898302F106A8581C2A1CCDFCD (void);
+extern void U3CIsValidMessageU3Ed__7_SetStateMachine_m8CCB43F35665C50023AE915EF3053D8C14F183AA (void);
+extern void ERC721BalanceEthereumUserService__ctor_mBBE8E9A35296C4BE8456CD99FB7DF8ACEF4D627D (void);
+extern void ERC721BalanceEthereumUserService__ctor_m2B2761E17CDDBF98CAECDB4AA3D81FE4FD73C2E0 (void);
+extern void ERC721BalanceEthereumUserService_IsUserAddressRegistered_mA7032B7AA6FE04C8823B4B47272F31578C513CB3 (void);
+extern void U3CIsUserAddressRegisteredU3Ed__4_MoveNext_mD16719FFB18DF6AB05404ABD7C01509F141EDB51 (void);
+extern void U3CIsUserAddressRegisteredU3Ed__4_SetStateMachine_mAE951F12A4935BA7E9B7A31DDA382F3EFB94C79E (void);
+static Il2CppMethodPointer s_methodPointers[35] = 
+{
+	EmbeddedAttribute__ctor_m02DA1F1550E85225001F4E8B3597579E4B17EE44,
+	RefSafetyRulesAttribute__ctor_mACE1B779EC5DDB2AB6F0DCBA7B7AD6FB870A0F34,
+	InMemorySessionNonceStorage_AddOrUpdate_m2768FEB89A66AFCA8F59882AC73847091C410BCF,
+	InMemorySessionNonceStorage_GetSiweMessage_m897E16DCCC1C1E47FD58E0346C6416CC5DC54797,
+	InMemorySessionNonceStorage_Remove_m1F6B90389C7367FBAF9C5964A3D97F04835C5834,
+	InMemorySessionNonceStorage_Remove_m3D5440CA04712FD6CC9D803CA7DC3EC430F142DE,
+	InMemorySessionNonceStorage__ctor_m24DAEC4664BD4F9876CC98B5B33FE56934378D84,
+	U3CU3Ec__DisplayClass1_0__ctor_m05BD9A326885DCD42CC7A643F2E946D92C38CF4F,
+	U3CU3Ec__DisplayClass1_0_U3CAddOrUpdateU3Eb__0_m5C6690E35B64E50BC6C3B5AE9E98507F74849DD8,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	RandomNonceBuilder_GenerateNewNonce_mFB172A9B7BA24D6F52D78D7B3C035A0CB22F0D59,
+	RandomNonceBuilder__ctor_m838DFB7FBBF4C3CDEADBB3D6B066B2CD9432005B,
+	SiweMessageService__ctor_m09916490684B62065645C1F6C381395DB75EE9A7,
+	SiweMessageService__ctor_m492572B3E6079309677204EAB0DB6A71A15C9057,
+	SiweMessageService_BuildMessageToSign_m7AA1CDDCD44656B2DE70F6B9053F7BFB8AB1049D,
+	SiweMessageService_IsMessageSignatureValid_m1FA6D98AD19B88FDEEAFA2B3AAB959E252C364CD,
+	SiweMessageService_IsValidMessage_mB5C3E2CC1EF5485D48CBADE9FAE427C9C0DEAE8D,
+	SiweMessageService_IsUserAddressRegistered_m171C2536FFB58058B3E329A9A86CD17FA67A2A6E,
+	SiweMessageService_HasMessageDateStartedAndNotExpired_m9989F63009EF8DAB9C5193FA5DFB445AA8B84D46,
+	SiweMessageService_AssignNewNonce_m675E2722A4DBAD867C155DAB6D3F18C18478C1DB,
+	SiweMessageService_IsMessageTheSameAsSessionStored_mA74454F5F22046790803713650650DD5BEF14B9E,
+	SiweMessageService_InvalidateSession_m186201FD66543F8AF118438279ABE1BA95BCF44A,
+	U3CIsMessageSignatureValidU3Ed__6_MoveNext_m11CB2FF8D51B0D24EF13DC4CDC576885A0E2F24F,
+	U3CIsMessageSignatureValidU3Ed__6_SetStateMachine_mC6224E87C31C5237E0D9932ECB9474AE627D6390,
+	U3CIsValidMessageU3Ed__7_MoveNext_m36A7681F6C3DC49898302F106A8581C2A1CCDFCD,
+	U3CIsValidMessageU3Ed__7_SetStateMachine_m8CCB43F35665C50023AE915EF3053D8C14F183AA,
+	ERC721BalanceEthereumUserService__ctor_mBBE8E9A35296C4BE8456CD99FB7DF8ACEF4D627D,
+	ERC721BalanceEthereumUserService__ctor_m2B2761E17CDDBF98CAECDB4AA3D81FE4FD73C2E0,
+	ERC721BalanceEthereumUserService_IsUserAddressRegistered_mA7032B7AA6FE04C8823B4B47272F31578C513CB3,
+	U3CIsUserAddressRegisteredU3Ed__4_MoveNext_mD16719FFB18DF6AB05404ABD7C01509F141EDB51,
+	U3CIsUserAddressRegisteredU3Ed__4_SetStateMachine_mAE951F12A4935BA7E9B7A31DDA382F3EFB94C79E,
+	NULL,
+};
+extern void U3CIsMessageSignatureValidU3Ed__6_MoveNext_m11CB2FF8D51B0D24EF13DC4CDC576885A0E2F24F_AdjustorThunk (void);
+extern void U3CIsMessageSignatureValidU3Ed__6_SetStateMachine_mC6224E87C31C5237E0D9932ECB9474AE627D6390_AdjustorThunk (void);
+extern void U3CIsValidMessageU3Ed__7_MoveNext_m36A7681F6C3DC49898302F106A8581C2A1CCDFCD_AdjustorThunk (void);
+extern void U3CIsValidMessageU3Ed__7_SetStateMachine_m8CCB43F35665C50023AE915EF3053D8C14F183AA_AdjustorThunk (void);
+extern void U3CIsUserAddressRegisteredU3Ed__4_MoveNext_mD16719FFB18DF6AB05404ABD7C01509F141EDB51_AdjustorThunk (void);
+extern void U3CIsUserAddressRegisteredU3Ed__4_SetStateMachine_mAE951F12A4935BA7E9B7A31DDA382F3EFB94C79E_AdjustorThunk (void);
+static Il2CppTokenAdjustorThunkPair s_adjustorThunks[6] = 
+{
+	{ 0x0600001A, U3CIsMessageSignatureValidU3Ed__6_MoveNext_m11CB2FF8D51B0D24EF13DC4CDC576885A0E2F24F_AdjustorThunk },
+	{ 0x0600001B, U3CIsMessageSignatureValidU3Ed__6_SetStateMachine_mC6224E87C31C5237E0D9932ECB9474AE627D6390_AdjustorThunk },
+	{ 0x0600001C, U3CIsValidMessageU3Ed__7_MoveNext_m36A7681F6C3DC49898302F106A8581C2A1CCDFCD_AdjustorThunk },
+	{ 0x0600001D, U3CIsValidMessageU3Ed__7_SetStateMachine_m8CCB43F35665C50023AE915EF3053D8C14F183AA_AdjustorThunk },
+	{ 0x06000021, U3CIsUserAddressRegisteredU3Ed__4_MoveNext_mD16719FFB18DF6AB05404ABD7C01509F141EDB51_AdjustorThunk },
+	{ 0x06000022, U3CIsUserAddressRegisteredU3Ed__4_SetStateMachine_mAE951F12A4935BA7E9B7A31DDA382F3EFB94C79E_AdjustorThunk },
+};
+static const int32_t s_InvokerIndices[35] = 
+{
+	9349,
+	7647,
+	7688,
+	6906,
+	7688,
+	7688,
+	9349,
+	9349,
+	3745,
+	0,
+	0,
+	0,
+	0,
+	13994,
+	9349,
+	2719,
+	9349,
+	6906,
+	3745,
+	3745,
+	6906,
+	5746,
+	6906,
+	5746,
+	7688,
+	9349,
+	7688,
+	9349,
+	7688,
+	4589,
+	4589,
+	6906,
+	9349,
+	7688,
+	0,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Nethereum_Siwe_CodeGenModule;
+const Il2CppCodeGenModule g_Nethereum_Siwe_CodeGenModule = 
+{
+	"Nethereum.Siwe.dll",
+	35,
+	s_methodPointers,
+	6,
+	s_adjustorThunks,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+};
