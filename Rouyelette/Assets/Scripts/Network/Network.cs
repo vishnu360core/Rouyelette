@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-
-using NativeWebSocket;
 using System;
 using System.Text;
 
+using NativeWebSocket;
 
-    public class Network : MonoBehaviour
+
+public class Network : MonoBehaviour
     {
        static Network instance;
 

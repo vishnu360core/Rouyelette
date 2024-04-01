@@ -27,7 +27,7 @@
       "DisplayName": "Writing 6097564273297756792.rsp",
       "ActionType": "WriteFile",
       "PayloadOffset": 83,
-      "PayloadLength": 11807,
+      "PayloadLength": 11939,
       "PayloadDebugContentSnippet": "-a=\"D:\\Work\\Rouyelette_1\\Rouye",
       "Inputs": [],
       "Outputs": [
@@ -59,7 +59,6 @@
         "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Runtime.CompilerServices.Unsafe.dll",
         "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Encodings.Web.dll",
         "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Json.dll",
-        "Assets/Thirdweb/Core/Plugins/MetaMask/Runtime/netstandard2.1/MetaMask.SDK.dll",
         "Assets/Thirdweb/Core/Plugins/Nethereum/Microsoft.Extensions.Logging.Abstractions.dll",
         "Assets/Thirdweb/Core/Plugins/Nethereum/NBitcoin.dll",
         "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.ABI.dll",
@@ -84,6 +83,7 @@
         "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Util.dll",
         "Assets/Thirdweb/Core/Plugins/Nethereum/Nethereum.Web3.dll",
         "Assets/Thirdweb/Core/Plugins/Newtonsoft 3.0.2/Runtime/Newtonsoft.Json.dll",
+        "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/External/NativeWebSocket/Runtime/netstandard2.1/MetaMask.SDK.dll",
         "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Abstractions.dll",
         "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Logging.dll",
         "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Tokens.dll",
@@ -316,9 +316,6 @@
       "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Plugins/Libraries/SocketIOUnity/Runtime/libs/System.Text.Json.dll"
     },
     {
-      "File": "Assets/Thirdweb/Core/Plugins/MetaMask/Runtime/netstandard2.1/MetaMask.SDK.dll"
-    },
-    {
       "File": "Assets/Thirdweb/Core/Plugins/Nethereum/Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
@@ -389,6 +386,9 @@
     },
     {
       "File": "Assets/Thirdweb/Core/Plugins/Newtonsoft 3.0.2/Runtime/Newtonsoft.Json.dll"
+    },
+    {
+      "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/External/NativeWebSocket/Runtime/netstandard2.1/MetaMask.SDK.dll"
     },
     {
       "File": "Assets/Thirdweb/Core/Plugins/WalletConnectUnity/com.walletconnect.core/Runtime/WalletConnectSharp/External/Microsoft.IdentityModel.Abstractions.dll"
