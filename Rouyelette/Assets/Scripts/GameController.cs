@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.Log("Saving bet !!!!!!!!!!" + bet);
 
-        _clientManager.UpdateClient(Network.Instance.Id,bet,playerJsonData);
+        _clientManager.UpdateClient(RoyelleteNetwork.Instance.Id,bet,playerJsonData);
     }
 
     void Test()
@@ -134,7 +134,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     #region WALLET_CONNECT
 
-  
     #endregion
 
 
@@ -147,7 +146,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         string jsonString = JsonUtility.ToJson(new GameData { status = _status });
 
-        StartCoroutine(Network.Instance.SaveToNet(jsonString));
+        StartCoroutine(RoyelleteNetwork.Instance.SaveToNet(jsonString));
     }
 
     /// <summary>

@@ -183,6 +183,7 @@ namespace Thirdweb.Examples
 
             var bal = await ThirdwebManager.Instance.SDK.Wallet.GetBalance();
             var balStr = $"{bal.value.ToEth()} {bal.symbol}";
+
             foreach (var balanceText in balanceTexts)
                 balanceText.text = balStr;
 

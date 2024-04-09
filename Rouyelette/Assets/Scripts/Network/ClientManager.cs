@@ -50,7 +50,7 @@ public class ClientManager : MonoBehaviour
         json = JsonUtility.ToJson(playerDataList);
         Debug.Log("Resetted json >>>>" + json);
 
-        StartCoroutine(Network.Instance.SaveToNet(json));
+        StartCoroutine(RoyelleteNetwork.Instance.SaveToNet(json));
     }
 
 
@@ -85,7 +85,7 @@ public class ClientManager : MonoBehaviour
             jsonString = JsonUtility.ToJson(playerDataList);
             Debug.Log("Player json :  " + jsonString + playerDatas.Count);
 
-            StartCoroutine(Network.Instance.SaveToNet(jsonString));
+            StartCoroutine(RoyelleteNetwork.Instance.SaveToNet(jsonString));
         }
         else
         {
@@ -100,7 +100,7 @@ public class ClientManager : MonoBehaviour
             jsonString = JsonUtility.ToJson(playerDataList);
             Debug.Log("Updated Player json :  " + jsonString);
 
-            StartCoroutine(Network.Instance.SaveToNet(jsonString));
+            StartCoroutine(RoyelleteNetwork.Instance.SaveToNet(jsonString));
         }
 
 
@@ -173,7 +173,7 @@ public class ClientManager : MonoBehaviour
                 string jsonString = JsonUtility.ToJson(playerDataList);
                 Debug.Log("Updated Player json after bets :  " + jsonString);
 
-                StartCoroutine(Network.Instance.SaveToNet(jsonString));
+                StartCoroutine(RoyelleteNetwork.Instance.SaveToNet(jsonString));
 
                 break;
             }
@@ -201,9 +201,9 @@ public class ClientManager : MonoBehaviour
 
             for (int i = 0; i < playerDatas.Count; i++)
             {
-                if (Network.Instance.Id != playerDatas[i].id)
+                if (RoyelleteNetwork.Instance.Id != playerDatas[i].id)
                 {
-                   Debug.Log("Own id >>>>" + Network.Instance.Id + "other id" + playerDatas[i].id);
+                   Debug.Log("Own id >>>>" + RoyelleteNetwork.Instance.Id + "other id" + playerDatas[i].id);
                    
                    clientPlayer.PlayerData = playerDatas[i];
                    ClientChipAction(clientPlayer.PlayerData.bets, clientPlayer._chipTransform);

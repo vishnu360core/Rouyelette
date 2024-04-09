@@ -681,7 +681,6 @@ struct Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA;
 struct Binder_t91BFCE95A7057FADF4D8A1A342AFE52872246235;
 struct Block_tA593A4E7BDEAB0D7B9F74754DDE21F012E768DF6;
 struct BlockParameter_t13CF5CC9CDE990ACD945748B2FA7F19EA0A06AD9;
-struct Byte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3;
 struct Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B;
 struct CallInput_t134727ED6D63AA0F8722CB06FEC85207CC5D3F9C;
 struct CancellationCallbackInfo_tC8BE558ED1E173434DD1919D574C9FAFE501E22D;
@@ -2284,12 +2283,6 @@ struct ManualAwaiter_1_tDB9B60BE6A74239C647328E01451F667658A0853  : public Manua
 {
 	Func_1_tBB8824FA8746333BFFF3AB3CE4A41B58450AF431* ____resultGetter;
 };
-struct NativeSlice_1_t66375568C4FF313931F4D2F646D64FE6A406BAD2 
-{
-	uint8_t* ___m_Buffer;
-	int32_t ___m_Stride;
-	int32_t ___m_Length;
-};
 struct Nullable_1_t78F453FADB4A9F50F267A4E349019C34410D1A01 
 {
 	bool ___hasValue;
@@ -2477,68 +2470,6 @@ struct Color_tD001788D726C3A7F1379BEED0260B9591F440C1F
 	float ___g;
 	float ___b;
 	float ___a;
-};
-struct Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B 
-{
-	union
-	{
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int32_t ___rgba;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int32_t ___rgba_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			uint8_t ___r;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			uint8_t ___r_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			char ___g_OffsetPadding[1];
-			uint8_t ___g;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			char ___g_OffsetPadding_forAlignmentOnly[1];
-			uint8_t ___g_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			char ___b_OffsetPadding[2];
-			uint8_t ___b;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			char ___b_OffsetPadding_forAlignmentOnly[2];
-			uint8_t ___b_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			char ___a_OffsetPadding[3];
-			uint8_t ___a;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			char ___a_OffsetPadding_forAlignmentOnly[3];
-			uint8_t ___a_forAlignmentOnly;
-		};
-	};
 };
 struct ColorOptions_t9F2151E3A21F3FE2A41BEEF7D288D670C2685F39 
 {
@@ -3766,12 +3697,6 @@ struct JobScheduleParameters_tBA5415DA68E52ABC80373CD13D66C9AFAF8F542B
 	int32_t ___ScheduleMode;
 	intptr_t ___ReflectionData;
 	intptr_t ___JobDataPtr;
-};
-struct OpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110 
-{
-	NativeSlice_1_t66375568C4FF313931F4D2F646D64FE6A406BAD2 ___oldVerts;
-	NativeSlice_1_t66375568C4FF313931F4D2F646D64FE6A406BAD2 ___newVerts;
-	Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B ___opacityData;
 };
 struct RenderTargetMode_tAE75E29BB61A64BDE7646D5CBD353B64BCFA9F3A 
 {
@@ -5933,6 +5858,9 @@ struct ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031  : public RuntimeArr
 };
 
 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Error_IsErrorForErrorType_TisRuntimeObject_m8D1B78715BB694DDEA566C0EC6C67CB909A6A1C8_gshared (Error_t72AE40BA09E44C6FEC72FFA46874036666935DE0* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ErrorExtensions_DecodeExceptionEncodedData_TisRuntimeObject_m9F702EC38786D05558A8236BEC1B3B263913259C_gshared (String_t* ___0_data, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ErrorExtensions_IsErrorABIForErrorType_TisRuntimeObject_m31D364E5390D83AD9AE4197B7E5815A268B5FCDB_gshared (ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* ___0_errorABI, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_t0C4CD3A5BB93A184420D73218644C56C70FDA7E2* PipelineHandler_InvokeAsync_TisRuntimeObject_m15B80DD59C03C7DE02FF1582DE0C5995682168E5_gshared (PipelineHandler_tD1748CF859A75BE8B11F94017C83E6F1E63702B9* __this, RuntimeObject* ___0_executionContext, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0 AsyncTaskMethodBuilder_1_Create_m6A59453D00C0143F178809ADFD98C90E8C291ABB_gshared (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CInvokeAsyncU3Ed__5_1_tEA6D176D501CFB244E76926DCBBCCC51CD3F7D26_mAAA3465DE5863693CCE3BFBC7F4352E8E72FA401_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CInvokeAsyncU3Ed__5_1_tEA6D176D501CFB244E76926DCBBCCC51CD3F7D26* ___0_stateMachine, const RuntimeMethod* method) ;
@@ -6182,10 +6110,22 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CRun
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JobStruct_1_Initialize_mC888DED40B7B3EDE711AB54D852AFE36446B0292_gshared (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t* SharedStatic_1_get_Data_m42DD928B26C146E0D920D5348F2CEBC3C7F21C3D_gshared (SharedStatic_1_t33583FDAFE4C36D5BA68FE6F5444170BB42F98C0* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParallelForJobStruct_1_Initialize_mB92297926E732D2CEE7B8B725636D58291E7FB22_gshared (const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t IJobParallelForExtensions_GetReflectionData_TisOpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110_m10574173B5E877ACC23DF937B85EB4B312585104_gshared (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void List_1_AddWithResize_m79A9BF770BEF9C06BE40D5401E55E375F2726CC4_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___0_item, const RuntimeMethod* method) ;
 
+inline bool Error_IsErrorForErrorType_TisRuntimeObject_m8D1B78715BB694DDEA566C0EC6C67CB909A6A1C8 (Error_t72AE40BA09E44C6FEC72FFA46874036666935DE0* __this, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Error_t72AE40BA09E44C6FEC72FFA46874036666935DE0*, const RuntimeMethod*))Error_IsErrorForErrorType_TisRuntimeObject_m8D1B78715BB694DDEA566C0EC6C67CB909A6A1C8_gshared)(__this, method);
+}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* ErrorBase_get_ErrorABI_mB1EE264CC8EAB877478BAD29254D49745138BF49_inline (ErrorBase_t8895E3DEF545F33C84FAE8ABF51941780300961A* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ErrorExtensions_IsExceptionEncodedDataForError_m24942CE7ED0B524516C000A02EF53C1AA136609E (ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* ___0_errorABI, String_t* ___1_data, const RuntimeMethod* method) ;
+inline RuntimeObject* ErrorExtensions_DecodeExceptionEncodedData_TisRuntimeObject_m9F702EC38786D05558A8236BEC1B3B263913259C (String_t* ___0_data, const RuntimeMethod* method)
+{
+	return ((  RuntimeObject* (*) (String_t*, const RuntimeMethod*))ErrorExtensions_DecodeExceptionEncodedData_TisRuntimeObject_m9F702EC38786D05558A8236BEC1B3B263913259C_gshared)(___0_data, method);
+}
+inline bool ErrorExtensions_IsErrorABIForErrorType_TisRuntimeObject_m31D364E5390D83AD9AE4197B7E5815A268B5FCDB (ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* ___0_errorABI, const RuntimeMethod* method)
+{
+	return ((  bool (*) (ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9*, const RuntimeMethod*))ErrorExtensions_IsErrorABIForErrorType_TisRuntimeObject_m31D364E5390D83AD9AE4197B7E5815A268B5FCDB_gshared)(___0_errorABI, method);
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57 (RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B ___0_handle, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ErrorAttribute_tA39A1A54C30A5964C3C57605775479A3B48B17A2* ErrorAttribute_GetAttribute_m400EDA78A6E903A2C9C4ACC7E0F132B33D298B9A (Type_t* ___0_type, const RuntimeMethod* method) ;
 inline Task_1_t0C4CD3A5BB93A184420D73218644C56C70FDA7E2* PipelineHandler_InvokeAsync_TisRuntimeObject_m15B80DD59C03C7DE02FF1582DE0C5995682168E5 (PipelineHandler_tD1748CF859A75BE8B11F94017C83E6F1E63702B9* __this, RuntimeObject* ___0_executionContext, const RuntimeMethod* method)
@@ -6208,7 +6148,6 @@ inline ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* ABITypedRegistry_GetE
 {
 	return ((  ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* (*) (const RuntimeMethod*))ABITypedRegistry_GetError_TisRuntimeObject_mD17C0166CD2A3A3A47093CC785EF5BEBD6CFBEE7_gshared)(method);
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ErrorExtensions_IsExceptionEncodedDataForError_m24942CE7ED0B524516C000A02EF53C1AA136609E (ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* ___0_errorABI, String_t* ___1_data, const RuntimeMethod* method) ;
 inline RuntimeObject* Activator_CreateInstance_TisRuntimeObject_m62506836177F0F862A8D619638BF37F48721F138 (const RuntimeMethod* method)
 {
 	return ((  RuntimeObject* (*) (const RuntimeMethod*))Activator_CreateInstance_TisRuntimeObject_m62506836177F0F862A8D619638BF37F48721F138_gshared)(method);
@@ -7504,10 +7443,6 @@ inline void ParallelForJobStruct_1_Initialize_mB92297926E732D2CEE7B8B725636D5829
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JobScheduleParameters__ctor_m5FFED3B28A1FA2C3EC7D1C50A7D7E788C411CE04 (JobScheduleParameters_tBA5415DA68E52ABC80373CD13D66C9AFAF8F542B* __this, void* ___0_i_jobData, intptr_t ___1_i_reflectionData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___2_i_dependency, int32_t ___3_i_scheduleMode, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 JobsUtility_ScheduleParallelFor_mEF775B0FF09686D0525DDFA9ED95A72EEDEC995C (JobScheduleParameters_tBA5415DA68E52ABC80373CD13D66C9AFAF8F542B* ___0_parameters, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, const RuntimeMethod* method) ;
-inline intptr_t IJobParallelForExtensions_GetReflectionData_TisOpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110_m10574173B5E877ACC23DF937B85EB4B312585104 (const RuntimeMethod* method)
-{
-	return ((  intptr_t (*) (const RuntimeMethod*))IJobParallelForExtensions_GetReflectionData_TisOpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110_m10574173B5E877ACC23DF937B85EB4B312585104_gshared)(method);
-}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 Color_op_Implicit_m9B3228DAFA8DC57A75DE00CBBF13ED4F1E7B01FF_inline (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_c, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint32_t HashCode_Rol_m2C9F75D39B5EAB782230E8B4FB51D346785A17D5_inline (uint32_t ___0_value, int32_t ___1_count, const RuntimeMethod* method) ;
 inline void List_1_AddWithResize_m79A9BF770BEF9C06BE40D5401E55E375F2726CC4 (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___0_item, const RuntimeMethod* method)
@@ -7516,6 +7451,65 @@ inline void List_1_AddWithResize_m79A9BF770BEF9C06BE40D5401E55E375F2726CC4 (List
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Array_Clear_m50BAA3751899858B097D3FF2ED31F284703FE5CB (RuntimeArray* ___0_array, int32_t ___1_index, int32_t ___2_length, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector4__ctor_m96B2CD8B862B271F513AF0BDC2EABD58E4DBC813_inline (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3* __this, float ___0_x, float ___1_y, float ___2_z, float ___3_w, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Error_DecodeExceptionEncodedData_TisRuntimeObject_m5AA9F7B1DC4767319949955C5B2379A492F80E44_gshared (Error_t72AE40BA09E44C6FEC72FFA46874036666935DE0* __this, String_t* ___0_data, const RuntimeMethod* method) 
+{
+	if (!il2cpp_rgctx_is_initialized(method))
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ErrorExtensions_t4A9B2A6D646E16603D6B73AB603CA4A73CF1A155_il2cpp_TypeInfo_var);
+		il2cpp_rgctx_method_init(method);
+	}
+	RuntimeObject* V_0 = NULL;
+	{
+		bool L_0;
+		L_0 = Error_IsErrorForErrorType_TisRuntimeObject_m8D1B78715BB694DDEA566C0EC6C67CB909A6A1C8(__this, il2cpp_rgctx_method(method->rgctx_data, 0));
+		if (!L_0)
+		{
+			goto IL_001d;
+		}
+	}
+	{
+		ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* L_1;
+		L_1 = ErrorBase_get_ErrorABI_mB1EE264CC8EAB877478BAD29254D49745138BF49_inline((ErrorBase_t8895E3DEF545F33C84FAE8ABF51941780300961A*)__this, NULL);
+		String_t* L_2 = ___0_data;
+		il2cpp_codegen_runtime_class_init_inline(ErrorExtensions_t4A9B2A6D646E16603D6B73AB603CA4A73CF1A155_il2cpp_TypeInfo_var);
+		bool L_3;
+		L_3 = ErrorExtensions_IsExceptionEncodedDataForError_m24942CE7ED0B524516C000A02EF53C1AA136609E(L_1, L_2, NULL);
+		if (!L_3)
+		{
+			goto IL_001d;
+		}
+	}
+	{
+		String_t* L_4 = ___0_data;
+		il2cpp_codegen_runtime_class_init_inline(ErrorExtensions_t4A9B2A6D646E16603D6B73AB603CA4A73CF1A155_il2cpp_TypeInfo_var);
+		RuntimeObject* L_5;
+		L_5 = ErrorExtensions_DecodeExceptionEncodedData_TisRuntimeObject_m9F702EC38786D05558A8236BEC1B3B263913259C(L_4, il2cpp_rgctx_method(method->rgctx_data, 1));
+		return L_5;
+	}
+
+IL_001d:
+	{
+		il2cpp_codegen_initobj((&V_0), sizeof(RuntimeObject*));
+		RuntimeObject* L_6 = V_0;
+		return L_6;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Error_IsErrorForErrorType_TisRuntimeObject_m8D1B78715BB694DDEA566C0EC6C67CB909A6A1C8_gshared (Error_t72AE40BA09E44C6FEC72FFA46874036666935DE0* __this, const RuntimeMethod* method) 
+{
+	if (!il2cpp_rgctx_is_initialized(method))
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ErrorExtensions_t4A9B2A6D646E16603D6B73AB603CA4A73CF1A155_il2cpp_TypeInfo_var);
+		il2cpp_rgctx_method_init(method);
+	}
+	{
+		ErrorABI_t2AC24E33A0A07B535DED3FD7BC86EEAEFB6334E9* L_0;
+		L_0 = ErrorBase_get_ErrorABI_mB1EE264CC8EAB877478BAD29254D49745138BF49_inline((ErrorBase_t8895E3DEF545F33C84FAE8ABF51941780300961A*)__this, NULL);
+		il2cpp_codegen_runtime_class_init_inline(ErrorExtensions_t4A9B2A6D646E16603D6B73AB603CA4A73CF1A155_il2cpp_TypeInfo_var);
+		bool L_1;
+		L_1 = ErrorExtensions_IsErrorABIForErrorType_TisRuntimeObject_m31D364E5390D83AD9AE4197B7E5815A268B5FCDB(L_0, il2cpp_rgctx_method(method->rgctx_data, 0));
+		return L_1;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Error_IsErrorForErrorType_TisIl2CppFullySharedGenericAny_m659AE4E548F2CA11573B73A2FB487ECF7D23EBEF_gshared (Error_t72AE40BA09E44C6FEC72FFA46874036666935DE0* __this, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -28841,34 +28835,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE0
 		L_0 = ((  void* (*) (Il2CppFullySharedGenericStruct*, const RuntimeMethod*))il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))((Il2CppFullySharedGenericStruct*)___0_jobData, il2cpp_rgctx_method(method->rgctx_data, 1));
 		intptr_t L_1;
 		L_1 = ((  intptr_t (*) (const RuntimeMethod*))il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 3)))(il2cpp_rgctx_method(method->rgctx_data, 3));
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_2 = ___3_dependsOn;
-		JobScheduleParameters__ctor_m5FFED3B28A1FA2C3EC7D1C50A7D7E788C411CE04((&V_0), L_0, L_1, L_2, (int32_t)1, NULL);
-		int32_t L_3 = ___1_arrayLength;
-		int32_t L_4 = ___2_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_5;
-		L_5 = JobsUtility_ScheduleParallelFor_mEF775B0FF09686D0525DDFA9ED95A72EEDEC995C((&V_0), L_3, L_4, NULL);
-		V_1 = L_5;
-		goto IL_0022;
-	}
-
-IL_0022:
-	{
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_6 = V_1;
-		return L_6;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisOpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110_m77AFA9A14FD2ACA01625D9E7B23D2A64EF963D35_gshared (OpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	JobScheduleParameters_tBA5415DA68E52ABC80373CD13D66C9AFAF8F542B V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	{
-		void* L_0;
-		L_0 = il2cpp_codegen_unsafe_cast((&___0_jobData));
-		intptr_t L_1;
-		L_1 = IJobParallelForExtensions_GetReflectionData_TisOpacityIdUpdateJob_t44287EF1EDECBC73C16DD75791575F362A19A110_m10574173B5E877ACC23DF937B85EB4B312585104(il2cpp_rgctx_method(method->rgctx_data, 3));
 		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_2 = ___3_dependsOn;
 		JobScheduleParameters__ctor_m5FFED3B28A1FA2C3EC7D1C50A7D7E788C411CE04((&V_0), L_0, L_1, L_2, (int32_t)1, NULL);
 		int32_t L_3 = ___1_arrayLength;

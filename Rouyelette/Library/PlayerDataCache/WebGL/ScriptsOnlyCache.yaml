@@ -17,10 +17,10 @@ ScriptsOnlyBuild:
     - DealerController
     - GameController
     - Layout
-    - Network
     - Obstacle
     - Outline
     - PopMessage
+    - RoyelleteNetwork
     - Slot
     - SpinWheelManager
     - Wheel
@@ -56,6 +56,7 @@ ScriptsOnlyBuild:
     Thirdweb.Examples.dll:
     - Thirdweb.Examples.LoadingSpinner
     - Thirdweb.Examples.Prefab_ConnectWallet
+    - Thirdweb.Examples.Prefab_NFT
     - Thirdweb.Examples.SpriteSwap
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -172,180 +173,6 @@ ScriptsOnlyBuild:
     - WalletConnectSharp.Core.Metadata
     - WalletConnectSharp.Core.Models.RedirectData
   methodsToPreserve:
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ExportWallet
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ToggleSwitchNetworkPanel
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: Disconnect
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.SpriteSwap
-    methodName: Swap
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: CopyAddress
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectEmail
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectOauth
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectOauth
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectOauth
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectGuest
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectExternal
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectExternal
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectExternal
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectExternal
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Examples
-    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
-    methodName: ConnectExternal
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: GameController
-    methodName: EnaplayAction
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: GameController
-    methodName: EnaplayAction
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: GameController
-    methodName: EnaplayAction
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: GameController
-    methodName: EnaplayAction
   - assembly: Thirdweb.Core
     fullTypeName: Thirdweb.Wallets.WalletConnectUI
     methodName: Cancel
@@ -364,6 +191,192 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: GameController
     methodName: SpinButtonAction
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectExternal
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectExternal
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ExportWallet
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectEmail
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: Disconnect
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectOauth
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectOauth
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectExternal
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectOauth
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.SpriteSwap
+    methodName: Swap
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: CopyAddress
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectExternal
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ToggleSwitchNetworkPanel
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: GameController
+    methodName: EnaplayAction
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: GameController
+    methodName: EnaplayAction
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: RoyelleteNetwork
+    methodName: NetworkStart
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: RoyelleteNetwork
+    methodName: GetBalance
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: GameController
+    methodName: EnaplayAction
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: GameController
+    methodName: EnaplayAction
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectExternal
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Examples
+    fullTypeName: Thirdweb.Examples.Prefab_ConnectWallet
+    methodName: ConnectGuest
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   - assembly: Thirdweb.Core
     fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
     methodName: OnDisconnect
@@ -440,123 +453,125 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18074}
     - Class: 114
-      Script: {instanceID: 18558}
+      Script: {instanceID: 18560}
     - Class: 114
-      Script: {instanceID: 18664}
+      Script: {instanceID: 18666}
     - Class: 114
-      Script: {instanceID: 18770}
+      Script: {instanceID: 18772}
     - Class: 114
-      Script: {instanceID: 18804}
+      Script: {instanceID: 18806}
     - Class: 114
-      Script: {instanceID: 18974}
+      Script: {instanceID: 18976}
     - Class: 114
-      Script: {instanceID: 19132}
+      Script: {instanceID: 19134}
     - Class: 114
-      Script: {instanceID: 19172}
+      Script: {instanceID: 19174}
     - Class: 114
-      Script: {instanceID: 19552}
+      Script: {instanceID: 19554}
     - Class: 114
-      Script: {instanceID: 19794}
+      Script: {instanceID: 19796}
     - Class: 114
-      Script: {instanceID: 19848}
+      Script: {instanceID: 19850}
     - Class: 114
-      Script: {instanceID: 20036}
+      Script: {instanceID: 20038}
     - Class: 114
-      Script: {instanceID: 20096}
+      Script: {instanceID: 20098}
     - Class: 114
-      Script: {instanceID: 20750}
+      Script: {instanceID: 20752}
     - Class: 114
-      Script: {instanceID: 20908}
+      Script: {instanceID: 20910}
     - Class: 114
-      Script: {instanceID: 21212}
+      Script: {instanceID: 21214}
     - Class: 114
-      Script: {instanceID: 21248}
+      Script: {instanceID: 21250}
     - Class: 114
-      Script: {instanceID: 21404}
+      Script: {instanceID: 21406}
     - Class: 114
-      Script: {instanceID: 21462}
+      Script: {instanceID: 21464}
     - Class: 114
-      Script: {instanceID: 21590}
+      Script: {instanceID: 21474}
     - Class: 114
-      Script: {instanceID: 21958}
+      Script: {instanceID: 21592}
     - Class: 114
-      Script: {instanceID: 22372}
+      Script: {instanceID: 21962}
     - Class: 114
-      Script: {instanceID: 22810}
+      Script: {instanceID: 22376}
     - Class: 114
-      Script: {instanceID: 22904}
+      Script: {instanceID: 22814}
     - Class: 114
-      Script: {instanceID: 23054}
+      Script: {instanceID: 22908}
     - Class: 114
-      Script: {instanceID: 23276}
+      Script: {instanceID: 23058}
     - Class: 114
-      Script: {instanceID: 23504}
+      Script: {instanceID: 23280}
     - Class: 114
-      Script: {instanceID: 23714}
+      Script: {instanceID: 23508}
     - Class: 114
-      Script: {instanceID: 23838}
+      Script: {instanceID: 23718}
     - Class: 114
-      Script: {instanceID: 23916}
+      Script: {instanceID: 23842}
     - Class: 114
-      Script: {instanceID: 24154}
+      Script: {instanceID: 23920}
     - Class: 114
-      Script: {instanceID: 24250}
+      Script: {instanceID: 24158}
     - Class: 114
-      Script: {instanceID: 24950}
+      Script: {instanceID: 24254}
     - Class: 114
-      Script: {instanceID: 25048}
+      Script: {instanceID: 24954}
     - Class: 114
-      Script: {instanceID: 25144}
+      Script: {instanceID: 25052}
     - Class: 114
-      Script: {instanceID: 25206}
+      Script: {instanceID: 25148}
     - Class: 114
-      Script: {instanceID: 25348}
+      Script: {instanceID: 25210}
     - Class: 114
-      Script: {instanceID: 25396}
+      Script: {instanceID: 25352}
     - Class: 114
-      Script: {instanceID: 25812}
+      Script: {instanceID: 25400}
     - Class: 114
-      Script: {instanceID: 25830}
+      Script: {instanceID: 25816}
     - Class: 114
-      Script: {instanceID: 26020}
+      Script: {instanceID: 25834}
     - Class: 114
-      Script: {instanceID: 26836}
+      Script: {instanceID: 26024}
     - Class: 114
-      Script: {instanceID: 26848}
+      Script: {instanceID: 26840}
     - Class: 114
-      Script: {instanceID: 26944}
+      Script: {instanceID: 26852}
     - Class: 114
-      Script: {instanceID: 26968}
+      Script: {instanceID: 26948}
     - Class: 114
       Script: {instanceID: 26972}
     - Class: 114
-      Script: {instanceID: 27088}
+      Script: {instanceID: 26976}
     - Class: 114
-      Script: {instanceID: 27134}
+      Script: {instanceID: 27092}
     - Class: 114
-      Script: {instanceID: 27210}
+      Script: {instanceID: 27138}
     - Class: 114
-      Script: {instanceID: 27590}
+      Script: {instanceID: 27214}
     - Class: 114
-      Script: {instanceID: 27644}
+      Script: {instanceID: 27594}
     - Class: 114
-      Script: {instanceID: 27696}
+      Script: {instanceID: 27648}
     - Class: 114
-      Script: {instanceID: 27714}
+      Script: {instanceID: 27700}
     - Class: 114
-      Script: {instanceID: 28008}
+      Script: {instanceID: 27718}
     - Class: 114
-      Script: {instanceID: 28010}
+      Script: {instanceID: 28012}
     - Class: 114
-      Script: {instanceID: 28230}
+      Script: {instanceID: 28014}
     - Class: 114
-      Script: {instanceID: 28346}
+      Script: {instanceID: 28234}
     - Class: 114
-      Script: {instanceID: 31784}
+      Script: {instanceID: 28350}
     - Class: 114
-      Script: {instanceID: 31786}
+      Script: {instanceID: 32798}
     - Class: 114
-      Script: {instanceID: 31788}
+      Script: {instanceID: 32800}
+    - Class: 114
+      Script: {instanceID: 32802}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2030,10 +2045,10 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: be49e4b49414e948087e2d8364d28fbb
+      Hash: a540cce851ab58659900cdaf3f36ad84
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Network
+    className: RoyelleteNetwork
   - hash:
       serializedVersion: 2
       Hash: abe1efa1532c14344f73dfe422e36f22

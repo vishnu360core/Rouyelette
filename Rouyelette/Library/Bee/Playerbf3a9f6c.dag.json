@@ -847,13 +847,7 @@
         839,
         840,
         841,
-        842,
-        843,
-        844,
-        845,
-        846,
-        847,
-        848
+        842
       ],
       "OverwriteOutputs": false,
       "DebugActionIndex": 0
@@ -43412,116 +43406,34 @@
       "DebugActionIndex": 828
     },
     {
-      "Annotation": "7z Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked",
-      "DisplayName": "7z build.framework.js",
-      "Action": "cd \"D:/Work/Rouyelette_1/Rouyelette/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/7z.exe\" a -tgzip \"D:/Work/Rouyelette_1/Rouyelette/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked\" \"build.framework.js\"",
+      "Annotation": "CopyFiles D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.framework.js",
+      "DisplayName": "Copying WebGLbuild_20240320_1.framework.js",
+      "ActionType": "CopyFiles",
       "Inputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/7z.exe"
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js"
       ],
       "Outputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked"
+        "D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.framework.js"
       ],
       "ToBuildDependencies": [
         828
       ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
-      "Env": [],
       "DebugActionIndex": 829
     },
     {
-      "Annotation": "WriteText Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.framework.js.gz_tcff.info",
-      "DisplayName": "Writing WebGLbuild_20240320_1.framework.js.gz_tcff.info",
-      "ActionType": "WriteFile",
-      "PayloadOffset": 244219,
-      "PayloadLength": 493,
-      "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
-      "Inputs": [],
-      "Outputs": [
-        "Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.framework.js.gz_tcff.info"
-      ],
-      "DebugActionIndex": 830
-    },
-    {
-      "Annotation": "GzipMarker D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.framework.js.gz",
-      "DisplayName": "GzipMarker WebGLbuild_20240320_1.framework.js",
-      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\WebGLPlayerBuildProgram.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/BuildPipeline\" invoke_static_method \"Library\\Bee\\artifacts\\csharpactions\\WebGLbuild_20240320_1.framework.js.gz_tcff.info\"",
+      "Annotation": "CopyFiles D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.wasm",
+      "DisplayName": "Copying WebGLbuild_20240320_1.wasm",
+      "ActionType": "CopyFiles",
       "Inputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked",
-        "Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.framework.js.gz_tcff.info",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/modules.asset",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.Data.dll",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.exe"
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm"
       ],
       "Outputs": [
-        "D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.framework.js.gz"
-      ],
-      "ToBuildDependencies": [
-        829,
-        830
-      ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
-      "Env": [],
-      "DebugActionIndex": 831
-    },
-    {
-      "Annotation": "7z Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked",
-      "DisplayName": "7z build.wasm",
-      "Action": "cd \"D:/Work/Rouyelette_1/Rouyelette/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/7z.exe\" a -tgzip \"D:/Work/Rouyelette_1/Rouyelette/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked\" \"build.wasm\"",
-      "Inputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/7z.exe"
-      ],
-      "Outputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked"
+        "D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.wasm"
       ],
       "ToBuildDependencies": [
         826
       ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
-      "Env": [],
-      "DebugActionIndex": 832
-    },
-    {
-      "Annotation": "WriteText Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.wasm.gz_y89j.info",
-      "DisplayName": "Writing WebGLbuild_20240320_1.wasm.gz_y89j.info",
-      "ActionType": "WriteFile",
-      "PayloadOffset": 244819,
-      "PayloadLength": 477,
-      "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
-      "Inputs": [],
-      "Outputs": [
-        "Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.wasm.gz_y89j.info"
-      ],
-      "DebugActionIndex": 833
-    },
-    {
-      "Annotation": "GzipMarker D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.wasm.gz",
-      "DisplayName": "GzipMarker WebGLbuild_20240320_1.wasm",
-      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\WebGLPlayerBuildProgram.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/BuildPipeline\" invoke_static_method \"Library\\Bee\\artifacts\\csharpactions\\WebGLbuild_20240320_1.wasm.gz_y89j.info\"",
-      "Inputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked",
-        "Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.wasm.gz_y89j.info",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/modules.asset",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.Data.dll",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.exe"
-      ],
-      "Outputs": [
-        "D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.wasm.gz"
-      ],
-      "ToBuildDependencies": [
-        832,
-        833
-      ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
-      "Env": [],
-      "DebugActionIndex": 834
+      "DebugActionIndex": 830
     },
     {
       "Annotation": "CopyFiles Temp/EditorBuildOutput/UnityLinkerToEditorData.json",
@@ -43536,7 +43448,7 @@
       "ToBuildDependencies": [
         4
       ],
-      "DebugActionIndex": 835
+      "DebugActionIndex": 831
     },
     {
       "Annotation": "CopyFiles Temp/EditorBuildOutput/MethodMap.tsv",
@@ -43551,20 +43463,20 @@
       "ToBuildDependencies": [
         7
       ],
-      "DebugActionIndex": 836
+      "DebugActionIndex": 832
     },
     {
       "Annotation": "WriteText Library/Bee/artifacts/csharpactions/webgl.data_qnm2.info",
       "DisplayName": "Writing webgl.data_qnm2.info",
       "ActionType": "WriteFile",
-      "PayloadOffset": 245384,
+      "PayloadOffset": 244192,
       "PayloadLength": 1997,
       "PayloadDebugContentSnippet": "{\"System.Collections.Generic.D",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/csharpactions/webgl.data_qnm2.info"
       ],
-      "DebugActionIndex": 837
+      "DebugActionIndex": 833
     },
     {
       "Annotation": "Assemble WebGL Data Library/Bee/artifacts/WebGL/webgl.data",
@@ -43591,73 +43503,32 @@
       "ToBuildDependencies": [
         2,
         7,
-        837
+        833
       ],
       "OverwriteOutputs": false,
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 838
+      "DebugActionIndex": 834
     },
     {
-      "Annotation": "7z Library/Bee/artifacts/WebGL/webgl.data.unmarked",
-      "DisplayName": "7z webgl.data",
-      "Action": "cd \"D:/Work/Rouyelette_1/Rouyelette/Library/Bee/artifacts/WebGL\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/7z.exe\" a -tgzip \"D:/Work/Rouyelette_1/Rouyelette/Library/Bee/artifacts/WebGL/webgl.data.unmarked\" \"webgl.data\"",
+      "Annotation": "CopyFiles D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.data",
+      "DisplayName": "Copying WebGLbuild_20240320_1.data",
+      "ActionType": "CopyFiles",
       "Inputs": [
-        "Library/Bee/artifacts/WebGL/webgl.data",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/7z.exe"
+        "Library/Bee/artifacts/WebGL/webgl.data"
       ],
       "Outputs": [
-        "Library/Bee/artifacts/WebGL/webgl.data.unmarked"
+        "D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.data"
       ],
       "ToBuildDependencies": [
-        838
+        834
       ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
-      "Env": [],
-      "DebugActionIndex": 839
-    },
-    {
-      "Annotation": "WriteText Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.data.gz_g3vw.info",
-      "DisplayName": "Writing WebGLbuild_20240320_1.data.gz_g3vw.info",
-      "ActionType": "WriteFile",
-      "PayloadOffset": 247488,
-      "PayloadLength": 454,
-      "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
-      "Inputs": [],
-      "Outputs": [
-        "Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.data.gz_g3vw.info"
-      ],
-      "DebugActionIndex": 840
-    },
-    {
-      "Annotation": "GzipMarker D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.data.gz",
-      "DisplayName": "GzipMarker WebGLbuild_20240320_1.data",
-      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\WebGLPlayerBuildProgram.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/BuildPipeline\" invoke_static_method \"Library\\Bee\\artifacts\\csharpactions\\WebGLbuild_20240320_1.data.gz_g3vw.info\"",
-      "Inputs": [
-        "Library/Bee/artifacts/WebGL/webgl.data.unmarked",
-        "Library/Bee/artifacts/csharpactions/WebGLbuild_20240320_1.data.gz_g3vw.info",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/modules.asset",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.Data.dll",
-        "C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.exe"
-      ],
-      "Outputs": [
-        "D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.data.gz"
-      ],
-      "ToBuildDependencies": [
-        839,
-        840
-      ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
-      "Env": [],
-      "DebugActionIndex": 841
+      "DebugActionIndex": 835
     },
     {
       "Annotation": "PreprocessJS D:/WebGLbuild_20240320_1/Build/WebGLbuild_20240320_1.loader.js",
       "DisplayName": "PreprocessJS WebGLbuild_20240320_1.loader",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/Build/WebGLbuild\\x5f20240320\\x5f1.loader.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data.gz'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/Build/WebGLbuild\\x5f20240320\\x5f1.loader.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
       "Inputs": [
         "UnityLoader/UnityLoader.js"
       ],
@@ -43666,12 +43537,12 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 842
+      "DebugActionIndex": 836
     },
     {
       "Annotation": "PreprocessJS D:/WebGLbuild_20240320_1/index.html",
       "DisplayName": "PreprocessJS index",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='D\\x3a/Work/Rouyelette\\x5f1/Rouyelette/Assets/WebGLTemplates/Thirdweb/index.html'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/index.html'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data.gz'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='D\\x3a/Work/Rouyelette\\x5f1/Rouyelette/Assets/WebGLTemplates/Thirdweb/index.html'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/index.html'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
       "Inputs": [
         "D:/Work/Rouyelette_1/Rouyelette/Assets/WebGLTemplates/Thirdweb/index.html"
       ],
@@ -43680,12 +43551,12 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 843
+      "DebugActionIndex": 837
     },
     {
       "Annotation": "PreprocessJS D:/WebGLbuild_20240320_1/lib/thirdweb-unity-bridge.js",
       "DisplayName": "PreprocessJS thirdweb-unity-bridge",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='D\\x3a/Work/Rouyelette\\x5f1/Rouyelette/Assets/WebGLTemplates/Thirdweb/lib/thirdweb\\x2dunity\\x2dbridge.js'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/lib/thirdweb\\x2dunity\\x2dbridge.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data.gz'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='D\\x3a/Work/Rouyelette\\x5f1/Rouyelette/Assets/WebGLTemplates/Thirdweb/lib/thirdweb\\x2dunity\\x2dbridge.js'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/lib/thirdweb\\x2dunity\\x2dbridge.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
       "Inputs": [
         "D:/Work/Rouyelette_1/Rouyelette/Assets/WebGLTemplates/Thirdweb/lib/thirdweb-unity-bridge.js"
       ],
@@ -43694,7 +43565,7 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 844
+      "DebugActionIndex": 838
     },
     {
       "Annotation": "CopyFiles D:/WebGLbuild_20240320_1/TemplateData/favicon.ico",
@@ -43706,7 +43577,7 @@
       "Outputs": [
         "D:/WebGLbuild_20240320_1/TemplateData/favicon.ico"
       ],
-      "DebugActionIndex": 845
+      "DebugActionIndex": 839
     },
     {
       "Annotation": "CopyFiles D:/WebGLbuild_20240320_1/TemplateData/fullscreen-button.png",
@@ -43718,12 +43589,12 @@
       "Outputs": [
         "D:/WebGLbuild_20240320_1/TemplateData/fullscreen-button.png"
       ],
-      "DebugActionIndex": 846
+      "DebugActionIndex": 840
     },
     {
       "Annotation": "PreprocessJS D:/WebGLbuild_20240320_1/TemplateData/style.css",
       "DisplayName": "PreprocessJS style",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='D\\x3a/Work/Rouyelette\\x5f1/Rouyelette/Assets/WebGLTemplates/Thirdweb/TemplateData/style.css'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/TemplateData/style.css'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data.gz'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='D\\x3a/Work/Rouyelette\\x5f1/Rouyelette/Assets/WebGLTemplates/Thirdweb/TemplateData/style.css'\"  \"locals.outputPath='D\\x3a/WebGLbuild\\x5f20240320\\x5f1/TemplateData/style.css'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Rouyelette'\" \"PRODUCT_VERSION='0.1'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGLbuild\\x5f20240320\\x5f1.data'\" \"FRAMEWORK_FILENAME='WebGLbuild\\x5f20240320\\x5f1.framework.js'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGLbuild\\x5f20240320\\x5f1.wasm'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.20f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"HIDE_FULL_SCREEN_BUTTON=''\" \"LOADER_FILENAME='WebGLbuild\\x5f20240320\\x5f1.loader.js'\"",
       "Inputs": [
         "D:/Work/Rouyelette_1/Rouyelette/Assets/WebGLTemplates/Thirdweb/TemplateData/style.css"
       ],
@@ -43732,7 +43603,7 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 847
+      "DebugActionIndex": 841
     },
     {
       "Annotation": "Player",
@@ -43742,20 +43613,20 @@
       "ToBuildDependencies": [
         4,
         814,
+        829,
+        830,
         831,
-        834,
+        832,
         835,
         836,
-        841,
-        842,
-        843,
-        844,
-        845,
-        846,
-        847
+        837,
+        838,
+        839,
+        840,
+        841
       ],
       "OverwriteOutputs": false,
-      "DebugActionIndex": 848
+      "DebugActionIndex": 842
     }
   ],
   "FileSignatures": [
@@ -44125,7 +43996,7 @@
   ],
         "NamedNodes": {
           "all_tundra_nodes": 0,
-          "Player": 848
+          "Player": 842
         }
 ,  "DefaultNodes": [
     0
