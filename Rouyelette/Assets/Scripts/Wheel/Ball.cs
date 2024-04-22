@@ -144,10 +144,11 @@ public class Ball : MonoBehaviour
     {
         if (InAir)
         {
-            rb.angularVelocity = Vector3.zero;
-            rb.velocity = Vector3.zero;
+           
+         
+            DOTween.KillAll();
 
-           this.transform.DOMove(_target.transform.position, 0.05f).OnComplete(() => CompletedMovementAction());
+           this.transform.DOMove(_target.transform.position, 0.0001f).OnComplete(() => CompletedMovementAction());
 
             //this.transform.position = _target.transform.position;
         }
@@ -210,7 +211,7 @@ public class Ball : MonoBehaviour
         if (_target != t)
             this.transform.position = Vector3.MoveTowards(this.transform.position, t.position, 0.001f);
         else
-            this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
+            this.transform.DOMove(_target.position, 0.1f).SetEase(Ease.Linear);
 
 
 

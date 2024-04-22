@@ -367,7 +367,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     {
         int winAmount = betamount + betamount * multiplier;
 
-        ResultAction(betamount, Result.Win);
+        ResultAction(winAmount, Result.Win);
 
         amount += betamount + betamount * multiplier;
         _amountText.text = "Amount:" + amount.ToString();

@@ -59,7 +59,7 @@ public class Wheel : MonoBehaviour
 
         while (_curreSpeed > 0)
         {
-            if(_curreSpeed < 110.0f)
+            if(_curreSpeed < 140.0f)
                  Actions.StoppedSpin();
 
             angle += Time.deltaTime * _curreSpeed;

@@ -61,9 +61,6 @@ public class GameController : MonoBehaviour, BoardControlInterface
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         Actions.ballHit += BallGroundAction;
         Actions.ResetAction += RestAction;
         Actions.BoardSelectAction += BoardSelectAction;
@@ -79,16 +76,19 @@ public class GameController : MonoBehaviour, BoardControlInterface
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
         //API Handling ...
-        // APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
+        //APIHandler.Instance.GET("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
 
     private void RoyelleteSpinAction()
     {
-        AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
-        _clientManager.ResetAction(playerJsonData);
+        //AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
 
-        SpinButtonAction();
+        //Actions.EnablePlay(false);
+
+        //_clientManager.ResetAction(playerJsonData);
+
+        //SpinButtonAction();
     }
 
     private void TimerIndexAction(int time)
@@ -98,7 +98,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void AddClientAction(string id)
     {
-        Debug.Log("Adding client >>" + id);
+        Debug.Log("Adding player >>" + id);
 
        _clientManager.AddClient(id,playerJsonData);
     }
@@ -156,11 +156,17 @@ public class GameController : MonoBehaviour, BoardControlInterface
                 GameData gameData = JsonUtility.FromJson<GameData>(obj);
                 Debug.Log("Game LIVE data " + gameData.status + "" + _onStart);
 
+                Actions.EnablePlay(gameData.status == GameSwitch.on);
+
                 if (_onStart)
                 {
-                    Actions.EnablePlay(gameData.status == GameSwitch.on);
                     _loadPanel.SetActive(gameData.status == GameSwitch.off);
                 }
+                else
+                {
+                    _loadPanel.SetActive(false);
+                }
+                
 
                 gameJsonData = obj.ToString();
             }
@@ -303,7 +309,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         yield return null;
         yield return new WaitUntil(() => _dealerStatus);
 
-      //  Network.Instance.ResetTimer();
+       Network.Instance.ResetTimer();
 
 
         SaveGameStatus(GameSwitch.on);

@@ -25,7 +25,7 @@ public  class APIHandler : MonoBehaviour
     }
 
 
-    public  void GetSlot(string url, Action<string> onSuccess,Action<string> OnError)
+    public  void GET(string url, Action<string> onSuccess,Action<string> OnError)
     {
         //_onSuccess = onSuccess; ;
         //_onError = OnError; 

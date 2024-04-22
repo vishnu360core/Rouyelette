@@ -9,15 +9,18 @@ using System;
 using System.Text;
 
 
-    public class Network : MonoBehaviour
-    {
-       static Network instance; 
+public class Network : MonoBehaviour
+ {
+    static Network instance; 
     
-       public static Network Instance { get { return instance; } }  
+    public static Network Instance { get { return instance; } }  
 
-        WebSocket websocket;
-        WebSocket webTimer;
+    WebSocket websocket;
+    WebSocket webTimer;
+    WebSocket webWallet;
+    
 
+    #region GAME
         string _id;
         public string Id => _id; 
 
@@ -30,7 +33,7 @@ using System.Text;
 
             websocket = new WebSocket("ws://localhost:8090");
             webTimer = new WebSocket("ws://localhost:8100");
-
+            
             webTimer.OnOpen += () =>
             {
                 Console.WriteLine("timer opened");
@@ -38,7 +41,7 @@ using System.Text;
 
             webTimer.OnMessage += (bytes) =>
             {
-                 string str = Encoding.UTF8.GetString(bytes);
+                string str = Encoding.UTF8.GetString(bytes);
 
                 Debug.Log("Timer >>>" + str);
 
@@ -48,7 +51,9 @@ using System.Text;
                     Actions.timerIndex(timer);
                 }
                 else
-                    Actions.StartRoll();
+                {
+                    //Actions.StartRoll();
+                };
             };
 
 
@@ -89,6 +94,12 @@ using System.Text;
                     Actions.AddClient(str);
 
             };
+
+            if (webTimer.State == WebSocketState.Connecting || webTimer.State == WebSocketState.Open)
+            {
+                Debug.Log("Still connecting !!! and closing it");
+                await webTimer.Close();
+            }
 
             await websocket.Connect();
             await webTimer.Connect();   
@@ -137,6 +148,45 @@ using System.Text;
         /// </summary>
         public void ResetTimer()
         {
+           Debug.Log("Resetting timer !!!!!");
+         
            webTimer.SendText("ResetTimer");
         }
+    #endregion
+
+    #region WALLET
+
+    private void Awake()
+    {
+        //webWallet = new WebSocket("ws://62.72.56.181:8070");
+
+        //webWallet.OnOpen += () =>
+        //{
+        //    Debug.Log("Wallet server connected !!!!");
+        //};
+
+        //webWallet.OnMessage += (bytes) =>
+        //{
+        //    string str = Encoding.UTF8.GetString(bytes);
+
+        //    Actions.GetWalletBalance(str);
+        //};
     }
+
+
+    public void RequestWalletBalance(string address)
+    {
+        webWallet.SendText(address);   
+    }
+
+
+    #endregion
+
+    #region BET_DATA
+
+
+
+
+    #endregion
+
+}

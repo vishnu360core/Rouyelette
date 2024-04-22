@@ -5,13 +5,13 @@ using DG.Tweening;
 
 using DataCollector;
 using System;
+using System.Linq;
 
 public class ClientManager : MonoBehaviour
 {
 
     [SerializeField] List<Client> clients = new List<Client>(); 
 
-    [SerializeField] List<PlayerData> client_datas = new List<PlayerData>();
     [SerializeField] List<Chip> chipPrefabs  = new List<Chip>();
 
     [Header("Chip Settings:")]
@@ -23,12 +23,12 @@ public class ClientManager : MonoBehaviour
     bool onBetUpdate = false;
 
     string _currentJson;
- 
+
+    int clientIndex;
 
     private void Start()
     {
-        client_datas.Clear();
-
+        clientIndex = 0;
     }
 
     public void ResetAction(string json)
@@ -59,7 +59,7 @@ public class ClientManager : MonoBehaviour
         _currentJson = json;
     }
 
-    public void AddClient(string id,string json)
+    public void AddClient(string id, string json)
     {
         PlayerData clientPlayerData = new PlayerData
         {
@@ -68,7 +68,7 @@ public class ClientManager : MonoBehaviour
             amount = 100
         };
 
-        Debug.Log("jSON >>>>>>" +json);
+        Debug.Log("jSON >>>>>>" + json);
 
         string jsonString = string.Empty;
 
@@ -92,10 +92,25 @@ public class ClientManager : MonoBehaviour
             PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(json);
 
             List<PlayerData> playerDatas = playerDataList.playerDatas;
-
+           
             playerDatas.Add(clientPlayerData);
 
             playerDataList.playerDatas = playerDatas;
+
+            for (int i = 0; i < playerDataList.playerDatas.Count; i++) 
+            {
+                if (playerDataList.playerDatas[i].id != Network.Instance.Id)
+                {
+
+                    if (!IsIdPresentClient(playerDataList.playerDatas[i].id))
+                    {
+                        clients[clientIndex].PlayerData = playerDataList.playerDatas[i];
+                        clientIndex++;
+
+                        Debug.Log("Client added >>" + clientIndex + ">>>" + clients[clientIndex - 1].PlayerData.id);
+                    }
+                }
+            }
 
             jsonString = JsonUtility.ToJson(playerDataList);
             Debug.Log("Updated Player json :  " + jsonString);
@@ -138,8 +153,27 @@ public class ClientManager : MonoBehaviour
         //    }
         //}
 
-        Debug.Log("Client added !!!!");
-        client_datas.Add(clientPlayerData);
+    }
+
+
+
+    bool IsIdPresentClient(string id)
+    {
+        bool isIdPresent = false;
+
+        for(int i= 0;i<clients.Count;++i)
+        {
+            if (clients[i].PlayerData == null)
+                continue;
+
+            if (clients[i].PlayerData.id == id)
+            {
+                isIdPresent = true; 
+                break;
+            }
+        }
+
+        return isIdPresent;
     }
 
     bool IsIdPresent(List<PlayerData> list, string str)
@@ -161,9 +195,9 @@ public class ClientManager : MonoBehaviour
         {
             Debug.LogWarning("id >>>>" + player.id);
 
-            if(id == player.id)
+            if(Network.Instance.Id == player.id)
             {
-                Debug.Log("Bet added " + bet.betAmount);
+                Debug.Log("Bet added " + bet.betAmount + " >>> " + player.id);
 
                 player.bets.Add(bet);
                 player.amount = 100;
@@ -182,6 +216,46 @@ public class ClientManager : MonoBehaviour
 
     #region CHIP_ACTIONS
 
+    bool BetsAreEqual(List<Bet> list1, List<Bet> list2)
+    {
+        // Check if the lists have different lengths
+        if (list1.Count != list2.Count)
+        {
+            return false;
+        }
+
+        // Iterate through each element of the lists and compare them
+        for (int i = 0; i < list1.Count; i++)
+        {
+            if (list1[i].type != list2[i].type
+             || list1[i].betNumber != list2[i].betNumber 
+             || list1[i].betAmount != list2[i].betAmount
+             || !AreIntegerArraysEqual(list1[i].splitNumbers, list2[i].splitNumbers)
+                )
+                 return false;
+        }
+
+        return true;
+    }
+
+    private bool AreIntegerArraysEqual(int[] array1, int[] array2)
+    {
+        if (array1.Length != array2.Length)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < array1.Length; i++)
+        {
+            if (array1[i] != array2[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     public void ClientBetDetect(string json)
     {
@@ -194,23 +268,59 @@ public class ClientManager : MonoBehaviour
         PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(json);
         List<PlayerData> playerDatas = playerDataList.playerDatas;
 
-        Client clientPlayer = clients[0];
-
-
+     
        Debug.Log("Client player updating ........" + json);
 
-            for (int i = 0; i < playerDatas.Count; i++)
+        for(int i=0; clients.Count > i; i++) 
+        {
+            Debug.Log("Client id >>>" + clients[i].PlayerData.id);
+        }
+
+        for (int i = 0; i < playerDatas.Count; i++)
+        {
+
+            if (clients[0].PlayerData != null)
             {
-                if (Network.Instance.Id != playerDatas[i].id)
+                Debug.Log("Get id >>>" + playerDatas[i].id + ">>>" + clients[0].PlayerData.id);
+
+                if (playerDatas[i].id == clients[0].PlayerData.id)
                 {
-                   Debug.Log("Own id >>>>" + Network.Instance.Id + "other id" + playerDatas[i].id);
-                   
-                   clientPlayer.PlayerData = playerDatas[i];
-                   ClientChipAction(clientPlayer.PlayerData.bets, clientPlayer._chipTransform);
+                    Debug.LogWarning("Chip for client");
+
+                    if (!BetsAreEqual(playerDatas[i].bets, clients[0].PlayerData.bets))
+                    {
+                        Debug.LogWarning("Chip movement for client");
+                        ClientChipAction(playerDatas[i].bets, clients[0]._chipTransform);
+
+                        clients[0].PlayerData.bets = playerDatas[i].bets;
+                        break;
+                    }
                 }
             }
 
+            if (clients[1].PlayerData != null)
+            {
+                Debug.Log("Get id >>>" + playerDatas[i].id + ">>>" + clients[1].PlayerData.id);
+
+                if (playerDatas[i].id == clients[1].PlayerData.id)
+                {
+                    Debug.LogWarning("Chip  for client");
+
+                    if (!BetsAreEqual(playerDatas[i].bets, clients[1].PlayerData.bets))
+                    {
+                        Debug.LogWarning("Chip movement for client");
+                        ClientChipAction(playerDatas[i].bets, clients[1]._chipTransform);
+
+                        clients[1].PlayerData.bets = playerDatas[i].bets;
+                        break;
+                    }
+                }
+            }
+        }
+
     }
+
+
 
     void ClientChipAction(List<Bet> bets,Transform chipStart)
     {

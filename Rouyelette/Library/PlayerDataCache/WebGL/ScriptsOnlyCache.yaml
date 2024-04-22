@@ -23,6 +23,7 @@ ScriptsOnlyBuild:
     - PopMessage
     - Slot
     - SpinWheelManager
+    - WalletConnector
     - Wheel
     - WheelSlotManager
     DOTween.dll:
@@ -147,81 +148,83 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16620}
     - Class: 114
-      Script: {instanceID: 16686}
+      Script: {instanceID: 16622}
     - Class: 114
-      Script: {instanceID: 16710}
+      Script: {instanceID: 16690}
     - Class: 114
-      Script: {instanceID: 16784}
+      Script: {instanceID: 16714}
     - Class: 114
-      Script: {instanceID: 17620}
+      Script: {instanceID: 16788}
     - Class: 114
-      Script: {instanceID: 18036}
+      Script: {instanceID: 17624}
     - Class: 114
-      Script: {instanceID: 18332}
+      Script: {instanceID: 18042}
     - Class: 114
-      Script: {instanceID: 18428}
+      Script: {instanceID: 18338}
     - Class: 114
-      Script: {instanceID: 18888}
+      Script: {instanceID: 18434}
     - Class: 114
-      Script: {instanceID: 19764}
+      Script: {instanceID: 18894}
     - Class: 114
-      Script: {instanceID: 20398}
+      Script: {instanceID: 19770}
     - Class: 114
-      Script: {instanceID: 20542}
+      Script: {instanceID: 20404}
     - Class: 114
-      Script: {instanceID: 21168}
+      Script: {instanceID: 20548}
     - Class: 114
-      Script: {instanceID: 22320}
+      Script: {instanceID: 21174}
     - Class: 114
-      Script: {instanceID: 22554}
+      Script: {instanceID: 22326}
     - Class: 114
-      Script: {instanceID: 22768}
+      Script: {instanceID: 22560}
     - Class: 114
-      Script: {instanceID: 23162}
+      Script: {instanceID: 22774}
     - Class: 114
-      Script: {instanceID: 23350}
+      Script: {instanceID: 23168}
     - Class: 114
-      Script: {instanceID: 23660}
+      Script: {instanceID: 23356}
     - Class: 114
-      Script: {instanceID: 24422}
+      Script: {instanceID: 23666}
     - Class: 114
-      Script: {instanceID: 24576}
+      Script: {instanceID: 24428}
     - Class: 114
-      Script: {instanceID: 24708}
+      Script: {instanceID: 24582}
     - Class: 114
-      Script: {instanceID: 24752}
+      Script: {instanceID: 24714}
     - Class: 114
-      Script: {instanceID: 25170}
+      Script: {instanceID: 24756}
     - Class: 114
-      Script: {instanceID: 25352}
+      Script: {instanceID: 25174}
     - Class: 114
-      Script: {instanceID: 25810}
+      Script: {instanceID: 25356}
     - Class: 114
-      Script: {instanceID: 26104}
+      Script: {instanceID: 25814}
     - Class: 114
-      Script: {instanceID: 26116}
+      Script: {instanceID: 26108}
     - Class: 114
-      Script: {instanceID: 26210}
+      Script: {instanceID: 26120}
     - Class: 114
-      Script: {instanceID: 26232}
+      Script: {instanceID: 26214}
     - Class: 114
-      Script: {instanceID: 26344}
+      Script: {instanceID: 26236}
     - Class: 114
-      Script: {instanceID: 26386}
+      Script: {instanceID: 26348}
     - Class: 114
-      Script: {instanceID: 26456}
+      Script: {instanceID: 26390}
     - Class: 114
-      Script: {instanceID: 26926}
+      Script: {instanceID: 26460}
     - Class: 114
-      Script: {instanceID: 27198}
+      Script: {instanceID: 26930}
     - Class: 114
-      Script: {instanceID: 27496}
+      Script: {instanceID: 27202}
     - Class: 114
-      Script: {instanceID: 30778}
+      Script: {instanceID: 27500}
     - Class: 114
-      Script: {instanceID: 30780}
+      Script: {instanceID: 30790}
     - Class: 114
-      Script: {instanceID: 30782}
+      Script: {instanceID: 30792}
+    - Class: 114
+      Script: {instanceID: 30794}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -257,6 +260,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AudioManager
+  - hash:
+      serializedVersion: 2
+      Hash: 853bc3e7dccea13674cbbede08216596
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WalletConnector
   - hash:
       serializedVersion: 2
       Hash: b19a67d266e93020f05441e7fb248707
@@ -793,7 +802,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 5b5746e154669822c222073e6bf3f6a8
+      Hash: 267b1ce478d9f2a258614525539a4d1c
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ClientManager
@@ -1646,4 +1655,4 @@ ScriptsOnlyBuild:
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/WebGLbuild_20240320_1
+  playerPath: D:/WebGLbuild_20240420_1
