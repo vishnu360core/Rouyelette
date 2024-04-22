@@ -105,6 +105,8 @@ public class ClientManager : MonoBehaviour
                     if (!IsIdPresentClient(playerDataList.playerDatas[i].id))
                     {
                         clients[clientIndex].PlayerData = playerDataList.playerDatas[i];
+                        clients[clientIndex].EnablePlayer(true);
+                        clients[clientIndex].UpdateName(playerDataList.playerDatas[i].id);
                         clientIndex++;
 
                         Debug.Log("Client added >>" + clientIndex + ">>>" + clients[clientIndex - 1].PlayerData.id);
@@ -312,6 +314,25 @@ public class ClientManager : MonoBehaviour
                         ClientChipAction(playerDatas[i].bets, clients[1]._chipTransform);
 
                         clients[1].PlayerData.bets = playerDatas[i].bets;
+                        break;
+                    }
+                }
+            }
+
+            if (clients[2].PlayerData != null)
+            {
+                Debug.Log("Get id >>>" + playerDatas[i].id + ">>>" + clients[2].PlayerData.id);
+
+                if (playerDatas[i].id == clients[2].PlayerData.id)
+                {
+                    Debug.LogWarning("Chip  for client");
+
+                    if (!BetsAreEqual(playerDatas[i].bets, clients[2].PlayerData.bets))
+                    {
+                        Debug.LogWarning("Chip movement for client");
+                        ClientChipAction(playerDatas[i].bets, clients[2]._chipTransform);
+
+                        clients[2].PlayerData.bets = playerDatas[i].bets;
                         break;
                     }
                 }

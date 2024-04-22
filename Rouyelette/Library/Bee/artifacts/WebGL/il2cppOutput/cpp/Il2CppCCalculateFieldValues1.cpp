@@ -15672,6 +15672,8 @@ struct Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E  : public MonoBehaviour_
 	PlayerData_t1A08D4526BC82330026A2824CF041803ED4A802F* ___PlayerData;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ____chipTransform;
 	bool ___taken;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___PlayerObject;
+	TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ____name;
 };
 struct ClientManager_tC2CA8F765A81C3CF1BE946CDDECF84E3940EF007  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -20680,9 +20682,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4113[3] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4114[3] = 
 {
 	static_cast<int32_t>(offsetof(ResponseData_t653CAA2118F793B69DCCB9627BEC75E9BB4BDDE7, ___result)),static_cast<int32_t>(offsetof(ResponseData_t653CAA2118F793B69DCCB9627BEC75E9BB4BDDE7, ___hash)),static_cast<int32_t>(offsetof(ResponseData_t653CAA2118F793B69DCCB9627BEC75E9BB4BDDE7, ___blockNumber)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4115[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4115[5] = 
 {
-	static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ___PlayerData)),static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ____chipTransform)),static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ___taken)),};
+	static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ___PlayerData)),static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ____chipTransform)),static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ___taken)),static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ___PlayerObject)),static_cast<int32_t>(offsetof(Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E, ____name)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4116[1] = 
 {
 	static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass12_0_tFB94CD8C2DEA5A061BA8BF4BE495CDDFFA9F2B5F, ___str)),};

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
 
+using UnityEngine.UI;
+using TMPro;
+
 public class Client : MonoBehaviour
 {
     public PlayerData PlayerData ;
@@ -12,4 +15,17 @@ public class Client : MonoBehaviour
 
     public bool taken = false;
 
+    [Header("Player:")]
+    [SerializeField] GameObject PlayerObject;
+    [SerializeField] TMP_Text _name;
+
+    public void EnablePlayer(bool enable)
+    {
+        PlayerObject.SetActive(enable);
+    }
+
+    public void UpdateName(string name)
+    {
+       _name.text = name;   
+    }
 }
