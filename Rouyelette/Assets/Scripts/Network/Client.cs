@@ -18,6 +18,7 @@ public class Client : MonoBehaviour
     [Header("Player:")]
     [SerializeField] GameObject PlayerObject;
     [SerializeField] TMP_Text _name;
+    [SerializeField] TMP_Text _bet;
 
     public void EnablePlayer(bool enable)
     {
@@ -27,5 +28,10 @@ public class Client : MonoBehaviour
     public void UpdateName(string name)
     {
        _name.text = name;   
+    }
+
+    public void UpdateBet(int bets)
+    {
+        _bet.text = "Total Bets:" + bets.ToString();
     }
 }

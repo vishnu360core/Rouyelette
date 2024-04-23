@@ -55,6 +55,17 @@ public class Slot : MonoBehaviour
 
     bool enablePlay = false;
 
+    [SerializeField] GameObject ballObject; 
+
+
+    public void EnableBall(bool enable)
+    {
+        if (ballObject == null)
+            return;
+
+        ballObject.SetActive(enable);
+    }
+
 
     public void SetSlot(int number, ColorType colorType)
     {
@@ -74,6 +85,8 @@ public class Slot : MonoBehaviour
                 _number += int.Parse(match.Value);
             }
         }
+
+        EnableBall(false);
 
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.enabled = false;
@@ -127,6 +140,7 @@ public class Slot : MonoBehaviour
     void ResetAction()
     {
         OnHoverAction(false);
+        EnableBall(false);
 
         if (_type == SlotType.board)
             if(_chipTransform.childCount >0)

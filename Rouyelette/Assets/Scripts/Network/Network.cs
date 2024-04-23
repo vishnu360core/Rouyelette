@@ -18,6 +18,7 @@ public class Network : MonoBehaviour
     WebSocket websocket;
     WebSocket webTimer;
     WebSocket webWallet;
+    WebSocket webData;
     
 
     #region GAME
@@ -33,8 +34,10 @@ public class Network : MonoBehaviour
 
             websocket = new WebSocket("ws://localhost:8090");
             webTimer = new WebSocket("ws://localhost:8100");
-            
-            webTimer.OnOpen += () =>
+            webData = new WebSocket("ws://localhost:8200");
+
+        #region WEB_TIMER
+        webTimer.OnOpen += () =>
             {
                 Console.WriteLine("timer opened");
             };
@@ -52,10 +55,39 @@ public class Network : MonoBehaviour
                 }
                 else
                 {
-                    //Actions.StartRoll();
+                    Actions.StartRoll();
                 };
             };
+        #endregion
 
+        #region WEB_DATA
+
+        webData.OnOpen += () =>
+        {
+            Debug.Log("Connection open! >> DATA ");
+
+        };
+
+        webData.OnError += (e) =>
+        {
+            Debug.Log("Error! data socket" + e);
+
+        };
+
+        webData.OnClose += (e) =>
+        {
+            Debug.Log("Connection closed! data");
+        };
+
+        webData.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log("Data >>" + str);
+
+            Actions.BetData(int.Parse(str));
+        };
+        #endregion
 
             websocket.OnOpen += () =>
             {
@@ -101,6 +133,7 @@ public class Network : MonoBehaviour
                 await webTimer.Close();
             }
 
+            await webData.Connect();
             await websocket.Connect();
             await webTimer.Connect();   
         }

@@ -41,6 +41,11 @@ public class Ball : MonoBehaviour
 
     public BallInterface callback;
 
+
+    SphereCollider sphereCollider;
+
+    MeshRenderer meshRenderer;
+
     /// <summary>
     /// Actions inmplemented on enable
     /// </summary>
@@ -48,7 +53,10 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        rb.AddForce(Vector3.forward * 2, ForceMode.Impulse);
+        meshRenderer = this.GetComponent<MeshRenderer>(); 
+
+        //rb.AddForce(Vector3.forward * 2, ForceMode.Impulse);
+
 
         // Actions.StoppedSpin += StopSpinAction;
     }
@@ -76,6 +84,10 @@ public class Ball : MonoBehaviour
 
     public void ResetAction()
     {
+        meshRenderer.enabled = true;
+
+        _parentRotateSpeed = 250f;
+
         InAir = false;
         IsBrake = false;
         EnablePhysics(false);
@@ -104,7 +116,6 @@ public class Ball : MonoBehaviour
         EnableGravity(true);
 
         IsBrake = true;
-
         StopCoroutine(RotateObject());
         StopAllCoroutines();
 
@@ -116,7 +127,8 @@ public class Ball : MonoBehaviour
 
         /// rb.AddForce(brakingForce, ForceMode.Impulse);
     }
-
+   
+   
     /// <summary>
     /// Actions implemented on disable
     /// </summary>
@@ -144,13 +156,8 @@ public class Ball : MonoBehaviour
     {
         if (InAir)
         {
-           
-         
-            DOTween.KillAll();
 
-           this.transform.DOMove(_target.transform.position, 0.0001f).OnComplete(() => CompletedMovementAction());
-
-            //this.transform.position = _target.transform.position;
+            
         }
 
 
@@ -189,35 +196,26 @@ public class Ball : MonoBehaviour
 
     public void ReachedDestination()
     {
-       // transform.parent = _target;
+        // transform.parent = _target;
 
-         InAir = true;
+        //InAir = true;
 
-       // DOTween.KillAll();
+        meshRenderer.enabled = false;
 
-        //transform.rotation = Quaternion.identity;
-        //transform.position = Vector3.zero;
+        DOTween.KillAll();
+        CompletedMovementAction();
+
     }
 
     public void  MoveTowards(Transform t)
     {
-        //_target = t;
-        //InAir = true;
-
-       // IsBrake = false;
 
         rb.constraints = RigidbodyConstraints.None;
 
         if (_target != t)
-            this.transform.position = Vector3.MoveTowards(this.transform.position, t.position, 0.001f);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, t.position,  0.01f);
         else
-            this.transform.DOMove(_target.position, 0.1f).SetEase(Ease.Linear);
-
-
-
-        //rb.MovePosition(t.position);
-
-        //this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
+            this.transform.DOMove(_target.position, 1.0f).SetEase(Ease.Linear);
     }
 
 }

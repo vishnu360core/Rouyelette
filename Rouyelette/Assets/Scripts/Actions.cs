@@ -54,4 +54,6 @@ public static class Actions
     public static Action StartRoll;
 
     public static Action<string> GetWalletBalance;
+
+    public static Action<int> BetData;
 }

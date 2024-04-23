@@ -220,11 +220,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 27500}
     - Class: 114
-      Script: {instanceID: 30966}
+      Script: {instanceID: 31254}
     - Class: 114
-      Script: {instanceID: 30968}
+      Script: {instanceID: 31256}
     - Class: 114
-      Script: {instanceID: 30970}
+      Script: {instanceID: 31258}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -244,8 +244,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -1246,7 +1244,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 96746d5274955985c31f490bcf2f04b0
+      Hash: bc3e19f416ea52d32d9e7d6591e3d8eb
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Client
@@ -1588,7 +1586,7 @@ ScriptsOnlyBuild:
     className: CameraController
   - hash:
       serializedVersion: 2
-      Hash: b59a9356dcbcdf16f824640cc97292d5
+      Hash: bdac7329d940ca25d5c53dfc1350c673
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Slot

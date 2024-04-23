@@ -6,7 +6,6 @@ using TMPro;
 using System;
 
 using DataCollector;
-using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour, BoardControlInterface
 {
@@ -70,8 +69,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.AddClient += AddClientAction;
         Actions.timerIndex += TimerIndexAction;
         Actions.StartRoll += RoyelleteSpinAction;
+        Actions.BetData += RoyellesBetData;
 
-        Test();
+        //Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
@@ -79,16 +79,27 @@ public class GameController : MonoBehaviour, BoardControlInterface
         //APIHandler.Instance.GET("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
+    /// <summary>
+    /// Get the royelles bet data
+    /// </summary>
+    /// <param name="bet"></param>
+    private void RoyellesBetData(int bet)
+    {
+        _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(bet));
+        Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(bet).transform);
+
+        StartCoroutine(Play());
+    }
 
     private void RoyelleteSpinAction()
     {
-        //AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
+        AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
 
-        //Actions.EnablePlay(false);
+        Actions.EnablePlay(false);
 
-        //_clientManager.ResetAction(playerJsonData);
+        _clientManager.ResetAction(playerJsonData);
 
-        //SpinButtonAction();
+        SpinButtonAction();
     }
 
     private void TimerIndexAction(int time)

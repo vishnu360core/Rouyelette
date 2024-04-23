@@ -96,6 +96,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
         {
             Debug.LogWarning("Reached destination !!!!!!");
 
+            slot.EnableBall(true);
+
             Actions.ReachedDestination();
 
             _reachedTargetSlot = true;

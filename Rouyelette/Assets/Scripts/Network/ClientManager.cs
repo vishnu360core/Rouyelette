@@ -38,7 +38,14 @@ public class ClientManager : MonoBehaviour
         PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(json);
         List<PlayerData> playerDatas = playerDataList.playerDatas;
 
-       
+        for(int i = 0; i < clients.Count; i++) 
+        {
+           if (clients[i].PlayerData != null)
+           {
+               clients[i].UpdateBet(0);
+           }
+        }
+        
         for(int i=0; i<playerDatas.Count; i++)
         {
             playerDatas[i].bets = new List<Bet>();
@@ -101,12 +108,13 @@ public class ClientManager : MonoBehaviour
             {
                 if (playerDataList.playerDatas[i].id != Network.Instance.Id)
                 {
-
                     if (!IsIdPresentClient(playerDataList.playerDatas[i].id))
                     {
                         clients[clientIndex].PlayerData = playerDataList.playerDatas[i];
                         clients[clientIndex].EnablePlayer(true);
                         clients[clientIndex].UpdateName(playerDataList.playerDatas[i].id);
+                        clients[clientIndex].UpdateBet(ReturnTotalBets(playerDataList.playerDatas[i].bets));
+
                         clientIndex++;
 
                         Debug.Log("Client added >>" + clientIndex + ">>>" + clients[clientIndex - 1].PlayerData.id);
@@ -292,6 +300,8 @@ public class ClientManager : MonoBehaviour
                     if (!BetsAreEqual(playerDatas[i].bets, clients[0].PlayerData.bets))
                     {
                         Debug.LogWarning("Chip movement for client");
+
+                        clients[0].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
                         ClientChipAction(playerDatas[i].bets, clients[0]._chipTransform);
 
                         clients[0].PlayerData.bets = playerDatas[i].bets;
@@ -311,6 +321,8 @@ public class ClientManager : MonoBehaviour
                     if (!BetsAreEqual(playerDatas[i].bets, clients[1].PlayerData.bets))
                     {
                         Debug.LogWarning("Chip movement for client");
+
+                        clients[1].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
                         ClientChipAction(playerDatas[i].bets, clients[1]._chipTransform);
 
                         clients[1].PlayerData.bets = playerDatas[i].bets;
@@ -330,6 +342,8 @@ public class ClientManager : MonoBehaviour
                     if (!BetsAreEqual(playerDatas[i].bets, clients[2].PlayerData.bets))
                     {
                         Debug.LogWarning("Chip movement for client");
+
+                        clients[2].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
                         ClientChipAction(playerDatas[i].bets, clients[2]._chipTransform);
 
                         clients[2].PlayerData.bets = playerDatas[i].bets;
@@ -339,6 +353,19 @@ public class ClientManager : MonoBehaviour
             }
         }
 
+    }
+
+
+    int ReturnTotalBets(List<Bet> bets) 
+    {
+        int betAmount = 0;
+
+        for(int i = 0; i < bets.Count; i++) 
+        {
+            betAmount += bets[i].betAmount;
+        }
+
+        return betAmount;
     }
 
 

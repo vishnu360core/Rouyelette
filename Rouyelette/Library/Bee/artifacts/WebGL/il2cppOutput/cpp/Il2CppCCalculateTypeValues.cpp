@@ -7087,13 +7087,13 @@ struct U3CU3Ec__DisplayClass1_0_t2E4EE2FD213E54B68B1B77A39F55AB1CFEFAF023  : pub
 {
 	String_t* ___clipName;
 };
-struct U3CEnableGravityActionU3Ed__17_t735369E4E862ADBD17630301B8350F1DFBFB36D2  : public RuntimeObject
+struct U3CEnableGravityActionU3Ed__19_t745A2C24F40182485D742C9894E7AE675A4FAC4D  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B* ___U3CU3E4__this;
 };
-struct U3CRotateObjectU3Ed__13_t0A25FE973A9898346E4CC4C5A531D40C2DFF7CE0  : public RuntimeObject
+struct U3CRotateObjectU3Ed__15_t2C3D83B33C3A38FE2514B5ED630B7974326634BD  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -7819,13 +7819,13 @@ struct LayoutCache_tF844B2FAD6933B78FD5EFEBDE0529BCBAC19BA60  : public RuntimeOb
 	GenericStack_t1FB49AB7D847C97ABAA97AB232CA416CABD24C49* ___layoutGroups;
 	GUILayoutGroup_tD08496E80F283C290B5B90D7BFB3C9C7CC33CD8D* ___windows;
 };
-struct U3CPlayU3Ed__30_t45DA49E9B512474F8600BD4B94BD4E699DE24A8F  : public RuntimeObject
+struct U3CPlayU3Ed__31_tF16547A3C7D5B5C474DE9B96D3B84084C23FE018  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	GameController_tDA619EE453F7ED2C8297EF928518A0B447E44D09* ___U3CU3E4__this;
 };
-struct U3CResetActionU3Ed__34_t309F510373F568408A10F7E88D483AA3C98A860C  : public RuntimeObject
+struct U3CResetActionU3Ed__35_tED662126BA89DB2E55A697C3E0F7AEF9000BDF02  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -8086,7 +8086,7 @@ struct U3CU3Ec_t448CFE63A1C3BEE3A1ED3DF6CDBEAF74C84252A4  : public RuntimeObject
 struct U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB  : public RuntimeObject
 {
 };
-struct U3CSaveToNetU3Ed__11_tA32878C819772554C9819F599FD5BBA7C9F42442  : public RuntimeObject
+struct U3CSaveToNetU3Ed__12_tF2356AD03196A7C6C44DFAB9C45A0D7932B0C7C5  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -34621,7 +34621,7 @@ struct SortedColumnState_t24958C451ECBAA5C6C868EA4881A27E45DEEA1AA_marshaled_com
 	SortColumnDescription_t278A693B84340D73A6FADCFB1521E313A80F9C37* ___columnDesc;
 	int32_t ___direction;
 };
-struct U3CStartU3Ed__9_t89F19CACA5C3BDED052F83119C062C63211A2058 
+struct U3CStartU3Ed__10_t6F5C111E83F9DE16F430975C9BA8F901580802F1 
 {
 	int32_t ___U3CU3E1__state;
 	AsyncVoidMethodBuilder_t253E37B63E7E7B504878AE6563347C147F98EF2D ___U3CU3Et__builder;
@@ -40763,6 +40763,8 @@ struct Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B  : public MonoBehaviour_t5
 	bool ___IsBrake;
 	bool ___IsGrounded;
 	RuntimeObject* ___callback;
+	SphereCollider_tBA111C542CE97F6873DE742757213D6265C7D275* ___sphereCollider;
+	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ___meshRenderer;
 };
 struct Benchmark01_t5B476C61575B5B6B64FA318EE0B32114E702DD5D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -40988,6 +40990,7 @@ struct Client_t733365C872686A6CDE2EAF9FF1A2570997083D7E  : public MonoBehaviour_
 	bool ___taken;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___PlayerObject;
 	TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ____name;
+	TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ____bet;
 };
 struct ClientManager_tC2CA8F765A81C3CF1BE946CDDECF84E3940EF007  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -41307,6 +41310,7 @@ struct Network_tF556C59474A82EEA5700AD94CED2CAA5B6D67685  : public MonoBehaviour
 	WebSocket_tA854BC697D5FA80EB48E9217EF622E0F9B0E325F* ___websocket;
 	WebSocket_tA854BC697D5FA80EB48E9217EF622E0F9B0E325F* ___webTimer;
 	WebSocket_tA854BC697D5FA80EB48E9217EF622E0F9B0E325F* ___webWallet;
+	WebSocket_tA854BC697D5FA80EB48E9217EF622E0F9B0E325F* ___webData;
 	String_t* ____id;
 };
 struct ObjectSpin_tE4A801A6C63FE0773DE2FD043571CB80CC9F194B  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -41513,6 +41517,7 @@ struct Slot_tC1CF93C4345A89624C638031DE98B5A9AD59E0E2  : public MonoBehaviour_t5
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ____meshRenderer;
 	bool ____isSelect;
 	bool ___enablePlay;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ballObject;
 };
 struct SocketException_t6D10102A62EA871BD31748E026A372DB6804083B  : public Win32Exception_t15A75629914EB77C816D8219D93ED78E50C74BE9
 {
@@ -44302,6 +44307,7 @@ struct Actions_t6CE3C947D61A3A81D2FBD7762C19C45EFC9D4CF4_StaticFields
 	Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___timerIndex;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___StartRoll;
 	Action_1_t3CB5D1A819C3ED3F99E9E39F890F18633253949A* ___GetWalletBalance;
+	Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___BetData;
 };
 struct ActivationServices_t688315315A97608B7C0ACD314FCECFD6ED5AE2CF_StaticFields
 {
@@ -46873,10 +46879,14 @@ struct U3CU3Ec_t448CFE63A1C3BEE3A1ED3DF6CDBEAF74C84252A4_StaticFields
 struct U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields
 {
 	U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB* ___U3CU3E9;
-	WebSocketOpenEventHandler_t0241D6C4719F6CD56F1FE610A9371AC15FDCC93E* ___U3CU3E9__9_0;
-	WebSocketMessageEventHandler_tE2C6EB24566102E15F0474D745557485BA17496C* ___U3CU3E9__9_1;
-	WebSocketErrorEventHandler_t6121C1087F8242428F801B27D293CE78597A75C3* ___U3CU3E9__9_3;
-	WebSocketCloseEventHandler_tC02B2B8CA126489D18F9F48805A3C7460661E466* ___U3CU3E9__9_4;
+	WebSocketOpenEventHandler_t0241D6C4719F6CD56F1FE610A9371AC15FDCC93E* ___U3CU3E9__10_0;
+	WebSocketMessageEventHandler_tE2C6EB24566102E15F0474D745557485BA17496C* ___U3CU3E9__10_1;
+	WebSocketOpenEventHandler_t0241D6C4719F6CD56F1FE610A9371AC15FDCC93E* ___U3CU3E9__10_2;
+	WebSocketErrorEventHandler_t6121C1087F8242428F801B27D293CE78597A75C3* ___U3CU3E9__10_3;
+	WebSocketCloseEventHandler_tC02B2B8CA126489D18F9F48805A3C7460661E466* ___U3CU3E9__10_4;
+	WebSocketMessageEventHandler_tE2C6EB24566102E15F0474D745557485BA17496C* ___U3CU3E9__10_5;
+	WebSocketErrorEventHandler_t6121C1087F8242428F801B27D293CE78597A75C3* ___U3CU3E9__10_7;
+	WebSocketCloseEventHandler_tC02B2B8CA126489D18F9F48805A3C7460661E466* ___U3CU3E9__10_8;
 };
 struct U3CU3Ec_tCD479EE36B9C156DD31DCE5074D2D93FE71AD956_StaticFields
 {
@@ -57661,9 +57671,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4107 = { sizeof(Chip_tCF0E20
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4108;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4108 = { sizeof(DealerController_t5C28F3D04BB714822831D6A1DACC0629827D5302), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4109;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4109 = { sizeof(U3CPlayU3Ed__30_t45DA49E9B512474F8600BD4B94BD4E699DE24A8F), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4109 = { sizeof(U3CPlayU3Ed__31_tF16547A3C7D5B5C474DE9B96D3B84084C23FE018), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4110;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4110 = { sizeof(U3CResetActionU3Ed__34_t309F510373F568408A10F7E88D483AA3C98A860C), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4110 = { sizeof(U3CResetActionU3Ed__35_tED662126BA89DB2E55A697C3E0F7AEF9000BDF02), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4111;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4111 = { sizeof(GameController_tDA619EE453F7ED2C8297EF928518A0B447E44D09), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4112;
@@ -57683,9 +57693,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4118 = { sizeof(PlayerDataLi
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4119;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4119 = { sizeof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB), -1, sizeof(U3CU3Ec_tAF1C99784C127735FFE4CF2BEE96A89E8EC4DDCB_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4120;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4120 = { sizeof(U3CSaveToNetU3Ed__11_tA32878C819772554C9819F599FD5BBA7C9F42442), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4120 = { sizeof(U3CSaveToNetU3Ed__12_tF2356AD03196A7C6C44DFAB9C45A0D7932B0C7C5), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4121;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4121 = { sizeof(U3CStartU3Ed__9_t89F19CACA5C3BDED052F83119C062C63211A2058)+ sizeof(RuntimeObject), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4121 = { sizeof(U3CStartU3Ed__10_t6F5C111E83F9DE16F430975C9BA8F901580802F1)+ sizeof(RuntimeObject), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4122;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4122 = { sizeof(Network_tF556C59474A82EEA5700AD94CED2CAA5B6D67685), -1, sizeof(Network_tF556C59474A82EEA5700AD94CED2CAA5B6D67685_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4123;
@@ -57717,9 +57727,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4135 = { sizeof(SpeechContro
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4136;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4136 = { 0, -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4137;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4137 = { sizeof(U3CEnableGravityActionU3Ed__17_t735369E4E862ADBD17630301B8350F1DFBFB36D2), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4137 = { sizeof(U3CEnableGravityActionU3Ed__19_t745A2C24F40182485D742C9894E7AE675A4FAC4D), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4138;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4138 = { sizeof(U3CRotateObjectU3Ed__13_t0A25FE973A9898346E4CC4C5A531D40C2DFF7CE0), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4138 = { sizeof(U3CRotateObjectU3Ed__15_t2C3D83B33C3A38FE2514B5ED630B7974326634BD), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4139;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4139 = { sizeof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4140;
