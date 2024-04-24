@@ -23,6 +23,8 @@ ScriptsOnlyBuild:
     - PopMessage
     - Slot
     - SpinWheelManager
+    - Stats
+    - StatsManager
     - WalletConnector
     - Wheel
     - WheelSlotManager
@@ -52,8 +54,13 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Assembly-CSharp:
     - AudioClipData
@@ -85,6 +92,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.RectOffset
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -96,6 +104,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
@@ -142,6 +152,8 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 16654}
+    - Class: 114
       Script: {instanceID: 16678}
     - Class: 114
       Script: {instanceID: 16702}
@@ -168,6 +180,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 20540}
     - Class: 114
+      Script: {instanceID: 21052}
+    - Class: 114
       Script: {instanceID: 21166}
     - Class: 114
       Script: {instanceID: 22318}
@@ -183,6 +197,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 23660}
     - Class: 114
       Script: {instanceID: 23878}
+    - Class: 114
+      Script: {instanceID: 24332}
     - Class: 114
       Script: {instanceID: 24424}
     - Class: 114
@@ -206,6 +222,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 26234}
     - Class: 114
+      Script: {instanceID: 26238}
+    - Class: 114
       Script: {instanceID: 26346}
     - Class: 114
       Script: {instanceID: 26388}
@@ -216,6 +234,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 26930}
     - Class: 114
+      Script: {instanceID: 27180}
+    - Class: 114
       Script: {instanceID: 27202}
     - Class: 114
       Script: {instanceID: 27500}
@@ -225,6 +245,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 31256}
     - Class: 114
       Script: {instanceID: 31258}
+    - Class: 114
+      Script: {instanceID: 515852}
+    - Class: 114
+      Script: {instanceID: 522122}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1650,7 +1674,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 453d87cc16e8388b92f37724d1c50f27
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: StatsManager
+  - hash:
+      serializedVersion: 2
+      Hash: dc6d585879c565ccec61c0741a6cb8b1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Stats
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/WebGLbuild_20240420_1
+  playerPath: D:/WebGLBuild20240423_1

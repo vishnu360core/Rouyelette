@@ -45,11 +45,11 @@ public class ClientManager : MonoBehaviour
                clients[i].UpdateBet(0);
            }
         }
-        
-        for(int i=0; i<playerDatas.Count; i++)
-        {
-            playerDatas[i].bets = new List<Bet>();
-            playerDatas[i].amount = 100;
+
+        for (int i = 0; i < playerDatas.Count; i++)
+        {         
+           playerDatas[i].bets.Clear();
+           playerDatas[i].amount = 100;
         }
 
         playerDataList.playerDatas = playerDatas;

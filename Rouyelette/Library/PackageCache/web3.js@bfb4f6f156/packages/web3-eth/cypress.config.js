@@ -1,1 +1,0 @@
-../../templates/cypress.config.js

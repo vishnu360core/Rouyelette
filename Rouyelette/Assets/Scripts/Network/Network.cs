@@ -19,22 +19,27 @@ public class Network : MonoBehaviour
     WebSocket webTimer;
     WebSocket webWallet;
     WebSocket webData;
-    
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
 
     #region GAME
-        string _id;
-        public string Id => _id; 
+    string _id;
+    public string Id => _id;
 
-        async void Start()
-        {
-           if (instance == null)
-               instance = this;
+    async void Start()
+    {
+        if (instance == null)
+            instance = this;
 
-           _id = Guid.NewGuid().ToString();
+        _id = Guid.NewGuid().ToString();
 
-            websocket = new WebSocket("ws://localhost:8090");
-            webTimer = new WebSocket("ws://localhost:8100");
-            webData = new WebSocket("ws://localhost:8200");
+        websocket = new WebSocket("ws://localhost:8090");
+        webTimer = new WebSocket("ws://localhost:8100");
+        webData = new WebSocket("ws://localhost:8200");
 
         #region WEB_TIMER
         webTimer.OnOpen += () =>
@@ -42,22 +47,22 @@ public class Network : MonoBehaviour
                 Console.WriteLine("timer opened");
             };
 
-            webTimer.OnMessage += (bytes) =>
+        webTimer.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log("Timer >>>" + str);
+
+            if (str != "Play")
             {
-                string str = Encoding.UTF8.GetString(bytes);
-
-                Debug.Log("Timer >>>" + str);
-
-                if (str != "Play")
-                {
-                    int timer = int.Parse(str);
-                    Actions.timerIndex(timer);
-                }
-                else
-                {
-                    Actions.StartRoll();
-                };
+                int timer = int.Parse(str);
+                Actions.timerIndex(timer);
+            }
+            else
+            {
+                Actions.StartRoll();
             };
+        };
         #endregion
 
         #region WEB_DATA
@@ -89,54 +94,54 @@ public class Network : MonoBehaviour
         };
         #endregion
 
-            websocket.OnOpen += () =>
-            {
-                Debug.Log("Connection open!");
+        websocket.OnOpen += () =>
+        {
+            Debug.Log("Connection open!");
 
-                Console.WriteLine("Opened");
+            Console.WriteLine("Opened");
 
-                websocket.SendText(_id);
-            };
+            websocket.SendText(_id);
+        };
 
-            websocket.OnError += (e) =>
-            {
-                Debug.Log("Error! " + e);
+        websocket.OnError += (e) =>
+        {
+            Debug.Log("Error! " + e);
 
-                Console.WriteLine("Opened error");
-            };
+            Console.WriteLine("Opened error");
+        };
 
-            websocket.OnClose += (e) =>
-            {
-                Debug.Log("Connection closed!");
+        websocket.OnClose += (e) =>
+        {
+            Debug.Log("Connection closed!");
 
-                Console.WriteLine("closed");
-            };
+            Console.WriteLine("closed");
+        };
 
-            websocket.OnMessage += (bytes) =>
-            {
-                string str = Encoding.UTF8.GetString(bytes);
+        websocket.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
 
-                Debug.Log(str);
+            Debug.Log(str);
 
-                if (IsJsonString(str))
-                    Actions.GetGameData(str);
-                else if(str == "ResetAction")
-                   ResetAction();
-                else 
-                    Actions.AddClient(str);
+            if (IsJsonString(str))
+                Actions.GetGameData(str);
+            else if (str == "ResetAction")
+                ResetAction();
+            else
+                Actions.AddClient(str);
 
-            };
+        };
 
-            if (webTimer.State == WebSocketState.Connecting || webTimer.State == WebSocketState.Open)
-            {
-                Debug.Log("Still connecting !!! and closing it");
-                await webTimer.Close();
-            }
-
-            await webData.Connect();
-            await websocket.Connect();
-            await webTimer.Connect();   
+        if (webTimer.State == WebSocketState.Connecting || webTimer.State == WebSocketState.Open)
+        {
+            Debug.Log("Still connecting !!! and closing it");
+            await webTimer.Close();
         }
+
+        await webData.Connect();
+        await websocket.Connect();
+        await webTimer.Connect();
+    }
 
     void ResetAction()
     {
@@ -189,28 +194,7 @@ public class Network : MonoBehaviour
 
     #region WALLET
 
-    private void Awake()
-    {
-        //webWallet = new WebSocket("ws://62.72.56.181:8070");
-
-        //webWallet.OnOpen += () =>
-        //{
-        //    Debug.Log("Wallet server connected !!!!");
-        //};
-
-        //webWallet.OnMessage += (bytes) =>
-        //{
-        //    string str = Encoding.UTF8.GetString(bytes);
-
-        //    Actions.GetWalletBalance(str);
-        //};
-    }
-
-
-    public void RequestWalletBalance(string address)
-    {
-        webWallet.SendText(address);   
-    }
+    
 
 
     #endregion

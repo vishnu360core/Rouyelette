@@ -56,4 +56,6 @@ public static class Actions
     public static Action<string> GetWalletBalance;
 
     public static Action<int> BetData;
+
+    public static Action <int,Slot.ColorType> ReadStats ;
 }

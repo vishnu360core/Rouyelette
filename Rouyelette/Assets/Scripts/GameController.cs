@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.StartRoll += RoyelleteSpinAction;
         Actions.BetData += RoyellesBetData;
 
-        //Test();
+        // Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
 
@@ -132,6 +132,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
         _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(responseData.result));
 
         Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(responseData.result).transform);
+
+        Actions.ReadStats(2, Slot.ColorType.black);
 
         // TMP_Text.text = responseData.result.ToString();
 
@@ -294,6 +296,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         Debug.LogWarning(number + ": " + colorType.ToString());
 
+        Actions.ReadStats(number, colorType);
+
         string _iseven = number % 2 == 0 ? "even" : "odd";  
 
         AudioManager.Instance.SpeechAction(Speech.number,number);
@@ -320,11 +324,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
         yield return null;
         yield return new WaitUntil(() => _dealerStatus);
 
-       Network.Instance.ResetTimer();
+        Network.Instance.ResetTimer();
 
+        _clientManager.ResetAction(playerJsonData);
 
         SaveGameStatus(GameSwitch.on);
-        Test();
+        //Test();
 
         //APIHandler.Instance.GetSlot("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
