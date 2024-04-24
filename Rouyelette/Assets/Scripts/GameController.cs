@@ -6,6 +6,7 @@ using TMPro;
 using System;
 
 using DataCollector;
+using DG.Tweening;
 
 public class GameController : MonoBehaviour, BoardControlInterface
 {
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] Button _spinButton;
     [SerializeField] TMP_Text _timerText;
     [SerializeField] GameObject _loadPanel;
+    [SerializeField] Slider _timeslider;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -104,7 +106,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void TimerIndexAction(int time)
     {
-        _timerText.text = "Timer :" + time;
+        _timerText.text = time.ToString();
+        _timeslider.DOValue(time, 0.5f);
     }
 
     private void AddClientAction(string id)
@@ -292,11 +295,17 @@ public class GameController : MonoBehaviour, BoardControlInterface
         //SpinButtonAction();
     }
 
-    public void BetProducedAction(int number, Slot.ColorType colorType)
+    public void BetProducedAction(int number = -1, Slot.ColorType colorType = Slot.ColorType.NULL)
     {
+        if (number < 0)
+            return;
+
         Debug.LogWarning(number + ": " + colorType.ToString());
 
-        Actions.ReadStats(number, colorType);
+        if (number == 0)
+            Actions.ReadStats(0,Slot.ColorType.red);
+        else 
+            Actions.ReadStats(number, colorType);
 
         string _iseven = number % 2 == 0 ? "even" : "odd";  
 
@@ -315,6 +324,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     private void RestAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
+        _timeslider.value = 0;
+        _timerText.text = "0";
 
         StartCoroutine(ResetAction());
     }

@@ -34,4 +34,13 @@ public class Client : MonoBehaviour
     {
         _bet.text = "Total Bets:" + bets.ToString();
     }
+
+
+    public void ClearData()
+    {
+        UpdateBet(0);
+        PlayerData = null;
+
+        EnablePlayer(false);
+    }
 }

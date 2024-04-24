@@ -107,7 +107,7 @@ public class AudioManager : MonoBehaviour
                 break;
 
             case SFX.error:
-                audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "Chip"));
+                audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "Chip_Error"));
                 break;
 
             case SFX.select:

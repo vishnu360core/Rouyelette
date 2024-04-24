@@ -29,7 +29,10 @@ public class ClientManager : MonoBehaviour
     private void Start()
     {
         clientIndex = 0;
+
+        Actions.DeleteClient += DeleteClientAction;
     }
+
 
     public void ResetAction(string json)
     {
@@ -64,6 +67,33 @@ public class ClientManager : MonoBehaviour
     public void SetJson(string json)
     {
         _currentJson = json;
+    }
+
+    #region CLIENT_STATS
+
+    private void DeleteClientAction(string id)
+    {
+        foreach (var client in clients)
+        {
+            Debug.Log("Delete id " + client.PlayerData.id + ">>>" + id);
+            if(client.PlayerData.id == id)
+            {
+                Debug.LogWarning("Deleting ...." + id);
+                client.ClearData();
+
+                PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(_currentJson);
+                List<PlayerData> playerDatas = playerDataList.playerDatas;
+
+                playerDatas.Remove(playerDatas.Find(x => x.id == id));
+                playerDataList.playerDatas = playerDatas;
+
+                string jsonString = JsonUtility.ToJson(playerDataList);
+                Debug.Log("Updated json after deletion >>>" + jsonString);
+
+                StartCoroutine(Network.Instance.SaveToNet(jsonString));
+                break;
+            }
+        }
     }
 
     public void AddClient(string id, string json)
@@ -128,6 +158,7 @@ public class ClientManager : MonoBehaviour
             StartCoroutine(Network.Instance.SaveToNet(jsonString));
         }
 
+        SetJson(jsonString);
 
         //if (playerData == null)
         //{
@@ -165,7 +196,7 @@ public class ClientManager : MonoBehaviour
 
     }
 
-
+    #endregion
 
     bool IsIdPresentClient(string id)
     {
@@ -401,6 +432,8 @@ public class ClientManager : MonoBehaviour
             Vector3 targetPosition = new Vector3(chipDestination.position.x, chip.transform.position.y, chipDestination.position.z);
 
             chip.transform.DOMove(targetPosition, duration);
+
+            AudioManager.Instance.PlaySFX(AudioManager.SFX.chip);
         }
              
     }

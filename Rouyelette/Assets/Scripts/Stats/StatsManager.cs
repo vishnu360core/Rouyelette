@@ -20,8 +20,48 @@ public class StatsManager : MonoBehaviour
     private void OnEnable()
     {
         Actions.ReadStats += GetStatsAction;
+        Actions.ReadHistoryStat += GetStatHistoryAction;
        // Actions.ResetAction += ResetAction;
     }
+
+    private void GetStatHistoryAction(int[] bets)
+    {
+        for (int i = 0; i < bets.Length; i++) 
+        { 
+           Slot.ColorType colorType = GetColorCode(bets[i]);
+           GetStatsAction(bets[i], colorType);
+        }
+    }
+
+    Slot.ColorType GetColorCode(int index) 
+    {
+                if (index == 0
+                 || index == 1
+                 || index == 3
+                 || index == 5
+                 || index == 7
+                 || index == 9
+                 || index == 12
+                 || index == 14
+                 || index == 16
+                 || index == 18
+                 || index == 18
+                 || index == 19
+                 || index == 21
+                 || index == 23
+                 || index == 25
+                 || index == 27
+                 || index == 30
+                 || index == 32
+                 || index == 34
+                 || index == 36)
+        {
+            return Slot.ColorType.red;
+        }
+        else return Slot.ColorType.black;
+    
+    }
+
 
     private void ResetAction()
     {

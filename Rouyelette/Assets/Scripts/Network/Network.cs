@@ -26,6 +26,11 @@ public class Network : MonoBehaviour
             instance = this;
     }
 
+    private void OnApplicationQuit()
+    {
+        webData.SendText(_id);
+    }
+
     #region GAME
     string _id;
     public string Id => _id;
@@ -90,7 +95,20 @@ public class Network : MonoBehaviour
 
             Debug.Log("Data >>" + str);
 
-            Actions.BetData(int.Parse(str));
+            if (!str.Contains("["))
+                Actions.BetData(int.Parse(str));
+            else
+            {
+                Debug.Log("its json");
+                //str = str.Replace("[", "{");
+                //str = str.Replace("]", "}");
+                string json = "{ \"numbers\": " + str + " }";
+                Debug.Log(json);
+
+                BetssData betssData = JsonUtility.FromJson<BetssData>(json);
+
+                Actions.ReadHistoryStat(betssData.numbers);
+            }    
         };
         #endregion
 
@@ -127,6 +145,13 @@ public class Network : MonoBehaviour
                 Actions.GetGameData(str);
             else if (str == "ResetAction")
                 ResetAction();
+            else if(str.Contains("Delete"))
+                  {
+                     str = str.Replace("Delete", "");
+                     Debug.LogWarning("Player exited : " +  str);
+
+                     Actions.DeleteClient(str);
+                  }
             else
                 Actions.AddClient(str);
 
@@ -206,4 +231,10 @@ public class Network : MonoBehaviour
 
     #endregion
 
+}
+
+[System.Serializable]
+public class BetssData
+{
+    public int[] numbers;
 }

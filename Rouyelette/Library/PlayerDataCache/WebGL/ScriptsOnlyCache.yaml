@@ -60,6 +60,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Mask
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Assembly-CSharp:
@@ -106,6 +107,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.ScrollRect/ScrollRectEvent
     - UnityEngine.UI.Scrollbar/ScrollEvent
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
@@ -160,95 +162,97 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16776}
     - Class: 114
-      Script: {instanceID: 17612}
+      Script: {instanceID: 17160}
     - Class: 114
-      Script: {instanceID: 18030}
+      Script: {instanceID: 17616}
     - Class: 114
-      Script: {instanceID: 18326}
+      Script: {instanceID: 18034}
     - Class: 114
-      Script: {instanceID: 18422}
+      Script: {instanceID: 18332}
     - Class: 114
-      Script: {instanceID: 18550}
+      Script: {instanceID: 18428}
     - Class: 114
-      Script: {instanceID: 18846}
+      Script: {instanceID: 18556}
     - Class: 114
-      Script: {instanceID: 18886}
+      Script: {instanceID: 18852}
     - Class: 114
-      Script: {instanceID: 19762}
+      Script: {instanceID: 18892}
     - Class: 114
-      Script: {instanceID: 20396}
+      Script: {instanceID: 19778}
     - Class: 114
-      Script: {instanceID: 20540}
+      Script: {instanceID: 20412}
     - Class: 114
-      Script: {instanceID: 21052}
+      Script: {instanceID: 20558}
     - Class: 114
-      Script: {instanceID: 21166}
+      Script: {instanceID: 21074}
     - Class: 114
-      Script: {instanceID: 22318}
+      Script: {instanceID: 21188}
     - Class: 114
-      Script: {instanceID: 22552}
+      Script: {instanceID: 22346}
     - Class: 114
-      Script: {instanceID: 22766}
+      Script: {instanceID: 22580}
     - Class: 114
-      Script: {instanceID: 23160}
+      Script: {instanceID: 22798}
     - Class: 114
-      Script: {instanceID: 23350}
+      Script: {instanceID: 23200}
     - Class: 114
-      Script: {instanceID: 23660}
+      Script: {instanceID: 23390}
     - Class: 114
-      Script: {instanceID: 23878}
+      Script: {instanceID: 23702}
     - Class: 114
-      Script: {instanceID: 24332}
+      Script: {instanceID: 23920}
     - Class: 114
-      Script: {instanceID: 24424}
+      Script: {instanceID: 24378}
     - Class: 114
-      Script: {instanceID: 24578}
+      Script: {instanceID: 24470}
     - Class: 114
-      Script: {instanceID: 24710}
+      Script: {instanceID: 24624}
     - Class: 114
-      Script: {instanceID: 24754}
+      Script: {instanceID: 24758}
     - Class: 114
-      Script: {instanceID: 25172}
+      Script: {instanceID: 24802}
     - Class: 114
-      Script: {instanceID: 25354}
+      Script: {instanceID: 25204}
     - Class: 114
-      Script: {instanceID: 25812}
+      Script: {instanceID: 25224}
     - Class: 114
-      Script: {instanceID: 26106}
+      Script: {instanceID: 25316}
     - Class: 114
-      Script: {instanceID: 26118}
+      Script: {instanceID: 25406}
     - Class: 114
-      Script: {instanceID: 26212}
+      Script: {instanceID: 25868}
     - Class: 114
-      Script: {instanceID: 26234}
+      Script: {instanceID: 26170}
     - Class: 114
-      Script: {instanceID: 26238}
+      Script: {instanceID: 26182}
     - Class: 114
-      Script: {instanceID: 26346}
+      Script: {instanceID: 26276}
     - Class: 114
-      Script: {instanceID: 26388}
+      Script: {instanceID: 26298}
     - Class: 114
-      Script: {instanceID: 26458}
+      Script: {instanceID: 26302}
     - Class: 114
-      Script: {instanceID: 26870}
+      Script: {instanceID: 26410}
     - Class: 114
-      Script: {instanceID: 26930}
+      Script: {instanceID: 26452}
     - Class: 114
-      Script: {instanceID: 27180}
+      Script: {instanceID: 26522}
     - Class: 114
-      Script: {instanceID: 27202}
+      Script: {instanceID: 26936}
     - Class: 114
-      Script: {instanceID: 27500}
+      Script: {instanceID: 26996}
     - Class: 114
-      Script: {instanceID: 31254}
+      Script: {instanceID: 27248}
     - Class: 114
-      Script: {instanceID: 31256}
+      Script: {instanceID: 27270}
     - Class: 114
-      Script: {instanceID: 31258}
+      Script: {instanceID: 27572}
     - Class: 114
-      Script: {instanceID: 515852}
+      Script: {instanceID: 31474}
     - Class: 114
-      Script: {instanceID: 522122}
+      Script: {instanceID: 31476}
+    - Class: 114
+      Script: {instanceID: 31478}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -336,6 +340,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: Cinemachine
     className: CinemachineMixingCamera
+  - hash:
+      serializedVersion: 2
+      Hash: dc6d585879c565ccec61c0741a6cb8b1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Stats
   - hash:
       serializedVersion: 2
       Hash: ad49e20f31ed572e586aa8bbaafb591b
@@ -506,7 +516,7 @@ ScriptsOnlyBuild:
     className: CinemachineStateDrivenCamera
   - hash:
       serializedVersion: 2
-      Hash: b19a67d266e93020f05441e7fb248707
+      Hash: 2fdaee1f1aecb60527e41ee4680a249a
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameController
@@ -1316,6 +1326,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 453d87cc16e8388b92f37724d1c50f27
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: StatsManager
+  - hash:
+      serializedVersion: 2
       Hash: 47ee34eb8b6021efa0289dbbb17a5a85
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1674,18 +1690,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 453d87cc16e8388b92f37724d1c50f27
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: StatsManager
-  - hash:
-      serializedVersion: 2
-      Hash: dc6d585879c565ccec61c0741a6cb8b1
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Stats
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

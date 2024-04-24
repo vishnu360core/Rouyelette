@@ -58,4 +58,8 @@ public static class Actions
     public static Action<int> BetData;
 
     public static Action <int,Slot.ColorType> ReadStats ;
+
+    public static Action<int[]> ReadHistoryStat;
+
+    public static Action<string> DeleteClient;
 }
