@@ -19,6 +19,9 @@ public class Network : MonoBehaviour
     WebSocket webTimer;
     WebSocket webWallet;
     WebSocket webData;
+    WebSocket webCredit;
+    WebSocket webDeduct;
+
 
     private void Awake()
     {
@@ -45,6 +48,9 @@ public class Network : MonoBehaviour
         websocket = new WebSocket("ws://localhost:8090");
         webTimer = new WebSocket("ws://localhost:8100");
         webData = new WebSocket("ws://localhost:8200");
+        webWallet = new WebSocket("ws://localhost:9010");
+        webCredit = new WebSocket("ws://localhost:9020");
+        webDeduct = new WebSocket("ws://localhost:9030");
 
         #region WEB_TIMER
         webTimer.OnOpen += () =>
@@ -112,6 +118,8 @@ public class Network : MonoBehaviour
         };
         #endregion
 
+        #region WEB_GAME
+
         websocket.OnOpen += () =>
         {
             Debug.Log("Connection open!");
@@ -139,7 +147,7 @@ public class Network : MonoBehaviour
         {
             string str = Encoding.UTF8.GetString(bytes);
 
-            Debug.Log(str);
+            Debug.Log("GAME: " + str);
 
             if (IsJsonString(str))
                 Actions.GetGameData(str);
@@ -157,6 +165,94 @@ public class Network : MonoBehaviour
 
         };
 
+        #endregion
+
+        #region WEB_WALLET
+
+        webWallet.OnOpen += () =>
+        {
+            Debug.Log("Wallet Connection open!");
+        };
+
+        webWallet.OnError += (e) =>
+        {
+            Debug.Log("WebWallet_Error! " + e);
+        };
+
+        webWallet.OnClose += (e) =>
+        {
+            Debug.Log("WebWallet Connection closed!");
+        };
+
+        webWallet.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
+
+            float _balanceDollar = float.Parse(str);
+
+            Debug.LogWarning("Wallet Balance :" +  _balanceDollar);
+
+            Actions.GetWalletBalance(_balanceDollar);
+
+        };
+
+        #endregion
+
+        #region WEB_CREDIT
+
+        webCredit.OnOpen += () =>
+        {
+            Debug.Log("Credit Connection open!");
+        };
+
+        webCredit.OnError += (e) =>
+        {
+            Debug.Log("Credit_Error! " + e);
+        };
+
+        webCredit.OnClose += (e) =>
+        {
+            Debug.Log("Credit Connection closed!");
+        };
+
+        webCredit.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log("Credit_MATICS >>" + str);
+
+            Actions.Credit_MAT(str);
+        };
+
+        #endregion
+
+        #region WEB_DEDUCT
+        webDeduct.OnOpen += () =>
+        {
+            Debug.Log("Deduct Connection open!");
+        };
+
+        webDeduct.OnError += (e) =>
+        {
+            Debug.Log("Deduct_Error! " + e);
+        };
+
+        webDeduct.OnClose += (e) =>
+        {
+            Debug.Log("Deduct Connection closed!");
+        };
+
+        webDeduct.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log("Deduct_MATICS >>" + str);
+
+            Actions.Deduct_MAT(str);
+        };
+
+        #endregion
+
         if (webTimer.State == WebSocketState.Connecting || webTimer.State == WebSocketState.Open)
         {
             Debug.Log("Still connecting !!! and closing it");
@@ -166,6 +262,9 @@ public class Network : MonoBehaviour
         await webData.Connect();
         await websocket.Connect();
         await webTimer.Connect();
+        await webWallet.Connect();
+        await webDeduct.Connect();
+        await webCredit.Connect();
     }
 
     void ResetAction()
@@ -219,18 +318,30 @@ public class Network : MonoBehaviour
 
     #region WALLET
 
-    
+    public IEnumerator SendWallet(string message)
+    {
+        if (webWallet.State == WebSocketState.Closed || webWallet.State == WebSocketState.Closing)
+            yield return null;
+        else
+        {
+            yield return new WaitUntil(() => webWallet.State == WebSocketState.Open);
+            webWallet.SendText(message);
+        }
+    }
 
+    public void CreditAmount(float amount)
+    {
+        webCredit.SendText(amount.ToString());
+    }
+
+    public void DeductAmount(float amount)
+    {
+        Debug.LogWarning("Deduct: " + amount);
+
+        webDeduct.SendText(amount.ToString());
+    }
 
     #endregion
-
-    #region BET_DATA
-
-
-
-
-    #endregion
-
 }
 
 [System.Serializable]

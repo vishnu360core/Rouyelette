@@ -112,7 +112,19 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: GameController
+    methodName: TableViewAction
+  - assembly: Assembly-CSharp
+    fullTypeName: AudioManager
+    methodName: Play_Button
+  - assembly: Assembly-CSharp
+    fullTypeName: GameController
     methodName: SpinButtonAction
+  - assembly: Assembly-CSharp
+    fullTypeName: BoardManager
+    methodName: SetBetAction
+  - assembly: Assembly-CSharp
+    fullTypeName: AudioManager
+    methodName: Play_Button
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -248,11 +260,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 27572}
     - Class: 114
-      Script: {instanceID: 31474}
+      Script: {instanceID: 31496}
     - Class: 114
-      Script: {instanceID: 31476}
+      Script: {instanceID: 31498}
     - Class: 114
-      Script: {instanceID: 31478}
+      Script: {instanceID: 31500}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -516,7 +528,7 @@ ScriptsOnlyBuild:
     className: CinemachineStateDrivenCamera
   - hash:
       serializedVersion: 2
-      Hash: 2fdaee1f1aecb60527e41ee4680a249a
+      Hash: 6672b33cbd6d2ff9a174b814b8ef906b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameController
@@ -1008,7 +1020,7 @@ ScriptsOnlyBuild:
     className: SimpleScript
   - hash:
       serializedVersion: 2
-      Hash: 98bff4be787c52fd8fd6b99377eb4b1b
+      Hash: 9239dc082ea839c3bfe86624b17eeb9f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Chip
@@ -1158,7 +1170,7 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
-      Hash: 853bc3e7dccea13674cbbede08216596
+      Hash: 87effbe932c7a61334a25a25c02efc3e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: WalletConnector
@@ -1518,7 +1530,7 @@ ScriptsOnlyBuild:
     className: CinemachinePipeline
   - hash:
       serializedVersion: 2
-      Hash: 93fc08fad60312cfae39261c42a47bab
+      Hash: b886997538ad4f5c44ba217b35e2e646
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: BoardManager

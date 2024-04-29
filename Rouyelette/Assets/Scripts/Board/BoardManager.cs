@@ -23,7 +23,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     [SerializeField] TMP_Text _amountText;
     [SerializeField] TMP_Text _betAmountText;
 
-    int amount;
+    float amount;
 
     [Header("Chips:")]
     [SerializeField] List<Chip> chips = new List<Chip>();
@@ -51,6 +51,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     [SerializeField] bool _reachedTargetSlot = false;
 
+    public bool _setBet = true;
+
     enum Result {Win,Loss };
 
     private void Start()
@@ -58,12 +60,13 @@ public class BoardManager : MonoBehaviour,ChipInterface
         Actions.BoardHoverAction += HoverBoardSlotAction;
         Actions.BoardSlotAction += SelectBoardSlotAction;
 
+        Actions.GetWalletBalance += GetWalletBalance;
+
+        Actions.DeductionRejected += DeductionRejected;
+
         for (int i = 0; i < chips.Count; i++)
             chips[i].callback = this;
 
-        amount = 100;
-
-       _amountText.text = "Amount:" + amount.ToString();
 
         callback.EnableSpin(false);
 
@@ -73,6 +76,28 @@ public class BoardManager : MonoBehaviour,ChipInterface
         //  Actions.ResetAction += ResetAction;
 
         Actions.OnSlotAction += SlotAction;
+    }
+
+    private void DeductionRejected()
+    {
+        amount += _currentbetAmount;
+        _amountText.text = "Amount: $" + amount.ToString("F2");
+
+        ClearBets();
+    }
+
+    public void ClearBets()
+    {
+        _currentbetAmount = 0;
+        _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
+    }
+
+    private void GetWalletBalance(float bal)
+    {
+        amount = bal;
+
+       _amountText.text = "Amount: $" + amount.ToString("F2");
+
     }
 
     public void SetGetSlot(Slot slot)
@@ -322,11 +347,22 @@ public class BoardManager : MonoBehaviour,ChipInterface
             case Result.Win:
                 PopMessage.Instance.PopUpMessage(PopMessage.MessageType.win, "You Win :" + betamount.ToString());
                 AudioManager.Instance.PlaySFX(AudioManager.SFX.win);
+
+                amount += betamount;
+                _amountText.text = "Amount: $" + amount.ToString("F2");
+
+                Network.Instance.CreditAmount((float)betamount);
+
                 break;
 
             case Result.Loss:
                 PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + betamount.ToString());
                 AudioManager.Instance.PlaySFX(AudioManager.SFX.loss);
+
+               // amount += betamount;
+                //_amountText.text = "Amount: $" + amount.ToString("F2");
+
+                //Network.Instance.DeductAmount((float)betamount);
                 break;
         }
     }
@@ -371,8 +407,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         ResultAction(winAmount, Result.Win);
 
-        amount += betamount + betamount * multiplier;
-        _amountText.text = "Amount:" + amount.ToString();
+        //amount += betamount + betamount * multiplier;
+        //_amountText.text = "Amount:" + amount.ToString();
     }
 
 
@@ -456,11 +492,11 @@ public class BoardManager : MonoBehaviour,ChipInterface
             }
 
             _currentbetAmount += _currentChip.Bet;
-            amount -= _currentChip.Bet;
+           // amount -= _currentChip.Bet;
 
 
             _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
-            _amountText.text = "Amount:" + amount.ToString();
+           // _amountText.text = "Amount: $" + amount.ToString("F2");
             AddChipAction(slot);
 
             callback.EnableSpin(true);
@@ -561,16 +597,28 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         _currentbetAmount += _currentChip.Bet;
-        amount -= _currentChip.Bet;
+       // amount -= _currentChip.Bet;
 
        // Actions.PlayerBets(bets,amount);
 
         _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
-        _amountText.text = "Amount:" + amount.ToString();
+       // _amountText.text = "Amount: $" + amount.ToString("F2");
 
         AddChipAction(slot);
 
         callback.EnableSpin(true);
+    }
+
+
+    public void SetBetAction()
+    {
+        _setBet = true;
+        amount -= _currentbetAmount;
+        _amountText.text = "Amount: $" + amount.ToString("F2");
+
+        Actions.EnablePlay(false);
+
+        Network.Instance.DeductAmount(_currentbetAmount);
     }
 
     /// <summary>
@@ -613,15 +661,15 @@ public class BoardManager : MonoBehaviour,ChipInterface
             Chip chip = go.GetComponent<Chip>();
             chip.EnableAnimation(false);
 
-            Material[] mats = go.GetComponent<MeshRenderer>().materials;
-            Material[] _textmats = go.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
+            //Material[] mats = go.GetComponent<MeshRenderer>().materials;
+            //Material[] _textmats = go.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
 
 
-            Array.Resize(ref mats, mats.Length - 2);
-            Array.Resize(ref _textmats, _textmats.Length - 2);
+            //Array.Resize(ref mats, mats.Length - 2);
+            //Array.Resize(ref _textmats, _textmats.Length - 2);
 
-            go.GetComponent<MeshRenderer>().materials = mats;
-            go.transform.GetChild(0).GetComponent<MeshRenderer>().materials = _textmats;
+            //go.GetComponent<MeshRenderer>().materials = mats;
+            //go.transform.GetChild(0).GetComponent<MeshRenderer>().materials = _textmats;
 
             Destroy(chip);
 

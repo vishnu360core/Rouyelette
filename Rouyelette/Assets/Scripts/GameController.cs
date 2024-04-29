@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] SpinWheelManager _spinWheelManager;
     [SerializeField] WheelSlotManager _wheelSlotManager;
     [SerializeField] ClientManager _clientManager;
+    [SerializeField] WalletConnector _walletConnector;
 
     [Header("UI Buttons:")]
     [SerializeField] Button _spinButton;
@@ -95,6 +96,11 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void RoyelleteSpinAction()
     {
+        if (!_boardManager._setBet)
+            _boardManager.ClearBets();
+
+        _boardManager._setBet = false;
+
         AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
 
         Actions.EnablePlay(false);
@@ -325,8 +331,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
         _timeslider.value = 0;
-        _timerText.text = "0";
-
+        _timerText.text = "";
         StartCoroutine(ResetAction());
     }
 
@@ -355,6 +360,12 @@ public class GameController : MonoBehaviour, BoardControlInterface
         AudioManager.Instance.PlaySFX(AudioManager.SFX.select);
         SpinWheelAction();  
     }
+
+    public void TableViewAction()
+    {
+        CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
+    }
+
 
     void SpinWheelAction()
     {

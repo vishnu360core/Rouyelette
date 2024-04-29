@@ -3,40 +3,79 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+using UnityEngine.UI;
+using TMPro;
 using System;
 
 public class WalletConnector : MonoBehaviour
 {
     [DllImport("__Internal")]
-    private static extern void ConnectWalletAndRetrieveDetails();
+    private static extern void ConnectWalletAndRetrieveAddress();
 
     [DllImport("__Internal")]
-    private static extern void GetWalletBalance(string address, string rpcUrl);
+    private static extern void Deduct(string address, string amountInEther);
+
+    [DllImport("__Internal")]
+    private static extern void Credit(string address, string amountInEther);
+
+
+    [SerializeField] GameObject _walletConnectPanel;
 
     string walletAddress;
+    float walletBalance;
 
-    string rpcURL = "https://polygon-mumbai.g.alchemy.com/v2/c8QEf5b218YqVWVlX2t3RBRI-febo0tH";
+    public bool _walletConneted = false;
 
     void Start()
     {
+        _walletConneted = false;
         // Call the JavaScript function to connect the wallet and retrieve details
-        ConnectWalletAndRetrieveDetails();
+        ConnectWalletAndRetrieveAddress();
+
+        Actions.GetWalletBalance += WalletBalance;
+
+        Actions.Deduct_MAT += DeductWallet;
+        Actions.Credit_MAT += CreditWallet;
     }
 
-    // This method will be called by JavaScript to receive the wallet details
-    public void ReceiveWalletDetails(string account)
+    private void CreditWallet(string mat)
     {
-        Debug.Log("Wallet Address: " + account);
-        walletAddress = account;
-
-        Actions.GetWalletBalance += ReceviedWalletBalance;
-
-       // StartCoroutine(GetBalanceCoroutine());
-        // Handle the received wallet details here
+        Credit(walletAddress, mat);
+        //StartCoroutine(Network.Instance.SendWallet(walletAddress));
     }
 
-    private void ReceviedWalletBalance(string obj)
+    private void DeductWallet(string mat)
     {
-        Debug.Log("Balance >>>" + obj);
+        Debug.LogWarning("Deduction happened !!!!!!!" + mat);
+
+        Deduct(walletAddress, mat);
+       // StartCoroutine(Network.Instance.SendWallet(walletAddress));
+    }
+
+    private void WalletBalance(float balance)
+    {
+       walletBalance = balance;
+    }
+
+    public void ReceiveWalletAddressAndBalance(string addressAndBalance)
+    {
+        string[] parts = addressAndBalance.Split(',');
+        string address = parts[0];
+        string balance = parts[1];
+
+        Debug.Log("Wallet Address: " + address);
+
+        walletAddress = address;
+
+        StartCoroutine(Network.Instance.SendWallet(address));
+
+        _walletConnectPanel.SetActive(false);
+        _walletConneted = true;
+    }
+
+
+    public void Deduct_Rejected()
+    {
+        Actions.DeductionRejected();
     }
 }

@@ -26,7 +26,7 @@ public class Chip : MonoBehaviour
 
     public ChipInterface callback;
 
-    [SerializeField] Outline _outline;
+    [SerializeField] GameObject _outline;
 
     bool enablePlay = false;
 
@@ -71,7 +71,7 @@ public class Chip : MonoBehaviour
 
     public void EnableAnimation(bool enable)
     {
-       _outline.enabled = enable;   
+       _outline.SetActive(enable);   
     }
 
     void ChipSelectAction(bool select)

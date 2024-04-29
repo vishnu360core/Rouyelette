@@ -53,7 +53,7 @@ public static class Actions
 
     public static Action StartRoll;
 
-    public static Action<string> GetWalletBalance;
+    public static Action<float> GetWalletBalance;
 
     public static Action<int> BetData;
 
@@ -62,4 +62,15 @@ public static class Actions
     public static Action<int[]> ReadHistoryStat;
 
     public static Action<string> DeleteClient;
+
+    public static Action <int> WinBetAction;
+
+    public static Action<int> LossBetAction;
+
+    public static Action<string> Credit_MAT;
+
+    public static Action<string> Deduct_MAT;
+
+
+    public static Action DeductionRejected;
 }

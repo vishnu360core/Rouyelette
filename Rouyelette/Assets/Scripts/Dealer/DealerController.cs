@@ -17,10 +17,17 @@ public class DealerController : MonoBehaviour
     private void Start()
     {
         Actions.DealerMoveAction += MoveTowards;
+        Actions.GetWalletBalance += WalletBalance;
+
 
         yPos = _dealerObject.transform.position.y;
 
         //MoveTowards(_start);
+    }
+
+    private void WalletBalance(float bal)
+    {
+        
     }
 
     void ResetAction()

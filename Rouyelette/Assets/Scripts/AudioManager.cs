@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
     [Header("SpeechTextManager:")]
     [SerializeField] AudioSource _speechAudioSource;
 
-    public enum SFX { ballHit ,chip ,error,select,win,loss};
+    public enum SFX { ballHit ,chip ,error,select,win,loss,click};
 
     public enum Clip { wheel }
 
@@ -83,6 +83,11 @@ public class AudioManager : MonoBehaviour
     }
 
 
+    public void Play_Button()
+    {
+        PlaySFX(SFX.click);
+    }
+
 
     /// <summary>
     /// Play the SFX Sound
@@ -121,6 +126,11 @@ public class AudioManager : MonoBehaviour
             case SFX.loss:
                 audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "Lost"));
                 break;
+
+            case SFX.click:
+                audioSource.PlayOneShot(_audioData.GetClip(AudioType.SFX, "ButtonClick"));
+                break;
+
         }
     }
 }
