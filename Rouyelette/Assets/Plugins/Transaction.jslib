@@ -34,9 +34,20 @@ mergeInto(LibraryManager.library, {
            {
               const tx = await window.contract.placebid({value : window.ethers.utils.parseUnits(matAmount) });
               console.log("PlaceBid_Deduct ==> " , tx);
+
+              if (typeof nethereumUnityInstance !== 'undefined') 
+                {
+                    nethereumUnityInstance.SendMessage('WalletConnector', 'Deduct_GetHash',tx.hash);
+                } 
+                 else 
+                {   
+                    console.error('nethereumUnityInstance is not defined');
+                }
            }
            catch
            {
+               
+               
                console.log("Deduction rejected !!!");
 
                 if (typeof nethereumUnityInstance !== 'undefined') 

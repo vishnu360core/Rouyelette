@@ -21,6 +21,9 @@ public class WalletConnector : MonoBehaviour
 
     [SerializeField] GameObject _walletConnectPanel;
 
+    [SerializeField] TMP_Text walletText;
+    [SerializeField] TMP_Text walletAddressText;
+
     string walletAddress;
     float walletBalance;
 
@@ -67,15 +70,38 @@ public class WalletConnector : MonoBehaviour
 
         walletAddress = address;
 
+        Debug.Log(walletAddress.Length + " " + address.Length);
+
+        string addressFirst = address.Substring(0,4);
+        string addressLast = address.Substring(address.Length-4,4);
+
+        string addressPrint = addressFirst +"....." + addressLast;
+
+        walletAddressText.text = "Wallet address: " + addressPrint;
+        Network.Instance.SetId(addressPrint);
+
         StartCoroutine(Network.Instance.SendWallet(address));
 
         _walletConnectPanel.SetActive(false);
         _walletConneted = true;
     }
 
+    public void OnConnectError(string error)
+    {
+        Debug.Log("Error: " + error);
+        
+        walletText.text ="Unable to connect the wallet :" +  error;
+    }
 
     public void Deduct_Rejected()
     {
         Actions.DeductionRejected();
+    }
+
+    public void Deduct_GetHash(string hashString)
+    {
+        Debug.LogWarning("Hash >>" + hashString);
+        
+        HistoryController.Instance.hash = hashString;
     }
 }

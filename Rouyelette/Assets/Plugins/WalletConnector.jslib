@@ -27,7 +27,7 @@ mergeInto(LibraryManager.library, {
             console.error(err);
             // Handle errors by sending an error message to Unity
             if (typeof nethereumUnityInstance !== 'undefined') {
-              nethereumUnityInstance.SendMessage('WalletConnector', 'OnConnectError', err.message);
+             // nethereumUnityInstance.SendMessage('WalletConnector', 'OnConnectError', err.message);
             } else {
               console.error('nethereumUnityInstance is not defined');
             }
@@ -37,7 +37,7 @@ mergeInto(LibraryManager.library, {
           console.error(err);
           // Handle errors by sending an error message to Unity
           if (typeof nethereumUnityInstance !== 'undefined') {
-            nethereumUnityInstance.SendMessage('WalletConnector', 'OnConnectError', err.message);
+           // nethereumUnityInstance.SendMessage('WalletConnector', 'OnConnectError', err.message);
           } else {
             console.error('nethereumUnityInstance is not defined');
           }

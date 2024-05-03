@@ -43,6 +43,7 @@ public class PopMessage : MonoBehaviour
     /// <param name="message"></param>
     public void PopUpMessage(MessageType type, string message)
     {
+        StopAllCoroutines();
         StartCoroutine(PopMessageAction(type, message));
     }
 

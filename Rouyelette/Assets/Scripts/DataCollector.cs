@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DataCollector
 {
-    public enum GameSwitch {on, off };
+    public enum GameSwitch {on, off,lastbet};
 
 
     [System.Serializable]

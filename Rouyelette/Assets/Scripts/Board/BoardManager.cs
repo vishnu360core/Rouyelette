@@ -22,6 +22,10 @@ public class BoardManager : MonoBehaviour,ChipInterface
     [Header("UI Settings:")]
     [SerializeField] TMP_Text _amountText;
     [SerializeField] TMP_Text _betAmountText;
+    [SerializeField] Button betButton;
+    [SerializeField] Button previousButton;
+    [SerializeField] Button doubleButton;
+    [SerializeField] Button clearButton;
 
     float amount;
 
@@ -39,6 +43,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     List<GameObject> chipObjects = new List<GameObject>();
 
     [SerializeField] List<Bet> bets = new List<Bet>();
+   
 
     #endregion
 
@@ -51,12 +56,26 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     [SerializeField] bool _reachedTargetSlot = false;
 
-    public bool _setBet = true;
+    public bool _setBet = false;
 
     enum Result {Win,Loss };
 
+    bool _isPreviousPress = false;
+
+    #region PREVIOUS_DATA
+
+    List<Bet> previousBets = new List<Bet>();
+    List<GameObject> previouschipObjects = new List<GameObject>();
+    List<Chip> previousChips = new List<Chip>();
+    List<Slot> previousSlots = new List<Slot>();
+
+    #endregion
+
     private void Start()
     {
+        _setBet = false;
+        _isPreviousPress = false;
+
         Actions.BoardHoverAction += HoverBoardSlotAction;
         Actions.BoardSlotAction += SelectBoardSlotAction;
 
@@ -80,17 +99,125 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     private void DeductionRejected()
     {
+        Debug.Log("Deduction camcelled");
+
+
         amount += _currentbetAmount;
         _amountText.text = "Amount: $" + amount.ToString("F2");
 
         ClearBets();
+
+        Actions.EnablePlay(true);
     }
 
     public void ClearBets()
     {
         _currentbetAmount = 0;
         _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
+
+        Actions.DeleteChip();
+        bets.Clear();
+
+        _setBet = false;
+
+       // EnableBet(true);
     }
+
+
+    #region BOARD_CONTROL ACTIONS
+    public void ClearBetButtonAction()
+    {
+        if (_setBet)
+            return;
+
+       ClearBets();
+
+       previousSlots.Clear();
+
+        _currentSlot = null;
+    }
+
+
+    public void DoubleBetAction()
+    {
+        if (_setBet)
+            return;
+
+
+        if (_currentbetAmount * 2 > amount)
+            return;
+
+        Debug.LogWarning("pre slots >>" + previousSlots.Count);
+
+
+        List<Slot> slots = new List<Slot>();
+
+        for(int i = 0;i < previousSlots.Count;++i)
+        {
+            slots.Add(previousSlots[i]);
+        }
+
+        for(int i = 0;i<slots.Count;++i)
+        {
+            SelectBoardSlotAction(slots[i]);
+        }
+    }
+
+    public void EnableBet(bool enable)
+    {
+        Debug.LogWarning("Bet Button !!!" + enable);
+
+        betButton.interactable = enable;
+        clearButton.interactable = enable;
+        previousButton.interactable = enable;
+        doubleButton.interactable = enable;
+    }
+
+
+    public void PreviousBetButtonAction()
+    {
+
+        if (_isPreviousPress)
+            return;
+
+        if (_setBet)
+            return;
+
+        _isPreviousPress = true;
+
+        ClearBets();
+
+        Debug.Log("Previous Objects Count >>" + previousChips.Count + ">>> " + previousBets.Count);
+
+        int chipIndex = 0;
+
+        if (previousBets.Count >0)
+        {
+
+            foreach(Bet bet in previousBets)
+            {
+                Debug.Log("Chip >>>" + previousChips[chipIndex].GetComponent<Chip>().Bet + ">>>" + previousSlots[chipIndex]);
+                _currentChip =  chips.Find(x =>x.Bet == previousChips[chipIndex].GetComponent<Chip>().Bet);
+
+                Debug.Log("chip >>>" + _currentChip);
+
+                Slot slot = new Slot();
+
+                slot = previousSlots[chipIndex];
+
+                _isChipSelected = true;
+                SelectBoardSlotAction(slot);
+              
+                chipIndex++;
+            }
+        }
+       else
+        {
+            Debug.LogError("No previous bets !!!");
+        }
+    }
+
+    #endregion
 
     private void GetWalletBalance(float bal)
     {
@@ -348,6 +475,10 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 PopMessage.Instance.PopUpMessage(PopMessage.MessageType.win, "You Win :" + betamount.ToString());
                 AudioManager.Instance.PlaySFX(AudioManager.SFX.win);
 
+                HistoryController.Instance.profit = betamount;
+
+                HistoryController.Instance.HistoryGenerateAction();
+
                 amount += betamount;
                 _amountText.text = "Amount: $" + amount.ToString("F2");
 
@@ -411,7 +542,6 @@ public class BoardManager : MonoBehaviour,ChipInterface
         //_amountText.text = "Amount:" + amount.ToString();
     }
 
-
     private void WheelSlotSelectAction(Slot slot)
     {
        _currentWheelSlot = slot;
@@ -441,14 +571,22 @@ public class BoardManager : MonoBehaviour,ChipInterface
     /// <param name="slot"></param>
     private void SelectBoardSlotAction(Slot slot)
     {
-        if (!_isChipSelected)
-            return;
+         if (!_isChipSelected)
+          return;
 
-
-        if (amount < _currentChip.Bet)
+        if (amount < _currentbetAmount+1 || amount < _currentChip.Bet)
         {
             AudioManager.Instance.PlaySFX(AudioManager.SFX.error);
             return;
+        }
+
+        if (!_isPreviousPress)
+        {
+            previousSlots.Clear();
+            previousChips.Clear();
+            previouschipObjects.Clear();    
+
+            _isPreviousPress = true;
         }
 
         AudioManager.Instance.PlaySFX(AudioManager.SFX.chip);
@@ -492,11 +630,15 @@ public class BoardManager : MonoBehaviour,ChipInterface
             }
 
             _currentbetAmount += _currentChip.Bet;
-           // amount -= _currentChip.Bet;
+            // amount -= _currentChip.Bet;
+            previousChips.Add(_currentChip);
 
 
             _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
-           // _amountText.text = "Amount: $" + amount.ToString("F2");
+            // _amountText.text = "Amount: $" + amount.ToString("F2");
+
+            previousSlots.Add(slot);
+           
             AddChipAction(slot);
 
             callback.EnableSpin(true);
@@ -597,13 +739,17 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         _currentbetAmount += _currentChip.Bet;
+
+        previousChips.Add(_currentChip);
+
        // amount -= _currentChip.Bet;
 
        // Actions.PlayerBets(bets,amount);
 
         _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
-       // _amountText.text = "Amount: $" + amount.ToString("F2");
+        // _amountText.text = "Amount: $" + amount.ToString("F2");
 
+        previousSlots.Add(slot);
         AddChipAction(slot);
 
         callback.EnableSpin(true);
@@ -612,9 +758,55 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     public void SetBetAction()
     {
+        if (_setBet)
+        {
+            return;
+        }
+
+        if (_currentbetAmount == 0)
+            return;
+
+        EnableBet(false);
+
+        _isPreviousPress = false;
         _setBet = true;
         amount -= _currentbetAmount;
         _amountText.text = "Amount: $" + amount.ToString("F2");
+
+        //HistoryController.Instance.bets = _currentbetAmount;
+
+        Debug.LogWarning("Bets Count >>>" + bets.Count);
+
+        if (bets.Count > 0)
+        {
+            for (int i = 0;i<bets.Count;++i)
+            {
+                previousBets.Add(bets[i]);
+            }
+
+
+            Debug.LogWarning("Bets Count previous >>>" + previousBets.Count);
+        }
+        else
+        {
+            Debug.LogError("Bets were cleared !!!");
+        }
+
+
+        Debug.LogWarning("Chip Objects >>" + chipObjects.Count +">>" + previousChips.Count); 
+        
+        if(chipObjects.Count > 0) 
+        {
+            for (int i = 0; i < chipObjects.Count; ++i)
+            {
+                previouschipObjects.Add(chipObjects[i]);    
+            }
+        }
+        else
+        {
+            Debug.LogError("bet objects were cleared!!");
+        }
+
 
         Actions.EnablePlay(false);
 
@@ -653,7 +845,10 @@ public class BoardManager : MonoBehaviour,ChipInterface
             chipObjects.Clear();
         }
 
+
         GameObject go = Instantiate(_currentChip.gameObject);
+
+        Debug.Log("Chip object 1" + go);
 
        
         if (go.GetComponent<Chip>() != null)
@@ -661,6 +856,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
             Chip chip = go.GetComponent<Chip>();
             chip.EnableAnimation(false);
 
+
+            Debug.Log("Chip object 2");
             //Material[] mats = go.GetComponent<MeshRenderer>().materials;
             //Material[] _textmats = go.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
 
@@ -677,6 +874,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
             Destroy(boxCollider);
         }
 
+
+        Debug.Log("Chip object 3");
+
         go.transform.SetParent(slot.ChipTransform, false);
         go.transform.localScale = Vector3.one;
 
@@ -692,6 +892,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         go.transform.localRotation = Quaternion.identity;
 
         chipObjects.Add(go);
+     
     }
 
 

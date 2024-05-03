@@ -31,6 +31,8 @@ public class StatsManager : MonoBehaviour
            Slot.ColorType colorType = GetColorCode(bets[i]);
            GetStatsAction(bets[i], colorType);
         }
+
+        Actions.BetData(bets[bets.Length - 1]);
     }
 
     Slot.ColorType GetColorCode(int index) 

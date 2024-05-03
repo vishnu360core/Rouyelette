@@ -55,8 +55,23 @@ public class Slot : MonoBehaviour
 
     bool enablePlay = false;
 
-    [SerializeField] GameObject ballObject; 
+    [SerializeField] GameObject ballObject;
+    
 
+    public void SetSlotMethod(Slot.BoardSlotMethod method)
+    {
+        _slotMethod = method;
+    }
+
+    public void SetSlotNumber(int number) 
+    {
+        _number = number;
+    }
+
+    public void SetChipTransform(Transform transform)
+    {
+        _chipTransform = transform; 
+    }
 
     public void EnableBall(bool enable)
     {
@@ -94,6 +109,7 @@ public class Slot : MonoBehaviour
         Actions.EnableHoverAction += HoverEnableAction;
         Actions.ResetHoverAction += ResetHoverAction;
         Actions.ResetAction += ResetAction;
+        Actions.DeleteChip += ResetAction;
 
         Actions.StoppedSpin += StartSelectAction;
         //Actions.OnSlotAction += WheelSlotAction;

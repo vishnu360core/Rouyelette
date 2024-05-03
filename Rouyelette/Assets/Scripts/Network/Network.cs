@@ -23,6 +23,7 @@ public class Network : MonoBehaviour
     WebSocket webDeduct;
 
 
+
     private void Awake()
     {
         if (instance == null)
@@ -38,19 +39,45 @@ public class Network : MonoBehaviour
     string _id;
     public string Id => _id;
 
+    public void SetId(string id)
+    {
+        _id = id;
+        websocket.SendText(_id);
+    }
+
+
     async void Start()
     {
         if (instance == null)
             instance = this;
 
-        _id = Guid.NewGuid().ToString();
+        //_id = Guid.NewGuid().ToString();
 
-        websocket = new WebSocket("ws://localhost:8090");
-        webTimer = new WebSocket("ws://localhost:8100");
-        webData = new WebSocket("ws://localhost:8200");
-        webWallet = new WebSocket("ws://localhost:9010");
-        webCredit = new WebSocket("ws://localhost:9020");
-        webDeduct = new WebSocket("ws://localhost:9030");
+
+        string ip = "62.72.56.181";
+
+        websocket = new WebSocket(" ws://62.72.56.181:8090");//8090
+        webTimer = new WebSocket(" ws://62.72.56.181:8100");//8100
+        webData = new WebSocket(" ws://62.72.56.181:8200");//8200
+        webWallet = new WebSocket(" ws://62.72.56.181:9010");//9010
+        webCredit = new WebSocket(" ws://62.72.56.181:9020");//9020
+        webDeduct = new WebSocket(" ws://62.72.56.181:9030");//9030
+
+
+        //websocket = new WebSocket("wss://unity.thecrypto360.com");//8090
+        //webTimer = new WebSocket("wss://unity2.thecrypto360.com");//8100
+        //webData = new WebSocket("wss://unity3.thecrypto360.com");//8200
+        //webWallet = new WebSocket("wss://unity4.thecrypto360.com");//9010
+        //webCredit = new WebSocket("wss://unity5.thecrypto360.com");//9020
+        //webDeduct = new WebSocket("wss://unity6.thecrypto360.com");//9030
+
+        //websocket = new WebSocket(" ws://localhost:8090");//8090
+        //webTimer = new WebSocket(" ws://localhost:8100");//8100
+        //webData = new WebSocket(" ws://localhost:8200");//8200
+        //webWallet = new WebSocket(" ws://localhost:9010");//9010
+        //webCredit = new WebSocket(" ws://localhost:9020");//9020
+        //webDeduct = new WebSocket(" ws://localhost:9030");//9030
+
 
         #region WEB_TIMER
         webTimer.OnOpen += () =>
@@ -61,8 +88,6 @@ public class Network : MonoBehaviour
         webTimer.OnMessage += (bytes) =>
         {
             string str = Encoding.UTF8.GetString(bytes);
-
-            Debug.Log("Timer >>>" + str);
 
             if (str != "Play")
             {
@@ -126,7 +151,7 @@ public class Network : MonoBehaviour
 
             Console.WriteLine("Opened");
 
-            websocket.SendText(_id);
+           // websocket.SendText(_id);
         };
 
         websocket.OnError += (e) =>
@@ -179,9 +204,11 @@ public class Network : MonoBehaviour
             Debug.Log("WebWallet_Error! " + e);
         };
 
-        webWallet.OnClose += (e) =>
+        webWallet.OnClose += async (e) =>
         {
             Debug.Log("WebWallet Connection closed!");
+
+          // await  webWallet.Connect();
         };
 
         webWallet.OnMessage += (bytes) =>
@@ -210,9 +237,11 @@ public class Network : MonoBehaviour
             Debug.Log("Credit_Error! " + e);
         };
 
-        webCredit.OnClose += (e) =>
+        webCredit.OnClose += async (e) =>
         {
             Debug.Log("Credit Connection closed!");
+
+          // await webCredit.Connect();
         };
 
         webCredit.OnMessage += (bytes) =>
@@ -237,9 +266,11 @@ public class Network : MonoBehaviour
             Debug.Log("Deduct_Error! " + e);
         };
 
-        webDeduct.OnClose += (e) =>
+        webDeduct.OnClose += async (e) =>
         {
             Debug.Log("Deduct Connection closed!");
+
+           // await webDeduct.Connect();
         };
 
         webDeduct.OnMessage += (bytes) =>
@@ -320,11 +351,14 @@ public class Network : MonoBehaviour
 
     public IEnumerator SendWallet(string message)
     {
+        Debug.Log("Sending wallet address to server 1");
         if (webWallet.State == WebSocketState.Closed || webWallet.State == WebSocketState.Closing)
             yield return null;
         else
         {
             yield return new WaitUntil(() => webWallet.State == WebSocketState.Open);
+
+            Debug.Log("Sending wallet address to server 2");
             webWallet.SendText(message);
         }
     }

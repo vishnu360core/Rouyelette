@@ -39,6 +39,11 @@ public class AudioData : ScriptableObject
                 clip = GetClip(AudioType.CLIP, "NoMoreBets");
                 break;
 
+
+            case Speech.lastBet:
+                clip = GetClip(AudioType.CLIP, "LastBet");
+                break;
+
             case Speech.number:
                 clip = GetClip(AudioType.CLIP,number.ToString());
                 break;
@@ -52,7 +57,7 @@ public class AudioData : ScriptableObject
 
 public enum AudioType { SFX, CLIP };
 
-public enum Speech {placeBet,NoMoreBet,number}
+public enum Speech {placeBet,NoMoreBet,lastBet,number}
 
 [System.Serializable]
 public class AudioClipData

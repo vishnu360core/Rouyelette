@@ -101,7 +101,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         _boardManager._setBet = false;
 
-        AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
+        _timerText.text = "No more Bets";
 
         Actions.EnablePlay(false);
 
@@ -112,7 +112,44 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void TimerIndexAction(int time)
     {
-        _timerText.text = time.ToString();
+        string timeBet = "";
+
+
+        if (_timeslider.maxValue - (float)time == 45.0f)
+        {
+            PopMessage.Instance.PopUpMessage(PopMessage.MessageType.normal, "Last bet");
+
+            timeBet = "Last bet";
+
+            AudioManager.Instance.SpeechAction(Speech.lastBet);
+        }
+
+
+        if (_timeslider.maxValue - (float)time == 30.0f)
+        {
+            PopMessage.Instance.PopUpMessage(PopMessage.MessageType.normal, "No more Bets");
+
+            _boardManager.EnableBet(false);
+            Actions.EnablePlay(false);
+
+            AudioManager.Instance.SpeechAction(Speech.NoMoreBet);
+        }
+
+        if (_timeslider.maxValue - (float)time <= 45.0f && _timeslider.maxValue - (float)time > 30.0f)
+        {
+            timeBet = "Last bet";
+        }
+        else if (_timeslider.maxValue - (float)time <= 30.0f)
+        {
+            timeBet = "No more Bets";
+            SaveGameStatus(GameSwitch.lastbet);
+        }
+        else
+            timeBet = "Place your bet";
+
+        float timeShow = _timeslider.maxValue - (float) time;
+
+        _timerText.text = timeShow.ToString() + " " + timeBet;
         _timeslider.DOValue(time, 0.5f);
     }
 
@@ -179,6 +216,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
                 Debug.Log("Game LIVE data " + gameData.status + "" + _onStart);
 
                 Actions.EnablePlay(gameData.status == GameSwitch.on);
+
+                _boardManager.EnableBet(gameData.status == GameSwitch.on);
 
                 if (_onStart)
                 {
@@ -260,14 +299,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
         StartCoroutine(Play());
     }
 
-    void ErrorAPI(string response)
-    {
-        Debug.LogError("Response >>>" + response);
-
-        Actions.EnablePlay(false);
-
-       // TMP_Text.text = "Error : " + response;
-    }
+   
     #endregion
 
     /// <summary>
@@ -279,7 +311,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
         yield return null;
         yield return new WaitUntil(()=> !_loadPanel.activeInHierarchy);
 
+        _boardManager.EnableBet(true);
+
         Actions.DealerSet(false);
+
         AudioManager.Instance.SpeechAction(Speech.placeBet);
         Actions.EnablePlay(true);
 

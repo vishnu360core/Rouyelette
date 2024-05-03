@@ -5,7 +5,6 @@ using DG.Tweening;
 
 using DataCollector;
 using System;
-using System.Linq;
 
 public class ClientManager : MonoBehaviour
 {
@@ -13,6 +12,8 @@ public class ClientManager : MonoBehaviour
     [SerializeField] List<Client> clients = new List<Client>(); 
 
     [SerializeField] List<Chip> chipPrefabs  = new List<Chip>();
+
+     List<GameObject> chipgameObjects = new List<GameObject>();
 
     [Header("Chip Settings:")]
     [Range(0, 10f)]
@@ -36,6 +37,18 @@ public class ClientManager : MonoBehaviour
 
     public void ResetAction(string json)
     {
+        if(chipgameObjects.Count > 0) 
+        { 
+          for(int i = 0;i<chipgameObjects.Count;++i)
+          {
+                GameObject go = chipgameObjects[i];
+
+                chipgameObjects.RemoveAt(i);
+                Destroy(go);
+          }
+        }
+
+
         Debug.Log("Client manager is reseting !!!!!!!!!!!" + json);
 
         PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(json);
@@ -432,6 +445,8 @@ public class ClientManager : MonoBehaviour
             Vector3 targetPosition = new Vector3(chipDestination.position.x, chip.transform.position.y, chipDestination.position.z);
 
             chip.transform.DOMove(targetPosition, duration);
+
+            chipgameObjects.Add(chip);
 
             AudioManager.Instance.PlaySFX(AudioManager.SFX.chip);
         }

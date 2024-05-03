@@ -73,4 +73,6 @@ public static class Actions
 
 
     public static Action DeductionRejected;
+
+    public static Action DeleteChip;
 }
