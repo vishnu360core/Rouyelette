@@ -544,6 +544,7 @@ public class ClientManager : MonoBehaviour
 [System.Serializable]
 public class PlayerDataList
 {
+    //public int table_ID;
     public List<PlayerData> playerDatas;   
 }
 

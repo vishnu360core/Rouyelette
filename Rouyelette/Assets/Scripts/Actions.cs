@@ -75,4 +75,11 @@ public static class Actions
     public static Action DeductionRejected;
 
     public static Action DeleteChip;
+
+
+    #region TABLE
+
+    public static Action<string> TableStatus;
+
+    #endregion
 }

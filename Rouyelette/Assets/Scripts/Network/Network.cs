@@ -22,12 +22,16 @@ public class Network : MonoBehaviour
     WebSocket webCredit;
     WebSocket webDeduct;
 
+    WebSocket webTable;
 
 
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     private void OnApplicationQuit()
@@ -35,7 +39,6 @@ public class Network : MonoBehaviour
         webData.SendText(_id);
     }
 
-    #region GAME
     string _id;
     public string Id => _id;
 
@@ -56,12 +59,12 @@ public class Network : MonoBehaviour
 
         string ip = "62.72.56.181";
 
-        websocket = new WebSocket(" ws://62.72.56.181:8090");//8090
-        webTimer = new WebSocket(" ws://62.72.56.181:8100");//8100
-        webData = new WebSocket(" ws://62.72.56.181:8200");//8200
-        webWallet = new WebSocket(" ws://62.72.56.181:9010");//9010
-        webCredit = new WebSocket(" ws://62.72.56.181:9020");//9020
-        webDeduct = new WebSocket(" ws://62.72.56.181:9030");//9030
+        //websocket = new WebSocket(" wss://62.72.56.181:8090");//8090
+        //webTimer = new WebSocket(" wss://62.72.56.181:8100");//8100
+        //webData = new WebSocket(" wss://62.72.56.181:8200");//8200
+        //webWallet = new WebSocket(" wss://62.72.56.181:9010");//9010
+        //webCredit = new WebSocket(" wss://62.72.56.181:9020");//9020
+        //webDeduct = new WebSocket(" wss://62.72.56.181:9030");//9030
 
 
         //websocket = new WebSocket("wss://unity.thecrypto360.com");//8090
@@ -71,13 +74,44 @@ public class Network : MonoBehaviour
         //webCredit = new WebSocket("wss://unity5.thecrypto360.com");//9020
         //webDeduct = new WebSocket("wss://unity6.thecrypto360.com");//9030
 
-        //websocket = new WebSocket(" ws://localhost:8090");//8090
-        //webTimer = new WebSocket(" ws://localhost:8100");//8100
-        //webData = new WebSocket(" ws://localhost:8200");//8200
-        //webWallet = new WebSocket(" ws://localhost:9010");//9010
-        //webCredit = new WebSocket(" ws://localhost:9020");//9020
-        //webDeduct = new WebSocket(" ws://localhost:9030");//9030
+        websocket = new WebSocket(" ws://localhost:8090");//8090
+        webTimer  = new WebSocket(" ws://localhost:8100");//8100
+        webData   = new WebSocket(" ws://localhost:8200");//8200
+        webWallet = new WebSocket(" ws://localhost:9010");//9010
+        webCredit = new WebSocket(" ws://localhost:9020");//9020
+        webDeduct = new WebSocket(" ws://localhost:9030");//9030
+        webTable  = new WebSocket(" ws://localhost:7070");//7070
 
+
+        #region WEB_TABLE
+
+        webTable.OnOpen += () =>
+        {
+            Debug.Log("Connection open! >> TABLE ");
+
+        };
+
+        webTable.OnError += (e) =>
+        {
+            Debug.Log("Error! TABLE socket" + e);
+
+        };
+
+        webTable.OnClose += (e) =>
+        {
+            Debug.Log("Connection closed! TABLE");
+        };
+
+        webTable.OnMessage += (bytes) =>
+        {
+            string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log("Table status :" + str);
+
+            Actions.TableStatus(str);
+        };
+
+        #endregion
 
         #region WEB_TIMER
         webTimer.OnOpen += () =>
@@ -88,6 +122,8 @@ public class Network : MonoBehaviour
         webTimer.OnMessage += (bytes) =>
         {
             string str = Encoding.UTF8.GetString(bytes);
+
+            Debug.Log("Timer Information >>" + str);
 
             if (str != "Play")
             {
@@ -290,61 +326,68 @@ public class Network : MonoBehaviour
             await webTimer.Close();
         }
 
-        await webData.Connect();
-        await websocket.Connect();
-        await webTimer.Connect();
-        await webWallet.Connect();
-        await webDeduct.Connect();
-        await webCredit.Connect();
+        await webTable.Connect();
+        //await webData.Connect();
+        //await websocket.Connect();
+        //await webTimer.Connect();
+        //await webWallet.Connect();
+        //await webDeduct.Connect();
+        //await webCredit.Connect();
     }
+
+    #region GAME
 
     void ResetAction()
     {
         websocket.SendText(_id);
     }
 
-        /// <summary>
-       /// Sending the data 
-       /// </summary>
-       /// <param name="jsonString"></param>
-        public IEnumerator SaveToNet(string jsonString)
-        {
-            Debug.Log("WebSocket State >>>> " + websocket.State);
+    /// <summary>
+    /// Sending the data 
+    /// </summary>
+    /// <param name="jsonString"></param>
+    public IEnumerator SaveToNet(string jsonString)
+    {
+        Debug.Log("WebSocket State >>>> " + websocket.State);
 
-            if (websocket.State == WebSocketState.Closed  || websocket.State == WebSocketState.Closing)
-                yield return null;
-            else
-            {
-              yield return new WaitUntil(() => websocket.State == WebSocketState.Open);
-                websocket.SendText(jsonString);
-            }
+        if (websocket.State == WebSocketState.Closed  || websocket.State == WebSocketState.Closing)
+            yield return null;
+        else
+        {
+            yield return new WaitUntil(() => websocket.State == WebSocketState.Open);
+            websocket.SendText(jsonString);
         }
+    }
         
 
-        public  bool IsJsonString(string str)
+    public  bool IsJsonString(string str)
+    {
+        try
         {
-            try
-            {
-                // Attempt to deserialize the string
-                JsonUtility.FromJson(str, typeof(object));
-                return true;
-            }
-            catch (System.Exception)
-            {
-                // Parsing failed, indicating that the string is not valid JSON
-                return false;
-            }
+            // Attempt to deserialize the string
+            JsonUtility.FromJson(str, typeof(object));
+            return true;
         }
-        
-        /// <summary>
-        /// Reset the timer
-        /// </summary>
-        public void ResetTimer()
+        catch (System.Exception)
         {
-           Debug.Log("Resetting timer !!!!!");
+            // Parsing failed, indicating that the string is not valid JSON
+            return false;
+        }
+    }
+
+    #endregion
+
+    #region TIMER
+    /// <summary>
+    /// Reset the timer
+    /// </summary>
+    public void ResetTimer()
+    {
+        Debug.Log("Resetting timer !!!!!");
          
-           webTimer.SendText("ResetTimer");
-        }
+        webTimer.SendText("ResetTimer");
+    }
+
     #endregion
 
     #region WALLET
@@ -373,6 +416,29 @@ public class Network : MonoBehaviour
         Debug.LogWarning("Deduct: " + amount);
 
         webDeduct.SendText(amount.ToString());
+    }
+
+    #endregion
+
+    #region TABLE
+
+    /// <summary>
+    /// Push the id to server
+    /// </summary>
+    /// <param name="tableId"></param>
+    public void PushTableId(string tableId)
+    {
+        webTable.SendText(tableId);
+    }
+
+    /// <summary>
+    /// Search the id in the network
+    /// </summary>
+    /// <param name="searchId"></param>
+    public void SearchID(string searchId) 
+    {
+        string search = "[s]" + searchId; 
+        webTable.SendText(search);
     }
 
     #endregion

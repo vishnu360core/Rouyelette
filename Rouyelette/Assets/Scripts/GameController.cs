@@ -74,6 +74,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.StartRoll += RoyelleteSpinAction;
         Actions.BetData += RoyellesBetData;
 
+        _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();    
+
         // Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);

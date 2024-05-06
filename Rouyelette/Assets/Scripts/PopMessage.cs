@@ -31,6 +31,7 @@ public class PopMessage : MonoBehaviour
         if (instance == null)
             instance = this;
 
+        DontDestroyOnLoad(this.gameObject);
 
         panel.SetActive(false);
     }

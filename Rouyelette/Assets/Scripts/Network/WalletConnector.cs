@@ -31,6 +31,8 @@ public class WalletConnector : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         _walletConneted = false;
         // Call the JavaScript function to connect the wallet and retrieve details
         ConnectWalletAndRetrieveAddress();
@@ -43,7 +45,7 @@ public class WalletConnector : MonoBehaviour
 
     private void CreditWallet(string mat)
     {
-        Credit(walletAddress, mat);
+        Credit (walletAddress, mat);
         //StartCoroutine(Network.Instance.SendWallet(walletAddress));
     }
 
@@ -77,10 +79,10 @@ public class WalletConnector : MonoBehaviour
 
         string addressPrint = addressFirst +"....." + addressLast;
 
-        walletAddressText.text = "Wallet address: " + addressPrint;
-        Network.Instance.SetId(addressPrint);
+        //walletAddressText.text = "Wallet address: " + addressPrint;
+       // Network.Instance.SetId(addressPrint);
 
-        StartCoroutine(Network.Instance.SendWallet(address));
+       // StartCoroutine(Network.Instance.SendWallet(address));
 
         _walletConnectPanel.SetActive(false);
         _walletConneted = true;
