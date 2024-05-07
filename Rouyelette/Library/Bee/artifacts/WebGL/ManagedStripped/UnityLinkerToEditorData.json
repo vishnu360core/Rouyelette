@@ -78,6 +78,7 @@
             "name": "AudioBehaviour",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -86,7 +87,6 @@
           {
             "name": "AudioClip",
             "scenes": [
-              "Assets/Scenes/GameScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -96,6 +96,7 @@
             "name": "AudioListener",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -116,7 +117,6 @@
           {
             "name": "AudioSource",
             "scenes": [
-              "Assets/Scenes/GameScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -125,7 +125,6 @@
           {
             "name": "SampleClip",
             "scenes": [
-              "Assets/Scenes/GameScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 1,
@@ -158,6 +157,7 @@
             "name": "Camera",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -179,6 +179,7 @@
             "name": "Cubemap",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -200,6 +201,7 @@
             "name": "EditorExtension",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 1,
@@ -215,6 +217,7 @@
             "name": "GameObject",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -242,6 +245,7 @@
             "name": "LevelGameManager",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 1,
@@ -251,6 +255,7 @@
             "name": "Light",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -272,6 +277,7 @@
             "name": "LightmapSettings",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -293,6 +299,7 @@
             "name": "Material",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -326,6 +333,7 @@
             "name": "MonoBehaviour",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -341,6 +349,7 @@
             "name": "MonoScript",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 1,
@@ -350,6 +359,7 @@
             "name": "NamedObject",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 1,
@@ -383,6 +393,7 @@
             "name": "RectTransform",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -400,6 +411,7 @@
             "name": "RenderSettings",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -433,6 +445,7 @@
             "name": "Shader",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -460,6 +473,7 @@
             "name": "Sprite",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -1081,6 +1095,7 @@
             "name": "Canvas",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,
@@ -1096,6 +1111,7 @@
             "name": "CanvasRenderer",
             "scenes": [
               "Assets/Scenes/GameScene.unity",
+              "Assets/Scenes/LoadScene.unity",
               "Assets/Scenes/StartScene.unity"
             ],
             "dependencyType": 0,

@@ -18,6 +18,9 @@ public class WalletConnector : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void Credit(string address, string amountInEther);
 
+    [DllImport("__Internal")]
+    private static extern void Copy(string text);
+
 
     [SerializeField] GameObject _walletConnectPanel;
 
@@ -80,7 +83,7 @@ public class WalletConnector : MonoBehaviour
         string addressPrint = addressFirst +"....." + addressLast;
 
         //walletAddressText.text = "Wallet address: " + addressPrint;
-       // Network.Instance.SetId(addressPrint);
+        Network.Instance.SetId(addressPrint);
 
        // StartCoroutine(Network.Instance.SendWallet(address));
 
@@ -105,5 +108,11 @@ public class WalletConnector : MonoBehaviour
         Debug.LogWarning("Hash >>" + hashString);
         
         HistoryController.Instance.hash = hashString;
+    }
+
+
+    public void CopyTableId()
+    {
+        Copy(Network.Instance.Tableid);
     }
 }

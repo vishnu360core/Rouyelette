@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] TMP_Text _timerText;
     [SerializeField] GameObject _loadPanel;
     [SerializeField] Slider _timeslider;
+    [SerializeField] TMP_Text _tableID;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -74,7 +75,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.StartRoll += RoyelleteSpinAction;
         Actions.BetData += RoyellesBetData;
 
-        _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();    
+        _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();
+
+        _tableID.text = "Table ID:" + Network.Instance.Tableid;
 
         // Test();
 
@@ -427,6 +430,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
         _spinButton.enabled = enable;
 
         _spinButton.GetComponent<Image>().color = enable ? new Color32(255, 255, 255, 255) : new Color32(255, 255, 255, 100);
+    }
 
+    public void CopyTableAction()
+    {
+        _walletConnector.CopyTableId();
     }
 }

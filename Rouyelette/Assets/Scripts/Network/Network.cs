@@ -24,6 +24,7 @@ public class Network : MonoBehaviour
 
     WebSocket webTable;
 
+    string walletAddress = "";
 
     private void Awake()
     {
@@ -32,6 +33,13 @@ public class Network : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        Actions.walletAddress += GetWalletAddress;
+    }
+
+    private void GetWalletAddress(string address)
+    {
+        walletAddress = address;
     }
 
     private void OnApplicationQuit()
@@ -42,10 +50,13 @@ public class Network : MonoBehaviour
     string _id;
     public string Id => _id;
 
+    string _tableid;
+    public string Tableid => _tableid;
+
     public void SetId(string id)
     {
         _id = id;
-        websocket.SendText(_id);
+       // websocket.SendText(_id);
     }
 
 
@@ -109,6 +120,7 @@ public class Network : MonoBehaviour
             Debug.Log("Table status :" + str);
 
             Actions.TableStatus(str);
+                
         };
 
         #endregion
@@ -428,7 +440,11 @@ public class Network : MonoBehaviour
     /// <param name="tableId"></param>
     public void PushTableId(string tableId)
     {
-        webTable.SendText(tableId);
+        _tableid = tableId;
+
+        string tableCreate = tableId + "[id]" + _id + "[/id]";
+
+        webTable.SendText(tableCreate);
     }
 
     /// <summary>
@@ -437,7 +453,7 @@ public class Network : MonoBehaviour
     /// <param name="searchId"></param>
     public void SearchID(string searchId) 
     {
-        string search = "[s]" + searchId; 
+        string search = "[s]" + searchId + "[id]" + _id + "[/id]"; 
         webTable.SendText(search);
     }
 

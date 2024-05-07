@@ -76,6 +76,8 @@ public static class Actions
 
     public static Action DeleteChip;
 
+    public static Action<string> walletAddress;
+
 
     #region TABLE
 

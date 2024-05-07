@@ -5,9 +5,14 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Xml;
+using System.Runtime.InteropServices;
 
 public class TableManagerController : MonoBehaviour
 {
+    [DllImport("__Internal")]
+    public static extern void CopyPasteReader(string gObj, string vName);
+
+
     [Header("UI Settings:")]
     [SerializeField] TMP_InputField _tableIDInput;
     [SerializeField] GameObject _joinPanel;
@@ -25,6 +30,13 @@ public class TableManagerController : MonoBehaviour
     private void TableStatusAction(string message)
     {
         PopMessage.Instance.PopUpMessage(PopMessage.MessageType.normal, message);
+
+        Invoke("LoadGame", 2.0f);
+    }
+
+    void LoadGame()
+    {
+        SceneController.Instance.LoadLoadingScene();
     }
 
 
@@ -44,6 +56,8 @@ public class TableManagerController : MonoBehaviour
         PopMessage.Instance.PopUpMessage(PopMessage.MessageType.normal,"Table Created :" + uniqueId);
 
         Network.Instance.PushTableId(uniqueId);
+
+        Invoke("LoadGame", 2.0f);
     }
     #endregion
 
@@ -75,4 +89,20 @@ public class TableManagerController : MonoBehaviour
     }
 
     #endregion
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.V) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
+        {
+            CopyPasteReader(gameObject.name, "Paste");
+        }
+    }
+
+    private void Paste(string pasteValue)
+    {
+        Debug.Log(pasteValue + " pasteValue");
+        // Assuming 'inputField' is your InputField component
+        _tableIDInput.text = pasteValue;
+    }
 }
