@@ -31,6 +31,9 @@ public class TableManagerController : MonoBehaviour
     {
         PopMessage.Instance.PopUpMessage(PopMessage.MessageType.normal, message);
 
+        if (message == "Id is not present")
+            return;
+
         Invoke("LoadGame", 2.0f);
     }
 

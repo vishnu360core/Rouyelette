@@ -17,12 +17,13 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] ClientManager _clientManager;
     [SerializeField] WalletConnector _walletConnector;
 
-    [Header("UI Buttons:")]
+    [Header("UI Settings:")]
     [SerializeField] Button _spinButton;
     [SerializeField] TMP_Text _timerText;
     [SerializeField] GameObject _loadPanel;
     [SerializeField] Slider _timeslider;
     [SerializeField] TMP_Text _tableID;
+    [SerializeField] TMP_Text _walletAddress;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -75,8 +76,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.StartRoll += RoyelleteSpinAction;
         Actions.BetData += RoyellesBetData;
 
-        _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();
+       // _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();
 
+        _walletAddress.text = "Wallet address: " +  Network.Instance.Id;
         _tableID.text = "Table ID:" + Network.Instance.Tableid;
 
         // Test();

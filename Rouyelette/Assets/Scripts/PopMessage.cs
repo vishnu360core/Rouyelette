@@ -36,6 +36,12 @@ public class PopMessage : MonoBehaviour
         panel.SetActive(false);
     }
 
+    public void SetPanels(GameObject _panel)
+    {
+        panel = _panel;
+        messageText = _panel.GetComponentInChildren<TMP_Text>();
+    }
+
 
     /// <summary>
     /// Action for showing the message

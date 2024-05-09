@@ -83,5 +83,7 @@ public static class Actions
 
     public static Action<string> TableStatus;
 
+    public static Action GameLoaded;
+
     #endregion
 }

@@ -2646,10 +2646,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Object_Internal_CloneSingleWithParent();
 		Register_UnityEngine_Object_Internal_CloneSingleWithParent();
 
-		//UnityEngine.Object[] UnityEngine.Object::FindObjectsByType(System.Type,UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-		void Register_UnityEngine_Object_FindObjectsByType();
-		Register_UnityEngine_Object_FindObjectsByType();
-
 		//UnityEngine.Object[] UnityEngine.Object::FindObjectsOfType(System.Type,System.Boolean)
 		void Register_UnityEngine_Object_FindObjectsOfType();
 		Register_UnityEngine_Object_FindObjectsOfType();
@@ -3595,6 +3591,14 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_Rigidbody2D_set_position_Injected();
 
 	//End Registrations for type : UnityEngine.Rigidbody2D
+
+	//Start Registrations for type : UnityEngine.SceneManagement.Scene
+
+		//System.String UnityEngine.SceneManagement.Scene::GetNameInternal(System.Int32)
+		void Register_UnityEngine_SceneManagement_Scene_GetNameInternal();
+		Register_UnityEngine_SceneManagement_Scene_GetNameInternal();
+
+	//End Registrations for type : UnityEngine.SceneManagement.Scene
 
 	//Start Registrations for type : UnityEngine.SceneManagement.SceneManager
 

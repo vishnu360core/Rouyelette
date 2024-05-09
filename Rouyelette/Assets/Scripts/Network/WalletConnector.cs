@@ -9,6 +9,10 @@ using System;
 
 public class WalletConnector : MonoBehaviour
 {
+    static WalletConnector instance;
+    public static WalletConnector Instance { get { return instance; } }
+
+
     [DllImport("__Internal")]
     private static extern void ConnectWalletAndRetrieveAddress();
 
@@ -32,10 +36,17 @@ public class WalletConnector : MonoBehaviour
 
     public bool _walletConneted = false;
 
+
+    private void Awake()
+    {
+        if(instance == null)
+          instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         _walletConneted = false;
         // Call the JavaScript function to connect the wallet and retrieve details
         ConnectWalletAndRetrieveAddress();
@@ -85,10 +96,17 @@ public class WalletConnector : MonoBehaviour
         //walletAddressText.text = "Wallet address: " + addressPrint;
         Network.Instance.SetId(addressPrint);
 
+        Actions.walletAddress(address);
+
        // StartCoroutine(Network.Instance.SendWallet(address));
 
         _walletConnectPanel.SetActive(false);
         _walletConneted = true;
+    }
+
+    public void ShowWalletAddress(string addressPrint)
+    {
+        walletAddressText.text = "Wallet address: " + addressPrint;
     }
 
     public void OnConnectError(string error)

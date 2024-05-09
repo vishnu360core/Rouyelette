@@ -35,6 +35,20 @@ public class Network : MonoBehaviour
         }
 
         Actions.walletAddress += GetWalletAddress;
+
+        Actions.GameLoaded += OnGameSceneLoaded;
+    }
+
+    private async void OnGameSceneLoaded()
+    {
+        Debug.LogWarning("On Game Scene !!!");
+
+        await webTimer.Connect();
+        await webData.Connect();
+        await webCredit.Connect();
+        await webDeduct.Connect();
+        await webWallet.Connect();
+        await websocket.Connect();
     }
 
     private void GetWalletAddress(string address)
@@ -57,6 +71,16 @@ public class Network : MonoBehaviour
     {
         _id = id;
        // websocket.SendText(_id);
+    }
+
+
+    public string GetTableId(string data, string web)
+    {
+        string tableId = GetStringBetween(data, "[#]", "[/#]");
+
+        Debug.LogWarning("Table Id >>>" + tableId + " " +web);
+
+        return tableId;
     }
 
 
@@ -126,9 +150,13 @@ public class Network : MonoBehaviour
         #endregion
 
         #region WEB_TIMER
+
         webTimer.OnOpen += () =>
             {
                 Console.WriteLine("timer opened");
+                string timerId = "(" + _tableid + ")";
+                
+                webTimer.SendText(timerId);
             };
 
         webTimer.OnMessage += (bytes) =>
@@ -136,6 +164,13 @@ public class Network : MonoBehaviour
             string str = Encoding.UTF8.GetString(bytes);
 
             Debug.Log("Timer Information >>" + str);
+
+            //string tableId = GetTableId(str, "Timer");
+
+            //if (tableId != Tableid)
+            //    return;
+
+            //str = str.Replace("[#]"+tableId+"[/#]","");
 
             if (str != "Play")
             {
@@ -174,6 +209,13 @@ public class Network : MonoBehaviour
 
             Debug.Log("Data >>" + str);
 
+            //string tableId = GetTableId(str, "Data");
+
+            //if (tableId != Tableid)
+            //    return;
+
+            //str = str.Replace("[#]" + tableId + "[/#]", "");
+
             if (!str.Contains("["))
                 Actions.BetData(int.Parse(str));
             else
@@ -199,7 +241,7 @@ public class Network : MonoBehaviour
 
             Console.WriteLine("Opened");
 
-           // websocket.SendText(_id);
+            websocket.SendText(_id);
         };
 
         websocket.OnError += (e) =>
@@ -244,7 +286,9 @@ public class Network : MonoBehaviour
 
         webWallet.OnOpen += () =>
         {
-            Debug.Log("Wallet Connection open!");
+            Debug.Log("Wallet Connection open!" + walletAddress);
+
+            StartCoroutine(SendWallet(walletAddress));
         };
 
         webWallet.OnError += (e) =>
@@ -453,11 +497,21 @@ public class Network : MonoBehaviour
     /// <param name="searchId"></param>
     public void SearchID(string searchId) 
     {
+        _tableid = searchId;
+
         string search = "[s]" + searchId + "[id]" + _id + "[/id]"; 
         webTable.SendText(search);
     }
 
     #endregion
+
+    public  string GetStringBetween(string str, string firstString, string lastString)
+    {
+        int pos1 = str.IndexOf(firstString) + firstString.Length;
+        int pos2 = str.Substring(pos1).IndexOf(lastString);
+        return str.Substring(pos1, pos2);
+    }
+
 }
 
 [System.Serializable]

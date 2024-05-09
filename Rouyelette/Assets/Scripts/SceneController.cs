@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,27 @@ public class SceneController : MonoBehaviour
 
     Loader _loader;
 
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
 
-        DontDestroyOnLoad(gameObject);  
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "GameScene")
+            return;
+
+
+        Debug.Log("Game Loaded !!! ");
+
+        Actions.GameLoaded();
+
     }
 
     public void LoadLoadingScene()

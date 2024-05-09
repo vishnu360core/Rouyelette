@@ -51097,6 +51097,7 @@ MonoBehaviour:
   _loadPanel: {fileID: 177622185}
   _timeslider: {fileID: 771392935}
   _tableID: {fileID: 264661776}
+  _walletAddress: {fileID: 121361685}
   _delay: 20
   _dealerStatus: 0
 --- !u!1 &1739672603
