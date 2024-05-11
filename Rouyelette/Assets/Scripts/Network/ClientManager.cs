@@ -13,7 +13,11 @@ public class ClientManager : MonoBehaviour
 
     [SerializeField] List<Chip> chipPrefabs  = new List<Chip>();
 
-     List<GameObject> chipgameObjects = new List<GameObject>();
+     List<GameObject> chipgameObjects_1 = new List<GameObject>();
+
+    List<GameObject> chipgameObjects_2 = new List<GameObject>();
+
+    List<GameObject> chipgameObjects_3 = new List<GameObject>();
 
     [Header("Chip Settings:")]
     [Range(0, 10f)]
@@ -37,15 +41,38 @@ public class ClientManager : MonoBehaviour
 
     public void ResetAction(string json)
     {
-        if(chipgameObjects.Count > 0) 
+        if(chipgameObjects_1.Count > 0) 
         { 
-          for(int i = 0;i<chipgameObjects.Count;++i)
+          for(int i = 0;i< chipgameObjects_1.Count;++i)
           {
-                GameObject go = chipgameObjects[i];
+                GameObject go = chipgameObjects_1[i];
 
-                chipgameObjects.RemoveAt(i);
+                chipgameObjects_1.RemoveAt(i);
                 Destroy(go);
           }
+        }
+
+        if (chipgameObjects_2.Count > 0)
+        {
+            for (int i = 0; i < chipgameObjects_2.Count; ++i)
+            {
+                GameObject go = chipgameObjects_2[i];
+
+                chipgameObjects_2.RemoveAt(i);
+                Destroy(go);
+            }
+        }
+
+
+        if (chipgameObjects_3.Count > 0)
+        {
+            for (int i = 0; i < chipgameObjects_3.Count; ++i)
+            {
+                GameObject go = chipgameObjects_3[i];
+
+                chipgameObjects_3.RemoveAt(i);
+                Destroy(go);
+            }
         }
 
 
@@ -346,7 +373,7 @@ public class ClientManager : MonoBehaviour
                         Debug.LogWarning("Chip movement for client");
 
                         clients[0].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
-                        ClientChipAction(playerDatas[i].bets, clients[0]._chipTransform);
+                        ClientChipAction(playerDatas[i].bets, clients[0]._chipTransform, 0);
 
                         clients[0].PlayerData.bets = playerDatas[i].bets;
                         break;
@@ -367,7 +394,7 @@ public class ClientManager : MonoBehaviour
                         Debug.LogWarning("Chip movement for client");
 
                         clients[1].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
-                        ClientChipAction(playerDatas[i].bets, clients[1]._chipTransform);
+                        ClientChipAction(playerDatas[i].bets, clients[1]._chipTransform,1);
 
                         clients[1].PlayerData.bets = playerDatas[i].bets;
                         break;
@@ -388,7 +415,7 @@ public class ClientManager : MonoBehaviour
                         Debug.LogWarning("Chip movement for client");
 
                         clients[2].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
-                        ClientChipAction(playerDatas[i].bets, clients[2]._chipTransform);
+                        ClientChipAction(playerDatas[i].bets, clients[2]._chipTransform,2);
 
                         clients[2].PlayerData.bets = playerDatas[i].bets;
                         break;
@@ -414,7 +441,7 @@ public class ClientManager : MonoBehaviour
 
 
 
-    void ClientChipAction(List<Bet> bets,Transform chipStart)
+    void ClientChipAction(List<Bet> bets,Transform chipStart ,int index)
     {
         if(bets.Count <= 0)
             return;
@@ -446,7 +473,21 @@ public class ClientManager : MonoBehaviour
 
             chip.transform.DOMove(targetPosition, duration);
 
-            chipgameObjects.Add(chip);
+            switch(index)
+            {
+                case 0:
+                    chipgameObjects_1.Add(chip);
+                    break;
+
+                case 1:
+                    chipgameObjects_2.Add(chip);
+                    break;
+
+
+                case 2:
+                    chipgameObjects_3.Add(chip);
+                    break;
+            }
 
             AudioManager.Instance.PlaySFX(AudioManager.SFX.chip);
         }

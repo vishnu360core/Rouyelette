@@ -56,11 +56,6 @@ public class Network : MonoBehaviour
         walletAddress = address;
     }
 
-    private void OnApplicationQuit()
-    {
-        webData.SendText(_id);
-    }
-
     string _id;
     public string Id => _id;
 
@@ -94,29 +89,30 @@ public class Network : MonoBehaviour
 
         string ip = "62.72.56.181";
 
-        //websocket = new WebSocket(" wss://62.72.56.181:8090");//8090
-        //webTimer = new WebSocket(" wss://62.72.56.181:8100");//8100
-        //webData = new WebSocket(" wss://62.72.56.181:8200");//8200
-        //webWallet = new WebSocket(" wss://62.72.56.181:9010");//9010
-        //webCredit = new WebSocket(" wss://62.72.56.181:9020");//9020
-        //webDeduct = new WebSocket(" wss://62.72.56.181:9030");//9030
+        //websocket = new WebSocket(" ws://62.72.56.181:8090");//8090
+        //webTimer = new WebSocket(" ws://62.72.56.181:8100");//8100
+        //webData = new WebSocket(" ws://62.72.56.181:8200");//8200
+        //webWallet = new WebSocket(" ws://62.72.56.181:9010");//9010
+        //webCredit = new WebSocket(" ws://62.72.56.181:9020");//9020
+        //webDeduct = new WebSocket(" ws://62.72.56.181:9030");//9030
+        //webTable = new WebSocket(" ws://62.72.56.181:7070");//7070
 
 
-        //websocket = new WebSocket("wss://unity.thecrypto360.com");//8090
-        //webTimer = new WebSocket("wss://unity2.thecrypto360.com");//8100
-        //webData = new WebSocket("wss://unity3.thecrypto360.com");//8200
-        //webWallet = new WebSocket("wss://unity4.thecrypto360.com");//9010
-        //webCredit = new WebSocket("wss://unity5.thecrypto360.com");//9020
-        //webDeduct = new WebSocket("wss://unity6.thecrypto360.com");//9030
+        websocket = new WebSocket("wss://unity.thecrypto360.com");//8090
+        webTimer = new WebSocket("wss://unity2.thecrypto360.com");//8100
+        webData = new WebSocket("wss://unity3.thecrypto360.com");//8200
+        webWallet = new WebSocket("wss://unity4.thecrypto360.com");//9010
+        webCredit = new WebSocket("wss://unity5.thecrypto360.com");//9020
+        webDeduct = new WebSocket("wss://unity6.thecrypto360.com");//9030
+        webTable = new WebSocket("wss://unity7.thecrypto360.com");//7070
 
-        websocket = new WebSocket(" ws://localhost:8090");//8090
-        webTimer  = new WebSocket(" ws://localhost:8100");//8100
-        webData   = new WebSocket(" ws://localhost:8200");//8200
-        webWallet = new WebSocket(" ws://localhost:9010");//9010
-        webCredit = new WebSocket(" ws://localhost:9020");//9020
-        webDeduct = new WebSocket(" ws://localhost:9030");//9030
-        webTable  = new WebSocket(" ws://localhost:7070");//7070
-
+        //websocket = new WebSocket(" ws://localhost:8090");//8090
+        //webTimer = new WebSocket(" ws://localhost:8100");//8100
+        //webData = new WebSocket(" ws://localhost:8200");//8200
+        //webWallet = new WebSocket(" ws://localhost:9010");//9010
+        //webCredit = new WebSocket(" ws://localhost:9020");//9020
+        //webDeduct = new WebSocket(" ws://localhost:9030");//9030
+        //webTable = new WebSocket(" ws://localhost:7070");//7070
 
         #region WEB_TABLE
 
@@ -140,6 +136,9 @@ public class Network : MonoBehaviour
         webTable.OnMessage += (bytes) =>
         {
             string str = Encoding.UTF8.GetString(bytes);
+
+            if (str == "Ping")
+                return;
 
             Debug.Log("Table status :" + str);
 
@@ -307,6 +306,9 @@ public class Network : MonoBehaviour
         {
             string str = Encoding.UTF8.GetString(bytes);
 
+            if (str == "Ping")
+                return;
+
             float _balanceDollar = float.Parse(str);
 
             Debug.LogWarning("Wallet Balance :" +  _balanceDollar);
@@ -340,6 +342,9 @@ public class Network : MonoBehaviour
         {
             string str = Encoding.UTF8.GetString(bytes);
 
+            if (str == "Ping")
+                return;
+
             Debug.Log("Credit_MATICS >>" + str);
 
             Actions.Credit_MAT(str);
@@ -369,6 +374,9 @@ public class Network : MonoBehaviour
         {
             string str = Encoding.UTF8.GetString(bytes);
 
+            if (str == "Ping")
+                return;
+
             Debug.Log("Deduct_MATICS >>" + str);
 
             Actions.Deduct_MAT(str);
@@ -395,7 +403,7 @@ public class Network : MonoBehaviour
 
     void ResetAction()
     {
-        websocket.SendText(_id);
+       // websocket.SendText(_id);
     }
 
     /// <summary>
@@ -406,13 +414,9 @@ public class Network : MonoBehaviour
     {
         Debug.Log("WebSocket State >>>> " + websocket.State);
 
-        if (websocket.State == WebSocketState.Closed  || websocket.State == WebSocketState.Closing)
-            yield return null;
-        else
-        {
-            yield return new WaitUntil(() => websocket.State == WebSocketState.Open);
-            websocket.SendText(jsonString);
-        }
+        yield return null;
+
+        websocket.SendText(jsonString);
     }
         
 

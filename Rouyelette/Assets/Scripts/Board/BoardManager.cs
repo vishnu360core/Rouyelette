@@ -28,6 +28,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
     [SerializeField] Button clearButton;
 
     float amount;
+    float totalWinAmount;
+    int lossAmount = 0;
 
     [Header("Chips:")]
     [SerializeField] List<Chip> chips = new List<Chip>();
@@ -73,6 +75,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     private void Start()
     {
+        totalWinAmount = 0.0f;
+        lossAmount = 0;
+
         _setBet = false;
         _isPreviousPress = false;
 
@@ -92,7 +97,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         //Actions.OnSlotAction += WheelSlotSelectAction;
         Actions.EndedSpinAction += EndSpinWheelAction;
 
-        //  Actions.ResetAction += ResetAction;
+       // Actions.ResetAction += ResetAction;
 
         Actions.OnSlotAction += SlotAction;
     }
@@ -143,6 +148,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
         if (_setBet)
             return;
 
+        if (!_isPreviousPress)
+            return;
+
 
         if (_currentbetAmount * 2 > amount)
             return;
@@ -159,6 +167,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         for(int i = 0;i<slots.Count;++i)
         {
+            _currentChip = previousChips[i];
             SelectBoardSlotAction(slots[i]);
         }
     }
@@ -176,7 +185,6 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
     public void PreviousBetButtonAction()
     {
-
         if (_isPreviousPress)
             return;
 
@@ -271,170 +279,180 @@ public class BoardManager : MonoBehaviour,ChipInterface
         callback.BetProducedAction(_getSlot.SlotNumber, _getSlot.Colortype);
         _reachedTargetSlot = false;
 
-        Actions.ResetAction();
+       Actions.ResetAction();
 
         DealerMovement();
 
-        if (bets.Count == 0)
-            return;
-
-        foreach (Bet bet in bets)
+        if (bets.Count > 0)
         {
-        
+            Debug.LogWarning("Bets checking  >>>");
+
+            foreach (Bet bet in bets)
+            {
+
                 Slot.BoardSlotMethod method = bet.type;
 
-                switch (method) 
+                switch (method)
                 {
                     case Slot.BoardSlotMethod.red:
 
-                    if (_currentWheelSlot.Colortype == Slot.ColorType.red)
-                        AddAmount_OnBet(bet.betAmount, 1);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.Colortype == Slot.ColorType.red)
+                            AddAmount_OnBet(bet.betAmount, 1);
+                        else
+                            // ResultAction(bet.betAmount, Result.Loss);
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.black:
 
-                    if (_currentWheelSlot.Colortype == Slot.ColorType.black)
-                        AddAmount_OnBet(bet.betAmount, 1);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.Colortype == Slot.ColorType.black)
+                            AddAmount_OnBet(bet.betAmount, 1);
+                        else
+                            // ResultAction(bet.betAmount, Result.Loss);
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.odd:
 
-                    if (_currentWheelSlot.SlotNumber % 2 != 0)
-                        AddAmount_OnBet(bet.betAmount, 1);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber % 2 != 0)
+                            AddAmount_OnBet(bet.betAmount, 1);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.even:
 
-                    if (_currentWheelSlot.SlotNumber % 2 == 0)
-                        AddAmount_OnBet(bet.betAmount, 1);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber % 2 == 0)
+                            AddAmount_OnBet(bet.betAmount, 1);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.oneeighteen:
 
-                    if (_currentWheelSlot.SlotNumber > 0 && _currentWheelSlot.SlotNumber < 19)
-                        AddAmount_OnBet(bet.betAmount, 1);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber > 0 && _currentWheelSlot.SlotNumber < 19)
+                            AddAmount_OnBet(bet.betAmount, 1);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.ninteensixteen:
 
-                    if (_currentWheelSlot.SlotNumber > 18 && _currentWheelSlot.SlotNumber < 37)
-                        AddAmount_OnBet(bet.betAmount, 1);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber > 18 && _currentWheelSlot.SlotNumber < 37)
+                            AddAmount_OnBet(bet.betAmount, 1);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
 
                     case Slot.BoardSlotMethod.first12:
 
-                    if (_currentWheelSlot.SlotNumber > 0 && _currentWheelSlot.SlotNumber < 13)
-                        AddAmount_OnBet(bet.betAmount, 2);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber > 0 && _currentWheelSlot.SlotNumber < 13)
+                            AddAmount_OnBet(bet.betAmount, 2);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
-                   case Slot.BoardSlotMethod.second12:
+                    case Slot.BoardSlotMethod.second12:
 
-                    if (_currentWheelSlot.SlotNumber > 12 && _currentWheelSlot.SlotNumber < 25)
-                        AddAmount_OnBet(bet.betAmount, 2);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber > 12 && _currentWheelSlot.SlotNumber < 25)
+                            AddAmount_OnBet(bet.betAmount, 2);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
-                   case Slot.BoardSlotMethod.third12:
+                    case Slot.BoardSlotMethod.third12:
 
-                    if (_currentWheelSlot.SlotNumber > 24 && _currentWheelSlot.SlotNumber < 37)
-                        AddAmount_OnBet(bet.betAmount, 2);
-                    else
-                        ResultAction(bet.betAmount, Result.Loss);
+                        if (_currentWheelSlot.SlotNumber > 24 && _currentWheelSlot.SlotNumber < 37)
+                            AddAmount_OnBet(bet.betAmount, 2);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.FirstRow:
 
-                    RatioCheckAction(1, 34, 3, bet);
+                        RatioCheckAction(1, 34, 3, bet);
 
-                    break;
+                        break;
 
-                     case Slot.BoardSlotMethod.SecondRow:
+                    case Slot.BoardSlotMethod.SecondRow:
 
-                    RatioCheckAction(2, 35, 3, bet);
+                        RatioCheckAction(2, 35, 3, bet);
 
-                    break;
+                        break;
 
                     case Slot.BoardSlotMethod.ThirdRow:
 
-                    RatioCheckAction(3, 36, 3, bet);
+                        RatioCheckAction(3, 36, 3, bet);
 
-                    break;
+                        break;
 
-                     case Slot.BoardSlotMethod.split:
+                    case Slot.BoardSlotMethod.split:
 
                         int splitMuilplier = -1;
 
                         if (bet.splitNumbers.Length == 2)
                             splitMuilplier = 17;
 
-                        if(bet.splitNumbers.Length == 3)
-                           splitMuilplier = 11;
+                        if (bet.splitNumbers.Length == 3)
+                            splitMuilplier = 11;
 
                         if (bet.splitNumbers.Length == 4)
                             splitMuilplier = 8;
 
                         Debug.Log("Split CALLED  >>> " + splitMuilplier);
 
-                        bool win = false; 
+                        bool win = false;
 
-                          for (int i = 0;i<bet.splitNumbers.Length;++i)
-                          { 
-                               Debug.Log("Split Index >>>" + bet.splitNumbers[i]); 
+                        for (int i = 0; i < bet.splitNumbers.Length; ++i)
+                        {
+                            Debug.Log("Split Index >>>" + bet.splitNumbers[i]);
 
-                                if(_currentWheelSlot.SlotNumber == bet.splitNumbers[i])
-                                {
-                                   Debug.Log("Spit Number added with " + splitMuilplier);
-                                  
-                                   AddAmount_OnBet(bet.betAmount, splitMuilplier);
-                                   win = true;
-                                   break;
-                                }
-                          }
+                            if (_currentWheelSlot.SlotNumber == bet.splitNumbers[i])
+                            {
+                                Debug.Log("Spit Number added with " + splitMuilplier);
 
-                       if(!win)
-                        ResultAction(bet.betAmount, Result.Loss);
+                                AddAmount_OnBet(bet.betAmount, splitMuilplier);
+                                win = true;
+                                break;
+                            }
+                        }
 
-                    break;
+                        if (!win)
+                            lossAmount += bet.betAmount;
+
+                        break;
 
                     case Slot.BoardSlotMethod.NULL:
                         if (bet.betNumber == _currentWheelSlot.SlotNumber)
                         {
                             AddAmount_OnBet(bet.betAmount, 35);
                         }
-                       else
-                          ResultAction(bet.betAmount, Result.Loss);
+                        else
+                            lossAmount += bet.betAmount;
 
-                    break;
+                        break;
                 }
 
+            }
+
+            if (totalWinAmount > 0)
+                ResultAction((int)totalWinAmount, Result.Win);
+            else
+                ResultAction(lossAmount, Result.Loss);
         }
 
-        ResetAction();
+
+       ResetAction();
     }
 
     void DealerMovement()
@@ -487,6 +505,10 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 break;
 
             case Result.Loss:
+
+                if (totalWinAmount > 0)
+                    break;
+
                 PopMessage.Instance.PopUpMessage(PopMessage.MessageType.lost, "You lost :" + betamount.ToString());
                 AudioManager.Instance.PlaySFX(AudioManager.SFX.loss);
 
@@ -526,17 +548,21 @@ public class BoardManager : MonoBehaviour,ChipInterface
         }
 
         if (!win) 
-        {             
-           ResultAction(bet.betAmount, Result.Loss);
+        {
+            // ResultAction(bet.betAmount, Result.Loss);
+            lossAmount += bet.betAmount;
+
         }
 
     }
 
     void AddAmount_OnBet(int betamount, int multiplier)
     {
-        int winAmount = betamount + betamount * multiplier;
+        //int winAmount = betamount + betamount * multiplier;
 
-        ResultAction(winAmount, Result.Win);
+        totalWinAmount += betamount + betamount * multiplier;
+
+       // ResultAction(winAmount, Result.Win);
 
         //amount += betamount + betamount * multiplier;
         //_amountText.text = "Amount:" + amount.ToString();
@@ -554,6 +580,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
     {
         _isChipSelected = false;
         _currentbetAmount = 0;
+        totalWinAmount = 0;
+        lossAmount = 0; 
 
         _currentWheelSlot = null;
 

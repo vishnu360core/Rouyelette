@@ -149,7 +149,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         else if (_timeslider.maxValue - (float)time <= 30.0f)
         {
             timeBet = "No more Bets";
-            SaveGameStatus(GameSwitch.lastbet);
+
+           if (_timeslider.maxValue - (float)time == 30.0f)
+               SaveGameStatus(GameSwitch.lastbet);
         }
         else
             timeBet = "Place your bet";
