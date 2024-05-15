@@ -98,7 +98,7 @@ public class WalletConnector : MonoBehaviour
 
         Actions.walletAddress(address);
 
-       // StartCoroutine(Network.Instance.SendWallet(address));
+        //StartCoroutine(Network.Instance.SendWallet(address));
 
         _walletConnectPanel.SetActive(false);
         _walletConneted = true;

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//using WebSocketSharp;
 
-using NativeWebSocket;
 using System;
 using System.Text;
+using System.Runtime.InteropServices;
+using System.Data.Common;
 
 
 public class Network : MonoBehaviour
@@ -15,16 +15,158 @@ public class Network : MonoBehaviour
     
     public static Network Instance { get { return instance; } }  
 
-    WebSocket websocket;
-    WebSocket webTimer;
-    WebSocket webWallet;
-    WebSocket webData;
-    WebSocket webCredit;
-    WebSocket webDeduct;
-
-    WebSocket webTable;
 
     string walletAddress = "";
+
+    [DllImport("__Internal")]
+    private static extern void WebSocketInit(string url);
+
+    [DllImport("__Internal")]
+    private static extern void Send(int index, string message);
+
+
+    void ConnectCallBack(int index)
+    {
+        Debug.Log("Index connected" + index);
+
+        switch (index)
+        {
+            case 0:
+                break;
+
+            case 1:
+                Send(1, _id);
+                break;
+
+            case 2:
+                break;
+
+            case 3:
+                string timerId = "(" + _tableid + ")";
+                Send(3, timerId);
+                break;
+
+            case 4:
+                StartCoroutine(SendWallet(walletAddress));
+                break;
+
+            case 5:
+                break;
+
+            case 6:
+                break;
+
+        }
+
+    }
+
+
+    void ReceiveMessage(string data)
+    {
+        string[] parts;
+        string message;
+        string index;
+
+        parts = data.Split('@');
+        message = parts[0];
+        index = parts[1];
+
+        Debug.Log("Index :" + index  + " " + message);
+
+        if (message == "Ping")
+            return;
+
+        switch(int.Parse(index))
+        {
+            case 0:
+                Actions.TableStatus(message);
+
+                break;
+
+
+            case 1:
+
+                Debug.Log("Player message" + message);
+
+                if (IsJsonString(message))
+                    Actions.GetGameData(message);
+                else if (message == "ResetAction")
+                    ResetAction();
+                else if (message.Contains("Delete"))
+                {
+                    message = message.Replace("Delete", "");
+                    Debug.LogWarning("Player exited : " + message);
+
+                    Actions.DeleteClient(message);
+                }
+                else
+                    Actions.AddClient(message);
+
+                break;
+
+
+            case 2:
+            
+                if (!message.Contains("["))
+                    Actions.BetData(int.Parse(message));
+                else
+                {
+                    Debug.Log("its json");
+                    //str = str.Replace("[", "{");
+                    //str = str.Replace("]", "}");
+                    string json = "{ \"numbers\": " + message + " }";
+                    Debug.Log(json);
+
+                    BetssData betssData = JsonUtility.FromJson<BetssData>(json);
+
+                    Actions.ReadHistoryStat(betssData.numbers);
+                }
+
+                break;
+
+
+            case 3:
+           
+                if (message != "Play")
+                {
+                    int timer = int.Parse(message);
+                    Actions.timerIndex(timer);
+                }
+                else
+                {
+                    Actions.StartRoll();
+                };
+
+                break;
+
+
+               case 4:
+
+                float _balanceDollar = float.Parse(message);
+
+                Debug.LogWarning("Wallet Balance :" + _balanceDollar);
+
+                Actions.GetWalletBalance(_balanceDollar);
+
+                break;
+
+
+            case 5:
+                Debug.Log("Credit_MATICS >>" + message);
+
+                Actions.Credit_MAT(message);
+                break;
+
+
+            case 6:
+                Debug.Log("Deduct_MATICS >>" + message);
+
+                Actions.Deduct_MAT(message);
+                break;
+        }
+
+
+    }
 
     private void Awake()
     {
@@ -39,16 +181,24 @@ public class Network : MonoBehaviour
         Actions.GameLoaded += OnGameSceneLoaded;
     }
 
-    private async void OnGameSceneLoaded()
+    private void OnGameSceneLoaded()
     {
         Debug.LogWarning("On Game Scene !!!");
 
-        await webTimer.Connect();
-        await webData.Connect();
-        await webCredit.Connect();
-        await webDeduct.Connect();
-        await webWallet.Connect();
-        await websocket.Connect();
+        //WebSocketInit("wss://unity.thecrypto360.com"); //1 GAME 8090
+        //WebSocketInit("wss://unity3.thecrypto360.com");//2 DATA 8200
+        //WebSocketInit("wss://unity2.thecrypto360.com");//3 TIMER 8100
+        //WebSocketInit("wss://unity4.thecrypto360.com");//4 WALLET 9010
+        //WebSocketInit("wss://unity5.thecrypto360.com");//5 CREDIT 9020
+        //WebSocketInit("wss://unity6.thecrypto360.com");//6 DEDUCT 9030
+
+
+        WebSocketInit("ws://localhost:8090"); //1 GAME 8090
+        WebSocketInit("ws://localhost:8200");//2 DATA 8200
+        WebSocketInit("ws://localhost:8100");//3 TIMER 8100
+        WebSocketInit("ws://localhost:9010");//4 WALLET 9010
+        WebSocketInit("ws://localhost:9020");//5 CREDIT 9020
+        WebSocketInit("ws://localhost:9030");//6 DEDUCT 9030
     }
 
     private void GetWalletAddress(string address)
@@ -79,7 +229,7 @@ public class Network : MonoBehaviour
     }
 
 
-    async void Start()
+     void Start()
     {
         if (instance == null)
             instance = this;
@@ -88,6 +238,7 @@ public class Network : MonoBehaviour
 
 
         string ip = "62.72.56.181";
+
 
         //websocket = new WebSocket(" ws://62.72.56.181:8090");//8090
         //webTimer = new WebSocket(" ws://62.72.56.181:8100");//8100
@@ -98,13 +249,13 @@ public class Network : MonoBehaviour
         //webTable = new WebSocket(" ws://62.72.56.181:7070");//7070
 
 
-        websocket = new WebSocket("wss://unity.thecrypto360.com");//8090
-        webTimer = new WebSocket("wss://unity2.thecrypto360.com");//8100
-        webData = new WebSocket("wss://unity3.thecrypto360.com");//8200
-        webWallet = new WebSocket("wss://unity4.thecrypto360.com");//9010
-        webCredit = new WebSocket("wss://unity5.thecrypto360.com");//9020
-        webDeduct = new WebSocket("wss://unity6.thecrypto360.com");//9030
-        webTable = new WebSocket("wss://unity7.thecrypto360.com");//7070
+        //websocket = new WebSocket("wss://unity.thecrypto360.com");//8090
+        //webTimer = new WebSocket("wss://unity2.thecrypto360.com");//8100
+        //webData = new WebSocket("wss://unity3.thecrypto360.com");//8200
+        //webWallet = new WebSocket("wss://unity4.thecrypto360.com");//9010
+        //webCredit = new WebSocket("wss://unity5.thecrypto360.com");//9020
+        //webDeduct = new WebSocket("wss://unity6.thecrypto360.com");//9030
+        //webTable = new WebSocket("wss://unity7.thecrypto360.com");//7070
 
         //websocket = new WebSocket(" ws://localhost:8090");//8090
         //webTimer = new WebSocket(" ws://localhost:8100");//8100
@@ -114,289 +265,7 @@ public class Network : MonoBehaviour
         //webDeduct = new WebSocket(" ws://localhost:9030");//9030
         //webTable = new WebSocket(" ws://localhost:7070");//7070
 
-        #region WEB_TABLE
-
-        webTable.OnOpen += () =>
-        {
-            Debug.Log("Connection open! >> TABLE ");
-
-        };
-
-        webTable.OnError += (e) =>
-        {
-            Debug.Log("Error! TABLE socket" + e);
-
-        };
-
-        webTable.OnClose += (e) =>
-        {
-            Debug.Log("Connection closed! TABLE");
-        };
-
-        webTable.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            if (str == "Ping")
-                return;
-
-            Debug.Log("Table status :" + str);
-
-            Actions.TableStatus(str);
-                
-        };
-
-        #endregion
-
-        #region WEB_TIMER
-
-        webTimer.OnOpen += () =>
-            {
-                Console.WriteLine("timer opened");
-                string timerId = "(" + _tableid + ")";
-                
-                webTimer.SendText(timerId);
-            };
-
-        webTimer.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            Debug.Log("Timer Information >>" + str);
-
-            //string tableId = GetTableId(str, "Timer");
-
-            //if (tableId != Tableid)
-            //    return;
-
-            //str = str.Replace("[#]"+tableId+"[/#]","");
-
-            if (str != "Play")
-            {
-                int timer = int.Parse(str);
-                Actions.timerIndex(timer);
-            }
-            else
-            {
-                Actions.StartRoll();
-            };
-        };
-        #endregion
-
-        #region WEB_DATA
-
-        webData.OnOpen += () =>
-        {
-            Debug.Log("Connection open! >> DATA ");
-
-        };
-
-        webData.OnError += (e) =>
-        {
-            Debug.Log("Error! data socket" + e);
-
-        };
-
-        webData.OnClose += (e) =>
-        {
-            Debug.Log("Connection closed! data");
-        };
-
-        webData.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            Debug.Log("Data >>" + str);
-
-            //string tableId = GetTableId(str, "Data");
-
-            //if (tableId != Tableid)
-            //    return;
-
-            //str = str.Replace("[#]" + tableId + "[/#]", "");
-
-            if (!str.Contains("["))
-                Actions.BetData(int.Parse(str));
-            else
-            {
-                Debug.Log("its json");
-                //str = str.Replace("[", "{");
-                //str = str.Replace("]", "}");
-                string json = "{ \"numbers\": " + str + " }";
-                Debug.Log(json);
-
-                BetssData betssData = JsonUtility.FromJson<BetssData>(json);
-
-                Actions.ReadHistoryStat(betssData.numbers);
-            }    
-        };
-        #endregion
-
-        #region WEB_GAME
-
-        websocket.OnOpen += () =>
-        {
-            Debug.Log("Connection open!");
-
-            Console.WriteLine("Opened");
-
-            websocket.SendText(_id);
-        };
-
-        websocket.OnError += (e) =>
-        {
-            Debug.Log("Error! " + e);
-
-            Console.WriteLine("Opened error");
-        };
-
-        websocket.OnClose += (e) =>
-        {
-            Debug.Log("Connection closed!");
-
-            Console.WriteLine("closed");
-        };
-
-        websocket.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            Debug.Log("GAME: " + str);
-
-            if (IsJsonString(str))
-                Actions.GetGameData(str);
-            else if (str == "ResetAction")
-                ResetAction();
-            else if(str.Contains("Delete"))
-                  {
-                     str = str.Replace("Delete", "");
-                     Debug.LogWarning("Player exited : " +  str);
-
-                     Actions.DeleteClient(str);
-                  }
-            else
-                Actions.AddClient(str);
-
-        };
-
-        #endregion
-
-        #region WEB_WALLET
-
-        webWallet.OnOpen += () =>
-        {
-            Debug.Log("Wallet Connection open!" + walletAddress);
-
-            StartCoroutine(SendWallet(walletAddress));
-        };
-
-        webWallet.OnError += (e) =>
-        {
-            Debug.Log("WebWallet_Error! " + e);
-        };
-
-        webWallet.OnClose += async (e) =>
-        {
-            Debug.Log("WebWallet Connection closed!");
-
-          // await  webWallet.Connect();
-        };
-
-        webWallet.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            if (str == "Ping")
-                return;
-
-            float _balanceDollar = float.Parse(str);
-
-            Debug.LogWarning("Wallet Balance :" +  _balanceDollar);
-
-            Actions.GetWalletBalance(_balanceDollar);
-
-        };
-
-        #endregion
-
-        #region WEB_CREDIT
-
-        webCredit.OnOpen += () =>
-        {
-            Debug.Log("Credit Connection open!");
-        };
-
-        webCredit.OnError += (e) =>
-        {
-            Debug.Log("Credit_Error! " + e);
-        };
-
-        webCredit.OnClose += async (e) =>
-        {
-            Debug.Log("Credit Connection closed!");
-
-          // await webCredit.Connect();
-        };
-
-        webCredit.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            if (str == "Ping")
-                return;
-
-            Debug.Log("Credit_MATICS >>" + str);
-
-            Actions.Credit_MAT(str);
-        };
-
-        #endregion
-
-        #region WEB_DEDUCT
-        webDeduct.OnOpen += () =>
-        {
-            Debug.Log("Deduct Connection open!");
-        };
-
-        webDeduct.OnError += (e) =>
-        {
-            Debug.Log("Deduct_Error! " + e);
-        };
-
-        webDeduct.OnClose += async (e) =>
-        {
-            Debug.Log("Deduct Connection closed!");
-
-           // await webDeduct.Connect();
-        };
-
-        webDeduct.OnMessage += (bytes) =>
-        {
-            string str = Encoding.UTF8.GetString(bytes);
-
-            if (str == "Ping")
-                return;
-
-            Debug.Log("Deduct_MATICS >>" + str);
-
-            Actions.Deduct_MAT(str);
-        };
-
-        #endregion
-
-        if (webTimer.State == WebSocketState.Connecting || webTimer.State == WebSocketState.Open)
-        {
-            Debug.Log("Still connecting !!! and closing it");
-            await webTimer.Close();
-        }
-
-        await webTable.Connect();
-        //await webData.Connect();
-        //await websocket.Connect();
-        //await webTimer.Connect();
-        //await webWallet.Connect();
-        //await webDeduct.Connect();
-        //await webCredit.Connect();
+        WebSocketInit("ws://localhost:7070"); //0 TABLE 7070
     }
 
     #region GAME
@@ -412,11 +281,13 @@ public class Network : MonoBehaviour
     /// <param name="jsonString"></param>
     public IEnumerator SaveToNet(string jsonString)
     {
-        Debug.Log("WebSocket State >>>> " + websocket.State);
-
         yield return null;
 
-        websocket.SendText(jsonString);
+        //websocket.SendText(jsonString);
+
+        Debug.Log("Json value " + jsonString);
+
+        Send(1, jsonString);
     }
         
 
@@ -444,8 +315,10 @@ public class Network : MonoBehaviour
     public void ResetTimer()
     {
         Debug.Log("Resetting timer !!!!!");
-         
-        webTimer.SendText("ResetTimer");
+
+        //  webTimer.SendText("ResetTimer");
+
+        Send(3, "ResetTimer");
     }
 
     #endregion
@@ -454,28 +327,24 @@ public class Network : MonoBehaviour
 
     public IEnumerator SendWallet(string message)
     {
-        Debug.Log("Sending wallet address to server 1");
-        if (webWallet.State == WebSocketState.Closed || webWallet.State == WebSocketState.Closing)
-            yield return null;
-        else
-        {
-            yield return new WaitUntil(() => webWallet.State == WebSocketState.Open);
-
-            Debug.Log("Sending wallet address to server 2");
-            webWallet.SendText(message);
-        }
+        yield return null;
+        Send(4, message);
     }
 
     public void CreditAmount(float amount)
     {
-        webCredit.SendText(amount.ToString());
+       // webCredit.SendText(amount.ToString());
+
+        Send(5,amount.ToString());  
     }
 
     public void DeductAmount(float amount)
     {
         Debug.LogWarning("Deduct: " + amount);
 
-        webDeduct.SendText(amount.ToString());
+       // webDeduct.SendText(amount.ToString());
+
+       Send(6, amount.ToString());  
     }
 
     #endregion
@@ -492,7 +361,9 @@ public class Network : MonoBehaviour
 
         string tableCreate = tableId + "[id]" + _id + "[/id]";
 
-        webTable.SendText(tableCreate);
+        Send(0,tableCreate);
+
+        // webTable.SendText(tableCreate);
     }
 
     /// <summary>
@@ -504,7 +375,9 @@ public class Network : MonoBehaviour
         _tableid = searchId;
 
         string search = "[s]" + searchId + "[id]" + _id + "[/id]"; 
-        webTable.SendText(search);
+       // webTable.SendText(search);
+
+        Send(0,search);
     }
 
     #endregion

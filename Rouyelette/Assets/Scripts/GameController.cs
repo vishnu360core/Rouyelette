@@ -204,6 +204,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     {
         string jsonString = JsonUtility.ToJson(new GameData { status = _status });
 
+        Debug.Log("Game status saved >>>" + jsonString);
+
         StartCoroutine(Network.Instance.SaveToNet(jsonString));
     }
 
@@ -230,7 +232,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
                 if (_onStart)
                 {
-                    _loadPanel.SetActive(gameData.status == GameSwitch.off);
+                    _loadPanel.SetActive(gameData.status != GameSwitch.on);
                 }
                 else
                 {

@@ -60,7 +60,7 @@ public class TableManagerController : MonoBehaviour
 
         Network.Instance.PushTableId(uniqueId);
 
-        Invoke("LoadGame", 2.0f);
+       Invoke("LoadGame", 2.0f);
     }
     #endregion
 

@@ -8688,7 +8688,7 @@ IL_0029:
 		RuntimeObject* L_12 = ___0_obj;
 		String_t* L_13;
 		L_13 = InterfaceFuncInvoker0< String_t* >::Invoke(19, IJsonWrapper_t5AC901C303CE285513D3F740D3869D95F91DD481_il2cpp_TypeInfo_var, ((RuntimeObject*)Castclass((RuntimeObject*)L_12, IJsonWrapper_t5AC901C303CE285513D3F740D3869D95F91DD481_il2cpp_TypeInfo_var)));
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_11, L_13);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_11, L_13);
 		return;
 	}
 
@@ -12257,7 +12257,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonWriter_Put_mB865360DB4CA2F24B79B87C3
 IL_0019:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_3 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_3, ((int32_t)32));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_3, ((int32_t)32));
 		int32_t L_4 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_4, 1));
 	}
@@ -12276,7 +12276,7 @@ IL_0033:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_7 = __this->___writer;
 		String_t* L_8 = ___0_str;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_7, L_8);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_7, L_8);
 		return;
 	}
 }
@@ -12314,7 +12314,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonWriter_PutNewline_m0A6BF91E0A1223692
 	}
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_5 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_5, ((int32_t)44));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_5, ((int32_t)44));
 	}
 
 IL_002b:
@@ -12337,7 +12337,7 @@ IL_002b:
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_9 = __this->___writer;
 		String_t* L_10;
 		L_10 = Environment_get_NewLine_m8BF68A4EFDAFFB66500984CE779629811BA98FFF(NULL);
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_9, L_10);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_9, L_10);
 	}
 
 IL_0050:
@@ -12367,7 +12367,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonWriter_PutString_m44967DAEEBF58EFBFF
 		String_t* L_0 = ((String_t_StaticFields*)il2cpp_codegen_static_fields_for(String_t_il2cpp_TypeInfo_var))->___Empty;
 		JsonWriter_Put_mB865360DB4CA2F24B79B87C3A758FD580290E776(__this, L_0, NULL);
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_1 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_1, ((int32_t)34));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_1, ((int32_t)34));
 		String_t* L_2 = ___0_str;
 		int32_t L_3;
 		L_3 = String_get_Length_m42625D67623FA5CC7A44D47425CE86FB946542D2_inline(L_2, NULL);
@@ -12433,48 +12433,48 @@ IL_0026:
 IL_005d:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_10 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_10, _stringLiteral785F17F45C331C415D0A7458E6AAC36966399C51);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_10, _stringLiteral785F17F45C331C415D0A7458E6AAC36966399C51);
 		goto IL_0141;
 	}
 
 IL_0072:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_11 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_11, _stringLiteralB78F235D4291950A7D101307609C259F3E1F033F);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_11, _stringLiteralB78F235D4291950A7D101307609C259F3E1F033F);
 		goto IL_0141;
 	}
 
 IL_0087:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_12 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_12, _stringLiteral7F3238CD8C342B06FB9AB185C610175C84625462);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_12, _stringLiteral7F3238CD8C342B06FB9AB185C610175C84625462);
 		goto IL_0141;
 	}
 
 IL_009c:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_13 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_13, ((int32_t)92));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_13, ((int32_t)92));
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_14 = __this->___writer;
 		String_t* L_15 = ___0_str;
 		int32_t L_16 = V_1;
 		Il2CppChar L_17;
 		L_17 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_15, L_16, NULL);
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_14, L_17);
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_14, L_17);
 		goto IL_0141;
 	}
 
 IL_00c0:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_18 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_18, _stringLiteralA7C3FCA8C63E127B542B38A5CA5E3FEEDDD1B122);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_18, _stringLiteralA7C3FCA8C63E127B542B38A5CA5E3FEEDDD1B122);
 		goto IL_0141;
 	}
 
 IL_00d2:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_19 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_19, _stringLiteral5962E944D7340CE47999BF097B4AFD70C1501FB9);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_19, _stringLiteral5962E944D7340CE47999BF097B4AFD70C1501FB9);
 		goto IL_0141;
 	}
 
@@ -12505,7 +12505,7 @@ IL_00e4:
 		int32_t L_28 = V_1;
 		Il2CppChar L_29;
 		L_29 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_27, L_28, NULL);
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_26, L_29);
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_26, L_29);
 		goto IL_0141;
 	}
 
@@ -12519,10 +12519,10 @@ IL_010e:
 		il2cpp_codegen_runtime_class_init_inline(JsonWriter_t9E2E3FA16EB3FE1E127EA9AFAE8844C8E98E0AD4_il2cpp_TypeInfo_var);
 		JsonWriter_IntToHex_m6F8810BE965305E1CA1BFB5C5D6B2F8A1495660B(L_32, L_33, NULL);
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_34 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_34, _stringLiteralDA666908BB15F4E1D2649752EC5DCBD0D5C64699);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_34, _stringLiteralDA666908BB15F4E1D2649752EC5DCBD0D5C64699);
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_35 = __this->___writer;
 		CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_36 = __this->___hex_seq;
-		VirtualActionInvoker1< CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* >::Invoke(12, L_35, L_36);
+		VirtualActionInvoker1< CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* >::Invoke(11, L_35, L_36);
 	}
 
 IL_0141:
@@ -12542,7 +12542,7 @@ IL_0145:
 	}
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_40 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_40, ((int32_t)34));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_40, ((int32_t)34));
 		return;
 	}
 }
@@ -12745,7 +12745,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonWriter_Write_m0DA2011B12263C0858856F
 	}
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_8 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_8, _stringLiteralC31E66F919D06AD2730738EF7F884271E99BB7DA);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_8, _stringLiteralC31E66F919D06AD2730738EF7F884271E99BB7DA);
 	}
 
 IL_0046:
@@ -13124,7 +13124,7 @@ IL_0055:
 IL_006a:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_18 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_18, ((int32_t)32));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_18, ((int32_t)32));
 		int32_t L_19 = V_1;
 		V_1 = ((int32_t)il2cpp_codegen_subtract(L_19, 1));
 	}
@@ -13139,14 +13139,14 @@ IL_007b:
 	}
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_21 = __this->___writer;
-		VirtualActionInvoker1< String_t* >::Invoke(14, L_21, _stringLiteral1168E92C164109D6220480DEDA987085B2A21155);
+		VirtualActionInvoker1< String_t* >::Invoke(13, L_21, _stringLiteral1168E92C164109D6220480DEDA987085B2A21155);
 		goto IL_009e;
 	}
 
 IL_0091:
 	{
 		TextWriter_tA9E5461506CF806E17B6BBBF2119359DEDA3F0F3* L_22 = __this->___writer;
-		VirtualActionInvoker1< Il2CppChar >::Invoke(11, L_22, ((int32_t)58));
+		VirtualActionInvoker1< Il2CppChar >::Invoke(10, L_22, ((int32_t)58));
 	}
 
 IL_009e:
