@@ -121,6 +121,8 @@ public class ClientManager : MonoBehaviour
                 Debug.LogWarning("Deleting ...." + id);
                 client.ClearData();
 
+              
+
                 PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(_currentJson);
                 List<PlayerData> playerDatas = playerDataList.playerDatas;
 

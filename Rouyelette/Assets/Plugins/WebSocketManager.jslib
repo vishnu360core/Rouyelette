@@ -14,14 +14,16 @@ mergeInto(LibraryManager.library, {
     this.socket.onopen = function() {
       console.log("Connected"); 
 
-      if (typeof nethereumUnityInstance !== 'undefined') 
-            {
-              nethereumUnityInstance.SendMessage('Network', 'ConnectCallBack', count);
-            } 
-            else 
-            {
-              console.error('nethereumUnityInstance is not defined');
-            }
+       window.unityInstance.SendMessage('Network', 'ConnectCallBack', count);
+
+      // if (typeof unityInstance !== 'undefined') 
+      //       {
+      //         unityInstance.SendMessage('Network', 'ConnectCallBack', count);
+      //       } 
+      //       else 
+      //       {
+      //         console.error('nethereumUnityInstance is not defined');
+      //       }
 
     };
 
@@ -34,16 +36,16 @@ mergeInto(LibraryManager.library, {
     {
       console.log('Data >>>>>>>>>>>>>>>>>>>>>>>>>>', event.data)
 
-      
+        window.unityInstance.SendMessage('Network', 'ReceiveMessage', event.data + '@' + count);
 
-      if (typeof nethereumUnityInstance !== 'undefined') 
-            {
-              nethereumUnityInstance.SendMessage('Network', 'ReceiveMessage', event.data + '@' + count);
-            }
-            else 
-            {
-              console.error('nethereumUnityInstance is not defined');
-            }
+      // if (typeof unityInstance !== 'undefined') 
+      //       {
+      //        unityInstance.SendMessage('Network', 'ReceiveMessage', event.data + '@' + count);
+      //       }
+      //       else 
+      //       {
+      //         console.error('nethereumUnityInstance is not defined');
+      //       }
 
     }
   },

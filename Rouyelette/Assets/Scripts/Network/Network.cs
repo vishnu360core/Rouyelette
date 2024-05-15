@@ -185,20 +185,20 @@ public class Network : MonoBehaviour
     {
         Debug.LogWarning("On Game Scene !!!");
 
-        //WebSocketInit("wss://unity.thecrypto360.com"); //1 GAME 8090
-        //WebSocketInit("wss://unity3.thecrypto360.com");//2 DATA 8200
-        //WebSocketInit("wss://unity2.thecrypto360.com");//3 TIMER 8100
-        //WebSocketInit("wss://unity4.thecrypto360.com");//4 WALLET 9010
-        //WebSocketInit("wss://unity5.thecrypto360.com");//5 CREDIT 9020
-        //WebSocketInit("wss://unity6.thecrypto360.com");//6 DEDUCT 9030
+        WebSocketInit("wss://unity.thecrypto360.com"); //1 GAME 8090
+        WebSocketInit("wss://unity3.thecrypto360.com");//2 DATA 8200
+        WebSocketInit("wss://unity2.thecrypto360.com");//3 TIMER 8100
+        WebSocketInit("wss://unity4.thecrypto360.com");//4 WALLET 9010
+        WebSocketInit("wss://unity5.thecrypto360.com");//5 CREDIT 9020
+        WebSocketInit("wss://unity6.thecrypto360.com");//6 DEDUCT 9030
 
 
-        WebSocketInit("ws://localhost:8090"); //1 GAME 8090
-        WebSocketInit("ws://localhost:8200");//2 DATA 8200
-        WebSocketInit("ws://localhost:8100");//3 TIMER 8100
-        WebSocketInit("ws://localhost:9010");//4 WALLET 9010
-        WebSocketInit("ws://localhost:9020");//5 CREDIT 9020
-        WebSocketInit("ws://localhost:9030");//6 DEDUCT 9030
+        //WebSocketInit("ws://localhost:8090"); //1 GAME 8090
+        //WebSocketInit("ws://localhost:8200");//2 DATA 8200
+        //WebSocketInit("ws://localhost:8100");//3 TIMER 8100
+        //WebSocketInit("ws://localhost:9010");//4 WALLET 9010
+        //WebSocketInit("ws://localhost:9020");//5 CREDIT 9020
+        //WebSocketInit("ws://localhost:9030");//6 DEDUCT 9030
     }
 
     private void GetWalletAddress(string address)
@@ -265,7 +265,9 @@ public class Network : MonoBehaviour
         //webDeduct = new WebSocket(" ws://localhost:9030");//9030
         //webTable = new WebSocket(" ws://localhost:7070");//7070
 
-        WebSocketInit("ws://localhost:7070"); //0 TABLE 7070
+        // WebSocketInit("ws://localhost:7070"); //0 TABLE 7070
+
+        WebSocketInit("wss://unity7.thecrypto360.com"); //0 TABLE 7070
     }
 
     #region GAME

@@ -6,15 +6,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Thirdweb;
+using Thirdweb.Examples;
 
 public class WalletConnector : MonoBehaviour
 {
     static WalletConnector instance;
     public static WalletConnector Instance { get { return instance; } }
 
-
-    [DllImport("__Internal")]
-    private static extern void ConnectWalletAndRetrieveAddress();
 
     [DllImport("__Internal")]
     private static extern void Deduct(string address, string amountInEther);
@@ -31,10 +30,74 @@ public class WalletConnector : MonoBehaviour
     [SerializeField] TMP_Text walletText;
     [SerializeField] TMP_Text walletAddressText;
 
+    [Header("Third-Web Wallet")]
+    [SerializeField] Prefab_ConnectWallet connectWallet;
+
     string walletAddress;
     float walletBalance;
 
     public bool _walletConneted = false;
+
+    string abi = @" [
+	{
+		""inputs"": [],
+		""name"": ""placebid"",
+		""outputs"": [],
+		""stateMutability"": ""payable"",
+		""type"": ""function""
+	},
+	{
+		""inputs"": [
+			{
+				""internalType"": ""address payable"",
+				""name"": ""_to"",
+				""type"": ""address""
+			},
+			{
+				""internalType"": ""uint256"",
+				""name"": ""_amount"",
+				""type"": ""uint256""
+			}
+		],
+		""name"": ""rewardFunc"",
+		""outputs"": [],
+		""stateMutability"": ""nonpayable"",
+		""type"": ""function""
+	},
+	{
+		""inputs"": [
+			{
+				""internalType"": ""address payable"",
+				""name"": ""_to"",
+				""type"": ""address""
+			},
+			{
+				""internalType"": ""uint256"",
+				""name"": ""_amount"",
+				""type"": ""uint256""
+			}
+		],
+		""name"": ""withdrawFunc"",
+		""outputs"": [],
+		""stateMutability"": ""nonpayable"",
+		""type"": ""function""
+	},
+	{
+		""inputs"": [],
+		""name"": ""checkBalance"",
+		""outputs"": [
+			{
+				""internalType"": ""uint256"",
+				""name"": """",
+				""type"": ""uint256""
+			}
+		],
+		""stateMutability"": ""view"",
+		""type"": ""function""
+	}
+]";
+
+    Contract contract;
 
 
     private void Awake()
@@ -43,31 +106,45 @@ public class WalletConnector : MonoBehaviour
           instance = this;
 
         DontDestroyOnLoad(this.gameObject);
-    }
 
-    void Start()
-    {
         _walletConneted = false;
         // Call the JavaScript function to connect the wallet and retrieve details
-        ConnectWalletAndRetrieveAddress();
+        // ConnectWalletAndRetrieveAddress();
 
         Actions.GetWalletBalance += WalletBalance;
 
         Actions.Deduct_MAT += DeductWallet;
         Actions.Credit_MAT += CreditWallet;
+
+        connectWallet.onConnected.AddListener(ReceiveWalletAddressAndBalance);
     }
 
-    private void CreditWallet(string mat)
+     void Start()
     {
-        Credit (walletAddress, mat);
-        //StartCoroutine(Network.Instance.SendWallet(walletAddress));
+        var sdk = ThirdwebManager.Instance.SDK;
+
+       contract = sdk.GetContract("0xd7059957411ad31a0453bba8de7371D0b9f096d5", abi);
+
     }
 
-    private void DeductWallet(string mat)
+    private async void CreditWallet(string mat)
+    {
+        // Credit (walletAddress, mat);
+        //StartCoroutine(Network.Instance.SendWallet(walletAddress));
+
+        TransactionResult result = await contract.Write("rewardFunc",walletAddress,mat);
+    }
+
+    private async void DeductWallet(string mat)
     {
         Debug.LogWarning("Deduction happened !!!!!!!" + mat);
 
-        Deduct(walletAddress, mat);
+
+        TransactionResult result = await contract.Write("placebid", new TransactionRequest() { value = mat, gasLimit = "100000" });
+
+        Debug.LogWarning ("Deduct :" + result.ToString());   
+
+        //Deduct(walletAddress, mat);
        // StartCoroutine(Network.Instance.SendWallet(walletAddress));
     }
 
@@ -76,11 +153,9 @@ public class WalletConnector : MonoBehaviour
        walletBalance = balance;
     }
 
-    public void ReceiveWalletAddressAndBalance(string addressAndBalance)
+    public void ReceiveWalletAddressAndBalance(string address)
     {
-        string[] parts = addressAndBalance.Split(',');
-        string address = parts[0];
-        string balance = parts[1];
+       
 
         Debug.Log("Wallet Address: " + address);
 
