@@ -78,6 +78,7 @@ public static class Actions
 
     public static Action<string> walletAddress;
 
+    public static Action WheelResultAction;
 
     #region TABLE
 

@@ -120,32 +120,47 @@ public class WalletConnector : MonoBehaviour
     }
 
      void Start()
-    {
+     {
         var sdk = ThirdwebManager.Instance.SDK;
 
        contract = sdk.GetContract("0xd7059957411ad31a0453bba8de7371D0b9f096d5", abi);
 
-    }
+     }
 
     private async void CreditWallet(string mat)
     {
-        // Credit (walletAddress, mat);
-        //StartCoroutine(Network.Instance.SendWallet(walletAddress));
+        try
+        {
+            TransactionResult result = await contract.Write("rewardFunc", walletAddress, mat);
+            Debug.LogWarning("Credit :" + result.ToString());
+        } 
+        catch (Exception ex) 
+        {
+            Debug.Log("Credit Rejected !!!");
+        }
 
-        TransactionResult result = await contract.Write("rewardFunc",walletAddress,mat);
+        StartCoroutine(Network.Instance.SendWallet(walletAddress));
     }
 
     private async void DeductWallet(string mat)
     {
         Debug.LogWarning("Deduction happened !!!!!!!" + mat);
 
+        try
+        {
+            TransactionResult result = await contract.Write("placebid", new TransactionRequest() { value = mat, gasLimit = "100000" });
 
-        TransactionResult result = await contract.Write("placebid", new TransactionRequest() { value = mat, gasLimit = "100000" });
+            Debug.LogWarning("Deduct :" + result.ToString());
+        }
+        catch (Exception ex) 
+        {
+            Deduct_Rejected();
+        }
 
-        Debug.LogWarning ("Deduct :" + result.ToString());   
+        StartCoroutine(Network.Instance.SendWallet(walletAddress));
 
         //Deduct(walletAddress, mat);
-       // StartCoroutine(Network.Instance.SendWallet(walletAddress));
+        // StartCoroutine(Network.Instance.SendWallet(walletAddress));
     }
 
     private void WalletBalance(float balance)

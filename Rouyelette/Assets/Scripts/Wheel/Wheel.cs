@@ -22,11 +22,15 @@ public class Wheel : MonoBehaviour
      [SerializeField] bool _isStopped = false;
      public bool IsStopped => _isStopped;
 
+     [HideInInspector]
+     public bool _enableBrake = false; 
 
     // Start is called before the first frame update
     void Start()
     {
-      // StartCoroutine(Spin());
+        // StartCoroutine(Spin());
+
+        StartCoroutine(IdleRotation());
     }
 
     // Update is called once per frame
@@ -38,15 +42,17 @@ public class Wheel : MonoBehaviour
     public void ResetAction()
     {
         _isStopped = false;
-    }
+        _enableBrake= false;
 
+        StopAllCoroutines();
+        StartCoroutine(IdleRotation());
+    }
 
     public void  SpinAction()
     {
+        StopAllCoroutines();
         StartCoroutine(Spin());
     }
-
-
     IEnumerator Spin()
     {
         // Get a random speed from min and ma value
@@ -64,8 +70,9 @@ public class Wheel : MonoBehaviour
 
             angle += Time.deltaTime * _curreSpeed;
             angle %= 360;
+
             // if the speed higher than 0 the arrow decrease speed
-            if (_curreSpeed > 0)
+            if (_curreSpeed > 0 && _enableBrake)
                 _curreSpeed -= Time.deltaTime * arrowBrakeSpeed;
 
             // Apply the angle to the arrow
@@ -78,5 +85,26 @@ public class Wheel : MonoBehaviour
         _isStopped = true;  
 
         Debug.Log("Stopped spin");
+    }
+
+    /// <summary>
+    /// Idle Rotation
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator IdleRotation()
+    {
+        _curreSpeed = 70f;
+
+        angle = 0;
+
+        while(true)
+        {
+            angle += Time.deltaTime * _curreSpeed;
+            angle %= 360;
+
+            transform.localEulerAngles = -Vector3.up * angle;
+
+            yield return null;
+        }
     }
 }

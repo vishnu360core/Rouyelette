@@ -145,12 +145,16 @@ public class GameController : MonoBehaviour, BoardControlInterface
         if (_timeslider.maxValue - (float)time <= 45.0f && _timeslider.maxValue - (float)time > 30.0f)
         {
             timeBet = "Last bet";
+
         }
         else if (_timeslider.maxValue - (float)time <= 30.0f)
         {
+            if ((_timeslider.maxValue - (float)time == 25.0f))
+                _spinWheelManager.SpinAction();
+
             timeBet = "No more Bets";
 
-           if (_timeslider.maxValue - (float)time == 30.0f)
+            if (_timeslider.maxValue - (float)time == 30.0f)
                SaveGameStatus(GameSwitch.lastbet);
         }
         else
@@ -422,7 +426,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         //yield return new WaitUntil(() => CameraController.Instance.Reached());
 
         Debug.LogWarning("Camera switch ");
-       _spinWheelManager.SpinAction();
+        Actions.WheelResultAction();
+
+        //_spinWheelManager.SpinAction();
     }
 
     /// <summary>

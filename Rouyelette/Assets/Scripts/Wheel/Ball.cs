@@ -63,6 +63,8 @@ public class Ball : MonoBehaviour
 
     public IEnumerator RotateObject()
     {
+        meshRenderer.enabled = true;
+
         while (!IsBrake)
         {
             // Calculate the rotation angle based on time and speed
@@ -84,7 +86,7 @@ public class Ball : MonoBehaviour
 
     public void ResetAction()
     {
-        meshRenderer.enabled = true;
+        meshRenderer.enabled = false;
 
         _parentRotateSpeed = 250f;
 

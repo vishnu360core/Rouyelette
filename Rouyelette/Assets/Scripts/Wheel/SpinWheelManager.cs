@@ -32,6 +32,15 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
         Actions.SetBallTarget += SetPinBallTarget;
 
         Actions.EnableObstacles += EnableObstacles;
+
+        Actions.WheelResultAction += ResultAction;
+    }
+
+    private void ResultAction()
+    {
+        _spinWheel._enableBrake = true;
+
+        StartCoroutine(ball.EnableGravityAction());
     }
 
     public void HitAction() 
@@ -103,7 +112,7 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
     {
         AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
 
-        StartCoroutine(ball.EnableGravityAction());
+       // StartCoroutine(ball.EnableGravityAction());
 
         StartCoroutine(ball.RotateObject());
 

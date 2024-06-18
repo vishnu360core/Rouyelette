@@ -498,7 +498,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                 HistoryController.Instance.HistoryGenerateAction();
 
                 amount += betamount;
-                _amountText.text = "Amount: $" + amount.ToString("F2");
+                //_amountText.text = "Amount: $" + amount.ToString("F2");
 
                 Network.Instance.CreditAmount((float)betamount);
 
@@ -799,7 +799,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         _isPreviousPress = false;
         _setBet = true;
         amount -= _currentbetAmount;
-        _amountText.text = "Amount: $" + amount.ToString("F2");
+        //_amountText.text = "Amount: $" + amount.ToString("F2");
 
         //HistoryController.Instance.bets = _currentbetAmount;
 
