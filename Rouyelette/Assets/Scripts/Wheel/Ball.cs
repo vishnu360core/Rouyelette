@@ -53,7 +53,7 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        meshRenderer = this.GetComponent<MeshRenderer>(); 
+        meshRenderer = this.GetComponent<MeshRenderer>();
 
         //rb.AddForce(Vector3.forward * 2, ForceMode.Impulse);
 
