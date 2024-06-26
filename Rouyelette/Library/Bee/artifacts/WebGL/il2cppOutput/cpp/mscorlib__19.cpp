@@ -5649,7 +5649,7 @@ IL_0016:
 		L_3 = VirtualFuncInvoker0< Type_t* >::Invoke(14, __this);
 		RuntimeObject* L_4 = ___0_obj;
 		bool L_5;
-		L_5 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_3, L_4);
+		L_5 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_3, L_4);
 		if (L_5)
 		{
 			goto IL_002f;
@@ -6474,7 +6474,7 @@ IL_0014:
 		Type_t* L_8 = L_7;
 		bool L_9 = ___3_serialization;
 		String_t* L_10;
-		L_10 = VirtualFuncInvoker1< String_t*, bool >::Invoke(145, L_8, L_9);
+		L_10 = VirtualFuncInvoker1< String_t*, bool >::Invoke(146, L_8, L_9);
 		V_1 = L_10;
 		bool L_11;
 		L_11 = Type_get_IsByRef_mA417B3C05E39BCF8F21A2B6437A1B41D3BE638A4(L_8, NULL);
@@ -7457,7 +7457,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* RuntimePropertyInfo_FormatNameAndSi
 		L_0 = VirtualFuncInvoker0< Type_t* >::Invoke(25, __this);
 		bool L_1 = ___0_serialization;
 		String_t* L_2;
-		L_2 = VirtualFuncInvoker1< String_t*, bool >::Invoke(145, L_0, L_1);
+		L_2 = VirtualFuncInvoker1< String_t*, bool >::Invoke(146, L_0, L_1);
 		StringBuilder_t* L_3 = (StringBuilder_t*)il2cpp_codegen_object_new(StringBuilder_t_il2cpp_TypeInfo_var);
 		StringBuilder__ctor_mCD797D942316CB356205FD96415B0B7581CDAD60(L_3, L_2, NULL);
 		V_0 = L_3;

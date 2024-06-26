@@ -5433,7 +5433,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonMapper_HasInterface_m034FA741778DCE9
 		Type_t* L_0 = ___0_type;
 		String_t* L_1 = ___1_name;
 		Type_t* L_2;
-		L_2 = VirtualFuncInvoker2< Type_t*, String_t*, bool >::Invoke(131, L_0, L_1, (bool)1);
+		L_2 = VirtualFuncInvoker2< Type_t*, String_t*, bool >::Invoke(132, L_0, L_1, (bool)1);
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
 		bool L_3;
 		L_3 = Type_op_Inequality_m83209C7BB3C05DFBEA3B6199B0BEFE8037301172(L_2, (Type_t*)NULL, NULL);

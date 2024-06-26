@@ -2593,7 +2593,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RC532Engine_Init_m61B3EF696BA7D71F100FD9
 		L_1 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_0, NULL);
 		RuntimeObject* L_2 = ___1_parameters;
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_1, L_2);
 		if (!L_3)
 		{
 			goto IL_0033;
@@ -2621,7 +2621,7 @@ IL_0033:
 		L_10 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_9, NULL);
 		RuntimeObject* L_11 = ___1_parameters;
 		bool L_12;
-		L_12 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_10, L_11);
+		L_12 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_10, L_11);
 		if (!L_12)
 		{
 			goto IL_005a;
@@ -3159,7 +3159,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RC564Engine_Init_mDC14A2E608A1738CA868F8
 		L_1 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_0, NULL);
 		RuntimeObject* L_2 = ___1_parameters;
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_1, L_2);
 		if (L_3)
 		{
 			goto IL_0028;
@@ -7050,7 +7050,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RijndaelEngine_Init_m553A338E991800FF261
 		L_1 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_0, NULL);
 		RuntimeObject* L_2 = ___1_parameters;
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_1, L_2);
 		if (!L_3)
 		{
 			goto IL_0031;

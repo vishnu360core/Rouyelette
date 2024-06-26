@@ -4417,7 +4417,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* ArraySpec_Resolve_m6337E08A4D7F185940
 	{
 		Type_t* L_1 = ___0_type;
 		Type_t* L_2;
-		L_2 = VirtualFuncInvoker1< Type_t*, int32_t >::Invoke(139, L_1, 1);
+		L_2 = VirtualFuncInvoker1< Type_t*, int32_t >::Invoke(140, L_1, 1);
 		return L_2;
 	}
 
@@ -4432,7 +4432,7 @@ IL_0010:
 	{
 		Type_t* L_4 = ___0_type;
 		Type_t* L_5;
-		L_5 = VirtualFuncInvoker0< Type_t* >::Invoke(138, L_4);
+		L_5 = VirtualFuncInvoker0< Type_t* >::Invoke(139, L_4);
 		return L_5;
 	}
 
@@ -4441,7 +4441,7 @@ IL_0020:
 		Type_t* L_6 = ___0_type;
 		int32_t L_7 = __this->___dimensions;
 		Type_t* L_8;
-		L_8 = VirtualFuncInvoker1< Type_t*, int32_t >::Invoke(139, L_6, L_7);
+		L_8 = VirtualFuncInvoker1< Type_t*, int32_t >::Invoke(140, L_6, L_7);
 		return L_8;
 	}
 }
@@ -4527,7 +4527,7 @@ IL_0004:
 	{
 		Type_t* L_0 = ___0_type;
 		Type_t* L_1;
-		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(142, L_0);
+		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(143, L_0);
 		___0_type = L_1;
 		int32_t L_2 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_2, 1));
@@ -5340,7 +5340,7 @@ IL_00ea_1:
 				String_t* L_47;
 				L_47 = InterfaceFuncInvoker0< String_t* >::Invoke(0, TypeName_t9386CB856591884A3661A524EAB864E809292866_il2cpp_TypeInfo_var, L_46);
 				Type_t* L_48;
-				L_48 = VirtualFuncInvoker2< Type_t*, String_t*, int32_t >::Invoke(116, L_45, L_47, ((int32_t)48));
+				L_48 = VirtualFuncInvoker2< Type_t*, String_t*, int32_t >::Invoke(117, L_45, L_47, ((int32_t)48));
 				V_4 = L_48;
 				Type_t* L_49 = V_4;
 				il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -5540,7 +5540,7 @@ IL_01e1:
 		Type_t* L_89 = V_1;
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_90 = V_6;
 		Type_t* L_91;
-		L_91 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_89, L_90);
+		L_91 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_89, L_90);
 		V_1 = L_91;
 	}
 
@@ -5614,7 +5614,7 @@ IL_0230:
 	{
 		Type_t* L_100 = V_1;
 		Type_t* L_101;
-		L_101 = VirtualFuncInvoker0< Type_t* >::Invoke(140, L_100);
+		L_101 = VirtualFuncInvoker0< Type_t* >::Invoke(141, L_100);
 		V_1 = L_101;
 	}
 

@@ -6010,7 +6010,7 @@ IL_0053:
 		StreamingContext_t56760522A751890146EE45F82F866B55B7E33677 L_30 = ___1_context;
 		Type_t* L_31 = V_4;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_32;
-		L_32 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_31);
+		L_32 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_31);
 		Type_t* L_33 = V_4;
 		Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D** L_34 = ___4_surrogateDataContracts;
 		il2cpp_codegen_runtime_class_init_inline(NetDataContractSerializer_t66481F94AB5D6ABCD8F31ED54DB46FC52A5181E7_il2cpp_TypeInfo_var);
@@ -6026,7 +6026,7 @@ IL_0053:
 	{
 		Type_t* L_37 = V_4;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_38;
-		L_38 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_37);
+		L_38 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_37);
 		Type_t* L_39 = V_4;
 		DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A* L_40;
 		L_40 = DataContract_GetDataContract_m3CE3DD2750DE7B8D898E4660BB3336F8F8B5A98D(L_38, L_39, 1, NULL);
@@ -8046,7 +8046,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PrimitiveDataContract_Equals_m882A3BEFF9
 		Type_t* L_4 = V_0;
 		Type_t* L_5 = V_1;
 		bool L_6;
-		L_6 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_4, L_5);
+		L_6 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_4, L_5);
 		if (L_6)
 		{
 			goto IL_0030;
@@ -17867,7 +17867,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DataContract_tC6689A52E5BA843D360C067B3B64BA0
 	{
 		Type_t* L_0 = ___0_type;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_1;
-		L_1 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_0);
+		L_1 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_0);
 		Type_t* L_2 = ___0_type;
 		DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A* L_3;
 		L_3 = VirtualFuncInvoker2< DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A*, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B, Type_t* >::Invoke(7, __this, L_1, L_2);
@@ -23492,7 +23492,7 @@ IL_00a4:
 		int32_t L_40 = ___1_declaredTypeID;
 		Type_t* L_41 = ___2_declaredType;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_42;
-		L_42 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_41);
+		L_42 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_41);
 		DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A* L_43;
 		L_43 = VirtualFuncInvoker2< DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A*, int32_t, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(9, __this, L_40, L_42);
 		G_B14_0 = L_43;
@@ -23672,7 +23672,7 @@ IL_01dd:
 		int32_t L_108 = ___1_declaredTypeID;
 		Type_t* L_109 = ___2_declaredType;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_110;
-		L_110 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_109);
+		L_110 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_109);
 		DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A* L_111;
 		L_111 = VirtualFuncInvoker2< DataContract_tC6689A52E5BA843D360C067B3B64BA067391160A*, int32_t, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(9, __this, L_108, L_110);
 		G_B24_0 = L_111;
@@ -25083,7 +25083,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XmlObjectSerializerWriteContext_Internal
 		L_5 = Type_GetTypeHandle_m40E0A28A4D12E2807492E13290CB89A74D8DAE1B(L_4, NULL);
 		Type_t* L_6 = V_0;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_7;
-		L_7 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_6);
+		L_7 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_6);
 		Type_t* L_8 = V_0;
 		VirtualActionInvoker7< XmlWriterDelegator_t1E3DF42F5826EBD3E685CC88E36A2743D71CDF44*, RuntimeObject*, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B, Type_t*, int32_t, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B, Type_t* >::Invoke(15, __this, L_2, L_3, L_5, (Type_t*)NULL, (-1), L_7, L_8);
 		return;
@@ -26692,7 +26692,7 @@ IL_00d6:
 		Type_t* L_45;
 		L_45 = Globals_get_TypeOfObject_m821DC2E38514A362610C86CC23EE8E672A31DAF7(NULL);
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_46;
-		L_46 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_45);
+		L_46 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_45);
 		XmlObjectSerializerWriteContext_InternalSerializeReference_mA6E63CCECE98431E2A15A188123EC71A8D687298(__this, L_43, L_44, (bool)0, (bool)0, (-1), L_46, NULL);
 	}
 
@@ -27103,7 +27103,7 @@ IL_00b0:
 		Type_t* L_44;
 		L_44 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(L_43, NULL);
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_45;
-		L_45 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_44);
+		L_45 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_44);
 		VirtualActionInvoker6< XmlWriterDelegator_t1E3DF42F5826EBD3E685CC88E36A2743D71CDF44*, RuntimeObject*, bool, bool, int32_t, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(13, __this, L_41, L_42, (bool)0, (bool)0, (-1), L_45);
 		goto IL_00ee;
 	}
@@ -27227,7 +27227,7 @@ IL_0021:
 		RuntimeObject* L_9 = V_0;
 		Type_t* L_10 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_11;
-		L_11 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_10);
+		L_11 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_10);
 		VirtualActionInvoker6< XmlWriterDelegator_t1E3DF42F5826EBD3E685CC88E36A2743D71CDF44*, RuntimeObject*, bool, bool, int32_t, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(13, __this, L_8, L_9, (bool)0, (bool)0, (-1), L_11);
 		return (bool)1;
 	}
@@ -29200,7 +29200,7 @@ IL_003b:
 	{
 		Type_t* L_13 = V_4;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_14;
-		L_14 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_13);
+		L_14 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_13);
 		___5_declaredTypeHandle = L_14;
 		RuntimeObject* L_15 = __this->___dataContractSurrogate;
 		RuntimeObject* L_16 = ___1_obj;
@@ -29210,7 +29210,7 @@ IL_003b:
 		___1_obj = L_18;
 		Type_t* L_19 = V_3;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_20;
-		L_20 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_19);
+		L_20 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_19);
 		V_0 = L_20;
 		RuntimeObject* L_21 = V_1;
 		RuntimeObject* L_22 = ___1_obj;
@@ -29248,7 +29248,7 @@ IL_0070:
 		Type_t* L_32 = V_3;
 		Type_t* L_33 = V_4;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_34;
-		L_34 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(126, L_33);
+		L_34 = VirtualFuncInvoker0< RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B >::Invoke(127, L_33);
 		Type_t* L_35 = V_4;
 		VirtualActionInvoker7< XmlWriterDelegator_t1E3DF42F5826EBD3E685CC88E36A2743D71CDF44*, RuntimeObject*, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B, Type_t*, int32_t, RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B, Type_t* >::Invoke(15, __this, L_29, L_30, L_31, L_32, (-1), L_34, L_35);
 		goto IL_00c2;

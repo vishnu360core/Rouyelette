@@ -26322,7 +26322,7 @@ IL_0134:
 		Type_t* L_62;
 		L_62 = TypeUtils_GetNonNullableType_mEFA6EEA56679D5341A252A5D07B7356063A78F85(L_61, NULL);
 		bool L_63;
-		L_63 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_60, L_62);
+		L_63 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_60, L_62);
 		if (!L_63)
 		{
 			goto IL_016f;
@@ -26464,7 +26464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LightCompiler_CompileConvertToType_mDE96
 		Type_t* L_0 = ___1_typeTo;
 		Type_t* L_1 = ___0_typeFrom;
 		bool L_2;
-		L_2 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_0, L_1);
+		L_2 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_0, L_1);
 		if (!L_2)
 		{
 			goto IL_000a;
@@ -26501,7 +26501,7 @@ IL_000a:
 		L_8 = TypeUtils_GetNonNullableType_mEFA6EEA56679D5341A252A5D07B7356063A78F85(L_7, NULL);
 		Type_t* L_9 = ___0_typeFrom;
 		bool L_10;
-		L_10 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_8, L_9);
+		L_10 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_8, L_9);
 		if (!L_10)
 		{
 			goto IL_0029;
@@ -26538,7 +26538,7 @@ IL_0029:
 		L_16 = TypeUtils_GetNonNullableType_mEFA6EEA56679D5341A252A5D07B7356063A78F85(L_15, NULL);
 		Type_t* L_17 = ___1_typeTo;
 		bool L_18;
-		L_18 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_16, L_17);
+		L_18 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_16, L_17);
 		if (!L_18)
 		{
 			goto IL_0058;

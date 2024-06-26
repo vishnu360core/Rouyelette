@@ -11299,7 +11299,7 @@ IL_0192:
 		L_45 = VirtualFuncInvoker0< Type_t* >::Invoke(4, L_44);
 		RuntimeObject* L_46 = V_2;
 		bool L_47;
-		L_47 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_45, L_46);
+		L_47 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_45, L_46);
 		if (!L_47)
 		{
 			goto IL_0202;

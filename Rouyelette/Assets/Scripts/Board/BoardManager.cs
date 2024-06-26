@@ -39,7 +39,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     bool _isChipSelected = false;
     [SerializeField] int  _currentbetAmount;
 
-    Chip _currentChip;
+    [SerializeField]Chip _currentChip;
     Slot _currentSlot;
  
     List<GameObject> chipObjects = new List<GameObject>();
@@ -100,6 +100,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
        // Actions.ResetAction += ResetAction;
 
         Actions.OnSlotAction += SlotAction;
+
+
     }
 
     private void DeductionRejected()
@@ -118,7 +120,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     public void ClearBets()
     {
         _currentbetAmount = 0;
-        _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
+        _betAmountText.text = "Total Bet Amount: " + _currentbetAmount.ToString();
 
         Actions.DeleteChip();
         bets.Clear();
@@ -231,7 +233,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     {
         amount = bal;
 
-       _amountText.text = "Amount: $" + amount.ToString("F2");
+       _amountText.text = "$" + amount.ToString("F2");
 
     }
 
@@ -875,6 +877,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
 
         GameObject go = Instantiate(_currentChip.gameObject);
+        go.transform.localScale = Vector3.one;
 
         Debug.Log("Chip object 1" + go);
 
@@ -882,7 +885,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         if (go.GetComponent<Chip>() != null)
         {
             Chip chip = go.GetComponent<Chip>();
-            chip.EnableAnimation(false);
+            //chip.EnableAnimation(false);
 
 
             Debug.Log("Chip object 2");
@@ -898,23 +901,24 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
             Destroy(chip);
 
-            BoxCollider boxCollider = go.GetComponent<BoxCollider>();
-            Destroy(boxCollider);
+            //BoxCollider boxCollider = go.GetComponent<BoxCollider>();
+            //Destroy(boxCollider);
         }
 
 
         Debug.Log("Chip object 3");
 
-        go.transform.SetParent(slot.ChipTransform, false);
-        go.transform.localScale = Vector3.one;
+        //go.transform.SetParent(slot.ChipTransform, false);
+
+        //go.transform.position = slot.ChipTransform.position;
 
         if (chipObjects.Count == 0)
-            go.transform.localPosition = Vector3.zero;
+            go.transform.position = slot.ChipTransform.position;
         else
         {
             int floor = chipObjects.Count;
 
-            go.transform.localPosition = new Vector3(0, floor * 0.01f, 0);
+            go.transform.localPosition = new Vector3(slot.ChipTransform.position.x, slot.ChipTransform.position.y + floor * 0.05f, slot.ChipTransform.position.z);
         }
 
         go.transform.localRotation = Quaternion.identity;
@@ -940,6 +944,8 @@ public class BoardManager : MonoBehaviour,ChipInterface
     /// <param name="chip"></param>
     public void ChipSelecion(Chip chip)
     {
+        chip.gameObject.transform.localScale = Vector3.one;
+
         Actions.ResetHoverAction();
 
         AudioManager.Instance.PlaySFX(AudioManager.SFX.chip);
@@ -948,6 +954,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         //_currentbetAmount = chip.Bet;
         _currentChip = chip;
+        _currentChip.transform.localScale = Vector3.one;
 
        
         for (int i = 0; i < chips.Count; ++i)

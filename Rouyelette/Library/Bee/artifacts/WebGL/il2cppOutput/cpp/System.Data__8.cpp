@@ -16221,7 +16221,7 @@ IL_0013:
 		Type_t* L_8 = ((DataStorage_t862E6C556F9F1FB0BA5A4F51D926C40944A1EC7A*)__this)->____dataType;
 		RuntimeObject* L_9 = ___1_value;
 		bool L_10;
-		L_10 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_8, L_9);
+		L_10 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_8, L_9);
 		if (!L_10)
 		{
 			goto IL_0042;

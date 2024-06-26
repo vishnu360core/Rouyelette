@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] Slider _timeslider;
     [SerializeField] TMP_Text _tableID;
     [SerializeField] TMP_Text _walletAddress;
+    [SerializeField] TMP_Text _timeIndex;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -78,8 +79,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
        // _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();
 
-        _walletAddress.text = "Wallet address: " +  Network.Instance.Id;
-        _tableID.text = "Table ID:" + Network.Instance.Tableid;
+        _walletAddress.text = Network.Instance.Id;
+        _tableID.text = "Table ID: " + Network.Instance.Tableid;
 
         // Test();
 
@@ -164,6 +165,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         _timerText.text = timeShow.ToString() + " " + timeBet;
         _timeslider.DOValue(time, 0.5f);
+
+        _timeIndex.text = timeShow.ToString();
     }
 
     private void AddClientAction(string id)

@@ -14913,10 +14913,10 @@ IL_0193_2:
 					Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_50 = V_4;
 					Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_51 = V_4;
 					int32_t L_52;
-					L_52 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_51);
+					L_52 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_51);
 					Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_53 = V_4;
 					int32_t L_54;
-					L_54 = VirtualFuncInvoker0< int32_t >::Invoke(6, L_53);
+					L_54 = VirtualFuncInvoker0< int32_t >::Invoke(7, L_53);
 					Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_55;
 					memset((&L_55), 0, sizeof(L_55));
 					Rect__ctor_m18C3033D135097BEE424AAA68D91C706D2647F23_inline((&L_55), (0.0f), (0.0f), ((float)L_52), ((float)L_54), NULL);

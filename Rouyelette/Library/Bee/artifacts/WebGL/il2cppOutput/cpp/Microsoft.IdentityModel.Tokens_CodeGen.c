@@ -27,11 +27,11 @@ static Il2CppMethodPointer s_methodPointers[5] =
 };
 static const int32_t s_InvokerIndices[5] = 
 {
-	9350,
-	7648,
-	11537,
-	13476,
-	14036,
+	12841,
+	10310,
+	16017,
+	19407,
+	20790,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Microsoft_IdentityModel_Tokens_CodeGenModule;
 const Il2CppCodeGenModule g_Microsoft_IdentityModel_Tokens_CodeGenModule = 

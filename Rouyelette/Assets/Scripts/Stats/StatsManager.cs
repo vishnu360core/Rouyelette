@@ -21,7 +21,7 @@ public class StatsManager : MonoBehaviour
     {
         Actions.ReadStats += GetStatsAction;
         Actions.ReadHistoryStat += GetStatHistoryAction;
-       // Actions.ResetAction += ResetAction;
+        // Actions.ResetAction += ResetAction;
     }
 
     private void GetStatHistoryAction(int[] bets)
@@ -78,9 +78,15 @@ public class StatsManager : MonoBehaviour
     private void GetStatsAction(int number, Slot.ColorType type)
     {
         GameObject stat = Instantiate(_betStatPrefab);
+
         
         stat.GetComponent<Transform>().parent = _content;
-        stat.GetComponent<RectTransform>().localScale = Vector3.one;
+
+        RectTransform rect = stat.GetComponent<RectTransform>();
+
+        rect.localScale = Vector3.one;
+        rect.rotation = new Quaternion(0,0,0,0);
+        rect.localPosition = Vector3.zero;
 
         stat.GetComponent<Stats>().UpdateStat(type,number);
     }

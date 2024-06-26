@@ -9436,7 +9436,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Mgf1BytesGenerator_Init_m286AFEAC10FF1F2
 		L_1 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_0, NULL);
 		RuntimeObject* L_2 = ___0_parameters;
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_1, L_2);
 		if (L_3)
 		{
 			goto IL_001d;

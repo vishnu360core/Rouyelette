@@ -7076,7 +7076,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Dynamic_Linq_m603196C0A8C8F0BA
 		TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_2;
 		L_2 = IntrospectionExtensions_GetTypeInfo_mF4497C8656153A91554F7DC469CE223AF2784FF5(L_1, NULL);
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_3;
-		L_3 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(132, L_2);
+		L_3 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(133, L_2);
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_t1289C72ACD79D7834DD737FB4656D618570AC191_il2cpp_TypeInfo_var);
 		Func_2_t7AF8146EC94DFCBB0F1B3E70111C1FB21D39F00E* L_4 = ((U3CU3Ec_t1289C72ACD79D7834DD737FB4656D618570AC191_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_t1289C72ACD79D7834DD737FB4656D618570AC191_il2cpp_TypeInfo_var))->___U3CU3E9__9_0;
 		Func_2_t7AF8146EC94DFCBB0F1B3E70111C1FB21D39F00E* L_5 = L_4;
@@ -11556,7 +11556,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Dynamic_CoerceToDelegate_m359F
 		L_4 = IntrospectionExtensions_GetTypeInfo_mF4497C8656153A91554F7DC469CE223AF2784FF5(L_3, NULL);
 		TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_5 = V_0;
 		Type_t* L_6;
-		L_6 = VirtualFuncInvoker0< Type_t* >::Invoke(128, L_5);
+		L_6 = VirtualFuncInvoker0< Type_t* >::Invoke(129, L_5);
 		bool L_7;
 		L_7 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(31, L_4, L_6);
 		if (L_7)
@@ -12119,7 +12119,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Dynamic_CoerceConvert_m2B1AEC3
 		TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_3 = V_0;
 		RuntimeObject* L_4 = ___0_target;
 		bool L_5;
-		L_5 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_3, L_4);
+		L_5 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_3, L_4);
 		if (L_5)
 		{
 			goto IL_07ce;
@@ -13337,7 +13337,7 @@ IL_07f0:
 		TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_360 = V_0;
 		RuntimeObject* L_361 = ___0_target;
 		bool L_362;
-		L_362 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_360, L_361);
+		L_362 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_360, L_361);
 		if (L_362)
 		{
 			goto IL_0803;
@@ -13876,7 +13876,7 @@ IL_009c:
 		L_34 = IntrospectionExtensions_GetTypeInfo_mF4497C8656153A91554F7DC469CE223AF2784FF5(L_33, NULL);
 		RuntimeObject* L_35 = ___0_target;
 		bool L_36;
-		L_36 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(134, L_34, L_35);
+		L_36 = VirtualFuncInvoker1< bool, RuntimeObject* >::Invoke(135, L_34, L_35);
 		G_B11_0 = ((int32_t)(L_36));
 		G_B11_1 = G_B9_0;
 		G_B11_2 = G_B9_1;
@@ -18972,7 +18972,7 @@ IL_00f4:
 		TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_61;
 		L_61 = IntrospectionExtensions_GetTypeInfo_mF4497C8656153A91554F7DC469CE223AF2784FF5(L_60, NULL);
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_62;
-		L_62 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(132, L_61);
+		L_62 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(133, L_61);
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_t8594063016FB5BA147875C817C3123A012077E90_il2cpp_TypeInfo_var);
 		Func_2_t7AF8146EC94DFCBB0F1B3E70111C1FB21D39F00E* L_63 = ((U3CU3Ec_t8594063016FB5BA147875C817C3123A012077E90_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_t8594063016FB5BA147875C817C3123A012077E90_il2cpp_TypeInfo_var))->___U3CU3E9__1_3;
 		Func_2_t7AF8146EC94DFCBB0F1B3E70111C1FB21D39F00E* L_64 = L_63;
@@ -22418,7 +22418,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* InvokeHelper_InvokeConvertCall
 		ArrayElementTypeCheck (L_22, L_24);
 		(L_22)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(2), (Type_t*)L_24);
 		Type_t* L_25;
-		L_25 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_14, L_22);
+		L_25 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_14, L_22);
 		V_4 = L_25;
 		CallSite_t7E03097DD9D28AA5BB84A32493F38B8AF731B5AF** L_26 = ___4_callSite;
 		Type_t* L_27 = V_4;

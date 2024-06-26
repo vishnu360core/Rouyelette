@@ -6,19 +6,18 @@ using TMPro;
 using UnityEngine.Video;
 using System;
 
+using DG.Tweening;
+
 public interface ChipInterface
 {
     public void ChipSelecion(Chip chip);    
 }
 
-[RequireComponent(typeof(BoxCollider))]
 public class Chip : MonoBehaviour
 {
    
     [SerializeField] int _number;
     public int Bet=>_number;
-
-    [SerializeField] TMP_Text numberText; 
 
     Vector3 _position = Vector3.zero;
 
@@ -26,21 +25,21 @@ public class Chip : MonoBehaviour
 
     public ChipInterface callback;
 
-    [SerializeField] GameObject _outline;
-
     bool enablePlay = false;
+
+    [SerializeField] RectTransform _rect;
 
     public enum PlayMode {play,View}
 
     [Space]
     [SerializeField] PlayMode playMode;
 
+    [Header("Chip:")]
+    [SerializeField] Chip _chipObject;
 
 
     private void OnEnable()
     {
-        numberText.text = _number.ToString();
-
         _position = transform.position;
 
         Actions.ResetAction += ResetAction;
@@ -63,15 +62,19 @@ public class Chip : MonoBehaviour
 
     public void ResetAction()
     {
-        transform.position = _position;
+        //transform.position = _position;
 
         EnableAnimation(false);
+
     }
 
 
     public void EnableAnimation(bool enable)
     {
-       _outline.SetActive(enable);   
+        if (enable)
+            _rect.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.2f);
+        else
+            _rect.DOScale(Vector3.one, 0.2f);
     }
 
     void ChipSelectAction(bool select)
@@ -86,10 +89,11 @@ public class Chip : MonoBehaviour
         // transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
 
         Actions.BoardSelectAction();
-        callback.ChipSelecion(this);
+
+        callback.ChipSelecion(_chipObject);
     }
 
-    private void OnMouseDown()
+    public  void Select()
     {
         if (playMode != PlayMode.play)
             return;
@@ -97,7 +101,7 @@ public class Chip : MonoBehaviour
         if (!enablePlay)
             return;
 
-       _selected = !_selected;
+        _selected = !_selected;
 
        ChipSelectAction(_selected);
     }

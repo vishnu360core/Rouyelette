@@ -14000,7 +14000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PropertyInfoExtensions_IsHidingMember_m8
 			TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_2;
 			L_2 = IntrospectionExtensions_GetTypeInfo_mF4497C8656153A91554F7DC469CE223AF2784FF5(L_1, NULL);
 			Type_t* L_3;
-			L_3 = VirtualFuncInvoker0< Type_t* >::Invoke(128, L_2);
+			L_3 = VirtualFuncInvoker0< Type_t* >::Invoke(129, L_2);
 			PropertyInfo_t* L_4 = ___0_self;
 			String_t* L_5;
 			L_5 = VirtualFuncInvoker0< String_t* >::Invoke(13, L_4);
@@ -23468,7 +23468,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* ArrayTypeDecoder_GetDefaultDecodingTy
 		ArrayElementTypeCheck (L_3, L_5);
 		(L_3)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_5);
 		Type_t* L_6;
-		L_6 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_1, L_3);
+		L_6 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_1, L_3);
 		return L_6;
 	}
 }
@@ -23892,7 +23892,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* ArrayTypeDecoder_GetIListElementType_
 		TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D* L_1;
 		L_1 = IntrospectionExtensions_GetTypeInfo_mF4497C8656153A91554F7DC469CE223AF2784FF5(L_0, NULL);
 		RuntimeObject* L_2;
-		L_2 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(152, L_1);
+		L_2 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(153, L_1);
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tC5011FFEBC7D95877F3B4C2D7CB69C40421B8167_il2cpp_TypeInfo_var);
 		Func_2_t7AF8146EC94DFCBB0F1B3E70111C1FB21D39F00E* L_3 = ((U3CU3Ec_tC5011FFEBC7D95877F3B4C2D7CB69C40421B8167_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tC5011FFEBC7D95877F3B4C2D7CB69C40421B8167_il2cpp_TypeInfo_var))->___U3CU3E9__18_0;
 		Func_2_t7AF8146EC94DFCBB0F1B3E70111C1FB21D39F00E* L_4 = L_3;

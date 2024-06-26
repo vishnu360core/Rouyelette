@@ -8,8 +8,6 @@ public class SpinWheelManager : MonoBehaviour,BallInterface,ObstacleInterface
     [SerializeField] Wheel _spinWheel;
     [SerializeField] Ball ball;
 
-    [SerializeField] GameObject _colliders;
-
     [Space]
     [SerializeField] List<Obstacle> obstacles = new List<Obstacle>();
 

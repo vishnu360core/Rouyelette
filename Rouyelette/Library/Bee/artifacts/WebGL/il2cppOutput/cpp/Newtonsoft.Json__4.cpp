@@ -7638,7 +7638,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* TypeExtensions_BaseType_m08B484352564
 	{
 		Type_t* L_0 = ___0_type;
 		Type_t* L_1;
-		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(128, L_0);
+		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(129, L_0);
 		return L_1;
 	}
 }
@@ -7781,7 +7781,7 @@ IL_001f:
 	{
 		Type_t* L_12 = ___0_type;
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_13;
-		L_13 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(132, L_12);
+		L_13 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(133, L_12);
 		V_1 = L_13;
 		V_2 = 0;
 		goto IL_0050;
@@ -7873,7 +7873,7 @@ IL_0004:
 	{
 		Type_t* L_1 = V_0;
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_2;
-		L_2 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(132, L_1);
+		L_2 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(133, L_1);
 		RuntimeObject* L_3;
 		L_3 = InterfaceFuncInvoker0< RuntimeObject* >::Invoke(0, IEnumerable_1_t6686595E4CB7AC210F0EF075F7B1DD4A21D3902B_il2cpp_TypeInfo_var, (RuntimeObject*)L_2);
 		V_1 = L_3;
@@ -9671,7 +9671,7 @@ IL_001d:
 		ArrayElementTypeCheck (L_31, L_32);
 		(L_31)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_32);
 		Type_t* L_33;
-		L_33 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_27, L_31);
+		L_33 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_27, L_31);
 		V_6 = L_33;
 		goto IL_0088;
 	}
@@ -9884,7 +9884,7 @@ IL_0188:
 		ArrayElementTypeCheck (L_95, L_96);
 		(L_95)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_96);
 		Type_t* L_97;
-		L_97 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_91, L_95);
+		L_97 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_91, L_95);
 		V_11 = L_97;
 		Type_t* L_98 = V_11;
 		ConstructorInfoU5BU5D_t515A0B944728842263B6033C9A62F6392C3BCD8A* L_99;
@@ -12046,11 +12046,11 @@ IL_00ab:
 		ArrayElementTypeCheck (L_43, L_45);
 		(L_43)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_45);
 		Type_t* L_46;
-		L_46 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_38, L_43);
+		L_46 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_38, L_43);
 		ArrayElementTypeCheck (L_36, L_46);
 		(L_36)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_46);
 		Type_t* L_47;
-		L_47 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_34, L_36);
+		L_47 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_34, L_36);
 		G_B11_0 = L_47;
 	}
 
@@ -12210,7 +12210,7 @@ IL_0048:
 		ArrayElementTypeCheck (L_18, L_20);
 		(L_18)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_20);
 		Type_t* L_21;
-		L_21 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_16, L_18);
+		L_21 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_16, L_18);
 		G_B4_0 = L_21;
 	}
 
@@ -14962,7 +14962,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CU3Ec_U3CGetExtensionDataMem
 		List_1_t269913CE854C1793B808480C94E04A8DB19CD0A4* L_1 = L_0;
 		Type_t* L_2 = ___0_baseType;
 		PropertyInfoU5BU5D_tD81C248B41D0C76207C42DB9C332DC79F490B1D7* L_3;
-		L_3 = VirtualFuncInvoker1< PropertyInfoU5BU5D_tD81C248B41D0C76207C42DB9C332DC79F490B1D7*, int32_t >::Invoke(125, L_2, ((int32_t)54));
+		L_3 = VirtualFuncInvoker1< PropertyInfoU5BU5D_tD81C248B41D0C76207C42DB9C332DC79F490B1D7*, int32_t >::Invoke(126, L_2, ((int32_t)54));
 		CollectionUtils_AddRange_TisMemberInfo_t_mDE50EE4C0A4096874E30FF48A4806321F24E103F(L_1, (RuntimeObject*)L_3, CollectionUtils_AddRange_TisMemberInfo_t_mDE50EE4C0A4096874E30FF48A4806321F24E103F_RuntimeMethod_var);
 		List_1_t269913CE854C1793B808480C94E04A8DB19CD0A4* L_4 = L_1;
 		Type_t* L_5 = ___0_baseType;
@@ -16117,7 +16117,7 @@ IL_00aa:
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_39;
 		L_39 = List_1_ToArray_mAF39173491C493DC9C643F76BC50C311070BEE56(L_38, List_1_ToArray_mAF39173491C493DC9C643F76BC50C311070BEE56_RuntimeMethod_var);
 		Type_t* L_40;
-		L_40 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_37, L_39);
+		L_40 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_37, L_39);
 		V_0 = L_40;
 	}
 
@@ -16876,7 +16876,7 @@ IL_0049:
 		ArrayElementTypeCheck (L_15, L_16);
 		(L_15)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_16);
 		Type_t* L_17;
-		L_17 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_13, L_15);
+		L_17 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_13, L_15);
 		__this->____genericCollectionDefinitionType = L_17;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____genericCollectionDefinitionType), (void*)L_17);
 		V_0 = (bool)1;
@@ -17087,7 +17087,7 @@ IL_01e9:
 		ArrayElementTypeCheck (L_72, L_73);
 		(L_72)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_73);
 		Type_t* L_74;
-		L_74 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_70, L_72);
+		L_74 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_70, L_72);
 		JsonContract_set_CreatedType_mB9B232317567D5530B9C9E238C4F94BCEFDD6A67(__this, L_74, NULL);
 	}
 
@@ -17118,7 +17118,7 @@ IL_020d:
 		ArrayElementTypeCheck (L_82, L_83);
 		(L_82)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_83);
 		Type_t* L_84;
-		L_84 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_80, L_82);
+		L_84 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_80, L_82);
 		JsonContract_set_CreatedType_mB9B232317567D5530B9C9E238C4F94BCEFDD6A67(__this, L_84, NULL);
 	}
 
@@ -17200,7 +17200,7 @@ IL_02c5:
 		ArrayElementTypeCheck (L_107, L_108);
 		(L_107)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_108);
 		Type_t* L_109;
-		L_109 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_105, L_107);
+		L_109 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_105, L_107);
 		JsonContract_set_CreatedType_mB9B232317567D5530B9C9E238C4F94BCEFDD6A67(__this, L_109, NULL);
 	}
 
@@ -17217,7 +17217,7 @@ IL_02e9:
 		ArrayElementTypeCheck (L_113, L_114);
 		(L_113)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_114);
 		Type_t* L_115;
-		L_115 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_111, L_113);
+		L_115 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_111, L_113);
 		__this->____genericCollectionDefinitionType = L_115;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____genericCollectionDefinitionType), (void*)L_115);
 		Type_t* L_116;
@@ -17286,7 +17286,7 @@ IL_0343:
 		ArrayElementTypeCheck (L_136, L_137);
 		(L_136)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_137);
 		Type_t* L_138;
-		L_138 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_134, L_136);
+		L_138 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_134, L_136);
 		JsonContract_set_CreatedType_mB9B232317567D5530B9C9E238C4F94BCEFDD6A67(__this, L_138, NULL);
 	}
 
@@ -17347,7 +17347,7 @@ IL_040d:
 		ArrayElementTypeCheck (L_154, L_155);
 		(L_154)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_155);
 		Type_t* L_156;
-		L_156 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_152, L_154);
+		L_156 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_152, L_154);
 		__this->____genericCollectionDefinitionType = L_156;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____genericCollectionDefinitionType), (void*)L_156);
 		((JsonContract_tE6A7D4E99E3396B56718606824E99F870FCCF4BA*)__this)->___IsReadOnlyOrFixedSize = (bool)1;
@@ -17443,7 +17443,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonArrayContract_CreateWrappe
 		ArrayElementTypeCheck (L_4, L_5);
 		(L_4)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_5);
 		Type_t* L_6;
-		L_6 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_2, L_4);
+		L_6 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_2, L_4);
 		__this->____genericWrapperType = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____genericWrapperType), (void*)L_6);
 		Type_t* L_7 = __this->____genericCollectionDefinitionType;
@@ -17487,7 +17487,7 @@ IL_0062:
 		ArrayElementTypeCheck (L_19, L_20);
 		(L_19)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_20);
 		Type_t* L_21;
-		L_21 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_17, L_19);
+		L_21 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_17, L_19);
 		V_0 = L_21;
 		goto IL_008a;
 	}
@@ -17604,7 +17604,7 @@ IL_0030:
 		ArrayElementTypeCheck (L_10, L_11);
 		(L_10)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(0), (Type_t*)L_11);
 		Type_t* L_12;
-		L_12 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_8, L_10);
+		L_12 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_8, L_10);
 		V_1 = L_12;
 		il2cpp_codegen_runtime_class_init_inline(JsonTypeReflector_t367C9968A0B763401F51F0A38B6CCA19EDC92A35_il2cpp_TypeInfo_var);
 		ReflectionDelegateFactory_t33E37F4C07B3A1F415AA97A5C5F7F5A1662A8574* L_13;
@@ -19505,7 +19505,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDictionaryContract__ctor_mF9F1BD61E2
 		ArrayElementTypeCheck (L_23, L_24);
 		(L_23)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_24);
 		Type_t* L_25;
-		L_25 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_19, L_23);
+		L_25 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_19, L_23);
 		JsonContract_set_CreatedType_mB9B232317567D5530B9C9E238C4F94BCEFDD6A67(__this, L_25, NULL);
 		goto IL_00b6;
 	}
@@ -19608,7 +19608,7 @@ IL_00d6:
 		ArrayElementTypeCheck (L_58, L_59);
 		(L_58)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_59);
 		Type_t* L_60;
-		L_60 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_54, L_58);
+		L_60 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_54, L_58);
 		JsonContract_set_CreatedType_mB9B232317567D5530B9C9E238C4F94BCEFDD6A67(__this, L_60, NULL);
 	}
 
@@ -19681,7 +19681,7 @@ IL_0188:
 		ArrayElementTypeCheck (L_78, L_79);
 		(L_78)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_79);
 		Type_t* L_80;
-		L_80 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_74, L_78);
+		L_80 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_74, L_78);
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_81 = { reinterpret_cast<intptr_t> (IDictionary_2_t4F866F723F9E0A522C362494DC799D065D96C726_0_0_0_var) };
 		Type_t* L_82;
 		L_82 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_81, NULL);
@@ -19695,7 +19695,7 @@ IL_0188:
 		ArrayElementTypeCheck (L_86, L_87);
 		(L_86)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_87);
 		Type_t* L_88;
-		L_88 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_82, L_86);
+		L_88 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_82, L_86);
 		ConstructorInfo_t1B5967EE7E5554272F79F8880183C70AD240EEEB* L_89;
 		L_89 = CollectionUtils_ResolveEnumerableCollectionConstructor_mC2D9D30053DFE768B4E85A883579F9B8DFD3CD15(L_72, L_80, L_88, NULL);
 		__this->____parameterizedConstructor = L_89;
@@ -19848,7 +19848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDictionaryContract_CreateW
 		ArrayElementTypeCheck (L_6, L_7);
 		(L_6)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(1), (Type_t*)L_7);
 		Type_t* L_8;
-		L_8 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, L_2, L_6);
+		L_8 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, L_2, L_6);
 		__this->____genericWrapperType = L_8;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____genericWrapperType), (void*)L_8);
 		Type_t* L_9 = __this->____genericWrapperType;
@@ -20002,7 +20002,7 @@ IL_0045:
 		ArrayElementTypeCheck (G_B5_2, G_B5_0);
 		(G_B5_2)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(G_B5_1), (Type_t*)G_B5_0);
 		Type_t* L_14;
-		L_14 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(141, G_B5_4, G_B5_3);
+		L_14 = VirtualFuncInvoker1< Type_t*, TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(142, G_B5_4, G_B5_3);
 		V_0 = L_14;
 		il2cpp_codegen_runtime_class_init_inline(JsonTypeReflector_t367C9968A0B763401F51F0A38B6CCA19EDC92A35_il2cpp_TypeInfo_var);
 		ReflectionDelegateFactory_t33E37F4C07B3A1F415AA97A5C5F7F5A1662A8574* L_15;

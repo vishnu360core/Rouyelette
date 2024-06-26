@@ -22204,10 +22204,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11
 		String_t* L_1 = ___0_text;
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_2 = V_0;
 		int32_t L_3;
-		L_3 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_2);
+		L_3 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_2);
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_4 = V_0;
 		int32_t L_5;
-		L_5 = VirtualFuncInvoker0< int32_t >::Invoke(6, L_4);
+		L_5 = VirtualFuncInvoker0< int32_t >::Invoke(7, L_4);
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_6;
 		L_6 = MetaMaskUnityUIQRImage_EncodeToQR_m3581308D454D6CF71363ACFB2666C51B81A52609(L_1, L_3, L_5, NULL);
 		V_1 = L_6;

@@ -181,7 +181,7 @@ public class WalletConnector : MonoBehaviour
         string addressFirst = address.Substring(0,4);
         string addressLast = address.Substring(address.Length-4,4);
 
-        string addressPrint = addressFirst +"....." + addressLast;
+        string addressPrint = addressFirst +"...." + addressLast;
 
         //walletAddressText.text = "Wallet address: " + addressPrint;
         Network.Instance.SetId(addressPrint);
@@ -196,7 +196,7 @@ public class WalletConnector : MonoBehaviour
 
     public void ShowWalletAddress(string addressPrint)
     {
-        walletAddressText.text = "Wallet address: " + addressPrint;
+        walletAddressText.text = addressPrint;
     }
 
     public void OnConnectError(string error)

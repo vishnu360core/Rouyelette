@@ -18766,6 +18766,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BitConverter_SingleToInt32Bits_mC760C
 		return L_0;
 	}
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float BitConverter_Int32BitsToSingle_mAD799CFA19FABC0DCA7A09F3380A1F0B0EB39130 (int32_t ___0_value, const RuntimeMethod* method) 
+{
+	{
+		float L_0 = *((float*)((uintptr_t)(&___0_value)));
+		return L_0;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BitConverter__cctor_m77BB4F0CC2923A8A4CBE1DDB6D0CD6C4D81F4BE2 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;

@@ -24824,7 +24824,7 @@ IL_0057:
 		int32_t L_22 = L_21;
 		Type_t* L_23 = (L_20)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(L_22));
 		bool L_24;
-		L_24 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_18, L_23);
+		L_24 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_18, L_23);
 		if (L_24)
 		{
 			goto IL_0070;
@@ -24953,7 +24953,7 @@ IL_000c:
 		XmlTypeSerializationSource_tE995CC9E60F76C0EDAC4CFAA7808ACCEF4225984* L_3 = V_0;
 		Type_t* L_4 = L_3->___type;
 		bool L_5;
-		L_5 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(143, L_2, L_4);
+		L_5 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(144, L_2, L_4);
 		if (L_5)
 		{
 			goto IL_0021;
@@ -26057,7 +26057,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR PropertyInfo_t* TypeData_GetIndexerProperty_m
 	{
 		Type_t* L_0 = ___0_collectionType;
 		PropertyInfoU5BU5D_tD81C248B41D0C76207C42DB9C332DC79F490B1D7* L_1;
-		L_1 = VirtualFuncInvoker1< PropertyInfoU5BU5D_tD81C248B41D0C76207C42DB9C332DC79F490B1D7*, int32_t >::Invoke(125, L_0, ((int32_t)20));
+		L_1 = VirtualFuncInvoker1< PropertyInfoU5BU5D_tD81C248B41D0C76207C42DB9C332DC79F490B1D7*, int32_t >::Invoke(126, L_0, ((int32_t)20));
 		V_0 = L_1;
 		V_1 = 0;
 		goto IL_0040;
@@ -26223,7 +26223,7 @@ IL_003e:
 		V_0 = (Type_t*)NULL;
 		Type_t* L_16 = ___0_type;
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_17;
-		L_17 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(132, L_16);
+		L_17 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(133, L_16);
 		V_2 = L_17;
 		V_3 = 0;
 		goto IL_0063;

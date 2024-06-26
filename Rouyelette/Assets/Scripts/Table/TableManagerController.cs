@@ -58,7 +58,7 @@ public class TableManagerController : MonoBehaviour
 
         PopMessage.Instance.PopUpMessage(PopMessage.MessageType.normal,"Table Created :" + uniqueId);
 
-        Network.Instance.PushTableId(uniqueId);
+       Network.Instance.PushTableId(uniqueId);
 
        Invoke("LoadGame", 2.0f);
     }

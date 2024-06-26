@@ -268,6 +268,7 @@ struct BinaryWriter_tFB94D67EDFA3F6A34744A163BDABE287FDF2ED1E;
 struct Binder_t91BFCE95A7057FADF4D8A1A342AFE52872246235;
 struct COMException_t5F7851B41A1B121A563AA1ACF64196EFF5FE8D64;
 struct Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B;
+struct CallerFilePathAttribute_tD13D8EAC572E95B7402C8EC7664A47F168F7AFDE;
 struct CallerMemberNameAttribute_t98FA769866FC316444A25ADFCE620E8005A751C2;
 struct CancellationTokenSource_tAAE1E0033BCFC233801F8CB4CED5C852B350CB7B;
 struct ClassInterfaceAttribute_t80A22EA49AEE8A331C5412515685CBE522A7FAB5;
@@ -1523,6 +1524,9 @@ struct Boolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22
 struct Byte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3 
 {
 	uint8_t ___m_value;
+};
+struct CallerFilePathAttribute_tD13D8EAC572E95B7402C8EC7664A47F168F7AFDE  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
+{
 };
 struct CallerMemberNameAttribute_t98FA769866FC316444A25ADFCE620E8005A751C2  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
 {
@@ -17717,6 +17721,12 @@ IL_0012:
 		return L_7;
 	}
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Marshal_SizeOf_mED64846722033D6F60C2973CA604B7C2D7D4A1B7 (Type_t* ___0_t, const RuntimeMethod* method) 
+{
+	typedef int32_t (*Marshal_SizeOf_mED64846722033D6F60C2973CA604B7C2D7D4A1B7_ftn) (Type_t*);
+	using namespace il2cpp::icalls;
+	return ((Marshal_SizeOf_mED64846722033D6F60C2973CA604B7C2D7D4A1B7_ftn)mscorlib::System::Runtime::InteropServices::Marshal::SizeOf) (___0_t);
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t Marshal_StringToHGlobalAnsi_m8796C51848EF275F1E1B606A4AA5FB3C70F43FFB (Il2CppChar* ___0_s, int32_t ___1_length, const RuntimeMethod* method) 
 {
 	typedef intptr_t (*Marshal_StringToHGlobalAnsi_m8796C51848EF275F1E1B606A4AA5FB3C70F43FFB_ftn) (Il2CppChar*, int32_t);
@@ -19309,6 +19319,21 @@ IL2CPP_EXTERN_C  ValueTask_t10B4B5DDF5C582607D0E634FA912F8CB94FCD49F AsyncValueT
 	ValueTask_t10B4B5DDF5C582607D0E634FA912F8CB94FCD49F _returnValue;
 	_returnValue = AsyncValueTaskMethodBuilder_get_Task_m17C626DECA32A746EB432AE9643B96073895A183(_thisAdjusted, method);
 	return _returnValue;
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CallerFilePathAttribute__ctor_m798D631BBE03A4DC2300CFDE1FB6EC125F2CCE24 (CallerFilePathAttribute_tD13D8EAC572E95B7402C8EC7664A47F168F7AFDE* __this, const RuntimeMethod* method) 
+{
+	{
+		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
+		return;
+	}
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

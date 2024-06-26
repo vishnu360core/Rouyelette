@@ -21703,7 +21703,7 @@ IL_007d:
 		Type_t* L_13;
 		L_13 = DataTableConverter_GetColumnDataType_mC43442E3804117313CB28095BA77533FDD22A7A2(L_12, NULL);
 		Type_t* L_14;
-		L_14 = VirtualFuncInvoker0< Type_t* >::Invoke(138, L_13);
+		L_14 = VirtualFuncInvoker0< Type_t* >::Invoke(139, L_13);
 		return L_14;
 	}
 
