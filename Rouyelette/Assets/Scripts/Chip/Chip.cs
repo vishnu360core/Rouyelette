@@ -19,8 +19,6 @@ public class Chip : MonoBehaviour
     [SerializeField] int _number;
     public int Bet=>_number;
 
-    Vector3 _position = Vector3.zero;
-
     bool _selected = false;
 
     public ChipInterface callback;
@@ -36,12 +34,11 @@ public class Chip : MonoBehaviour
 
     [Header("Chip:")]
     [SerializeField] Chip _chipObject;
+    public Chip ChipObject => _chipObject;  
 
 
     private void OnEnable()
     {
-        _position = transform.position;
-
         Actions.ResetAction += ResetAction;
 
         Actions.EnablePlay += EnablePlay;
@@ -62,12 +59,8 @@ public class Chip : MonoBehaviour
 
     public void ResetAction()
     {
-        //transform.position = _position;
-
         EnableAnimation(false);
-
     }
-
 
     public void EnableAnimation(bool enable)
     {
@@ -86,7 +79,6 @@ public class Chip : MonoBehaviour
         }
 
         EnableAnimation(true);
-        // transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
 
         Actions.BoardSelectAction();
 

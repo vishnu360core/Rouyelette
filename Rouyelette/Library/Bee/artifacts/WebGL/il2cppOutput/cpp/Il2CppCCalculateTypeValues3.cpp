@@ -34899,7 +34899,6 @@ struct ChatController_t21BE953E1D5ADF0BA9F3B03C205203CADDC64C15  : public MonoBe
 struct Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	int32_t ____number;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ____position;
 	bool ____selected;
 	RuntimeObject* ___callback;
 	bool ___enablePlay;

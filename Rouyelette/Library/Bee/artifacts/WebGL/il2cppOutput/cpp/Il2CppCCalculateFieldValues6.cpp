@@ -17543,7 +17543,6 @@ struct ChatController_t21BE953E1D5ADF0BA9F3B03C205203CADDC64C15  : public MonoBe
 struct Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	int32_t ____number;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ____position;
 	bool ____selected;
 	RuntimeObject* ___callback;
 	bool ___enablePlay;
@@ -22621,9 +22620,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19046[4] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19049[3] = 
 {
 	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19050[8] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19050[7] = 
 {
-	static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____number)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____position)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____selected)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ___callback)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ___enablePlay)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____rect)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ___playMode)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____chipObject)),};
+	static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____number)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____selected)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ___callback)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ___enablePlay)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____rect)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ___playMode)),static_cast<int32_t>(offsetof(Chip_tCF0E203B3DD2AF11E79975A84E8B87B98A0B9E27, ____chipObject)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19051[3] = 
 {
 	static_cast<int32_t>(offsetof(DealerController_t5C28F3D04BB714822831D6A1DACC0629827D5302, ____dealerObject)),static_cast<int32_t>(offsetof(DealerController_t5C28F3D04BB714822831D6A1DACC0629827D5302, ____start)),static_cast<int32_t>(offsetof(DealerController_t5C28F3D04BB714822831D6A1DACC0629827D5302, ___yPos)),};

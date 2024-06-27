@@ -171,7 +171,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.8
+    - _Smoothness: 0.856
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -212,7 +212,7 @@ Material:
     - _BaseColor: {r: 1, g: 0.9803922, b: 0, a: 1}
     - _Color: {r: 1, g: 0.98039216, b: 0, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EmissionColor: {r: 0.3490566, g: 0.22858575, b: 0, a: 0}
+    - _EmissionColor: {r: 0.122641504, g: 0.079923674, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}

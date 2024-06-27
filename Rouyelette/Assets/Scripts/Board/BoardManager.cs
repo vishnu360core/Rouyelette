@@ -959,7 +959,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
        
         for (int i = 0; i < chips.Count; ++i)
         {
-            if (chips[i] != chip)
+            if (chips[i].ChipObject != chip)
                 chips[i].ResetAction();
         }
     }

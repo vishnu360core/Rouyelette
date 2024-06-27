@@ -102,82 +102,20 @@ ScriptsOnlyBuild:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
     - UnityEditor.Rendering.HighDefinition.HDUserSettings
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
-    - UnityEngine.Rendering.HighDefinition.Bloom
-    - UnityEngine.Rendering.HighDefinition.ChannelMixer
-    - UnityEngine.Rendering.HighDefinition.ChromaticAberration
-    - UnityEngine.Rendering.HighDefinition.CloudLayer
-    - UnityEngine.Rendering.HighDefinition.ColorAdjustments
-    - UnityEngine.Rendering.HighDefinition.ColorCurves
-    - UnityEngine.Rendering.HighDefinition.Compositor.AlphaInjection
-    - UnityEngine.Rendering.HighDefinition.Compositor.ChromaKeying
-    - UnityEngine.Rendering.HighDefinition.ContactShadows
-    - UnityEngine.Rendering.HighDefinition.DepthOfField
-    - UnityEngine.Rendering.HighDefinition.DiffusionProfileList
     - UnityEngine.Rendering.HighDefinition.DiffusionProfileSettings
-    - UnityEngine.Rendering.HighDefinition.ExponentialFog
-    - UnityEngine.Rendering.HighDefinition.Exposure
-    - UnityEngine.Rendering.HighDefinition.FilmGrain
-    - UnityEngine.Rendering.HighDefinition.Fog
-    - UnityEngine.Rendering.HighDefinition.GlobalIllumination
-    - UnityEngine.Rendering.HighDefinition.GradientSky
-    - UnityEngine.Rendering.HighDefinition.HDRISky
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineGlobalSettings
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeResources
-    - UnityEngine.Rendering.HighDefinition.HDShadowSettings
-    - UnityEngine.Rendering.HighDefinition.IndirectLightingController
-    - UnityEngine.Rendering.HighDefinition.LensDistortion
-    - UnityEngine.Rendering.HighDefinition.LiftGammaGain
-    - UnityEngine.Rendering.HighDefinition.LightCluster
-    - UnityEngine.Rendering.HighDefinition.MicroShadowing
-    - UnityEngine.Rendering.HighDefinition.MotionBlur
-    - UnityEngine.Rendering.HighDefinition.PaniniProjection
-    - UnityEngine.Rendering.HighDefinition.PathTracing
-    - UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky
-    - UnityEngine.Rendering.HighDefinition.RayTracingSettings
-    - UnityEngine.Rendering.HighDefinition.RecursiveRendering
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceAmbientOcclusion
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceRefraction
-    - UnityEngine.Rendering.HighDefinition.ShadowsMidtonesHighlights
-    - UnityEngine.Rendering.HighDefinition.SplitToning
-    - UnityEngine.Rendering.HighDefinition.SubSurfaceScattering
-    - UnityEngine.Rendering.HighDefinition.Tonemapping
-    - UnityEngine.Rendering.HighDefinition.Vignette
-    - UnityEngine.Rendering.HighDefinition.VisualEnvironment
-    - UnityEngine.Rendering.HighDefinition.VolumetricClouds
-    - UnityEngine.Rendering.HighDefinition.VolumetricFog
-    - UnityEngine.Rendering.HighDefinition.VolumetricLightingController
-    - UnityEngine.Rendering.HighDefinition.WaterRendering
-    - UnityEngine.Rendering.HighDefinition.WhiteBalance
-    - UnityEngine.Rendering.ProbeVolumesOptions
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.RenderObjects
-    - UnityEngine.Rendering.Universal.Bloom
-    - UnityEngine.Rendering.Universal.ChannelMixer
-    - UnityEngine.Rendering.Universal.ChromaticAberration
-    - UnityEngine.Rendering.Universal.ColorAdjustments
-    - UnityEngine.Rendering.Universal.ColorCurves
-    - UnityEngine.Rendering.Universal.ColorLookup
     - UnityEngine.Rendering.Universal.DecalRendererFeature
-    - UnityEngine.Rendering.Universal.DepthOfField
-    - UnityEngine.Rendering.Universal.FilmGrain
-    - UnityEngine.Rendering.Universal.LensDistortion
-    - UnityEngine.Rendering.Universal.LiftGammaGain
-    - UnityEngine.Rendering.Universal.MotionBlur
-    - UnityEngine.Rendering.Universal.PaniniProjection
     - UnityEngine.Rendering.Universal.PostProcessData
-    - UnityEngine.Rendering.Universal.ShadowsMidtonesHighlights
-    - UnityEngine.Rendering.Universal.SplitToning
-    - UnityEngine.Rendering.Universal.Tonemapping
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalAdditionalLightData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineGlobalSettings
     - UnityEngine.Rendering.Universal.UniversalRendererData
-    - UnityEngine.Rendering.Universal.Vignette
-    - UnityEngine.Rendering.Universal.WhiteBalance
     - UnityEngine.Rendering.Universal.XRSystemData
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -434,9 +372,6 @@ ScriptsOnlyBuild:
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
   - assembly: Thirdweb.Core
-    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
-    methodName: OnDisconnect
-  - assembly: Thirdweb.Core
     fullTypeName: Thirdweb.Wallets.WalletConnectUI
     methodName: Cancel
   - assembly: Thirdweb.Core
@@ -448,6 +383,9 @@ ScriptsOnlyBuild:
   - assembly: Thirdweb.Core
     fullTypeName: Thirdweb.Wallets.EmbeddedWalletUI
     methodName: Cancel
+  - assembly: Thirdweb.Core
+    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
+    methodName: OnDisconnect
   - assembly: Assembly-CSharp
     fullTypeName: TableManagerController
     methodName: EnableJoinPanel
@@ -541,6 +479,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: AudioManager
     methodName: Play_Button
+  - assembly: Thirdweb.Core
+    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
+    methodName: OnDisconnect
+  - assembly: Thirdweb.Core
+    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
+    methodName: OnDisconnect
   - assembly: Unity.RenderPipelines.Core.Runtime
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
     methodName: OnScrollbarClicked
@@ -580,12 +524,6 @@ ScriptsOnlyBuild:
   - assembly: Unity.RenderPipelines.Core.Runtime
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
     methodName: ResetDebugManager
-  - assembly: Thirdweb.Core
-    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
-    methodName: OnDisconnect
-  - assembly: Thirdweb.Core
-    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
-    methodName: OnDisconnect
   - assembly: Thirdweb.Core
     fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
     methodName: OnDisconnect
@@ -727,31 +665,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 31310}
     - Class: 114
-      Script: {instanceID: 32586}
+      Script: {instanceID: 32588}
     - Class: 114
-      Script: {instanceID: 32736}
+      Script: {instanceID: 32738}
     - Class: 114
-      Script: {instanceID: 32770}
+      Script: {instanceID: 32772}
     - Class: 114
-      Script: {instanceID: 32784}
+      Script: {instanceID: 32786}
     - Class: 114
-      Script: {instanceID: 32952}
+      Script: {instanceID: 32954}
     - Class: 114
-      Script: {instanceID: 33016}
+      Script: {instanceID: 33018}
     - Class: 114
-      Script: {instanceID: 33726}
+      Script: {instanceID: 33728}
     - Class: 114
-      Script: {instanceID: 33822}
+      Script: {instanceID: 33824}
     - Class: 114
-      Script: {instanceID: 34284}
+      Script: {instanceID: 34286}
     - Class: 114
-      Script: {instanceID: 34788}
+      Script: {instanceID: 34790}
     - Class: 114
-      Script: {instanceID: 40062}
+      Script: {instanceID: 40110}
     - Class: 114
-      Script: {instanceID: 40064}
+      Script: {instanceID: 40112}
     - Class: 114
-      Script: {instanceID: 40066}
+      Script: {instanceID: 40114}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -816,7 +754,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 31310}
     - Class: 114
-      Script: {instanceID: 32770}
+      Script: {instanceID: 32772}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -1009,33 +947,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 32402}
     - Class: 114
-      Script: {instanceID: 32574}
+      Script: {instanceID: 32576}
     - Class: 114
-      Script: {instanceID: 32636}
+      Script: {instanceID: 32638}
     - Class: 114
-      Script: {instanceID: 32770}
+      Script: {instanceID: 32772}
     - Class: 114
-      Script: {instanceID: 32784}
+      Script: {instanceID: 32786}
     - Class: 114
-      Script: {instanceID: 32926}
+      Script: {instanceID: 32928}
     - Class: 114
-      Script: {instanceID: 33106}
+      Script: {instanceID: 33108}
     - Class: 114
-      Script: {instanceID: 33118}
+      Script: {instanceID: 33120}
     - Class: 114
-      Script: {instanceID: 33314}
+      Script: {instanceID: 33316}
     - Class: 114
-      Script: {instanceID: 33650}
+      Script: {instanceID: 33652}
     - Class: 114
-      Script: {instanceID: 33720}
+      Script: {instanceID: 33722}
     - Class: 114
-      Script: {instanceID: 33800}
+      Script: {instanceID: 33802}
     - Class: 114
-      Script: {instanceID: 34280}
+      Script: {instanceID: 34282}
     - Class: 114
-      Script: {instanceID: 34602}
+      Script: {instanceID: 34604}
     - Class: 114
-      Script: {instanceID: 34992}
+      Script: {instanceID: 34994}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128

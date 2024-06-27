@@ -8,9 +8,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
-src/*/[Ll]ogs/*
 /[Uu]ser[Ss]ettings/
-logs/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -40,22 +38,14 @@ ExportedObj/
 *.suo
 *.tmp
 *.user
-*.meta
 *.userprefs
 *.pidb
-*.rsp
 *.booproj
 *.svd
 *.pdb
 *.mdb
-*.o
-*.dylib
-*.mvfrm
 *.opendb
 *.VC.db
-*.log
-*.data
-*.unity3d
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -80,9 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-Rouyelette/Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/GameAssembly.a
-/Rouyelette/Library/Artifacts
+*.meta
 /Rouyelette/Library
 /Rouyelette/Library
-/Rouyelette/Temp
-/Rouyelette/Library
+*.log
+*.a
