@@ -35,6 +35,16 @@ public class StatsManager : MonoBehaviour
         Actions.BetData(bets[bets.Length - 1]);
     }
 
+
+    public void SetStat(int bet)
+    {
+        if (_content.childCount > 0)
+            return;
+
+        Slot.ColorType colorType = GetColorCode(bet);
+        GetStatsAction(bet, colorType);
+    }
+
     Slot.ColorType GetColorCode(int index) 
     {
                 if (index == 0

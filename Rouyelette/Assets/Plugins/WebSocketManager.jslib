@@ -34,7 +34,7 @@ mergeInto(LibraryManager.library, {
 
     this.socket.onmessage = function(event) 
     {
-      console.log('Data >>>>>>>>>>>>>>>>>>>>>>>>>>', event.data)
+      //console.log('Data >>>>>>>>>>>>>>>>>>>>>>>>>>', event.data)
 
         window.unityInstance.SendMessage('Network', 'ReceiveMessage', event.data + '@' + count);
 

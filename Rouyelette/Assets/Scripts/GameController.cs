@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] WheelSlotManager _wheelSlotManager;
     [SerializeField] ClientManager _clientManager;
     [SerializeField] WalletConnector _walletConnector;
+    [SerializeField] StatsManager _statsManager;
 
     [Header("UI Settings:")]
     [SerializeField] Button _spinButton;
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     [SerializeField] TMP_Text _tableID;
     [SerializeField] TMP_Text _walletAddress;
     [SerializeField] TMP_Text _timeIndex;
+    [SerializeField] GameObject _clientPanel;
 
     string _hashCode;
     bool _isInitialized = false;
@@ -55,6 +57,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     bool _onStart = true;
 
+    GameData currentGameData;
+
     private void Awake()
     {
         _boardManager.callback = this;
@@ -77,7 +81,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
         Actions.StartRoll += RoyelleteSpinAction;
         Actions.BetData += RoyellesBetData;
 
-       // _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();
+        _onStart = true;
+
+        // _walletConnector = GameObject.FindAnyObjectByType<WalletConnector>().GetComponent<WalletConnector>();
 
         _walletAddress.text = Network.Instance.Id;
         _tableID.text = "Table ID: " + Network.Instance.Tableid;
@@ -90,12 +96,22 @@ public class GameController : MonoBehaviour, BoardControlInterface
         //APIHandler.Instance.GET("https://thecrypto360.com/roulette.php", SuccessAPI, ErrorAPI);
     }
 
+    
     /// <summary>
     /// Get the royelles bet data
     /// </summary>
     /// <param name="bet"></param>
     private void RoyellesBetData(int bet)
     {
+        Debug.LogWarning("Bet Data >>>>>>>>>>>>>>>>>>>>>" +  bet);
+
+        if(_loadPanel.activeInHierarchy)
+        {
+            _statsManager.SetStat(bet);
+
+            return;
+        }
+
         _boardManager.SetGetSlot(_wheelSlotManager.GetWheelSlot(bet));
         Actions.SetBallTarget(_wheelSlotManager.GetWheelSlot(bet).transform);
 
@@ -104,6 +120,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void RoyelleteSpinAction()
     {
+        if(_loadPanel.activeInHierarchy)
+            return;
+
         if (!_boardManager._setBet)
             _boardManager.ClearBets();
 
@@ -120,6 +139,9 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void TimerIndexAction(int time)
     {
+        if (_loadPanel.activeInHierarchy)
+            return;
+
         string timeBet = "";
 
 
@@ -163,7 +185,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
         float timeShow = _timeslider.maxValue - (float) time;
 
-        _timerText.text = timeShow.ToString() + " " + timeBet;
+        _timerText.text = timeBet;
         _timeslider.DOValue(time, 0.5f);
 
         _timeIndex.text = timeShow.ToString();
@@ -209,6 +231,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// <param name="camera"></param>
     public void SaveGameStatus(GameSwitch _status)
     {
+        currentGameData = new GameData { status = _status };
         string jsonString = JsonUtility.ToJson(new GameData { status = _status });
 
         Debug.Log("Game status saved >>>" + jsonString);
@@ -231,7 +254,10 @@ public class GameController : MonoBehaviour, BoardControlInterface
             if (obj.Contains("status"))
             {
                 GameData gameData = JsonUtility.FromJson<GameData>(obj);
-                Debug.Log("Game LIVE data " + gameData.status + "" + _onStart);
+                Debug.LogWarning("Game LIVE data " + gameData.status + "" + _onStart);
+
+                if (currentGameData == gameData)
+                    return;
 
                 Actions.EnablePlay(gameData.status == GameSwitch.on);
 
@@ -240,17 +266,21 @@ public class GameController : MonoBehaviour, BoardControlInterface
                 if (_onStart)
                 {
                     _loadPanel.SetActive(gameData.status != GameSwitch.on);
+                    currentGameData = gameData;
                 }
                 else
                 {
-                    _loadPanel.SetActive(false);
+                    if (_loadPanel.activeInHierarchy)
+                    {
+                        _loadPanel.SetActive(gameData.status != GameSwitch.on);
+                    }
                 }
                 
 
                 gameJsonData = obj.ToString();
+
             }
 
-            _onStart = false;
         } 
         catch 
         {
@@ -281,7 +311,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
             Debug.LogWarning("No PlayerData");
         }
 
-
+        if (_onStart)
+            _onStart = false;
     }
     #endregion
 
@@ -378,6 +409,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
     private void BoardSelectAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.user);
+
+        _clientPanel.SetActive(false);
     }
 
     private void RestAction()
@@ -386,6 +419,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
         _timeslider.value = 0;
         _timerText.text = "";
         StartCoroutine(ResetAction());
+
+        _clientPanel.SetActive(true);
     }
 
     IEnumerator ResetAction()
@@ -411,18 +446,24 @@ public class GameController : MonoBehaviour, BoardControlInterface
     public void SpinButtonAction()
     {
         AudioManager.Instance.PlaySFX(AudioManager.SFX.select);
+        AudioManager.Instance.PlayClip(AudioManager.Clip.wheel);
         SpinWheelAction();  
     }
 
     public void TableViewAction()
     {
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.table);
+
+        _clientPanel.SetActive(true);
     }
 
 
     void SpinWheelAction()
     {
+
         CameraController.Instance.CameraSwitchAction(CameraController.CameraSwitch.wheel);
+
+        _clientPanel.SetActive(false);
 
         SaveGameStatus(GameSwitch.off);
 

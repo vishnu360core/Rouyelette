@@ -32,7 +32,7 @@ public class Client : MonoBehaviour
 
     public void UpdateBet(int bets)
     {
-        _bet.text = "Total Bets:" + bets.ToString();
+        _bet.text = "Total Bets: $" + bets.ToString();
     }
 
 

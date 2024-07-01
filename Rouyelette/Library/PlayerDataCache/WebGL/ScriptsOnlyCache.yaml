@@ -102,20 +102,82 @@ ScriptsOnlyBuild:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
     - UnityEditor.Rendering.HighDefinition.HDUserSettings
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
+    - UnityEngine.Rendering.HighDefinition.Bloom
+    - UnityEngine.Rendering.HighDefinition.ChannelMixer
+    - UnityEngine.Rendering.HighDefinition.ChromaticAberration
+    - UnityEngine.Rendering.HighDefinition.CloudLayer
+    - UnityEngine.Rendering.HighDefinition.ColorAdjustments
+    - UnityEngine.Rendering.HighDefinition.ColorCurves
+    - UnityEngine.Rendering.HighDefinition.Compositor.AlphaInjection
+    - UnityEngine.Rendering.HighDefinition.Compositor.ChromaKeying
+    - UnityEngine.Rendering.HighDefinition.ContactShadows
+    - UnityEngine.Rendering.HighDefinition.DepthOfField
+    - UnityEngine.Rendering.HighDefinition.DiffusionProfileList
     - UnityEngine.Rendering.HighDefinition.DiffusionProfileSettings
+    - UnityEngine.Rendering.HighDefinition.ExponentialFog
+    - UnityEngine.Rendering.HighDefinition.Exposure
+    - UnityEngine.Rendering.HighDefinition.FilmGrain
+    - UnityEngine.Rendering.HighDefinition.Fog
+    - UnityEngine.Rendering.HighDefinition.GlobalIllumination
+    - UnityEngine.Rendering.HighDefinition.GradientSky
+    - UnityEngine.Rendering.HighDefinition.HDRISky
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineGlobalSettings
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeResources
+    - UnityEngine.Rendering.HighDefinition.HDShadowSettings
+    - UnityEngine.Rendering.HighDefinition.IndirectLightingController
+    - UnityEngine.Rendering.HighDefinition.LensDistortion
+    - UnityEngine.Rendering.HighDefinition.LiftGammaGain
+    - UnityEngine.Rendering.HighDefinition.LightCluster
+    - UnityEngine.Rendering.HighDefinition.MicroShadowing
+    - UnityEngine.Rendering.HighDefinition.MotionBlur
+    - UnityEngine.Rendering.HighDefinition.PaniniProjection
+    - UnityEngine.Rendering.HighDefinition.PathTracing
+    - UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky
+    - UnityEngine.Rendering.HighDefinition.RayTracingSettings
+    - UnityEngine.Rendering.HighDefinition.RecursiveRendering
+    - UnityEngine.Rendering.HighDefinition.ScreenSpaceAmbientOcclusion
+    - UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
+    - UnityEngine.Rendering.HighDefinition.ScreenSpaceRefraction
+    - UnityEngine.Rendering.HighDefinition.ShadowsMidtonesHighlights
+    - UnityEngine.Rendering.HighDefinition.SplitToning
+    - UnityEngine.Rendering.HighDefinition.SubSurfaceScattering
+    - UnityEngine.Rendering.HighDefinition.Tonemapping
+    - UnityEngine.Rendering.HighDefinition.Vignette
+    - UnityEngine.Rendering.HighDefinition.VisualEnvironment
+    - UnityEngine.Rendering.HighDefinition.VolumetricClouds
+    - UnityEngine.Rendering.HighDefinition.VolumetricFog
+    - UnityEngine.Rendering.HighDefinition.VolumetricLightingController
+    - UnityEngine.Rendering.HighDefinition.WaterRendering
+    - UnityEngine.Rendering.HighDefinition.WhiteBalance
+    - UnityEngine.Rendering.ProbeVolumesOptions
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.RenderObjects
+    - UnityEngine.Rendering.Universal.Bloom
+    - UnityEngine.Rendering.Universal.ChannelMixer
+    - UnityEngine.Rendering.Universal.ChromaticAberration
+    - UnityEngine.Rendering.Universal.ColorAdjustments
+    - UnityEngine.Rendering.Universal.ColorCurves
+    - UnityEngine.Rendering.Universal.ColorLookup
     - UnityEngine.Rendering.Universal.DecalRendererFeature
+    - UnityEngine.Rendering.Universal.DepthOfField
+    - UnityEngine.Rendering.Universal.FilmGrain
+    - UnityEngine.Rendering.Universal.LensDistortion
+    - UnityEngine.Rendering.Universal.LiftGammaGain
+    - UnityEngine.Rendering.Universal.MotionBlur
+    - UnityEngine.Rendering.Universal.PaniniProjection
     - UnityEngine.Rendering.Universal.PostProcessData
+    - UnityEngine.Rendering.Universal.ShadowsMidtonesHighlights
+    - UnityEngine.Rendering.Universal.SplitToning
+    - UnityEngine.Rendering.Universal.Tonemapping
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalAdditionalLightData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineGlobalSettings
     - UnityEngine.Rendering.Universal.UniversalRendererData
+    - UnityEngine.Rendering.Universal.Vignette
+    - UnityEngine.Rendering.Universal.WhiteBalance
     - UnityEngine.Rendering.Universal.XRSystemData
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -685,11 +747,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 34790}
     - Class: 114
-      Script: {instanceID: 40110}
+      Script: {instanceID: 40060}
     - Class: 114
-      Script: {instanceID: 40112}
+      Script: {instanceID: 40062}
     - Class: 114
-      Script: {instanceID: 40114}
+      Script: {instanceID: 40064}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1511,7 +1573,7 @@ ScriptsOnlyBuild:
     className: WalletConnectUI
   - hash:
       serializedVersion: 2
-      Hash: 6126b50f84892404b272e31875d9bfe6
+      Hash: f9370c091f885aa62101487162afcc2b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameController
@@ -3761,7 +3823,7 @@ ScriptsOnlyBuild:
     className: SubSurfaceScattering
   - hash:
       serializedVersion: 2
-      Hash: bdac7329d940ca25d5c53dfc1350c673
+      Hash: ecc937f878732e7f7b546152cb16ecb4
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Slot
@@ -3950,4 +4012,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/StartScene.unity
   - Assets/Scenes/LoadScene.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: D:/WebGLBuild20240612_1
+  playerPath: D:/Rouyellete_WebGLBuild20240701_1

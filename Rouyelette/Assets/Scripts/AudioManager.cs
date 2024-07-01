@@ -135,4 +135,10 @@ public class AudioManager : MonoBehaviour
 
         }
     }
+
+    public void Stop()
+    {
+        audioSource.loop = false;
+        audioSource.Stop();
+    }
 }

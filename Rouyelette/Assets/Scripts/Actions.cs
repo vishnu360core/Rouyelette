@@ -86,5 +86,7 @@ public static class Actions
 
     public static Action GameLoaded;
 
+    public static Action OnGameAction;
+
     #endregion
 }

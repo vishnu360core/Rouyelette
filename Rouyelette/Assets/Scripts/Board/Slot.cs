@@ -56,6 +56,10 @@ public class Slot : MonoBehaviour
     bool enablePlay = false;
 
     [SerializeField] GameObject ballObject;
+
+
+    [HideInInspector]
+    public List<GameObject> chips = new List<GameObject>();
     
 
     public void SetSlotMethod(Slot.BoardSlotMethod method)
@@ -159,11 +163,11 @@ public class Slot : MonoBehaviour
         EnableBall(false);
 
         if (_type == SlotType.board)
-            if(_chipTransform.childCount >0)
+            if(chips.Count >0)
             {
-                for(int i=0; i< _chipTransform.childCount; i++) 
+                for(int i=0; i< chips.Count; i++) 
                 { 
-                    GameObject go = _chipTransform.GetChild(i).gameObject;
+                    GameObject go = chips[i];
                     Destroy(go);    
                 }
             }

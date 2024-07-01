@@ -127,6 +127,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         _setBet = false;
 
+      
        // EnableBet(true);
     }
 
@@ -587,7 +588,6 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         _currentWheelSlot = null;
 
-
         bets.Clear();
 
         callback.EnableSpin(false);
@@ -918,13 +918,14 @@ public class BoardManager : MonoBehaviour,ChipInterface
         {
             int floor = chipObjects.Count;
 
-            go.transform.localPosition = new Vector3(slot.ChipTransform.position.x, slot.ChipTransform.position.y + floor * 0.05f, slot.ChipTransform.position.z);
+            go.transform.localPosition = new Vector3(slot.ChipTransform.position.x, slot.ChipTransform.position.y + floor * 0.05f, slot.ChipTransform.position.z); 
         }
+
+        slot.chips.Add(go);
 
         go.transform.localRotation = Quaternion.identity;
 
         chipObjects.Add(go);
-     
     }
 
 

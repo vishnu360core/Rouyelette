@@ -71,8 +71,6 @@ public class Network : MonoBehaviour
         message = parts[0];
         index = parts[1];
 
-        Debug.Log("Index :" + index  + " " + message);
-
         if (message == "Ping")
             return;
 
@@ -199,6 +197,8 @@ public class Network : MonoBehaviour
         //WebSocketInit("ws://localhost:9010");//4 WALLET 9010
         //WebSocketInit("ws://localhost:9020");//5 CREDIT 9020
         //WebSocketInit("ws://localhost:9030");//6 DEDUCT 9030
+
+
     }
 
     private void GetWalletAddress(string address)
