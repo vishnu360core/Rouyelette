@@ -7,6 +7,7 @@ using System;
 
 using DataCollector;
 using DG.Tweening;
+using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour, BoardControlInterface
 {
@@ -88,6 +89,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
         _walletAddress.text = Network.Instance.Id;
         _tableID.text = "Table ID: " + Network.Instance.Tableid;
 
+        AudioManager.Instance.PlayBG();
+
         // Test();
 
         //AudioManager.Instance.SpeechAction(Speech.placeBet);
@@ -103,10 +106,11 @@ public class GameController : MonoBehaviour, BoardControlInterface
     /// <param name="bet"></param>
     private void RoyellesBetData(int bet)
     {
-        Debug.LogWarning("Bet Data >>>>>>>>>>>>>>>>>>>>>" +  bet);
+        Debug.LogWarning("Bet Data >>>>>>>>>>>>>>>>>>>>>" +  bet + ">>>>>" + currentGameData.status);
 
-        if(_loadPanel.activeInHierarchy)
+        if(currentGameData.status != GameSwitch.on)
         {
+
             _statsManager.SetStat(bet);
 
             return;
@@ -258,6 +262,8 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
                 if (currentGameData == gameData)
                     return;
+
+                currentGameData = gameData;
 
                 Actions.EnablePlay(gameData.status == GameSwitch.on);
 

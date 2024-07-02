@@ -13,8 +13,8 @@ public class AudioManager : MonoBehaviour
     static AudioManager instance;
     public static AudioManager Instance { get { return instance; } }
 
-    AudioSource audioSource;
-
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource BgAudio; 
     public AudioSource Audio => audioSource;
 
     [Header("Audio Data")]
@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        audioSource = GetComponent<AudioSource>();
+       // audioSource = GetComponent<AudioSource>();
 
         audioSource.playOnAwake = false;
         audioSource.loop = false;
@@ -69,7 +69,10 @@ public class AudioManager : MonoBehaviour
     }
 
 
-   
+    public void PlayBG()
+    {
+        BgAudio.Play();
+    }
    
     public void PlayClip(Clip clip)
     {

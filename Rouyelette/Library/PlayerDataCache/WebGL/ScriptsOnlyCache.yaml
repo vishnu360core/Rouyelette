@@ -102,82 +102,20 @@ ScriptsOnlyBuild:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
     - UnityEditor.Rendering.HighDefinition.HDUserSettings
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
-    - UnityEngine.Rendering.HighDefinition.Bloom
-    - UnityEngine.Rendering.HighDefinition.ChannelMixer
-    - UnityEngine.Rendering.HighDefinition.ChromaticAberration
-    - UnityEngine.Rendering.HighDefinition.CloudLayer
-    - UnityEngine.Rendering.HighDefinition.ColorAdjustments
-    - UnityEngine.Rendering.HighDefinition.ColorCurves
-    - UnityEngine.Rendering.HighDefinition.Compositor.AlphaInjection
-    - UnityEngine.Rendering.HighDefinition.Compositor.ChromaKeying
-    - UnityEngine.Rendering.HighDefinition.ContactShadows
-    - UnityEngine.Rendering.HighDefinition.DepthOfField
-    - UnityEngine.Rendering.HighDefinition.DiffusionProfileList
     - UnityEngine.Rendering.HighDefinition.DiffusionProfileSettings
-    - UnityEngine.Rendering.HighDefinition.ExponentialFog
-    - UnityEngine.Rendering.HighDefinition.Exposure
-    - UnityEngine.Rendering.HighDefinition.FilmGrain
-    - UnityEngine.Rendering.HighDefinition.Fog
-    - UnityEngine.Rendering.HighDefinition.GlobalIllumination
-    - UnityEngine.Rendering.HighDefinition.GradientSky
-    - UnityEngine.Rendering.HighDefinition.HDRISky
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineGlobalSettings
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeResources
-    - UnityEngine.Rendering.HighDefinition.HDShadowSettings
-    - UnityEngine.Rendering.HighDefinition.IndirectLightingController
-    - UnityEngine.Rendering.HighDefinition.LensDistortion
-    - UnityEngine.Rendering.HighDefinition.LiftGammaGain
-    - UnityEngine.Rendering.HighDefinition.LightCluster
-    - UnityEngine.Rendering.HighDefinition.MicroShadowing
-    - UnityEngine.Rendering.HighDefinition.MotionBlur
-    - UnityEngine.Rendering.HighDefinition.PaniniProjection
-    - UnityEngine.Rendering.HighDefinition.PathTracing
-    - UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky
-    - UnityEngine.Rendering.HighDefinition.RayTracingSettings
-    - UnityEngine.Rendering.HighDefinition.RecursiveRendering
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceAmbientOcclusion
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceRefraction
-    - UnityEngine.Rendering.HighDefinition.ShadowsMidtonesHighlights
-    - UnityEngine.Rendering.HighDefinition.SplitToning
-    - UnityEngine.Rendering.HighDefinition.SubSurfaceScattering
-    - UnityEngine.Rendering.HighDefinition.Tonemapping
-    - UnityEngine.Rendering.HighDefinition.Vignette
-    - UnityEngine.Rendering.HighDefinition.VisualEnvironment
-    - UnityEngine.Rendering.HighDefinition.VolumetricClouds
-    - UnityEngine.Rendering.HighDefinition.VolumetricFog
-    - UnityEngine.Rendering.HighDefinition.VolumetricLightingController
-    - UnityEngine.Rendering.HighDefinition.WaterRendering
-    - UnityEngine.Rendering.HighDefinition.WhiteBalance
-    - UnityEngine.Rendering.ProbeVolumesOptions
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.RenderObjects
-    - UnityEngine.Rendering.Universal.Bloom
-    - UnityEngine.Rendering.Universal.ChannelMixer
-    - UnityEngine.Rendering.Universal.ChromaticAberration
-    - UnityEngine.Rendering.Universal.ColorAdjustments
-    - UnityEngine.Rendering.Universal.ColorCurves
-    - UnityEngine.Rendering.Universal.ColorLookup
     - UnityEngine.Rendering.Universal.DecalRendererFeature
-    - UnityEngine.Rendering.Universal.DepthOfField
-    - UnityEngine.Rendering.Universal.FilmGrain
-    - UnityEngine.Rendering.Universal.LensDistortion
-    - UnityEngine.Rendering.Universal.LiftGammaGain
-    - UnityEngine.Rendering.Universal.MotionBlur
-    - UnityEngine.Rendering.Universal.PaniniProjection
     - UnityEngine.Rendering.Universal.PostProcessData
-    - UnityEngine.Rendering.Universal.ShadowsMidtonesHighlights
-    - UnityEngine.Rendering.Universal.SplitToning
-    - UnityEngine.Rendering.Universal.Tonemapping
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalAdditionalLightData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineGlobalSettings
     - UnityEngine.Rendering.Universal.UniversalRendererData
-    - UnityEngine.Rendering.Universal.Vignette
-    - UnityEngine.Rendering.Universal.WhiteBalance
     - UnityEngine.Rendering.Universal.XRSystemData
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -433,6 +371,21 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
+  - assembly: Thirdweb.Core
+    fullTypeName: Thirdweb.Wallets.WalletConnectUI
+    methodName: Cancel
+  - assembly: Thirdweb.Core
+    fullTypeName: Thirdweb.Wallets.MetamaskUI
+    methodName: Cancel
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Core
+    fullTypeName: Thirdweb.Wallets.EmbeddedWalletUI
+    methodName: Cancel
+  - assembly: Thirdweb.Core
+    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
+    methodName: OnDisconnect
   - assembly: Assembly-CSharp
     fullTypeName: TableManagerController
     methodName: EnableJoinPanel
@@ -526,21 +479,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: AudioManager
     methodName: Play_Button
-  - assembly: Thirdweb.Core
-    fullTypeName: Thirdweb.Wallets.WalletConnectUI
-    methodName: Cancel
-  - assembly: Thirdweb.Core
-    fullTypeName: Thirdweb.Wallets.MetamaskUI
-    methodName: Cancel
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Core
-    fullTypeName: Thirdweb.Wallets.EmbeddedWalletUI
-    methodName: Cancel
-  - assembly: Thirdweb.Core
-    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
-    methodName: OnDisconnect
   - assembly: Thirdweb.Core
     fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
     methodName: OnDisconnect
@@ -663,95 +601,95 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 17284}
+      Script: {instanceID: 17128}
     - Class: 114
-      Script: {instanceID: 17286}
-    - Class: 114
-      Script: {instanceID: 17288}
-    - Class: 114
-      Script: {instanceID: 17290}
+      Script: {instanceID: 17130}
     - Class: 114
       Script: {instanceID: 17296}
     - Class: 114
       Script: {instanceID: 17298}
     - Class: 114
-      Script: {instanceID: 18098}
+      Script: {instanceID: 17300}
     - Class: 114
-      Script: {instanceID: 18814}
+      Script: {instanceID: 17302}
     - Class: 114
-      Script: {instanceID: 20152}
+      Script: {instanceID: 17308}
     - Class: 114
-      Script: {instanceID: 20342}
+      Script: {instanceID: 17310}
     - Class: 114
-      Script: {instanceID: 21146}
+      Script: {instanceID: 18110}
     - Class: 114
-      Script: {instanceID: 22252}
+      Script: {instanceID: 18826}
     - Class: 114
-      Script: {instanceID: 22334}
+      Script: {instanceID: 20164}
     - Class: 114
-      Script: {instanceID: 23334}
+      Script: {instanceID: 21154}
     - Class: 114
-      Script: {instanceID: 23570}
+      Script: {instanceID: 22260}
     - Class: 114
-      Script: {instanceID: 24418}
+      Script: {instanceID: 22342}
     - Class: 114
-      Script: {instanceID: 24620}
+      Script: {instanceID: 23342}
     - Class: 114
-      Script: {instanceID: 25170}
+      Script: {instanceID: 23578}
     - Class: 114
-      Script: {instanceID: 26428}
+      Script: {instanceID: 24426}
     - Class: 114
-      Script: {instanceID: 26792}
+      Script: {instanceID: 24628}
     - Class: 114
-      Script: {instanceID: 27786}
+      Script: {instanceID: 25178}
     - Class: 114
-      Script: {instanceID: 28090}
+      Script: {instanceID: 26436}
     - Class: 114
-      Script: {instanceID: 28566}
+      Script: {instanceID: 26800}
     - Class: 114
-      Script: {instanceID: 28624}
+      Script: {instanceID: 27794}
     - Class: 114
-      Script: {instanceID: 29610}
+      Script: {instanceID: 28096}
     - Class: 114
-      Script: {instanceID: 30036}
+      Script: {instanceID: 28572}
     - Class: 114
-      Script: {instanceID: 30060}
+      Script: {instanceID: 28630}
     - Class: 114
-      Script: {instanceID: 30360}
+      Script: {instanceID: 29614}
     - Class: 114
-      Script: {instanceID: 30994}
+      Script: {instanceID: 30040}
     - Class: 114
-      Script: {instanceID: 31020}
+      Script: {instanceID: 30064}
     - Class: 114
-      Script: {instanceID: 31176}
+      Script: {instanceID: 30364}
     - Class: 114
-      Script: {instanceID: 31310}
+      Script: {instanceID: 30998}
     - Class: 114
-      Script: {instanceID: 32588}
+      Script: {instanceID: 31024}
     - Class: 114
-      Script: {instanceID: 32738}
+      Script: {instanceID: 31180}
     - Class: 114
-      Script: {instanceID: 32772}
+      Script: {instanceID: 31314}
     - Class: 114
-      Script: {instanceID: 32786}
+      Script: {instanceID: 32592}
     - Class: 114
-      Script: {instanceID: 32954}
+      Script: {instanceID: 32742}
     - Class: 114
-      Script: {instanceID: 33018}
+      Script: {instanceID: 32776}
     - Class: 114
-      Script: {instanceID: 33728}
+      Script: {instanceID: 32790}
     - Class: 114
-      Script: {instanceID: 33824}
+      Script: {instanceID: 32958}
     - Class: 114
-      Script: {instanceID: 34286}
+      Script: {instanceID: 33822}
     - Class: 114
-      Script: {instanceID: 34790}
+      Script: {instanceID: 34284}
     - Class: 114
-      Script: {instanceID: 40060}
+      Script: {instanceID: 34788}
     - Class: 114
-      Script: {instanceID: 40062}
+      Script: {instanceID: 35384}
     - Class: 114
-      Script: {instanceID: 40064}
+      Script: {instanceID: 40414}
+    - Class: 114
+      Script: {instanceID: 40416}
+    - Class: 114
+      Script: {instanceID: 40418}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -798,25 +736,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 17288}
+      Script: {instanceID: 17300}
     - Class: 114
-      Script: {instanceID: 17298}
+      Script: {instanceID: 17310}
     - Class: 114
-      Script: {instanceID: 23334}
+      Script: {instanceID: 23342}
     - Class: 114
-      Script: {instanceID: 25170}
+      Script: {instanceID: 25178}
     - Class: 114
-      Script: {instanceID: 26104}
+      Script: {instanceID: 26112}
     - Class: 114
-      Script: {instanceID: 27786}
+      Script: {instanceID: 27794}
     - Class: 114
-      Script: {instanceID: 28090}
+      Script: {instanceID: 28096}
     - Class: 114
-      Script: {instanceID: 31176}
+      Script: {instanceID: 31180}
     - Class: 114
-      Script: {instanceID: 31310}
+      Script: {instanceID: 31314}
     - Class: 114
-      Script: {instanceID: 32772}
+      Script: {instanceID: 32776}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -859,169 +797,169 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 17284}
+      Script: {instanceID: 17122}
     - Class: 114
-      Script: {instanceID: 17286}
+      Script: {instanceID: 17124}
     - Class: 114
-      Script: {instanceID: 17288}
-    - Class: 114
-      Script: {instanceID: 17290}
-    - Class: 114
-      Script: {instanceID: 17292}
-    - Class: 114
-      Script: {instanceID: 17294}
+      Script: {instanceID: 17126}
     - Class: 114
       Script: {instanceID: 17296}
     - Class: 114
       Script: {instanceID: 17298}
     - Class: 114
+      Script: {instanceID: 17300}
+    - Class: 114
+      Script: {instanceID: 17302}
+    - Class: 114
+      Script: {instanceID: 17304}
+    - Class: 114
+      Script: {instanceID: 17306}
+    - Class: 114
+      Script: {instanceID: 17308}
+    - Class: 114
       Script: {instanceID: 17310}
     - Class: 114
-      Script: {instanceID: 17464}
+      Script: {instanceID: 17322}
     - Class: 114
-      Script: {instanceID: 18046}
+      Script: {instanceID: 17476}
     - Class: 114
-      Script: {instanceID: 18398}
+      Script: {instanceID: 18058}
     - Class: 114
-      Script: {instanceID: 18512}
+      Script: {instanceID: 18410}
     - Class: 114
-      Script: {instanceID: 18658}
+      Script: {instanceID: 18524}
     - Class: 114
-      Script: {instanceID: 18910}
+      Script: {instanceID: 18670}
     - Class: 114
-      Script: {instanceID: 18978}
+      Script: {instanceID: 18922}
     - Class: 114
-      Script: {instanceID: 19258}
+      Script: {instanceID: 18990}
     - Class: 114
-      Script: {instanceID: 19714}
+      Script: {instanceID: 19270}
     - Class: 114
-      Script: {instanceID: 19850}
+      Script: {instanceID: 19726}
     - Class: 114
-      Script: {instanceID: 19994}
+      Script: {instanceID: 19862}
     - Class: 114
-      Script: {instanceID: 20060}
+      Script: {instanceID: 20006}
     - Class: 114
-      Script: {instanceID: 20294}
+      Script: {instanceID: 20072}
     - Class: 114
-      Script: {instanceID: 20638}
+      Script: {instanceID: 20306}
     - Class: 114
-      Script: {instanceID: 20892}
+      Script: {instanceID: 20648}
     - Class: 114
-      Script: {instanceID: 20952}
+      Script: {instanceID: 20960}
     - Class: 114
-      Script: {instanceID: 21488}
+      Script: {instanceID: 21496}
     - Class: 114
-      Script: {instanceID: 21872}
+      Script: {instanceID: 21880}
     - Class: 114
-      Script: {instanceID: 21946}
+      Script: {instanceID: 21954}
     - Class: 114
-      Script: {instanceID: 22094}
+      Script: {instanceID: 22102}
     - Class: 114
-      Script: {instanceID: 22166}
+      Script: {instanceID: 22174}
     - Class: 114
-      Script: {instanceID: 22252}
+      Script: {instanceID: 22260}
     - Class: 114
-      Script: {instanceID: 22352}
+      Script: {instanceID: 22360}
     - Class: 114
-      Script: {instanceID: 22614}
+      Script: {instanceID: 22622}
     - Class: 114
-      Script: {instanceID: 22638}
+      Script: {instanceID: 22646}
     - Class: 114
-      Script: {instanceID: 23324}
+      Script: {instanceID: 23332}
     - Class: 114
-      Script: {instanceID: 23334}
+      Script: {instanceID: 23342}
     - Class: 114
-      Script: {instanceID: 23456}
+      Script: {instanceID: 23464}
     - Class: 114
-      Script: {instanceID: 23628}
+      Script: {instanceID: 23636}
     - Class: 114
-      Script: {instanceID: 23736}
+      Script: {instanceID: 23744}
     - Class: 114
-      Script: {instanceID: 24050}
+      Script: {instanceID: 24058}
     - Class: 114
-      Script: {instanceID: 24100}
+      Script: {instanceID: 24108}
     - Class: 114
-      Script: {instanceID: 24326}
+      Script: {instanceID: 24334}
     - Class: 114
-      Script: {instanceID: 24348}
+      Script: {instanceID: 24356}
     - Class: 114
-      Script: {instanceID: 24418}
+      Script: {instanceID: 24426}
     - Class: 114
-      Script: {instanceID: 25160}
+      Script: {instanceID: 25168}
     - Class: 114
-      Script: {instanceID: 25170}
+      Script: {instanceID: 25178}
     - Class: 114
-      Script: {instanceID: 25644}
+      Script: {instanceID: 25652}
     - Class: 114
-      Script: {instanceID: 25806}
+      Script: {instanceID: 25814}
     - Class: 114
-      Script: {instanceID: 26564}
+      Script: {instanceID: 26572}
     - Class: 114
-      Script: {instanceID: 27124}
+      Script: {instanceID: 27132}
     - Class: 114
-      Script: {instanceID: 27214}
+      Script: {instanceID: 27222}
     - Class: 114
-      Script: {instanceID: 27468}
+      Script: {instanceID: 27476}
     - Class: 114
-      Script: {instanceID: 27474}
+      Script: {instanceID: 27482}
     - Class: 114
-      Script: {instanceID: 27670}
+      Script: {instanceID: 27678}
     - Class: 114
-      Script: {instanceID: 27786}
+      Script: {instanceID: 27794}
     - Class: 114
-      Script: {instanceID: 27968}
+      Script: {instanceID: 27974}
     - Class: 114
-      Script: {instanceID: 28090}
+      Script: {instanceID: 28096}
     - Class: 114
-      Script: {instanceID: 28418}
+      Script: {instanceID: 28424}
     - Class: 114
-      Script: {instanceID: 28624}
+      Script: {instanceID: 28630}
     - Class: 114
-      Script: {instanceID: 28894}
+      Script: {instanceID: 29108}
     - Class: 114
-      Script: {instanceID: 29104}
+      Script: {instanceID: 29198}
     - Class: 114
-      Script: {instanceID: 29194}
+      Script: {instanceID: 29614}
     - Class: 114
-      Script: {instanceID: 29610}
+      Script: {instanceID: 29756}
     - Class: 114
-      Script: {instanceID: 29752}
+      Script: {instanceID: 29790}
     - Class: 114
-      Script: {instanceID: 29786}
+      Script: {instanceID: 29938}
     - Class: 114
-      Script: {instanceID: 29934}
+      Script: {instanceID: 30112}
     - Class: 114
-      Script: {instanceID: 30108}
+      Script: {instanceID: 30186}
     - Class: 114
-      Script: {instanceID: 30182}
+      Script: {instanceID: 30288}
     - Class: 114
-      Script: {instanceID: 30284}
+      Script: {instanceID: 31000}
     - Class: 114
-      Script: {instanceID: 30996}
+      Script: {instanceID: 31222}
     - Class: 114
-      Script: {instanceID: 31218}
+      Script: {instanceID: 31314}
     - Class: 114
-      Script: {instanceID: 31310}
+      Script: {instanceID: 31594}
     - Class: 114
-      Script: {instanceID: 31590}
+      Script: {instanceID: 31928}
     - Class: 114
-      Script: {instanceID: 31924}
+      Script: {instanceID: 32406}
     - Class: 114
-      Script: {instanceID: 32402}
+      Script: {instanceID: 32580}
     - Class: 114
-      Script: {instanceID: 32576}
+      Script: {instanceID: 32642}
     - Class: 114
-      Script: {instanceID: 32638}
+      Script: {instanceID: 32776}
     - Class: 114
-      Script: {instanceID: 32772}
+      Script: {instanceID: 32790}
     - Class: 114
-      Script: {instanceID: 32786}
+      Script: {instanceID: 32932}
     - Class: 114
-      Script: {instanceID: 32928}
-    - Class: 114
-      Script: {instanceID: 33108}
-    - Class: 114
-      Script: {instanceID: 33120}
+      Script: {instanceID: 33110}
     - Class: 114
       Script: {instanceID: 33316}
     - Class: 114
@@ -1029,13 +967,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 33722}
     - Class: 114
-      Script: {instanceID: 33802}
+      Script: {instanceID: 33800}
     - Class: 114
-      Script: {instanceID: 34282}
+      Script: {instanceID: 34280}
     - Class: 114
-      Script: {instanceID: 34604}
+      Script: {instanceID: 34602}
     - Class: 114
-      Script: {instanceID: 34994}
+      Script: {instanceID: 34992}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1061,6 +999,42 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalRenderPipelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: e5f1d63ad1067eddaef92810ac7b4e28
+    assemblyName: Assembly-CSharp
+    namespaceName: Cinemachine.Timeline
+    className: CinemachineTrack
+  - hash:
+      serializedVersion: 2
+      Hash: ccc84c89c001ffcad23595dd460f9ba5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AudioManager
+  - hash:
+      serializedVersion: 2
+      Hash: 9c799b8582663b037b72258c51f29679
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WalletConnector
+  - hash:
+      serializedVersion: 2
+      Hash: be49e4b49414e948087e2d8364d28fbb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Network
+  - hash:
+      serializedVersion: 2
+      Hash: f9370c091f885aa62101487162afcc2b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameController
+  - hash:
+      serializedVersion: 2
+      Hash: 631d7c7ea5847464c096f3143ff374de
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CameraController
   - hash:
       serializedVersion: 2
       Hash: d41ab9b5ea92474f9c0a6937a0607ce1
@@ -1573,12 +1547,6 @@ ScriptsOnlyBuild:
     className: WalletConnectUI
   - hash:
       serializedVersion: 2
-      Hash: f9370c091f885aa62101487162afcc2b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: GameController
-  - hash:
-      serializedVersion: 2
       Hash: 0a3f328f3ea906bbbcf794f4c27ee59d
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
@@ -1661,12 +1629,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.HighDefinition.Runtime
     namespaceName: UnityEngine.Rendering.HighDefinition
     className: HDAdditionalLightData
-  - hash:
-      serializedVersion: 2
-      Hash: 01526dc9c08b975e80c2181c23b04ece
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: AudioManager
   - hash:
       serializedVersion: 2
       Hash: 919dc7ec08f773fcae2d21a1e018bd99
@@ -2833,12 +2795,6 @@ ScriptsOnlyBuild:
     className: PathTracing
   - hash:
       serializedVersion: 2
-      Hash: e5f1d63ad1067eddaef92810ac7b4e28
-    assemblyName: Assembly-CSharp
-    namespaceName: Cinemachine.Timeline
-    className: CinemachineTrack
-  - hash:
-      serializedVersion: 2
       Hash: b4aeea92f3732b4ccc4ee392d9fb638d
     assemblyName: Thirdweb.Core
     namespaceName: MetaMask.Transports.Unity.UI
@@ -2975,12 +2931,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: ScreenSpaceShadows
-  - hash:
-      serializedVersion: 2
-      Hash: 9c799b8582663b037b72258c51f29679
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: WalletConnector
   - hash:
       serializedVersion: 2
       Hash: 5b8b7230ad968399f6726aa1269dcdcb
@@ -3649,12 +3599,6 @@ ScriptsOnlyBuild:
     className: CinemachinePipeline
   - hash:
       serializedVersion: 2
-      Hash: 0124c6b80302cc8a338a78f52d039a6f
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: BoardManager
-  - hash:
-      serializedVersion: 2
       Hash: f54edfe04581a382a1c52f26b9fb69e1
     assemblyName: Unity.RenderPipelines.HighDefinition.Runtime
     namespaceName: UnityEngine.Rendering.HighDefinition
@@ -3671,12 +3615,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerColor
-  - hash:
-      serializedVersion: 2
-      Hash: be49e4b49414e948087e2d8364d28fbb
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Network
   - hash:
       serializedVersion: 2
       Hash: abe1efa1532c14344f73dfe422e36f22
@@ -3797,12 +3735,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: EventTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 631d7c7ea5847464c096f3143ff374de
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CameraController
   - hash:
       serializedVersion: 2
       Hash: fd74c72e7aef9b70d57581888f339ce8
@@ -4007,9 +3939,15 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime
     namespaceName: UnityEngine.VFX.Utility
     className: VFXInputAxisBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 0124c6b80302cc8a338a78f52d039a6f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BoardManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity
   - Assets/Scenes/LoadScene.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: D:/Rouyellete_WebGLBuild20240701_1
+  playerPath: D:/Rouyellete_WebGLBuild20240702_3

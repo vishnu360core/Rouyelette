@@ -13513,7 +13513,7 @@ struct v256_t770DAF625F113A77DC69DDBA1EDB49B50AADC08A
 		};
 	};
 };
-struct U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF 
+struct U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809 
 {
 	int32_t ___U3CU3E1__state;
 	AsyncVoidMethodBuilder_t253E37B63E7E7B504878AE6563347C147F98EF2D ___U3CU3Et__builder;
@@ -17414,6 +17414,7 @@ struct AggregateSymbol_t54E4A03F3E2A15BFFD7721F884DE1E398EB2C6D0  : public Names
 struct AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource;
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___BgAudio;
 	AudioData_t66B2434E2FEDBB9AA1BB553A3F892743600B88DD* ____audioData;
 	float ___pitch;
 	float ___volume;
@@ -22575,10 +22576,10 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19027[2] =
 	static_cast<int32_t>(sizeof(RuntimeObject)),0,};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19028[5] = 
 {
-	static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF, ___U3CU3E1__state)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF, ___U3CU3Et__builder)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF, ___U3CU3E4__this)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF, ___speech)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF, ___number)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19029[6] = 
+	static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809, ___U3CU3E1__state)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809, ___U3CU3Et__builder)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809, ___U3CU3E4__this)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809, ___speech)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809, ___number)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19029[7] = 
 {
-	static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B_StaticFields, ___instance)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___audioSource)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ____audioData)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___pitch)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___volume)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ____speechAudioSource)),};
+	static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B_StaticFields, ___instance)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___audioSource)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___BgAudio)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ____audioData)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___pitch)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ___volume)),static_cast<int32_t>(offsetof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B, ____speechAudioSource)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19030[4] = 
 {
 	static_cast<int32_t>(offsetof(Bet_tE09CDA7FC10439D394A19C47F0EF8CBFFEFC60F9, ___betNumber)),static_cast<int32_t>(offsetof(Bet_tE09CDA7FC10439D394A19C47F0EF8CBFFEFC60F9, ___betAmount)),static_cast<int32_t>(offsetof(Bet_tE09CDA7FC10439D394A19C47F0EF8CBFFEFC60F9, ___splitNumbers)),static_cast<int32_t>(offsetof(Bet_tE09CDA7FC10439D394A19C47F0EF8CBFFEFC60F9, ___type)),};

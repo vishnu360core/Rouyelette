@@ -75,3 +75,6 @@ crashlytics-build.properties
 /Rouyelette/Library
 *.log
 *.a
+/Rouyelette/Library/Bee
+/Rouyelette/Library/Bee
+/Rouyelette/Temp

@@ -26586,7 +26586,7 @@ struct DefaultData_t07EF79D747E4B9FF5E4D0DBEF091EF1956B51E1D_marshaled_com
 	Il2CppChar* ___Namespace;
 	Il2CppChar* ___ChainId;
 };
-struct U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF 
+struct U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809 
 {
 	int32_t ___U3CU3E1__state;
 	AsyncVoidMethodBuilder_t253E37B63E7E7B504878AE6563347C147F98EF2D ___U3CU3Et__builder;
@@ -34733,6 +34733,7 @@ struct ApproveFunction_t7E4C20F44289BD14A5269BCA7C20B5760EF2F420  : public Appro
 struct AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource;
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___BgAudio;
 	AudioData_t66B2434E2FEDBB9AA1BB553A3F892743600B88DD* ____audioData;
 	float ___pitch;
 	float ___volume;
@@ -48802,7 +48803,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize19026 = { sizeof(int32_t)+ s
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize19027;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize19027 = { sizeof(int32_t)+ sizeof(RuntimeObject), sizeof(int32_t), 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize19028;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize19028 = { sizeof(U3CSpeechActionU3Ed__14_t5788E8BABE1DF38834B2F3F5B0B31FB3B06491AF)+ sizeof(RuntimeObject), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize19028 = { sizeof(U3CSpeechActionU3Ed__15_t9D6E403327350A6B0B580127EE34FA087B0BC809)+ sizeof(RuntimeObject), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize19029;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize19029 = { sizeof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B), -1, sizeof(AudioManager_t4BE66A4A0E184D85AF74C37BC93BFBEC52953C7B_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize19030;

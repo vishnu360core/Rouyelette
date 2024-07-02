@@ -38,8 +38,8 @@ public class StatsManager : MonoBehaviour
 
     public void SetStat(int bet)
     {
-        if (_content.childCount > 0)
-            return;
+        //if (_content.childCount > 0)
+        //    return;
 
         Slot.ColorType colorType = GetColorCode(bet);
         GetStatsAction(bet, colorType);
