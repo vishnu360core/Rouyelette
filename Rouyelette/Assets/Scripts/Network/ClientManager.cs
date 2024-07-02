@@ -10,6 +10,7 @@ public class ClientManager : MonoBehaviour
 {
 
     [SerializeField] List<Client> clients = new List<Client>(); 
+    List<int> clientBetAmounts = new List<int> {0,0,0};
 
     [SerializeField] List<Chip> chipPrefabs  = new List<Chip>();
 
@@ -100,7 +101,11 @@ public class ClientManager : MonoBehaviour
         json = JsonUtility.ToJson(playerDataList);
         Debug.Log("Resetted json >>>>" + json);
 
+        clientBetAmounts = new List<int> { 0, 0, 0 };
+
         StartCoroutine(Network.Instance.SaveToNet(json));
+
+        SetJson(json);
     }
 
 
@@ -185,7 +190,7 @@ public class ClientManager : MonoBehaviour
                         clients[clientIndex].PlayerData = playerDataList.playerDatas[i];
                         clients[clientIndex].EnablePlayer(true);
                         clients[clientIndex].UpdateName(playerDataList.playerDatas[i].id);
-                        clients[clientIndex].UpdateBet(ReturnTotalBets(playerDataList.playerDatas[i].bets));
+                        clients[clientIndex].UpdateBet(ReturnTotalBets(playerDataList.playerDatas[i].bets,clientIndex));
 
                         clientIndex++;
 
@@ -267,11 +272,13 @@ public class ClientManager : MonoBehaviour
 
     public void UpdateClient(string id,Bet bet,string playerJson)
     {
-        Debug.Log("Json for bet  >>>>>>>>>" + playerJson + ">>>>" + id);
+        Debug.Log("Json for bet  >>>>>>>>>" + _currentJson + ">>>>" + id);
+
+        //SetJson(playerJson);
 
         onBetUpdate = true;
 
-        PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(playerJson);
+        PlayerDataList playerDataList = JsonUtility.FromJson<PlayerDataList>(_currentJson);
         List<PlayerData> playerDatas = playerDataList.playerDatas;
 
         foreach(PlayerData player in playerDatas) 
@@ -282,13 +289,19 @@ public class ClientManager : MonoBehaviour
             {
                 Debug.Log("Bet added " + bet.betAmount + " >>> " + player.id);
 
+                Debug.LogWarning("player bet count  1>>" + player.bets.Count);
+
                 player.bets.Add(bet);
+               
+                Debug.LogWarning("player bet count  2>>" + player.bets.Count);
                 player.amount = 100;
 
                 playerDataList.playerDatas = playerDatas;
 
                 string jsonString = JsonUtility.ToJson(playerDataList);
                 Debug.Log("Updated Player json after bets :  " + jsonString);
+
+                SetJson(jsonString);
 
                 StartCoroutine(Network.Instance.SaveToNet(jsonString));
 
@@ -374,7 +387,7 @@ public class ClientManager : MonoBehaviour
                     {
                         Debug.LogWarning("Chip movement for client");
 
-                        clients[0].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
+                       // clients[0].UpdateBet(ReturnTotalBets(playerDatas[i].bets,0));
                         ClientChipAction(playerDatas[i].bets, clients[0]._chipTransform, 0);
 
                         clients[0].PlayerData.bets = playerDatas[i].bets;
@@ -395,7 +408,7 @@ public class ClientManager : MonoBehaviour
                     {
                         Debug.LogWarning("Chip movement for client");
 
-                        clients[1].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
+                        //clients[1].UpdateBet(ReturnTotalBets(playerDatas[i].bets,1));
                         ClientChipAction(playerDatas[i].bets, clients[1]._chipTransform,1);
 
                         clients[1].PlayerData.bets = playerDatas[i].bets;
@@ -416,7 +429,7 @@ public class ClientManager : MonoBehaviour
                     {
                         Debug.LogWarning("Chip movement for client");
 
-                        clients[2].UpdateBet(ReturnTotalBets(playerDatas[i].bets));
+                        //clients[2].UpdateBet(ReturnTotalBets(playerDatas[i].bets,2));
                         ClientChipAction(playerDatas[i].bets, clients[2]._chipTransform,2);
 
                         clients[2].PlayerData.bets = playerDatas[i].bets;
@@ -429,16 +442,14 @@ public class ClientManager : MonoBehaviour
     }
 
 
-    int ReturnTotalBets(List<Bet> bets) 
+    int ReturnTotalBets(List<Bet> bets,int index) 
     {
-        int betAmount = 0;
-
         for(int i = 0; i < bets.Count; i++) 
         {
-            betAmount += bets[i].betAmount;
+            clientBetAmounts[index] += bets[i].betAmount;
         }
 
-        return betAmount;
+        return clientBetAmounts[index];
     }
 
 
@@ -450,7 +461,10 @@ public class ClientManager : MonoBehaviour
 
 
         Bet bet = bets[bets.Count - 1];
-       
+
+        clientBetAmounts[index] += bet.betAmount;
+        clients[index].UpdateBet(clientBetAmounts[index]);
+
 
         Debug.Log("Client bet amount  >>>>" + bet.betAmount);
 

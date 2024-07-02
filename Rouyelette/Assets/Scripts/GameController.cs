@@ -200,7 +200,7 @@ public class GameController : MonoBehaviour, BoardControlInterface
 
     private void SetCurrentPlayerData(Bet bet)
     {
-        Debug.Log("Saving bet !!!!!!!!!!" + bet);
+        Debug.Log("Saving bet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + bet);
 
         _clientManager.UpdateClient(Network.Instance.Id,bet,playerJsonData);
     }

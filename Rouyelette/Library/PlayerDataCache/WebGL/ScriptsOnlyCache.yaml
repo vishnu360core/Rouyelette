@@ -433,21 +433,6 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
-  - assembly: Thirdweb.Core
-    fullTypeName: Thirdweb.Wallets.WalletConnectUI
-    methodName: Cancel
-  - assembly: Thirdweb.Core
-    fullTypeName: Thirdweb.Wallets.MetamaskUI
-    methodName: Cancel
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Thirdweb.Core
-    fullTypeName: Thirdweb.Wallets.EmbeddedWalletUI
-    methodName: Cancel
-  - assembly: Thirdweb.Core
-    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
-    methodName: OnDisconnect
   - assembly: Assembly-CSharp
     fullTypeName: TableManagerController
     methodName: EnableJoinPanel
@@ -541,6 +526,21 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: AudioManager
     methodName: Play_Button
+  - assembly: Thirdweb.Core
+    fullTypeName: Thirdweb.Wallets.WalletConnectUI
+    methodName: Cancel
+  - assembly: Thirdweb.Core
+    fullTypeName: Thirdweb.Wallets.MetamaskUI
+    methodName: Cancel
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Thirdweb.Core
+    fullTypeName: Thirdweb.Wallets.EmbeddedWalletUI
+    methodName: Cancel
+  - assembly: Thirdweb.Core
+    fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
+    methodName: OnDisconnect
   - assembly: Thirdweb.Core
     fullTypeName: MetaMask.Transports.Unity.UI.MetaMaskOTPPanel
     methodName: OnDisconnect

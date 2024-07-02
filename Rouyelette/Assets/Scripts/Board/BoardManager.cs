@@ -120,7 +120,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
     public void ClearBets()
     {
         _currentbetAmount = 0;
-        _betAmountText.text = "Total Bet Amount: " + _currentbetAmount.ToString();
+        _betAmountText.text = "Total Bet Amount: $" + _currentbetAmount.ToString();
 
         Actions.DeleteChip();
         bets.Clear();
@@ -196,7 +196,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         _isPreviousPress = true;
 
-        ClearBets();
+        //ClearBets();
 
         Debug.Log("Previous Objects Count >>" + previousChips.Count + ">>> " + previousBets.Count);
 
@@ -207,14 +207,20 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
             foreach(Bet bet in previousBets)
             {
-                Debug.Log("Chip >>>" + previousChips[chipIndex].GetComponent<Chip>().Bet + ">>>" + previousSlots[chipIndex]);
-                _currentChip =  chips.Find(x =>x.Bet == previousChips[chipIndex].GetComponent<Chip>().Bet);
+               // Debug.LogWarning("Previous !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + chipIndex);
 
-                Debug.Log("chip >>>" + _currentChip);
+                Debug.Log("Chip >>>" + previousChips[chipIndex].GetComponent<Chip>().Bet + ">>>" + previousSlots[chipIndex]);
+                _currentChip =  chips.Find(x =>x.Bet == previousChips[chipIndex].GetComponent<Chip>().Bet).ChipObject;
+
+                Debug.Log("chip >>>" + _currentChip.gameObject);
 
                 Slot slot = new Slot();
 
                 slot = previousSlots[chipIndex];
+
+                //GameObject go = Instantiate(_currentChip.gameObject);
+                //go.transform.localScale = Vector3.one;
+                //go.transform.position = slot.ChipTransform.position;
 
                 _isChipSelected = true;
                 SelectBoardSlotAction(slot);
@@ -584,7 +590,9 @@ public class BoardManager : MonoBehaviour,ChipInterface
         _isChipSelected = false;
         _currentbetAmount = 0;
         totalWinAmount = 0;
-        lossAmount = 0; 
+        lossAmount = 0;
+
+        chipObjects.Clear();    
 
         _currentWheelSlot = null;
 
@@ -592,7 +600,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
         callback.EnableSpin(false);
 
-        _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
+        _betAmountText.text = "Total Bet Amount: $" + _currentbetAmount.ToString();
     }
 
     /// <summary>
@@ -664,7 +672,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
             previousChips.Add(_currentChip);
 
 
-            _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
+            _betAmountText.text = "Total Bet Amount: $" + _currentbetAmount.ToString();
             // _amountText.text = "Amount: $" + amount.ToString("F2");
 
             previousSlots.Add(slot);
@@ -738,6 +746,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
                     bets.Find(x => x.type == method).betAmount += _currentChip.Bet;
 
                     Bet bet = bets.Find(x => x.type == method);
+                    bets.Add(bet);
                     SendBetAction(_currentChip.Bet, -1, method);
                 }
                 else
@@ -776,7 +785,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
 
        // Actions.PlayerBets(bets,amount);
 
-        _betAmountText.text = "TotalBet: " + _currentbetAmount.ToString();
+        _betAmountText.text = "Total Bet Amount: $" + _currentbetAmount.ToString();
         // _amountText.text = "Amount: $" + amount.ToString("F2");
 
         previousSlots.Add(slot);
@@ -829,6 +838,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
         {
             for (int i = 0; i < chipObjects.Count; ++i)
             {
+                chipObjects[i].GetComponent<Chip>().enabled = true;
                 previouschipObjects.Add(chipObjects[i]);    
             }
         }
@@ -837,6 +847,7 @@ public class BoardManager : MonoBehaviour,ChipInterface
             Debug.LogError("bet objects were cleared!!");
         }
 
+        chipObjects.Clear();
 
         Actions.EnablePlay(false);
 
@@ -899,14 +910,16 @@ public class BoardManager : MonoBehaviour,ChipInterface
             //go.GetComponent<MeshRenderer>().materials = mats;
             //go.transform.GetChild(0).GetComponent<MeshRenderer>().materials = _textmats;
 
-            Destroy(chip);
+            //Destroy(chip);
+
+            chip.enabled = false;
 
             //BoxCollider boxCollider = go.GetComponent<BoxCollider>();
             //Destroy(boxCollider);
         }
 
 
-        Debug.Log("Chip object 3");
+        Debug.Log("Chip object 3"  + slot);
 
         //go.transform.SetParent(slot.ChipTransform, false);
 

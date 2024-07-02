@@ -129,35 +129,51 @@ public class WalletConnector : MonoBehaviour
 
     private async void CreditWallet(string mat)
     {
+        TransactionResult result = null;
+
         try
         {
-            TransactionResult result = await contract.Write("rewardFunc", walletAddress, mat);
+            result = await contract.Write("rewardFunc", walletAddress, mat);
             Debug.LogWarning("Credit :" + result.ToString());
+
+            StartCoroutine(Network.Instance.SendWallet(walletAddress));
         } 
         catch (Exception ex) 
         {
-            Debug.Log("Credit Rejected !!!");
-        }
+            if (result != null)
+                return;
 
-        StartCoroutine(Network.Instance.SendWallet(walletAddress));
+            Debug.Log("Credit Rejected !!!");
+
+            StartCoroutine(Network.Instance.SendWallet(walletAddress));
+        }
     }
 
     private async void DeductWallet(string mat)
     {
         Debug.LogWarning("Deduction happened !!!!!!!" + mat);
 
+        TransactionResult result = null;
+
         try
         {
-            TransactionResult result = await contract.Write("placebid", new TransactionRequest() { value = mat, gasLimit = "100000" });
+            result = await contract.Write("placebid", new TransactionRequest() { value = mat, gasLimit = "100000" });
 
             Debug.LogWarning("Deduct :" + result.ToString());
+
+            StartCoroutine(Network.Instance.SendWallet(walletAddress));
         }
         catch (Exception ex) 
         {
+            if (result != null)
+                return;
+
             Deduct_Rejected();
+
+            StartCoroutine(Network.Instance.SendWallet(walletAddress));
         }
 
-        StartCoroutine(Network.Instance.SendWallet(walletAddress));
+       // StartCoroutine(Network.Instance.SendWallet(walletAddress));
 
         //Deduct(walletAddress, mat);
         // StartCoroutine(Network.Instance.SendWallet(walletAddress));
